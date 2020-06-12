@@ -46,9 +46,9 @@ $data=panggil("SELECT * FROM Siswa");?>
         <!-- <th scope="col"><?// $d['email']; ?></th> -->
         <!-- <th scope="col"><?// $d['jurusan']; ?></th> -->
         <th scope="col"><img src="img/<?= $d['profile']; ?>" alt="" class="img-thumbnail" width="80px"></th>
-        <th scope="col"><a href="">Edit</a> |
-          <a href="detail.php?id=<?= $d['id']; ?>">Lihat</a> |
-          <a href="">Hapus</a></th>
+        <th scope="col">
+          <a class="btn btn-warning" href="">Edit</a><a class="btn btn-primary" href="detail.php?id=<?= $d['id']; ?>">Lihat</a><a class="btn btn-danger" href="">Hapus</a>
+        </th>
       </tr>
     <?php endforeach; ?>
   </table>
