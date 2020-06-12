@@ -63,39 +63,70 @@ $data=panggil("SELECT * FROM Siswa");?>
           </button>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group row">
-              <label for="email" class="col-sm-2 col-form-label">NISN</label>
-              <div class="col-sm-10">
-                <input class="form-control" type="text" id="NISN" action="post" placeholder="Masukan NISN">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="email" class="col-sm-2 col-form-label">NAMA</label>
-              <div class="col-sm-10">
-                <input class="form-control" type="text" id="Nama" action="post" placeholder="Masukan Nama">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="email" class="col-sm-2 col-form-label">JURUSAN</label>
-              <div class="col-sm-10">
-                <input class="form-control" type="text" id="js" action="post" placeholder="Masukan Jurusan">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="email" class="col-sm-2 col-form-label">EMAIL</label>
-              <div class="col-sm-10">
-                <input class="form-control" type="text" id="email" action="post" placeholder="Masukan Email">
-              </div>
-            </div>
+          <form action="post">
+            <table border="0" class="text-left table table-dark" cellpadding="18" cellspacing="0">
+              <tr>
+                <div class="form-group row">
+                  <th>
+                    <label for="NISN" class="col-sm-2 col-form-label">NISN</label>
+                  </th>
+                  <th>
+                    <div class="col-sm">
+                      <input class="form-control" type="text" id="NISN" action="post" name="nisn" placeholder="Masukan NISN">
+                    </div>
+                  </th>
+              </tr>
+              <tr>
+                <th>
+                  <label for="nama" class="col-sm-2 col-form-label">NAMA</label>
+                </th>
+                <th>
+                  <div class="col-sm">
+                    <input class="form-control" type="text" id="nama" action="post" name="nama" placeholder="Masukan Nama">
+                  </div>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <label for="email" class="col-sm-2 col-form-label">Email</label>
+                </th>
+                <th>
+                  <div class="col-sm">
+                    <input class="form-control" type="text" id="email" action="post" name="email" placeholder="Masukan Email">
+                  </div>
+                </th>
+              </tr>
+              <tr>
+                <th><label for="jurusan" class="col-sm-2 col-form-label">Jurusan</label></th>
+                <th>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="jurusan1" name="jurusan" value="Teknik Komputer dan Jaringan" class="custom-control-input">
+                    <label class="custom-control-label" for="jurusan1">Teknik Komputer dan Jaringan</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="jurusan2" name="jurusan" value="Rekayasa Perangkat Lunak" class="custom-control-input">
+                    <label class="custom-control-label" for="jurusan2">Rekayasa Perangkat Lunak</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="jurusan3" name="jurusan" value="Teknik Kendaraan Ringan" class="custom-control-input">
+                    <label class="custom-control-label" for="jurusan3">Teknik Kendaraan Ringan</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="jurusan4" name="jurusan" value="Teknik Fabrikasi Logam" class="custom-control-input">
+                    <label class="custom-control-label" for="jurusan4">Teknik Fabrikasi Logam</label>
+                  </div>
+                </th>
+              </tr>
         </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Kirim Data</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-        </form>
+        </table>
       </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Kirim Data</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      </form>
     </div>
+  </div>
   </div>
 
   <!-- Optional JavaScript -->
