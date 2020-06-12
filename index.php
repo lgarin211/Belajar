@@ -1,12 +1,6 @@
 <?
-// koneksi ke data base
-$kon=mysqli_connect('localhost','root','','data siswa');
-// query data
-$data=mysqli_query($kon,"SELECT * FROM siswa") ;
-var_dump($data);
-// udah data
-// tampung data
- ?>
+require "fun.php";
+$data=panggil("SELECT * FROM Siswa");?>
 <!doctype html>
 <html lang="en">
 <!-- agustinus -->
@@ -24,27 +18,85 @@ var_dump($data);
 
 <body>
   <h3 class="text-center">DATA SISWA</h3>
-  <table border="1" class="text-center" cellpadding="18" cellspacing="0">
+
+  <!-- Button trigger modal -->
+  <div class="text-center">
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+      Tambah DATA SISWA
+    </button>
+  </div>
+  <br>
+  <!-- tabel -->
+  <table border="1" class="text-center table table-dark" cellpadding="18" cellspacing="0">
     <tr>
-      <th>ID</th>
-      <th>NISN</th>
+      <th>NO</th>
+      <!-- <th>NISN</th> -->
       <th>Nama</th>
-      <th>email</th>
-      <th>jurusan</th>
+      <!-- <th>email</th> -->
+      <!-- <th>jurusan</th> -->
       <th>Profile</th>
       <th>edit</th>
     </tr>
-    <tr>
-      <th>ID</th>
-      <th>011111</th>
-      <th>Agustinus</th>
-      <th>lagutinus211@gmail.com</th>
-      <th>Rekayasa perangkat lunak</th>
-      <th><img src="img/def.jpg" alt="" class="img-thumbnail" width="80px"></th>
-      <th><a href="">Edit</a> | <a href="">Lihat</a> | <a href="">Hapus</a></th>
-    </tr>
+    <?php $i = 1;
+    foreach ($data as $d) : ?>
+      <tr class="">
+        <th scope="col"><?= $i++; ?></th>
+        <!-- <th scope="col"><?// $d['nisn']; ?></th> -->
+        <th scope="col"><?= $d['nama']; ?></th>
+        <!-- <th scope="col"><?// $d['email']; ?></th> -->
+        <!-- <th scope="col"><?// $d['jurusan']; ?></th> -->
+        <th scope="col"><img src="img/<?= $d['profile']; ?>" alt="" class="img-thumbnail" width="80px"></th>
+        <th scope="col"><a href="">Edit</a> |
+          <a href="detail.php?id=<?= $d['id']; ?>">Lihat</a> |
+          <a href="">Hapus</a></th>
+      </tr>
+    <?php endforeach; ?>
   </table>
-
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label for="email" class="col-sm-2 col-form-label">NISN</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="NISN" action="post" placeholder="Masukan NISN">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="email" class="col-sm-2 col-form-label">NAMA</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="Nama" action="post" placeholder="Masukan Nama">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="email" class="col-sm-2 col-form-label">JURUSAN</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="js" action="post" placeholder="Masukan Jurusan">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="email" class="col-sm-2 col-form-label">EMAIL</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="email" action="post" placeholder="Masukan Email">
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Kirim Data</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
