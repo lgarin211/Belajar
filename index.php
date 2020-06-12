@@ -3,7 +3,7 @@
 $kon=mysqli_connect('localhost','root','','data siswa');
 // query data
 $data=mysqli_query($kon,"SELECT * FROM siswa") ;
-
+var_dump($data);
 // udah data
 // tampung data
  ?>
