@@ -1,3 +1,12 @@
+<?
+// koneksi ke data base
+$kon=mysqli_connect('localhost','root','','data siswa');
+// query data
+$data=mysqli_query($kon,"SELECT * FROM siswa") ;
+
+// udah data
+// tampung data
+ ?>
 <!doctype html>
 <html lang="en">
 <!-- agustinus -->
@@ -14,7 +23,28 @@
 </head>
 
 <body>
-  <h1>Hello, world!</h1>
+  <h3 class="text-center">DATA SISWA</h3>
+  <table border="1" class="text-center" cellpadding="18" cellspacing="0">
+    <tr>
+      <th>ID</th>
+      <th>NISN</th>
+      <th>Nama</th>
+      <th>email</th>
+      <th>jurusan</th>
+      <th>Profile</th>
+      <th>edit</th>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <th>011111</th>
+      <th>Agustinus</th>
+      <th>lagutinus211@gmail.com</th>
+      <th>Rekayasa perangkat lunak</th>
+      <th><img src="img/def.jpg" alt="" class="img-thumbnail" width="80px"></th>
+      <th><a href="">Edit</a> | <a href="">Lihat</a> | <a href="">Hapus</a></th>
+    </tr>
+  </table>
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
