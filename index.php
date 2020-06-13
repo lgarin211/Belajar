@@ -1,16 +1,19 @@
 <?
 require "fun.php";
-$data=panggil("SELECT * FROM Siswa");?>
+$data=panggil("SELECT * FROM Siswa");
+if (isset($_POST['tambah'])) {
+  tambah($_POST);
+  $n=$nilai;
+  header("location:index.php");
+  }
+  
+?>
 <!doctype html>
 <html lang="en">
-<!-- agustinus -->
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
+  <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <title>Hello, world!</title>
@@ -19,7 +22,6 @@ $data=panggil("SELECT * FROM Siswa");?>
 <body>
   <h3 class="text-center">DATA SISWA</h3>
 
-  <!-- Button trigger modal -->
   <div class="text-center">
     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
       Tambah DATA SISWA
@@ -30,17 +32,13 @@ $data=panggil("SELECT * FROM Siswa");?>
   <table border="1" class="text-center table table-dark" cellpadding="18" cellspacing="0">
     <tr>
       <th>NO</th>
-      <!-- <th>NISN</th> -->
       <th>Nama</th>
-      <!-- <th>email</th> -->
-      <!-- <th>jurusan</th> -->
       <th>Profile</th>
       <th>edit</th>
     </tr>
     <?php $i = 1;
 
-    foreach ($data as $dd) :     var_dump($data);
-      echo "<br>"; ?>
+    foreach ($data as $dd) : ?>
 
       <tr class="">
         <th scope="col"><?= $i++; ?></th>
@@ -52,7 +50,8 @@ $data=panggil("SELECT * FROM Siswa");?>
           <a class="btn btn-danger" href="">Hapus</a>
         </th>
       </tr>
-    <?php endforeach; ?>
+    <?php
+    endforeach; ?>
   </table>
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -65,7 +64,7 @@ $data=panggil("SELECT * FROM Siswa");?>
           </button>
         </div>
         <div class="modal-body">
-          <form action="post">
+          <form action="" method="POST">
             <table border="0" class="text-left table table-dark" cellpadding="18" cellspacing="0">
               <tr>
                 <div class="form-group row">
@@ -74,7 +73,7 @@ $data=panggil("SELECT * FROM Siswa");?>
                   </th>
                   <th>
                     <div class="col-sm">
-                      <input class="form-control" type="text" id="NISN" action="post" name="nisn" placeholder="Masukan NISN">
+                      <input class="form-control" type="text" id="NISN" action="post" name="nisn" placeholder="Masukan NISN" required autofocus>
                     </div>
                   </th>
               </tr>
@@ -84,7 +83,7 @@ $data=panggil("SELECT * FROM Siswa");?>
                 </th>
                 <th>
                   <div class="col-sm">
-                    <input class="form-control" type="text" id="nama" action="post" name="nama" placeholder="Masukan Nama">
+                    <input class="form-control" type="text" id="nama" action="post" name="nama" placeholder="Masukan Nama" required>
                   </div>
                 </th>
               </tr>
@@ -94,7 +93,7 @@ $data=panggil("SELECT * FROM Siswa");?>
                 </th>
                 <th>
                   <div class="col-sm">
-                    <input class="form-control" type="text" id="email" action="post" name="email" placeholder="Masukan Email">
+                    <input class="form-control" type="email" id="email" action="post" name="email" placeholder="Masukan Email" required>
                   </div>
                 </th>
               </tr>
@@ -123,16 +122,13 @@ $data=panggil("SELECT * FROM Siswa");?>
         </table>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Kirim Data</button>
+        <button type="submit" name="tambah" class="btn btn-primary"><a href="run.php"></a>Kirim Data</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
       </form>
     </div>
   </div>
   </div>
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

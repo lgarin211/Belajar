@@ -21,24 +21,25 @@ function panggil($query)
   return $rows;
 }
 
-
-
 // // membuat fungsi untuk menambah data
-// function tambah($data)
-// {
-//   global $conn;
-//   //ambil data dari tiap elemen dalam form
-//   $judul = htmlspecialchars($data[""]);
-//   $penulis = htmlspecialchars($data["penulis"]);
-//   $tahun = htmlspecialchars($data["tahun"]);
-
-//   //untuk menambahkan data
-//   $tambah = "INSERT INTO buku VALUES ('', '$judul', '$penulis', '$tahun')";
-
-//   mysqli_query($conn, $tambah);
-
-//   return mysqli_affected_rows($conn);
-// }
+function tambah($data)
+{
+  $conn = Con();
+  //ambil data dari tiap elemen dalam form
+  $a = htmlspecialchars($data["nisn"]);
+  $b = htmlspecialchars($data["nama"]);
+  $c = htmlspecialchars($data["email"]);
+  $d = htmlspecialchars($data["jurusan"]);
+  $e = "def.jpg";
+  $f = 1;
+  //untuk menambahkan data
+  $tambah =  "INSERT INTO Siswa VALUES (NULL,'$a','$b','$c','$d','$e')";
+  mysqli_query($conn, $tambah);
+  $ap = $f + 1;
+  if (!$f == $ap) {
+    return mysqli_affected_rows($conn);
+  }
+}
 
 // //fungsi untuk menghapus data
 // function hapus($id)
