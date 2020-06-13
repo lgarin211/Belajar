@@ -1,8 +1,8 @@
-<?php
-require 'fun.php';
-$id = $_GET['id'];
-$data = panggil("SELECT * FROM Siswa WHERE id=$id");
-?>
+<? 
+require "fun.php";
+$ID=$_GET['id'];
+$data=panggil("SELECT * FROM Siswa WHERE id=$ID");
+$a=$data;?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Required meta tags -->
@@ -21,17 +21,17 @@ $data = panggil("SELECT * FROM Siswa WHERE id=$id");
 </head>
 
 <body>
-  <div class="mx-auto jumbotron" style="width: 500px;">
+  <div class="mx-auto jumbotron" style="width: 400px;">
     <div class="card">
-      <img src="img/<?= $data['profile']; ?>" class="rounded-circle card-img-top" alt="...">
+      <img src="img/<?= $a['profile']; ?>" class="rounded-circle card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">SISWA ID <?= $data['id']; ?></h5>
-        <p class="card-text">NAMA :<?= $data['nama']; ?></p>
+        <h5 class="card-title">SISWA ID <?= $a['id']; ?></h5>
+        <p class="card-text">NAMA :<?= $a['nama']; ?></p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">NISN : <?= $data['nisn']; ?></li>
-        <li class="list-group-item">Email : <?= $data['email']; ?></li>
-        <li class="list-group-item">Jurusan :<?= $data['jurusan']; ?></li>
+        <li class="list-group-item">NISN :<?= $a['nisn']; ?></li>
+        <li class="list-group-item">Email :<?= $a['email']; ?> </li>
+        <li class="list-group-item">Jurusan :<?= $a['jurusan']; ?></li>
       </ul>
       <div class="card-body">
         <a href="index.php" class="card-link btn btn-primary">Kembali</a>

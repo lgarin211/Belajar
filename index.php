@@ -38,16 +38,18 @@ $data=panggil("SELECT * FROM Siswa");?>
       <th>edit</th>
     </tr>
     <?php $i = 1;
-    foreach ($data as $d) : ?>
+
+    foreach ($data as $dd) :     var_dump($data);
+      echo "<br>"; ?>
+
       <tr class="">
         <th scope="col"><?= $i++; ?></th>
-        <!-- <th scope="col"><?// $d['nisn']; ?></th> -->
-        <th scope="col"><?= $d['nama']; ?></th>
-        <!-- <th scope="col"><?// $d['email']; ?></th> -->
-        <!-- <th scope="col"><?// $d['jurusan']; ?></th> -->
-        <th scope="col"><img src="img/<?= $d['profile']; ?>" alt="" class="img-thumbnail" width="80px"></th>
+        <th scope="col"><?= $dd['nama']; ?></th>
+        <th scope="col"><img src="img/<?= $dd['profile']; ?>" alt="" class="img-thumbnail" width="50px"></th>
         <th scope="col">
-          <a class="btn btn-warning" href="">Edit</a><a class="btn btn-primary" href="detail.php?id=<?= $d['id']; ?>">Lihat</a><a class="btn btn-danger" href="">Hapus</a>
+          <a class="btn btn-warning" href="">Edit</a>
+          <a class="btn btn-primary" href="detail.php?id=<?= $dd['id']; ?>">Lihat</a>
+          <a class="btn btn-danger" href="">Hapus</a>
         </th>
       </tr>
     <?php endforeach; ?>
