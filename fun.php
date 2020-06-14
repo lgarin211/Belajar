@@ -30,15 +30,13 @@ function tambah($data)
   $b = htmlspecialchars($data["nama"]);
   $c = htmlspecialchars($data["email"]);
   $d = htmlspecialchars($data["jurusan"]);
-  $e = "def.jpg";
+  $e = "g.jpg";
   $f = 1;
   //untuk menambahkan data
   $tambah =  "INSERT INTO Siswa VALUES (NULL,'$a','$b','$c','$d','$e')";
   mysqli_query($conn, $tambah);
-  $ap = $f + 1;
-  if (!$f == $ap) {
-    return mysqli_affected_rows($conn);
-  }
+  echo mysqli_error($conn);
+  return mysqli_affected_rows($conn);
 }
 
 // //fungsi untuk menghapus data

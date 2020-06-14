@@ -2,17 +2,13 @@
 require "fun.php";
 $data=panggil("SELECT * FROM Siswa");
 if (isset($_POST['tambah'])) {
-  tambah($_POST);
-  $asd="Success! Indicates a successful or positive action.";
-var_dump($asd);die;
-  $n=$nilai;
-  header("location:index.php");
- } ?>
+  if (tambah($_POST)>0) {
+    $das= "<script>alert('data masuk');
+    document.location.href='index.php';
+    </script>";
+    echo $das;}} ?>
 <!doctype html>
 <html lang="en">
-<script>
-  alert(<?= $asd; ?>);
-</script>
 
 <head>
   <meta charset="utf-8">
@@ -32,7 +28,7 @@ var_dump($asd);die;
   <br>
   <!-- tabel -->
   <div class="conteiner table-responsive">
-    <table border="0" class="table-sm text-center table-borderless table-hover mx-auto table table-dark ">
+    <table border="0" class="table-sm text-center table-hover mx-auto table table-dark ">
       <tr class="bg-info">
         <th>NO</th>
         <th>Nama</th>
@@ -43,10 +39,10 @@ var_dump($asd);die;
 
       foreach ($data as $dd) : ?>
 
-        <tr class=" mx-auto ">
+        <tr class="text-center">
           <th scope="col"><?= $i++; ?></th>
           <th scope="col"><?= $dd['nama']; ?></th>
-          <th scope="col"><img src="img/<?= $dd['profile']; ?>" alt="" class="img-thumbnail" width="80px"></th>
+          <th scope="col"><img src="img/<?= $dd['profile']; ?>" alt="" class=" img-thumbnail" height="42" width="42"></th>
           <th scope="col">
             <div class="btn-group-vertical" aria-label="Basic example">
               <a type="" class="btn btn-warning" href=""><small>Edit</small></a>
