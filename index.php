@@ -3,19 +3,21 @@ require "fun.php";
 $data=panggil("SELECT * FROM Siswa");
 if (isset($_POST['tambah'])) {
   tambah($_POST);
+  $asd="Success! Indicates a successful or positive action.";
+var_dump($asd);die;
   $n=$nilai;
   header("location:index.php");
-  }
-  
-?>
+ } ?>
 <!doctype html>
 <html lang="en">
+<script>
+  alert(<?= $asd; ?>);
+</script>
 
 <head>
-
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <title>Hello, world!</title>
 </head>
 
@@ -29,31 +31,33 @@ if (isset($_POST['tambah'])) {
   </div>
   <br>
   <!-- tabel -->
-  <table border="1" class="text-center table table-dark" cellpadding="18" cellspacing="0">
-    <tr>
-      <th>NO</th>
-      <th>Nama</th>
-      <th>Profile</th>
-      <th>edit</th>
-    </tr>
-    <?php $i = 1;
-
-    foreach ($data as $dd) : ?>
-
-      <tr class="">
-        <th scope="col"><?= $i++; ?></th>
-        <th scope="col"><?= $dd['nama']; ?></th>
-        <th scope="col"><img src="img/<?= $dd['profile']; ?>" alt="" class="img-thumbnail" width="50px"></th>
-        <th scope="col">
-          <a class="btn btn-warning" href="">Edit</a>
-          <a class="btn btn-primary" href="detail.php?id=<?= $dd['id']; ?>">Lihat</a>
-          <a class="btn btn-danger" href="">Hapus</a>
-        </th>
+  <div class="conteiner table-responsive">
+    <table border="0" class="table-sm text-center table-borderless table-hover mx-auto table table-dark ">
+      <tr class="bg-info">
+        <th>NO</th>
+        <th>Nama</th>
+        <th>Profile</th>
+        <th>edit</th>
       </tr>
-    <?php
-    endforeach; ?>
-  </table>
-  <!-- Modal -->
+      <?php $i = 1;
+
+      foreach ($data as $dd) : ?>
+
+        <tr class=" mx-auto ">
+          <th scope="col"><?= $i++; ?></th>
+          <th scope="col"><?= $dd['nama']; ?></th>
+          <th scope="col"><img src="img/<?= $dd['profile']; ?>" alt="" class="img-thumbnail" width="80px"></th>
+          <th scope="col">
+            <div class="btn-group-vertical" aria-label="Basic example">
+              <a type="" class="btn btn-warning" href=""><small>Edit</small></a>
+              <a type="" class="btn btn-primary" href="detail.php?id=<?= $dd['id']; ?>"><small> Lihat</small></a>
+              <a type="" class="btn btn-danger" href=""><small>Hapus</small></a>
+            </div>
+        </tr>
+      <?php
+      endforeach; ?>
+    </table>
+  </div> <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -122,7 +126,7 @@ if (isset($_POST['tambah'])) {
         </table>
       </div>
       <div class="modal-footer">
-        <button type="submit" name="tambah" class="btn btn-primary"><a href="run.php"></a>Kirim Data</button>
+        <button type="submit" name="tambah" class="btn btn-primary">Kirim Data</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
       </form>
