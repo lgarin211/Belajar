@@ -47,7 +47,7 @@ if (isset($_POST['tambah'])) {
             <div class="btn-group-vertical" aria-label="Basic example">
               <a type="" class="btn btn-warning" href=""><small>Edit</small></a>
               <a type="" class="btn btn-primary" href="detail.php?id=<?= $dd['id']; ?>"><small> Lihat</small></a>
-              <a type="" class="btn btn-danger" href=""><small>Hapus</small></a>
+              <a type="" class="btn btn-danger" href="del.php?id=<?= $dd['id']; ?>"><small>Hapus</small></a>
             </div>
         </tr>
       <?php

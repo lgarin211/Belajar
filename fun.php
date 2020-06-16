@@ -39,16 +39,15 @@ function tambah($data)
   return mysqli_affected_rows($conn);
 }
 
-// //fungsi untuk menghapus data
-// function hapus($id)
-// {
-//   global $conn;
-//   $hapus = "DELETE FROM buku WHERE id_buku = $id";
+//fungsi untuk menghapus data
+function del($id)
+{
+  $conn = Con();
+  $hapus = "DELETE FROM Siswa WHERE id = $id";
+  mysqli_query($conn, $hapus) or die(mysqli_error($_COOKIE));
 
-//   mysqli_query($conn, $hapus);
-
-//   return mysqli_affected_rows($conn);
-// }
+  return mysqli_affected_rows($conn);
+}
 
 // //fungsi untuk mengubah data
 // function ubah($data)
