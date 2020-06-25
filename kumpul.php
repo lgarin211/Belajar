@@ -22,15 +22,17 @@
               <th>Status</th>
               <th>Nilai</th>
               <th>Saran</th>
+              <th>Jawapan Kamu</th>
             </tr>
           </thead>
           <tbody>
             <?php
-            require "fun.php";
-            $data = panggil("SELECT * FROM Tugas");
+            // require "fun.php";
+            $us = $data[0]['id'];
+            $kumpul = panggil("SELECT * FROM Kumpul WHERE user='$us'");
             ?>
             <?php $i = 1;
-            foreach ($data as $dd) : ?>
+            foreach ($kumpul as $dd) : ?>
 
               <tr class="text-center">
                 <td><?= $i++; ?></td>
@@ -39,23 +41,28 @@
                 <td><?= $dd['batas']; ?></td>
                 <td>
                   <? switch ($dd['active']) {
-                  case 1:
-                  echo  "Belum di Kumpulkan";
-                  break;
+                    case 1:
+                      echo  "Belum di Kumpulkan";
+                      break;
 
-                  case 2:
-                  echo  "Tidak Di Kumpulkan";
-                  break;
+                    case 2:
+                      echo  "Tidak Di Kumpulkan";
+                      break;
 
-                  case 3:
-                  echo  "Sudah di NIlai";
-                  break;} ?>
+                    case 3:
+                      echo  "Sudah di NIlai";
+                      break;
+                  } ?>
                 </td>
                 <td>
-                  <?if( $dd['nilai']=="0"){echo "-";}else {
-                  echo $dd['nilai'];} ?>
+                  <? if ($dd['nilai'] == "0") {
+                    echo "-";
+                  } else {
+                    echo $dd['nilai'];
+                  } ?>
                 </td>
                 <td><?= $dd['saran']; ?></td>
+                <td><?= $dd['jawapan']; ?></td>
               </tr>
             <?php endforeach; ?>
           </tbody>

@@ -4,6 +4,17 @@
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
   </div>
+  <div class="conteiner">
+    <div class="col-xl-3 col-md-6 mb-4 mx-auto" style="width: 15rem;">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <img src="img/<?= $data[0]['profile']; ?>" width="150" class="rounded-circle card-img-top img-fluid" alt="">
+          <h5 class="card-title"><?= $data[0]['nama']; ?></h5>
+          <p class="card-text"><?= $data[0]['nama']; ?> Mengikuti Kelas Laravel</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Content Row -->
   <div class="row">
 
@@ -83,14 +94,4 @@
       </div>
     </div>
   </div>
-  <div class="conteiner">
-    <div class="card mx-auto" style="width: 15rem;">
-      <img src="img/def.jpg" class=" runder-circle card-img-top img-fluid" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">User Name</h5>
-        <p class="card-text">User Name Yang Mengikuti Kelas Laravel</p>
-      </div>
-    </div>
-  </div>
-
 </div>

@@ -24,34 +24,50 @@
           </thead>
           <tbody>
             <?php
-            require "fun.php";
-            $data = panggil("SELECT * FROM Tugas");
+            $us = $data[0]['id'];
+            $tugas = panggil("SELECT * FROM Tugas");
+            $kumpul = panggil("SELECT * FROM Kumpul WHERE user='$us'");
+            $a = [$kumpul];
+            $b = count($kumpul);
             ?>
-            <?php $i = 1;
-            foreach ($data as $dd) : ?>
-              <tr class="text-center">
-                <td><?= $dd['id']; ?></td>
-                <td><?= $dd['materi']; ?></td>
-                <td>Baca Artikerl <a href="<?= $data['artikel']; ?>">clik disini</a></td>
-                <td><?= $dd['batas']; ?></td>
-                <td>
-                  <div class="btn-group-vertical" aria-label="Basic example">
-                    <a type="" class="btn btn-warning" href=""><small>Upload</small></a>
-                  </div>
-                </td>
-              </tr>
-            <?php endforeach; ?>
-            <tr class="text-center">
-              <td>01</td>
-              <td>HTML</td>
-              <td>Baca Artikerl <a href="">clik disini</a></td>
-              <td>27/06/3030</td>
-              <td>
-                <div class="btn-group-vertical" aria-label="Basic example">
-                  <a type="" class="btn btn-warning" href=""><small>Upload</small></a>
-                </div>
-              </td>
-            </tr>
+            <?
+            $i = 1;
+            $las = 0;
+            foreach ($tugas as $dd) :
+              if ($las < $b) {
+                for ($i = 0; $i <= $b; $i++) {
+                  $p = $tugas[0]['id'];
+                  $p1 = $kumpul[$las];
+                }
+              } else {
+              }
+              $id = $dd['id'];
+              if ($las < $b) {
+                $idtugas = $kumpul[$las]['idtugas'];
+              } else {
+                $idtugas = 0;
+              }
+              if (!$idtugas == $id) {
+
+            ?>
+                <tr class="text-center">
+                  <td><?= $i++ ?></td>
+                  <td><?= $dd['materi']; ?></td>
+                  <td>Baca Artikerl <a href="<?= $dd['artikel']; ?>">clik disini</a></td>
+                  <td><?= $dd['batas']; ?></td>
+                  <td>
+                    <div class="btn-group-vertical" aria-label="Basic example">
+                      <a type="" class="btn btn-warning" href="uploadtugas.php?materi=<?= $dd['id']; ?>"><small>Upload</small></a>
+                    </div>
+                  </td>
+                </tr>
+              <?php } else {
+                $las++;
+              } ?>
+            <?php
+
+            endforeach;
+            ?>
           </tbody>
         </table>
       </div>

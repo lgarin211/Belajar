@@ -1,8 +1,8 @@
-<? 
-require "fun.php";
-$ID=$_GET['id'];
-$data=panggil("SELECT * FROM Siswa WHERE id=$ID");
-$a=$data;?>
+<?
+
+$ID = $_GET['id'];
+$data = panggil("SELECT * FROM Siswa WHERE id=$ID");
+$a = $data; ?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Required meta tags -->

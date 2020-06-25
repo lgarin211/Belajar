@@ -31,14 +31,16 @@
           </tfoot>
           <tbody>
             <?
-require "fun.php";
-$data=panggil("SELECT * FROM Siswa");
-if (isset($_POST['tambah'])) {
-  if (tambah($_POST)>0) {
-    $das= "<script>alert('data masuk');
+            // require "fun.php";
+            $data = panggil("SELECT * FROM Siswa");
+            if (isset($_POST['tambah'])) {
+              if (tambah($_POST) > 0) {
+                $das = "<script>alert('data masuk');
     document.location.href='index.php';
     </script>";
-    echo $das;}} ?>
+                echo $das;
+              }
+            } ?>
             <?php $i = 1;
 
             foreach ($data as $dd) : ?>
@@ -46,7 +48,7 @@ if (isset($_POST['tambah'])) {
               <tr class="text-center">
                 <th scope="col"><?= $i++; ?></th>
                 <th scope="col"><?= $dd['nama']; ?></th>
-                <th scope="col"><img src="img/<?= $dd['profile']; ?>" alt="" class=" img-thumbnail" height="42" width="42"></th>
+                <th scope="col"><img src="img/<?= $dd['profile']; ?>" alt="" class="rounded-circle img-thumbnail" height="150" width="150"></th>
                 <th scope="col">
                   <div class="btn-group-vertical" aria-label="Basic example">
                     <a type="" class="btn btn-warning" href=""><small>Edit</small></a>

@@ -2,7 +2,7 @@
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
    <!-- Sidebar - Brand -->
-   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
      <div class="sidebar-brand-icon rotate-n-15">
        <i class="fas fa-laugh-wink"></i>
      </div>
@@ -24,7 +24,7 @@
        <i class="fas fa-fw fa-cog"></i>
        <span>TO DO</span>
      </a>
-     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-p arent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Pergih ke:</h6>
          <a class="collapse-item" href="Job.php?id=tugas">Tugas</a>
