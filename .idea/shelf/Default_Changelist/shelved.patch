@@ -1,0 +1,590 @@
+Index: fun.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n//connect to database\nfunction Con()\n{\n  return mysqli_connect(\"localhost\", \"root\", \"\", \"data siswa\");\n}\n//membuat fungsi untuk query\nfunction panggil($query)\n{\n  $han = Con();\n  $result = mysqli_query($han, $query);\n  $run = mysqli_num_rows($result);\n  // $san = ['agus', 'gans'];\n  $pa = [];\n  $pa[] = $result;\n  $last =  count($pa);\n  if ($pa = 0) {\n    return mysqli_fetch_assoc($result);\n  } else {\n    $rows = [];\n    while ($row = mysqli_fetch_assoc($result)) {\n      $rows[] = $row;\n    }\n  }\n  return $rows;\n}\n\n// // membuat fungsi untuk menambah data\nfunction tambah($data)\n{\n  $conn = Con();\n  //ambil data dari tiap elemen dalam form\n  $a = htmlspecialchars($data[\"materi\"]);\n  $b = htmlspecialchars($data[\"artikel\"]);\n  $c = htmlspecialchars($data[\"batas\"]);\n  $d = htmlspecialchars($data[\"user\"]);\n  $e = htmlspecialchars($data[\"idtugas\"]);\n  $f = $data[\"link\"];\n  $default = \"\";\n  //untuk menambahkan data\n  $tambah =  \"INSERT INTO Kumpul VALUES (NULL,'$a','$b','0','1','1','$c','$default','$d','$e','$f')\";\n  mysqli_query($conn, $tambah);\n  // echo mysqli_error($conn);\n  // return mysqli_affected_rows($conn);\n  header(\"Location: index.php\");\n}\n\n//fungsi untuk menghapus data\nfunction del($id)\n{\n  $conn = Con();\n  $hapus = \"DELETE FROM Siswa WHERE id = $id\";\n  mysqli_query($conn, $hapus) or die(mysqli_error($_COOKIE));\n\n  return mysqli_affected_rows($conn);\n}\nfunction login($masuk)\n{\n  $con = Con();\n  $user = $masuk['A'];\n  $paswd = $masuk['B'];\n  $jalan = mysqli_query($con, \"SELECT * FROM Siswa WHERE email='$user' && paswd='$paswd'\");\n  $c = mysqli_num_rows($jalan);\n  $d = mysqli_fetch_assoc($jalan);\n  if ($c > 0) {\n    echo \"kena\";\n    $_SESSION['login'] = true;\n    $_SESSION['iduser'] = $d['id'];\n    $_SESSION['email'] = $d['email'];\n    header('Location: index.php');\n    exit;\n  } else {\n    $a = '<script>alert(\"gagal masuk\");</script>';\n    echo $a;\n  }\n}\nfunction user($data)\n{\n  $b = $data;\n  $con = Con();\n  $kena = mysqli_query($con, $b);\n  $lish = mysqli_fetch_assoc($kena);\n  // var_dump($lish);\n}\n\n// function tugas($data)\n// {\n//   $a = $data;\n//   var_dump($a);\n//   die;\n//   // $a=\"INSERT INTO `Kumpul` (`id`, `materi`, `artikel`, `nilai`, `rule`, `active`, `batas`, `saran`, `user`, `idtugas`, `jawapan`)\"\n// }\n// function jalankan($data)\n// {\n//   $conn = Con();\n//   //ambil data dari tiap elemen dalam form\n//   $a = htmlspecialchars($data[\"materi\"]);\n//   $b = htmlspecialchars($data[\"artikel\"]);\n//   $c = htmlspecialchars($data[\"batas\"]);\n//   $d = htmlspecialchars($data[\"user\"]);\n//   $e = htmlspecialchars($data[\"idtugas\"]);\n//   $f = htmlspecialchars($data[\"link\"]);\n//   $default = \"\";\n//   //untuk menambahkan data\n//   $tambah =  \"INSERT INTO Kumpul VALUES (NULL,'$a','$b','$default','$default','$default','$c','$default','$d','$e','$f')\";\n//   mysqli_query($conn, $tambah);\n//   echo mysqli_error($conn);\n//   return mysqli_affected_rows($conn);\n// }\n// //fungsi untuk mengubah data\n// function ubah($data)\n// {\n//   global $conn;\n//   //ambil data dari tiap elemen dalam form\n//   $id = $data[\"id\"];\n//   $judul = htmlspecialchars($data[\"judul\"]);\n//   $penulis = htmlspecialchars($data[\"penulis\"]);\n//   $tahun = htmlspecialchars($data[\"tahun\"]);\n\n//   //untuk menambahkan data\n//   $ubah = \"UPDATE buku SET \n// \t\t\t\tjudul = '$judul',\n// \t\t\t\tpenulis = '$penulis',\n// \t\t\t\ttahun = '$tahun'\n// \t\t\tWHERE id_buku = $id\";\n\n\n//   mysqli_query($conn, $ubah);\n\n//   return mysqli_affected_rows($conn);\n// }\n\n// function cari($keyword)\n// {\n//   $query = \"SELECT * FROM buku WHERE \n\n// \t\t\t\tjudul LIKE '%$keyword%' OR penulis LIKE '%$penulis%' OR tahun LIKE '%$tahun%'\";\n//   return query($query);\n// }\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- fun.php	(revision 805efe41035a3e09c12168e56ba5071914122b47)
++++ fun.php	(date 1593153896000)
+@@ -83,6 +83,7 @@
+   // var_dump($lish);
+ }
+ 
++
+ // function tugas($data)
+ // {
+ //   $a = $data;
+Index: to do.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><div class=\"container-fluid\">\n\n  <!-- Page Heading -->\n  <div class=\"d-sm-flex align-items-center justify-content-between mb-4\">\n\n  </div>\n  <div class=\"conteiner\">\n    <div class=\"col-xl-3 col-md-6 mb-4 mx-auto\" style=\"width: 15rem;\">\n      <div class=\"card border-left-primary shadow h-100 py-2\">\n        <div class=\"card-body\">\n          <img src=\"img/<?= $data[0]['profile']; ?>\" width=\"150\" class=\"rounded-circle card-img-top img-fluid\" alt=\"\">\n          <h5 class=\"card-title\"><?= $data[0]['nama']; ?></h5>\n          <p class=\"card-text\"><?= $data[0]['nama']; ?> Mengikuti Kelas Laravel</p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <!-- Content Row -->\n  <div class=\"row\">\n\n    <!-- Earnings (Monthly) Card Example -->\n    <div class=\"col-xl-3 col-md-6 mb-4\">\n      <div class=\"card border-left-warning shadow h-100 py-2\">\n        <div class=\"card-body\">\n          <div class=\"row no-gutters align-items-center\">\n            <div class=\"col mr-2\">\n              <div class=\"text-xs font-weight-bold text-primary text-uppercase mb-1\">Pengumpulan Tugas</div>\n              <a href=\"\">\n                <div class=\"h5 mb-0 font-weight-bold text-gray-800\">Tugas Anda</div>\n              </a>\n            </div>\n            <div class=\"col-auto\">\n              <i class=\"fas fa-calendar fa-2x text-gray-300\"></i>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Earnings (Monthly) Card Example -->\n    <div class=\"col-xl-3 col-md-6 mb-4\">\n      <div class=\"card border-left-success shadow h-100 py-2\">\n        <div class=\"card-body\">\n          <div class=\"row no-gutters align-items-center\">\n            <div class=\"col mr-2\">\n              <div class=\"text-xs font-weight-bold text-primary text-uppercase mb-1\">Tugas Selesai</div>\n              <a href=\"\">\n                <div class=\"h5 mb-0 font-weight-bold text-gray-800\">Nilai Tugas</div>\n              </a>\n            </div>\n            <div class=\"col-auto\">\n              <i class=\"fas fa-calendar fa-2x text-gray-300\"></i>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <!-- Earnings (Monthly) Card Example -->\n    <div class=\"col-xl-3 col-md-6 mb-4\">\n      <div class=\"card border-left-dark shadow h-100 py-2\">\n        <div class=\"card-body\">\n          <div class=\"row no-gutters align-items-center\">\n            <div class=\"col mr-2\">\n              <div class=\"text-xs font-weight-bold text-primary text-uppercase mb-1\">Materi</div>\n              <a href=\"\">\n                <div class=\"h5 mb-0 font-weight-bold text-gray-800\">\n                  <small class=\"font-weight-bold text-gray-800\">Materi Developer Website</small>\n                </div>\n              </a>\n            </div>\n            <div class=\"col-auto\">\n              <i class=\"fas fa-calendar fa-2x text-gray-300\"></i>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <!-- Earnings (Monthly) Card Example -->\n    <div class=\"col-xl-3 col-md-6 mb-4\">\n      <div class=\"card border-left-info shadow h-100 py-2\">\n        <div class=\"card-body\">\n          <div class=\"row no-gutters align-items-center\">\n            <div class=\"col mr-2\">\n              <div class=\"text-xs font-weight-bold text-primary text-uppercase mb-1\">Peringkat</div>\n              <a href=\"\">\n                <div class=\"h5 mb-0 font-weight-bold text-gray-800\">Rekapitulasi Peringkat</div>\n              </a>\n            </div>\n            <div class=\"col-auto\">\n              <i class=\"fas fa-clipboard-list fa-2x text-gray-300\"></i>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- to do.php	(revision 805efe41035a3e09c12168e56ba5071914122b47)
++++ to do.php	(date 1593106288000)
+@@ -9,8 +9,9 @@
+       <div class="card border-left-primary shadow h-100 py-2">
+         <div class="card-body">
+           <img src="img/<?= $data[0]['profile']; ?>" width="150" class="rounded-circle card-img-top img-fluid" alt="">
+-          <h5 class="card-title"><?= $data[0]['nama']; ?></h5>
+-          <p class="card-text"><?= $data[0]['nama']; ?> Mengikuti Kelas Laravel</p>
++          <hr>
++          <p class="card-title"><?= $data[0]['nama']; ?></p>
++          <p class="card-text"><small> Mengikuti Kelas Laravel</small></p>
+         </div>
+       </div>
+     </div>
+Index: sitebar.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+> <!-- Sidebar -->\n <ul class=\"navbar-nav bg-gradient-primary sidebar sidebar-dark accordion\" id=\"accordionSidebar\">\n\n   <!-- Sidebar - Brand -->\n   <a class=\"sidebar-brand d-flex align-items-center justify-content-center\" href=\"\">\n     <div class=\"sidebar-brand-icon rotate-n-15\">\n       <i class=\"fas fa-laugh-wink\"></i>\n     </div>\n     <div class=\"sidebar-brand-text mx-3\">CODE TRAINER<sup>2</sup></div>\n   </a>\n\n   <!-- Divider -->\n   <hr class=\"sidebar-divider my-0\">\n\n   <!-- Nav Item - Dashboard -->\n   <li class=\"nav-item\">\n     <a class=\"nav-link\" href=\"index.php\">\n       <i class=\"fas fa-fw fa-tachometer-alt\"></i>\n       <span>HOME</span></a>\n   </li>\n   <!-- Nav Item - Charts -->\n   <li class=\"nav-item\">\n     <a class=\"nav-link collapsed\" href=\"#\" data-toggle=\"collapse\" data-target=\"#collapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseTwo\">\n       <i class=\"fas fa-fw fa-cog\"></i>\n       <span>TO DO</span>\n     </a>\n     <div id=\"collapseTwo\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-p arent=\"#accordionSidebar\">\n       <div class=\"bg-white py-2 collapse-inner rounded\">\n         <h6 class=\"collapse-header\">Pergih ke:</h6>\n         <a class=\"collapse-item\" href=\"Job.php?id=tugas\">Tugas</a>\n         <a class=\"collapse-item\" href=\"Job.php?id=kumpul\">Pengumpulan</a>\n         <a class=\"collapse-item\" href=\"Job.php?id=rek\">Rekapitulasi</a>\n       </div>\n     </div>\n   </li>\n   <!-- Nav Item - Charts -->\n   <li class=\"nav-item\">\n     <a class=\"nav-link\" href=\"charts.html\">\n       <i class=\"fas fa-fw fa-chart-area\"></i>\n       <span>My Profile</span></a>\n   </li>\n   <!-- Nav Item - Charts -->\n   <li class=\"nav-item\">\n     <a class=\"nav-link\" href=\"tabel.php\">\n       <i class=\"fas fa-fw fa-chart-area\"></i>\n       <span>Member Area</span></a>\n   </li>\n\n   <!-- Divider -->\n   <hr class=\"sidebar-divider d-none d-md-block\">\n\n   <!-- Sidebar Toggler (Sidebar) -->\n   <div class=\"text-center d-none d-md-inline\">\n     <button class=\"rounded-circle border-0\" id=\"sidebarToggle\"></button>\n   </div>\n\n </ul>\n <!-- End of Sidebar -->
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- sitebar.php	(revision 805efe41035a3e09c12168e56ba5071914122b47)
++++ sitebar.php	(date 1593106351000)
+@@ -1,58 +1,79 @@
+- <!-- Sidebar -->
+- <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
++<?php
++require 'fun.php';
++session_start();
++if (!isset($_SESSION['login'])) {
++  header("Location: login.php");
++  exit;
++}
++$peserta = $_SESSION['email'];
++$data = panggil("SELECT * FROM Siswa WHERE email='$peserta'");
++$root = $data[0]['acc'];
++?>
++<!-- Sidebar -->
++<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+ 
+-   <!-- Sidebar - Brand -->
+-   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+-     <div class="sidebar-brand-icon rotate-n-15">
+-       <i class="fas fa-laugh-wink"></i>
+-     </div>
+-     <div class="sidebar-brand-text mx-3">CODE TRAINER<sup>2</sup></div>
+-   </a>
++  <!-- Sidebar - Brand -->
++  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
++    <div class="sidebar-brand-icon rotate-n-15">
++      <i class="fas fa-laugh-wink"></i>
++    </div>
++    <div class="sidebar-brand-text mx-3">CODE TRAINER<sup>2</sup></div>
++  </a>
+ 
+-   <!-- Divider -->
+-   <hr class="sidebar-divider my-0">
++  <!-- Divider -->
++  <hr class="sidebar-divider my-0">
+ 
+-   <!-- Nav Item - Dashboard -->
+-   <li class="nav-item">
+-     <a class="nav-link" href="index.php">
+-       <i class="fas fa-fw fa-tachometer-alt"></i>
+-       <span>HOME</span></a>
+-   </li>
+-   <!-- Nav Item - Charts -->
+-   <li class="nav-item">
+-     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+-       <i class="fas fa-fw fa-cog"></i>
+-       <span>TO DO</span>
+-     </a>
+-     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-p arent="#accordionSidebar">
+-       <div class="bg-white py-2 collapse-inner rounded">
+-         <h6 class="collapse-header">Pergih ke:</h6>
+-         <a class="collapse-item" href="Job.php?id=tugas">Tugas</a>
+-         <a class="collapse-item" href="Job.php?id=kumpul">Pengumpulan</a>
+-         <a class="collapse-item" href="Job.php?id=rek">Rekapitulasi</a>
+-       </div>
+-     </div>
+-   </li>
+-   <!-- Nav Item - Charts -->
+-   <li class="nav-item">
+-     <a class="nav-link" href="charts.html">
+-       <i class="fas fa-fw fa-chart-area"></i>
+-       <span>My Profile</span></a>
+-   </li>
+-   <!-- Nav Item - Charts -->
+-   <li class="nav-item">
+-     <a class="nav-link" href="tabel.php">
+-       <i class="fas fa-fw fa-chart-area"></i>
+-       <span>Member Area</span></a>
+-   </li>
++  <!-- Nav Item - Dashboard -->
++  <li class="nav-item">
++    <a class="nav-link" href="index.php">
++      <i class="fas fa-fw fa-tachometer-alt"></i>
++      <span>HOME</span></a>
++  </li>
++  <!-- Nav Item - Charts -->
++  <li class="nav-item">
++    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
++      <i class="fas fa-fw fa-cog"></i>
++      <span>TO DO</span>
++    </a>
++    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-p arent="#accordionSidebar">
++      <div class="bg-white py-2 collapse-inner rounded">
++        <h6 class="collapse-header">Pergih ke:</h6>
++        <a class="collapse-item" href="Job.php?id=tugas">Tugas</a>
++        <a class="collapse-item" href="Job.php?id=kumpul">Pengumpulan</a>
++        <a class="collapse-item" href="Job.php?id=rek">Rekapitulasi</a>
++      </div>
++    </div>
++  </li>
++  <!-- Nav Item - Charts -->
++  <li class="nav-item">
++    <a class="nav-link" href="charts.html">
++      <i class="fas fa-fw fa-chart-area"></i>
++      <span>My Profile</span></a>
++  </li>
++  <!-- Nav Item - Charts -->
++  <li class="nav-item">
++    <a class="nav-link" href="tabel.php">
++      <i class="fas fa-fw fa-chart-area"></i>
++      <span>Member Area</span></a>
++  </li>
+ 
+-   <!-- Divider -->
+-   <hr class="sidebar-divider d-none d-md-block">
++  <?php
++  // var_dump($root);
++  if ($root == 1) {
++    $a = '`<li class="nav-item"><a class="nav-link" href="admin.php"><i class="fas fa-fw fa-chart-area"></i><span>Member Area</span></a></li>`';
++    echo $a;
++  }
++  ?>
++
++  <?php  ?>
++
++  <!-- Divider -->
++  <hr class="sidebar-divider d-none d-md-block">
+ 
+-   <!-- Sidebar Toggler (Sidebar) -->
+-   <div class="text-center d-none d-md-inline">
+-     <button class="rounded-circle border-0" id="sidebarToggle"></button>
+-   </div>
++  <!-- Sidebar Toggler (Sidebar) -->
++  <div class="text-center d-none d-md-inline">
++    <button class="rounded-circle border-0" id="sidebarToggle"></button>
++  </div>
+ 
+- </ul>
+- <!-- End of Sidebar -->
+\ No newline at end of file
++</ul>
++<!-- End of Sidebar -->
+\ No newline at end of file
+Index: topbar.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\nrequire 'fun.php';\nsession_start();\nif (!isset($_SESSION['login'])) {\n  header(\"Location: login.php\");\n  exit;\n}\n$peserta = $_SESSION['email'];\n$data = panggil(\"SELECT * FROM Siswa WHERE email='$peserta'\");\n?>\n<!-- Main Content -->\n<div id=\"content\">\n\n  <!-- Topbar -->\n  <nav class=\"navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow\">\n\n    <!-- Sidebar Toggle (Topbar) -->\n    <button id=\"sidebarToggleTop\" class=\"btn btn-link d-md-none rounded-circle mr-3\">\n      <i class=\"fa fa-bars\"></i>\n    </button>\n\n    <!-- Topbar Search -->\n    <!-- <form class=\"d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search\">\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control bg-light border-0 small\" placeholder=\"Search for...\" aria-label=\"Search\" aria-describedby=\"basic-addon2\">\n        <div class=\"input-group-append\">\n          <button class=\"btn btn-primary\" type=\"button\">\n            <i class=\"fas fa-search fa-sm\"></i>\n          </button>\n        </div>\n      </div>\n    </form> -->\n\n    <!-- Topbar Navbar -->\n    <ul class=\"navbar-nav ml-auto\">\n\n      <!-- Nav Item - Search Dropdown (Visible Only XS) -->\n      <li class=\"nav-item dropdown no-arrow d-sm-none\">\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"searchDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n          <i class=\"fas fa-search fa-fw\"></i>\n        </a>\n\n        <!-- Nav Item - User Information -->\n      <li class=\"nav-item dropdown no-arrow\">\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"userDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n          <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\"><?= $data[0]['email']; ?></span>\n          <img class=\"img-profile rounded-circle\" src=\"img/<?= $data[0]['profile']; ?>\">\n        </a>\n        <!-- Dropdown - User Information -->\n        <div class=\"dropdown-menu dropdown-menu-right shadow animated--grow-in\" aria-labelledby=\"userDropdown\">\n          <a class=\"dropdown-item\" href=\"#\">\n            <i class=\"fas fa-user fa-sm fa-fw mr-2 text-gray-400\"></i>\n            Profile\n          </a>\n          <div class=\"dropdown-divider\"></div>\n          <a class=\"dropdown-item\" href=\"out.php\" data-toggle=\"modal\" data-target=\"#logoutModal\">\n            <i class=\"fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400\"></i>\n            Logout\n          </a>\n        </div>\n      </li>\n\n    </ul>\n\n  </nav>\n  <!-- End of Topbar -->\n</div>\n\n<!-- Logout Modal-->\n<div class=\"modal fade\" id=\"logoutModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Ready to Leave?</h5>\n        <button class=\"close\" type=\"button\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">×</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">Select \"Logout\" below if you are ready to end your current session.</div>\n      <div class=\"modal-footer\">\n        <button class=\"btn btn-secondary\" type=\"button\" data-dismiss=\"modal\">Cancel</button>\n        <a class=\"btn btn-primary\" href=\"out.php\">Logout</a>\n      </div>\n    </div>\n  </div>\n</div>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- topbar.php	(revision 805efe41035a3e09c12168e56ba5071914122b47)
++++ topbar.php	(date 1593114406000)
+@@ -1,13 +1,3 @@
+-<?php
+-require 'fun.php';
+-session_start();
+-if (!isset($_SESSION['login'])) {
+-  header("Location: login.php");
+-  exit;
+-}
+-$peserta = $_SESSION['email'];
+-$data = panggil("SELECT * FROM Siswa WHERE email='$peserta'");
+-?>
+ <!-- Main Content -->
+ <div id="content">
+ 
+Index: uploadtugas.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\nrequire 'fun.php';\nsession_start();\nif (!isset($_SESSION['login'])) {\n  header(\"Location: login.php\");\n  exit;\n}\n$peserta = $_SESSION['email'];\n$data = panggil(\"SELECT * FROM Siswa WHERE email='$peserta'\");\n?>\n<?\nif (isset($_POST['kirim'])) {\n  tambah($_POST);\n} ?>\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n  <meta name=\"description\" content=\"\">\n  <meta name=\"author\" content=\"\">\n\n  <title>TNT</title>\n\n  <!-- Custom fonts for this template -->\n  <link href=\"vendor/fontawesome-free/css/all.min.css\" rel=\"stylesheet\" type=\"text/css\">\n  <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\">\n\n  <!-- Custom styles for this template -->\n  <link href=\"css/sb-admin-2.min.css\" rel=\"stylesheet\">\n\n  <!-- Custom styles for this page -->\n  <link href=\"vendor/datatables/dataTables.bootstrap4.min.css\" rel=\"stylesheet\">\n\n</head>\n\n<body id=\"page-top\">\n\n  <!-- Page Wrapper -->\n  <div id=\"wrapper\">\n    <!-- sitebar -->\n    <?php\n    // require \"sitebar.php\";\n    ?>\n    <!-- tutup site bar -->\n    <!-- Content Wrapper -->\n    <div id=\"content-wrapper\" class=\"d-flex flex-column\">\n\n      <!-- Main Content -->\n      <div id=\"content\">\n        <!-- tobbar -->\n        <?php\n        // require \"topbar.php\";\n        ?>\n        <!-- tutup topbar -->\n        <!-- isi -->\n        <?\n        $ID = $_GET['materi'];\n        // var_dump($ID);\n        $materi = panggil(\"SELECT * FROM Tugas WHERE id=$ID\");\n        // var_dump($materi[0]);\n        ?>\n        <div class=\"col-lg-6 mb-4 mx-auto\">\n          <!-- Illustrations -->\n          <div class=\"card shadow mb-4\">\n            <div class=\"card-header py-3\">\n              <h6 class=\"m-0 font-weight-bold text-primary\">Illustrations</h6>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"text-center\">\n                <img class=\"img-fluid px-3 px-sm-4 mt-3 mb-4\" style=\"width: 25rem;\" src=\"img/undraw_posting_photo.svg\" alt=\"\">\n              </div>\n              <p>Upload Tugas Ke Google Drive atau Github Terlebih dahulu Setelah itu Kirim data lalu paste link tugas anda di form pengumpulan</p>\n            </div>\n            <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#Tugas\">\n              Kirim Tugas\n            </button>\n          </div>\n        </div>\n\n        <!-- Button trigger modal -->\n\n\n        <!-- Modal -->\n        <div class=\"modal fade\" id=\"Tugas\" data-backdrop=\"static\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"staticBackdropLabel\" aria-hidden=\"true\">\n          <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n              <div class=\"modal-header\">\n                <h5 class=\"modal-title\" id=\"staticBackdropLabel\">Tugas <?= $materi[0]['materi']; ?></h5>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                  <span aria-hidden=\"true\">&times;</span>\n                </button>\n              </div>\n              <div class=\"modal-body\">\n\n\n                <form action=\"\" method=\"POST\">\n                  <div class=\"input-group mb-3\">\n                    <div class=\"input-group-prepend\">\n                      <span class=\"input-group-text\" id=\"basic-addon1\">/</span>\n                    </div>\n                    <input type=\"text\" name=\"link\" class=\"form-control\" placeholder=\"Link Here\" aria-label=\"Link Here\" aria-describedby=\"basic-addon1\" autofocus required>\n                  </div>\n                  <input type=\"hidden\" name=\"materi\" value=\"<?= $materi[0]['materi']; ?>\">\n                  <input type=\"hidden\" name=\"artikel\" value=\"<?= $materi[0]['artikel']; ?>\">\n                  <input type=\"hidden\" name=\"batas\" value=\"<?= $materi[0]['batas']; ?>\">\n                  <input type=\"hidden\" name=\"user\" value=\"<?= $data[0]['id']; ?>\">\n                  <input type=\"hidden\" name=\"idtugas\" value=\"<?= $materi[0]['id']; ?>\">\n              </div>\n              <div class=\"modal-footer\">\n                <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Batal</a></button>\n                <button type=\"submit\" name=\"kirim\" class=\"btn btn-primary\">Kirim Tugas</button>\n                </form>\n\n              </div>\n            </div>\n          </div>\n        </div>\n        <!-- tutup isi -->\n        <!-- Footer -->\n        <footer class=\"sticky-footer bg-white\">\n          <div class=\"container my-auto\">\n            <div class=\"copyright text-center my-auto\">\n              <span>Copyright &copy; Your Website 2019</span>\n            </div>\n          </div>\n        </footer>\n        <!-- End of Footer -->\n\n      </div>\n      <!-- End of Content Wrapper -->\n\n    </div>\n    <!-- End of Page Wrapper -->\n\n    <!-- Scroll to Top Button-->\n    <a class=\"scroll-to-top rounded\" href=\"#page-top\">\n      <i class=\"fas fa-angle-up\"></i>\n    </a>\n    <!-- Bootstrap core JavaScript-->\n    <script src=\"vendor/jquery/jquery.min.js\"></script>\n    <script src=\"vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>\n\n    <!-- Core plugin JavaScript-->\n    <script src=\"vendor/jquery-easing/jquery.easing.min.js\"></script>\n\n    <!-- Custom scripts for all pages-->\n    <script src=\"js/sb-admin-2.min.js\"></script>\n\n    <!-- Page level plugins -->\n    <script src=\"vendor/datatables/jquery.dataTables.min.js\"></script>\n    <script src=\"vendor/datatables/dataTables.bootstrap4.min.js\"></script>\n\n    <!-- Page level custom scripts -->\n    <script src=\"js/demo/datatables-demo.js\"></script>\n\n</body>\n\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- uploadtugas.php	(revision 805efe41035a3e09c12168e56ba5071914122b47)
++++ uploadtugas.php	(date 1593105310000)
+@@ -53,7 +53,7 @@
+       <div id="content">
+         <!-- tobbar -->
+         <?php
+-        // require "topbar.php";
++        require "topbar.php";
+         ?>
+         <!-- tutup topbar -->
+         <!-- isi -->
+Index: .idea/Belajar.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/Belajar.iml	(date 1593962102553)
++++ .idea/Belajar.iml	(date 1593962102553)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++  <component name="TestRunnerService">
++    <option name="PROJECT_TEST_RUNNER" value="pytest" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1593962102733)
++++ .idea/vcs.xml	(date 1593962102733)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1593962102841)
++++ .idea/misc.xml	(date 1593962102841)
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: Tugas.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!-- Begin Page Content -->\n<div class=\"container-fluid\">\n\n  <!-- Page Heading -->\n  <h1 class=\"h3 mb-2 text-gray-800\">Tugas List</h1>\n  <p class=\"mb-4\"> Tugas Yang harus di kerjakan Class.</p>\n\n  <!-- DataTales Example -->\n  <div class=\"card shadow mb-4\">\n    <div class=\"card-header py-3\">\n      <h6 class=\"m-0 font-weight-bold text-primary\">List Tugas Anda Di Materi <small>LARAVEL</small></h6>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"table-responsive\">\n        <table class=\"table  table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\">\n          <thead class=\"text-center\">\n            <tr>\n              <th>No</th>\n              <th>Materi</th>\n              <th>Artikel</th>\n              <th>Batas Waktu</th>\n              <th>Aksi</th>\n            </tr>\n          </thead>\n          <tbody>\n            <?php\n            $us = $data[0]['id'];\n            $tugas = panggil(\"SELECT * FROM Tugas\");\n            $kumpul = panggil(\"SELECT * FROM Kumpul WHERE user='$us'\");\n            $a = [$kumpul];\n            $b = count($kumpul);\n            ?>\n            <?\n            $i = 1;\n            $las = 0;\n            foreach ($tugas as $dd) :\n              if ($las < $b) {\n                for ($i = 0; $i <= $b; $i++) {\n                  $p = $tugas[0]['id'];\n                  $p1 = $kumpul[$las];\n                }\n              } else {\n              }\n              $id = $dd['id'];\n              if ($las < $b) {\n                $idtugas = $kumpul[$las]['idtugas'];\n              } else {\n                $idtugas = 0;\n              }\n              if (!$idtugas == $id) {\n\n            ?>\n                <tr class=\"text-center\">\n                  <td><?= $i++ ?></td>\n                  <td><?= $dd['materi']; ?></td>\n                  <td>Baca Artikerl <a href=\"<?= $dd['artikel']; ?>\">clik disini</a></td>\n                  <td><?= $dd['batas']; ?></td>\n                  <td>\n                    <div class=\"btn-group-vertical\" aria-label=\"Basic example\">\n                      <a type=\"\" class=\"btn btn-warning\" href=\"uploadtugas.php?materi=<?= $dd['id']; ?>\"><small>Upload</small></a>\n                    </div>\n                  </td>\n                </tr>\n              <?php } else {\n                $las++;\n              } ?>\n            <?php\n\n            endforeach;\n            ?>\n          </tbody>\n        </table>\n      </div>\n    </div>\n  </div>\n\n</div>\n<!-- /.container-fluid -->\n\n</div>\n<!-- End of Main Content -->
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Tugas.php	(revision 805efe41035a3e09c12168e56ba5071914122b47)
++++ Tugas.php	(date 1593190949000)
+@@ -53,7 +53,7 @@
+                 <tr class="text-center">
+                   <td><?= $i++ ?></td>
+                   <td><?= $dd['materi']; ?></td>
+-                  <td>Baca Artikerl <a href="<?= $dd['artikel']; ?>">clik disini</a></td>
++                  <td><small>Baca Artikerl <a href="<?= $dd['artikel']; ?>" target="_blank">clik disini</a></small><br><strong>Password=<?= $dd['paswd']; ?></strong> </td>
+                   <td><?= $dd['batas']; ?></td>
+                   <td>
+                     <div class="btn-group-vertical" aria-label="Basic example">
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(date 1593962102945)
++++ .idea/modules.xml	(date 1593962102945)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/Belajar.iml" filepath="$PROJECT_DIR$/.idea/Belajar.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/inspectionProfiles/profiles_settings.xml	(date 1593962103105)
++++ .idea/inspectionProfiles/profiles_settings.xml	(date 1593962103105)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: tisi.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//gggggggg\n<!-- Begin Page Content -->\n<div class=\"container-fluid\">\n\n  <!-- Page Heading -->\n  <h1 class=\"h3 mb-2 text-gray-800\">Member List</h1>\n  <p class=\"mb-4\"> Member On Yout Class.</p>\n\n  <!-- DataTales Example -->\n  <div class=\"card shadow mb-4\">\n    <div class=\"card-header py-3\">\n      <h6 class=\"m-0 font-weight-bold text-primary\">Temat Traning Web Developer <small>LARAVEL</small></h6>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"table-responsive\">\n        <table class=\"table  table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\">\n          <thead class=\"text-center\">\n            <tr>\n              <th>No</th>\n              <th>Nama</th>\n              <th>Profile</th>\n              <th>Aksi</th>\n            </tr>\n          </thead>\n          <tfoot class=\"text-center\">\n            <tr>\n              <th>No</th>\n              <th>Nama</th>\n              <th>Profile</th>\n              <th>Aksi</th>\n            </tr>\n          </tfoot>\n          <tbody>\n            <?\n            // require \"fun.php\";\n            $data = panggil(\"SELECT * FROM Siswa\");\n            if (isset($_POST['tambah'])) {\n              if (tambah($_POST) > 0) {\n                $das = \"<script>alert('data masuk');\n    document.location.href='index.php';\n    </script>\";\n                echo $das;\n              }\n            } ?>\n            <?php $i = 1;\n\n            foreach ($data as $dd) : ?>\n\n              <tr class=\"text-center\">\n                <th scope=\"col\"><?= $i++; ?></th>\n                <th scope=\"col\"><?= $dd['nama']; ?></th>\n                <th scope=\"col\"><img src=\"img/<?= $dd['profile']; ?>\" alt=\"\" class=\"rounded-circle img-thumbnail\" height=\"150\" width=\"150\"></th>\n                <th scope=\"col\">\n                  <div class=\"btn-group-vertical\" aria-label=\"Basic example\">\n                    <a type=\"\" class=\"btn btn-warning\" href=\"\"><small>Edit</small></a>\n                    <a type=\"\" class=\"btn btn-primary\" href=\"detail.php?id=<?= $dd['id']; ?>\"><small> Lihat</small></a>\n                    <a type=\"\" class=\"btn btn-danger\" href=\"del.php?id=<?= $dd['id']; ?>\"><small>Hapus</small></a>\n                  </div>\n              </tr>\n            <?php\n            endforeach; ?>\n          </tbody>\n        </table>\n      </div>\n    </div>\n  </div>\n\n</div>\n<!-- /.container-fluid -->\n\n</div>\n<!-- End of Main Content -->\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- tisi.php	(revision 805efe41035a3e09c12168e56ba5071914122b47)
++++ tisi.php	(date 1593111198000)
+@@ -1,4 +1,3 @@
+-//gggggggg
+ <!-- Begin Page Content -->
+ <div class="container-fluid">
+ 
+@@ -18,44 +17,44 @@
+             <tr>
+               <th>No</th>
+               <th>Nama</th>
+-              <th>Profile</th>
+-              <th>Aksi</th>
++              <!-- <th>Profile</th>
++              <th>Aksi</th> -->
+             </tr>
+           </thead>
+           <tfoot class="text-center">
+             <tr>
+               <th>No</th>
+               <th>Nama</th>
+-              <th>Profile</th>
+-              <th>Aksi</th>
++              <!-- <th>Profile</th>
++              <th>Aksi</th> -->
+             </tr>
+           </tfoot>
+           <tbody>
+             <?
+             // require "fun.php";
+-            $data = panggil("SELECT * FROM Siswa");
++            $panggilan = panggil("SELECT * FROM Siswa");
+             if (isset($_POST['tambah'])) {
+               if (tambah($_POST) > 0) {
+-                $das = "<script>alert('data masuk');
++                $das = "<script>alert('panggilan masuk');
+     document.location.href='index.php';
+     </script>";
+                 echo $das;
+               }
+             } ?>
+             <?php $i = 1;
+-
+-            foreach ($data as $dd) : ?>
+-
++            $rule = $panggilan[0]['acc'];
++            foreach ($panggilan as $dd) : ?>
+               <tr class="text-center">
+                 <th scope="col"><?= $i++; ?></th>
+                 <th scope="col"><?= $dd['nama']; ?></th>
+-                <th scope="col"><img src="img/<?= $dd['profile']; ?>" alt="" class="rounded-circle img-thumbnail" height="150" width="150"></th>
++                <!-- <th scope="col"><img src="img/<?= $dd['profile']; ?>" alt="" class="rounded-circle img-thumbnail" height="150" width="150"></th>
+                 <th scope="col">
+                   <div class="btn-group-vertical" aria-label="Basic example">
+                     <a type="" class="btn btn-warning" href=""><small>Edit</small></a>
+                     <a type="" class="btn btn-primary" href="detail.php?id=<?= $dd['id']; ?>"><small> Lihat</small></a>
+                     <a type="" class="btn btn-danger" href="del.php?id=<?= $dd['id']; ?>"><small>Hapus</small></a>
+                   </div>
++                </th> -->
+               </tr>
+             <?php
+             endforeach; ?>
+@@ -69,4 +68,4 @@
+ <!-- /.container-fluid -->
+ 
+ </div>
+-<!-- End of Main Content -->
++<!-- End of Main Content -->
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.gitignore	(date 1593962105765)
++++ .idea/.gitignore	(date 1593962105765)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: kumpul.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!-- Begin Page Content -->\n<div class=\"container-fluid\">\n\n  <!-- Page Heading -->\n  <h1 class=\"h3 mb-2 text-gray-800\">Tugas List</h1>\n  <p class=\"mb-4\"> Tugas Yang di kerjakan Class.</p>\n\n  <!-- DataTales Example -->\n  <div class=\"card shadow mb-4\">\n    <div class=\"card-header py-3\">\n      <h6 class=\"m-0 font-weight-bold text-primary\">List Tugas Anda Di Materi <small>LARAVEL</small></h6>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"table-responsive\">\n        <table class=\"table  table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\">\n          <thead class=\"text-center\">\n            <tr>\n              <th>No</th>\n              <th>Materi</th>\n              <th>Artikel</th>\n              <th>Batas Waktu</th>\n              <th>Status</th>\n              <th>Nilai</th>\n              <th>Saran</th>\n              <th>Jawapan Kamu</th>\n            </tr>\n          </thead>\n          <tbody>\n            <?php\n            // require \"fun.php\";\n            $us = $data[0]['id'];\n            $kumpul = panggil(\"SELECT * FROM Kumpul WHERE user='$us'\");\n            ?>\n            <?php $i = 1;\n            foreach ($kumpul as $dd) : ?>\n\n              <tr class=\"text-center\">\n                <td><?= $i++; ?></td>\n                <td><?= $dd['materi']; ?></td>\n                <td>Baca Artikerl <a href=\"<?= $dd['artikel']; ?>\">clik disini</a></td>\n                <td><?= $dd['batas']; ?></td>\n                <td>\n                  <? switch ($dd['active']) {\n                    case 1:\n                      echo  \"Belum di Kumpulkan\";\n                      break;\n\n                    case 2:\n                      echo  \"Tidak Di Kumpulkan\";\n                      break;\n\n                    case 3:\n                      echo  \"Sudah di NIlai\";\n                      break;\n                  } ?>\n                </td>\n                <td>\n                  <? if ($dd['nilai'] == \"0\") {\n                    echo \"-\";\n                  } else {\n                    echo $dd['nilai'];\n                  } ?>\n                </td>\n                <td><?= $dd['saran']; ?></td>\n                <td><?= $dd['jawapan']; ?></td>\n              </tr>\n            <?php endforeach; ?>\n          </tbody>\n        </table>\n      </div>\n    </div>\n  </div>\n\n</div>\n<!-- /.container-fluid -->\n\n</div>\n<!-- End of Main Content -->
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- kumpul.php	(revision 805efe41035a3e09c12168e56ba5071914122b47)
++++ kumpul.php	(date 1593103482000)
+@@ -62,7 +62,7 @@
+                   } ?>
+                 </td>
+                 <td><?= $dd['saran']; ?></td>
+-                <td><?= $dd['jawapan']; ?></td>
++                <td><a href=" <?= $dd['jawapan']; ?>">Clik Here</a></td>
+               </tr>
+             <?php endforeach; ?>
+           </tbody>
+Index: ds.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ds.html	(revision 805efe41035a3e09c12168e56ba5071914122b47)
++++ ds.html	(date 1593166421000)
+@@ -1,0 +1,156 @@
++<body>
++  <!-- Page Content -->
++  <div class="container">
++
++    <div class="row">
++
++      <!-- Blog Entries Column -->
++      <div class="col-md-8">
++
++        <h1 class="my-4">Page Heading
++          <small>Secondary Text</small>
++        </h1>
++
++        <!-- Blog Post -->
++        <div class="card mb-4">
++          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
++          <div class="card-body">
++            <h2 class="card-title">Post Title</h2>
++            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque,
++              nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus
++              possimus, veniam magni quis!</p>
++            <a href="#" class="btn btn-primary">Read More &rarr;</a>
++          </div>
++          <div class="card-footer text-muted">
++            Posted on January 1, 2020 by
++            <a href="#">Start Bootstrap</a>
++          </div>
++        </div>
++
++        <!-- Blog Post -->
++        <div class="card mb-4">
++          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
++          <div class="card-body">
++            <h2 class="card-title">Post Title</h2>
++            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque,
++              nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus
++              possimus, veniam magni quis!</p>
++            <a href="#" class="btn btn-primary">Read More &rarr;</a>
++          </div>
++          <div class="card-footer text-muted">
++            Posted on January 1, 2020 by
++            <a href="#">Start Bootstrap</a>
++          </div>
++        </div>
++
++        <!-- Blog Post -->
++        <div class="card mb-4">
++          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
++          <div class="card-body">
++            <h2 class="card-title">Post Title</h2>
++            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque,
++              nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus
++              possimus, veniam magni quis!</p>
++            <a href="#" class="btn btn-primary">Read More &rarr;</a>
++          </div>
++          <div class="card-footer text-muted">
++            Posted on January 1, 2020 by
++            <a href="#">Start Bootstrap</a>
++          </div>
++        </div>
++
++        <!-- Pagination -->
++        <ul class="pagination justify-content-center mb-4">
++          <li class="page-item">
++            <a class="page-link" href="#">&larr; Older</a>
++          </li>
++          <li class="page-item disabled">
++            <a class="page-link" href="#">Newer &rarr;</a>
++          </li>
++        </ul>
++
++      </div>
++
++      <!-- Sidebar Widgets Column -->
++      <div class="col-md-4">
++
++        <!-- Search Widget -->
++        <div class="card my-4">
++          <h5 class="card-header">Search</h5>
++          <div class="card-body">
++            <div class="input-group">
++              <input type="text" class="form-control" placeholder="Search for...">
++              <span class="input-group-append">
++                <button class="btn btn-secondary" type="button">Go!</button>
++              </span>
++            </div>
++          </div>
++        </div>
++
++        <!-- Categories Widget -->
++        <div class="card my-4">
++          <h5 class="card-header">Categories</h5>
++          <div class="card-body">
++            <div class="row">
++              <div class="col-lg-6">
++                <ul class="list-unstyled mb-0">
++                  <li>
++                    <a href="#">Web Design</a>
++                  </li>
++                  <li>
++                    <a href="#">HTML</a>
++                  </li>
++                  <li>
++                    <a href="#">Freebies</a>
++                  </li>
++                </ul>
++              </div>
++              <div class="col-lg-6">
++                <ul class="list-unstyled mb-0">
++                  <li>
++                    <a href="#">JavaScript</a>
++                  </li>
++                  <li>
++                    <a href="#">CSS</a>
++                  </li>
++                  <li>
++                    <a href="#">Tutorials</a>
++                  </li>
++                </ul>
++              </div>
++            </div>
++          </div>
++        </div>
++
++        <!-- Side Widget -->
++        <div class="card my-4">
++          <h5 class="card-header">Side Widget</h5>
++          <div class="card-body">
++            You can put anything you want inside of these side widgets. They are easy to use, and feature the new
++            Bootstrap 4 card containers!
++          </div>
++        </div>
++
++      </div>
++
++    </div>
++    <!-- /.row -->
++
++  </div>
++  <!-- /.container -->
++
++  <!-- Footer -->
++  <footer class="py-5 bg-dark">
++    <div class="container">
++      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
++    </div>
++    <!-- /.container -->
++  </footer>
++
++  <!-- Bootstrap core JavaScript -->
++  <script src="vendor/jquery/jquery.min.js"></script>
++  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
++
++</body>
++
++</html>
+\ No newline at end of file
