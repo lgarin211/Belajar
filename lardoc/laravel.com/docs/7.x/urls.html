@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/urls by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>URL Generation - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="urls.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/urls">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/urls">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/urls">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/urls">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/urls">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/urls">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/urls">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/urls">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/urls">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/urls">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/urls">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/urls">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/urls">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>URL Generation</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#the-basics">The Basics</a>
+<ul>
+<li><a href="#generating-basic-urls">Generating Basic URLs</a></li>
+<li><a href="#accessing-the-current-url">Accessing The Current URL</a></li>
+</ul></li>
+<li><a href="#urls-for-named-routes">URLs For Named Routes</a>
+<ul>
+<li><a href="#signed-urls">Signed URLs</a></li>
+</ul></li>
+<li><a href="#urls-for-controller-actions">URLs For Controller Actions</a></li>
+<li><a href="#default-values">Default Values</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Laravel provides several helpers to assist you in generating URLs for your application. These are mainly helpful when building links in your templates and API responses, or when generating redirect responses to another part of your application.</p>
+<p><a name="the-basics"></a></p>
+<h2 id="the-basics">The Basics</h2>
+<p><a name="generating-basic-urls"></a></p>
+<h3 id="generating-basic-urls">Generating Basic URLs</h3>
+<p>The <code>url</code> helper may be used to generate arbitrary URLs for your application. The generated URL will automatically use the scheme (HTTP or HTTPS) and host from the current request:</p>
+<pre><code>$post = App\Post::find(1);
+
+echo url("/posts/{$post-&gt;id}");
+
+// http://example.com/posts/1</code></pre>
+<p><a name="accessing-the-current-url"></a></p>
+<h3 id="accessing-the-current-url">Accessing The Current URL</h3>
+<p>If no path is provided to the <code>url</code> helper, a <code>Illuminate\Routing\UrlGenerator</code> instance is returned, allowing you to access information about the current URL:</p>
+<pre><code>// Get the current URL without the query string...
+echo url()-&gt;current();
+
+// Get the current URL including the query string...
+echo url()-&gt;full();
+
+// Get the full URL for the previous request...
+echo url()-&gt;previous();</code></pre>
+<p>Each of these methods may also be accessed via the <code>URL</code> <a href="facades.html">facade</a>:</p>
+<pre><code>use Illuminate\Support\Facades\URL;
+
+echo URL::current();</code></pre>
+<p><a name="urls-for-named-routes"></a></p>
+<h2 id="urls-for-named-routes">URLs For Named Routes</h2>
+<p>The <code>route</code> helper may be used to generate URLs to named routes. Named routes allow you to generate URLs without being coupled to the actual URL defined on the route. Therefore, if the route's URL changes, no changes need to be made to your <code>route</code> function calls. For example, imagine your application contains a route defined like the following:</p>
+<pre><code>Route::get('/post/{post}', function () {
+    //
+})-&gt;name('post.show');</code></pre>
+<p>To generate a URL to this route, you may use the <code>route</code> helper like so:</p>
+<pre><code>echo route('post.show', ['post' =&gt; 1]);
+
+// http://example.com/post/1</code></pre>
+<p>You will often be generating URLs using the primary key of <a href="eloquent.html">Eloquent models</a>. For this reason, you may pass Eloquent models as parameter values. The <code>route</code> helper will automatically extract the model's primary key:</p>
+<pre><code>echo route('post.show', ['post' =&gt; $post]);</code></pre>
+<p>The <code>route</code> helper may also be used to generate URLs for routes with multiple parameters:</p>
+<pre><code>Route::get('/post/{post}/comment/{comment}', function () {
+    //
+})-&gt;name('comment.show');
+
+echo route('comment.show', ['post' =&gt; 1, 'comment' =&gt; 3]);
+
+// http://example.com/post/1/comment/3</code></pre>
+<p><a name="signed-urls"></a></p>
+<h3 id="signed-urls">Signed URLs</h3>
+<p>Laravel allows you to easily create &quot;signed&quot; URLs to named routes. These URLs have a &quot;signature&quot; hash appended to the query string which allows Laravel to verify that the URL has not been modified since it was created. Signed URLs are especially useful for routes that are publicly accessible yet need a layer of protection against URL manipulation.</p>
+<p>For example, you might use signed URLs to implement a public &quot;unsubscribe&quot; link that is emailed to your customers. To create a signed URL to a named route, use the <code>signedRoute</code> method of the <code>URL</code> facade:</p>
+<pre><code>use Illuminate\Support\Facades\URL;
+
+return URL::signedRoute('unsubscribe', ['user' =&gt; 1]);</code></pre>
+<p>If you would like to generate a temporary signed route URL that expires, you may use the <code>temporarySignedRoute</code> method:</p>
+<pre><code>use Illuminate\Support\Facades\URL;
+
+return URL::temporarySignedRoute(
+    'unsubscribe', now()-&gt;addMinutes(30), ['user' =&gt; 1]
+);</code></pre>
+<h4>Validating Signed Route Requests</h4>
+<p>To verify that an incoming request has a valid signature, you should call the <code>hasValidSignature</code> method on the incoming <code>Request</code>:</p>
+<pre><code>use Illuminate\Http\Request;
+
+Route::get('/unsubscribe/{user}', function (Request $request) {
+    if (! $request-&gt;hasValidSignature()) {
+        abort(401);
+    }
+
+    // ...
+})-&gt;name('unsubscribe');</code></pre>
+<p>Alternatively, you may assign the <code>Illuminate\Routing\Middleware\ValidateSignature</code> middleware to the route. If it is not already present, you should assign this middleware a key in your HTTP kernel's <code>routeMiddleware</code> array:</p>
+<pre><code>/**
+ * The application's route middleware.
+ *
+ * These middleware may be assigned to groups or used individually.
+ *
+ * @var array
+ */
+protected $routeMiddleware = [
+    'signed' =&gt; \Illuminate\Routing\Middleware\ValidateSignature::class,
+];</code></pre>
+<p>Once you have registered the middleware in your kernel, you may attach it to a route. If the incoming request does not have a valid signature, the middleware will automatically return a <code>403</code> error response:</p>
+<pre><code>Route::post('/unsubscribe/{user}', function (Request $request) {
+    // ...
+})-&gt;name('unsubscribe')-&gt;middleware('signed');</code></pre>
+<p><a name="urls-for-controller-actions"></a></p>
+<h2 id="urls-for-controller-actions">URLs For Controller Actions</h2>
+<p>The <code>action</code> function generates a URL for the given controller action. You do not need to pass the full namespace of the controller. Instead, pass the controller class name relative to the <code>App\Http\Controllers</code> namespace:</p>
+<pre><code>$url = action('<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eaa285878fa985849e988586868f98aa83848e8f92">[email&#160;protected]</a>');</code></pre>
+<p>You may also reference actions with a &quot;callable&quot; array syntax:</p>
+<pre><code>use App\Http\Controllers\HomeController;
+
+$url = action([HomeController::class, 'index']);</code></pre>
+<p>If the controller method accepts route parameters, you may pass them as the second argument to the function:</p>
+<pre><code>$url = action('<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="287d5b4d5a6b47465c5a4744444d5a68585a474e41444d">[email&#160;protected]</a>', ['id' =&gt; 1]);</code></pre>
+<p><a name="default-values"></a></p>
+<h2 id="default-values">Default Values</h2>
+<p>For some applications, you may wish to specify request-wide default values for certain URL parameters. For example, imagine many of your routes define a <code>{locale}</code> parameter:</p>
+<pre><code>Route::get('/{locale}/posts', function () {
+    //
+})-&gt;name('post.index');</code></pre>
+<p>It is cumbersome to always pass the <code>locale</code> every time you call the <code>route</code> helper. So, you may use the <code>URL::defaults</code> method to define a default value for this parameter that will always be applied during the current request. You may wish to call this method from a <a href="middleware.html#assigning-middleware-to-routes">route middleware</a> so that you have access to the current request:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Support\Facades\URL;
+
+class SetDefaultLocaleForUrls
+{
+    public function handle($request, Closure $next)
+    {
+        URL::defaults(['locale' =&gt; $request-&gt;user()-&gt;locale]);
+
+        return $next($request);
+    }
+}</code></pre>
+<p>Once the default value for the <code>locale</code> parameter has been set, you are no longer required to pass its value when generating URLs via the <code>route</code> helper.</p>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/urls by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+</html>

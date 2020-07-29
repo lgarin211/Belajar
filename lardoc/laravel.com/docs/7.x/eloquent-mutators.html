@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/eloquent-mutators by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Eloquent: Mutators - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="eloquent-mutators.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/eloquent-mutators">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/eloquent-mutators">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/eloquent-mutators">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/eloquent-mutators">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/eloquent-mutators">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/eloquent-mutators">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/eloquent-mutators">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/eloquent-mutators">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/eloquent-mutators">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/eloquent-mutators">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/eloquent-mutators">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/eloquent-mutators">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/eloquent-mutators">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Eloquent: Mutators</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#accessors-and-mutators">Accessors &amp; Mutators</a>
+<ul>
+<li><a href="#defining-an-accessor">Defining An Accessor</a></li>
+<li><a href="#defining-a-mutator">Defining A Mutator</a></li>
+</ul></li>
+<li><a href="#date-mutators">Date Mutators</a></li>
+<li><a href="#attribute-casting">Attribute Casting</a>
+<ul>
+<li><a href="#custom-casts">Custom Casts</a></li>
+<li><a href="#array-and-json-casting">Array &amp; JSON Casting</a></li>
+<li><a href="#date-casting">Date Casting</a></li>
+<li><a href="#query-time-casting">Query Time Casting</a></li>
+</ul></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Accessors and mutators allow you to format Eloquent attribute values when you retrieve or set them on model instances. For example, you may want to use the <a href="encryption.html">Laravel encrypter</a> to encrypt a value while it is stored in the database, and then automatically decrypt the attribute when you access it on an Eloquent model.</p>
+<p>In addition to custom accessors and mutators, Eloquent can also automatically cast date fields to <a href="https://github.com/briannesbitt/Carbon">Carbon</a> instances or even <a href="#attribute-casting">cast text fields to JSON</a>.</p>
+<p><a name="accessors-and-mutators"></a></p>
+<h2 id="accessors-and-mutators">Accessors &amp; Mutators</h2>
+<p><a name="defining-an-accessor"></a></p>
+<h3 id="defining-an-accessor">Defining An Accessor</h3>
+<p>To define an accessor, create a <code>getFooAttribute</code> method on your model where <code>Foo</code> is the &quot;studly&quot; cased name of the column you wish to access. In this example, we'll define an accessor for the <code>first_name</code> attribute. The accessor will automatically be called by Eloquent when attempting to retrieve the value of the <code>first_name</code> attribute:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * Get the user's first name.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getFirstNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+}</code></pre>
+<p>As you can see, the original value of the column is passed to the accessor, allowing you to manipulate and return the value. To access the value of the accessor, you may access the <code>first_name</code> attribute on a model instance:</p>
+<pre><code>$user = App\User::find(1);
+
+$firstName = $user-&gt;first_name;</code></pre>
+<p>You may also use accessors to return new, computed values from existing attributes:</p>
+<pre><code>/**
+ * Get the user's full name.
+ *
+ * @return string
+ */
+public function getFullNameAttribute()
+{
+    return "{$this-&gt;first_name} {$this-&gt;last_name}";
+}</code></pre>
+<blockquote>
+<p>{tip} If you would like these computed values to be added to the array / JSON representations of your model, <a href="eloquent-serialization.html#appending-values-to-json">you will need to append them</a>.</p>
+</blockquote>
+<p><a name="defining-a-mutator"></a></p>
+<h3 id="defining-a-mutator">Defining A Mutator</h3>
+<p>To define a mutator, define a <code>setFooAttribute</code> method on your model where <code>Foo</code> is the &quot;studly&quot; cased name of the column you wish to access. So, again, let's define a mutator for the <code>first_name</code> attribute. This mutator will be automatically called when we attempt to set the value of the <code>first_name</code> attribute on the model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * Set the user's first name.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setFirstNameAttribute($value)
+    {
+        $this-&gt;attributes['first_name'] = strtolower($value);
+    }
+}</code></pre>
+<p>The mutator will receive the value that is being set on the attribute, allowing you to manipulate the value and set the manipulated value on the Eloquent model's internal <code>$attributes</code> property. So, for example, if we attempt to set the <code>first_name</code> attribute to <code>Sally</code>:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;first_name = 'Sally';</code></pre>
+<p>In this example, the <code>setFirstNameAttribute</code> function will be called with the value <code>Sally</code>. The mutator will then apply the <code>strtolower</code> function to the name and set its resulting value in the internal <code>$attributes</code> array.</p>
+<p><a name="date-mutators"></a></p>
+<h2 id="date-mutators">Date Mutators</h2>
+<p>By default, Eloquent will convert the <code>created_at</code> and <code>updated_at</code> columns to instances of <a href="https://github.com/briannesbitt/Carbon">Carbon</a>, which extends the PHP <code>DateTime</code> class and provides an assortment of helpful methods. You may add additional date attributes by setting the <code>$dates</code> property of your model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'seen_at',
+    ];
+}</code></pre>
+<blockquote>
+<p>{tip} You may disable the default <code>created_at</code> and <code>updated_at</code> timestamps by setting the public <code>$timestamps</code> property of your model to <code>false</code>.</p>
+</blockquote>
+<p>When a column is considered a date, you may set its value to a UNIX timestamp, date string (<code>Y-m-d</code>), date-time string, or a <code>DateTime</code> / <code>Carbon</code> instance. The date's value will be correctly converted and stored in your database:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;deleted_at = now();
+
+$user-&gt;save();</code></pre>
+<p>As noted above, when retrieving attributes that are listed in your <code>$dates</code> property, they will automatically be cast to <a href="https://github.com/briannesbitt/Carbon">Carbon</a> instances, allowing you to use any of Carbon's methods on your attributes:</p>
+<pre><code>$user = App\User::find(1);
+
+return $user-&gt;deleted_at-&gt;getTimestamp();</code></pre>
+<h4>Date Formats</h4>
+<p>By default, timestamps are formatted as <code>'Y-m-d H:i:s'</code>. If you need to customize the timestamp format, set the <code>$dateFormat</code> property on your model. This property determines how date attributes are stored in the database, as well as their format when the model is serialized to an array or JSON:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Flight extends Model
+{
+    /**
+     * The storage format of the model's date columns.
+     *
+     * @var string
+     */
+    protected $dateFormat = 'U';
+}</code></pre>
+<p><a name="attribute-casting"></a></p>
+<h2 id="attribute-casting">Attribute Casting</h2>
+<p>The <code>$casts</code> property on your model provides a convenient method of converting attributes to common data types. The <code>$casts</code> property should be an array where the key is the name of the attribute being cast and the value is the type you wish to cast the column to. The supported cast types are: <code>integer</code>, <code>real</code>, <code>float</code>, <code>double</code>, <code>decimal:&lt;digits&gt;</code>, <code>string</code>, <code>boolean</code>, <code>object</code>, <code>array</code>, <code>collection</code>, <code>date</code>, <code>datetime</code>, and <code>timestamp</code>. When casting to <code>decimal</code>, you must define the number of digits (<code>decimal:2</code>).</p>
+<p>To demonstrate attribute casting, let's cast the <code>is_admin</code> attribute, which is stored in our database as an integer (<code>0</code> or <code>1</code>) to a boolean value:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'is_admin' =&gt; 'boolean',
+    ];
+}</code></pre>
+<p>Now the <code>is_admin</code> attribute will always be cast to a boolean when you access it, even if the underlying value is stored in the database as an integer:</p>
+<pre><code>$user = App\User::find(1);
+
+if ($user-&gt;is_admin) {
+    //
+}</code></pre>
+<blockquote>
+<p>{note} Attributes that are <code>null</code> will not be cast.</p>
+</blockquote>
+<p><a name="custom-casts"></a></p>
+<h3 id="custom-casts">Custom Casts</h3>
+<p>Laravel has a variety of built-in, helpful cast types; however, you may occasionally need to define your own cast types. You may accomplish this by defining a class that implements the <code>CastsAttributes</code> interface.</p>
+<p>Classes that implement this interface must define a <code>get</code> and <code>set</code> method. The <code>get</code> method is responsible for transforming a raw value from the database into a cast value, while the <code>set</code> method should transform a cast value into a raw value that can be stored in the database. As an example, we will re-implement the built-in <code>json</code> cast type as a custom cast type:</p>
+<pre><code>&lt;?php
+
+namespace App\Casts;
+
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+
+class Json implements CastsAttributes
+{
+    /**
+     * Cast the given value.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  mixed  $value
+     * @param  array  $attributes
+     * @return array
+     */
+    public function get($model, $key, $value, $attributes)
+    {
+        return json_decode($value, true);
+    }
+
+    /**
+     * Prepare the given value for storage.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  array  $value
+     * @param  array  $attributes
+     * @return string
+     */
+    public function set($model, $key, $value, $attributes)
+    {
+        return json_encode($value);
+    }
+}</code></pre>
+<p>Once you have defined a custom cast type, you may attach it to a model attribute using its class name:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use App\Casts\Json;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'options' =&gt; Json::class,
+    ];
+}</code></pre>
+<h4>Value Object Casting</h4>
+<p>You are not limited to casting values to primitive types. You may also cast values to objects. Defining custom casts that cast values to objects is very similar to casting to primitive types; however, the <code>set</code> method should return an array of key / value pairs that will be used to set raw, storable values on the model.</p>
+<p>As an example, we will define a custom cast class that casts multiple model values into a single <code>Address</code> value object. We will assume the <code>Address</code> value has two public properties: <code>lineOne</code> and <code>lineTwo</code>:</p>
+<pre><code>&lt;?php
+
+namespace App\Casts;
+
+use App\Address;
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use InvalidArgumentException;
+
+class Address implements CastsAttributes
+{
+    /**
+     * Cast the given value.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  mixed  $value
+     * @param  array  $attributes
+     * @return \App\Address
+     */
+    public function get($model, $key, $value, $attributes)
+    {
+        return new Address(
+            $attributes['address_line_one'],
+            $attributes['address_line_two']
+        );
+    }
+
+    /**
+     * Prepare the given value for storage.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  \App\Address  $value
+     * @param  array  $attributes
+     * @return array
+     */
+    public function set($model, $key, $value, $attributes)
+    {
+        if (! $value instanceof Address) {
+            throw InvalidArgumentException('The given value is not an Address instance.');
+        }
+
+        return [
+            'address_line_one' =&gt; $value-&gt;lineOne,
+            'address_line_two' =&gt; $value-&gt;lineTwo,
+        ];
+    }
+}</code></pre>
+<p>When casting to value objects, any changes made to the value object will automatically be synced back to the model before the model is saved:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;address-&gt;lineOne = 'Updated Address Value';
+
+$user-&gt;save();</code></pre>
+<blockquote>
+<p>{tip} If you plan to serialize your Eloquent models containing value objects to JSON or arrays, you should implement the <code>Illuminate\Contracts\Support\Arrayable</code> and <code>JsonSerializable</code> interfaces on the value object.</p>
+</blockquote>
+<h4>Inbound Casting</h4>
+<p>Occasionally, you may need to write a custom cast that only transforms values that are being set on the model and does not perform any operations when attributes are being retrieved from the model. A classic example of an inbound only cast is a &quot;hashing&quot; cast. Inbound only custom casts should implement the <code>CastsInboundAttributes</code> interface, which only requires a <code>set</code> method to be defined.</p>
+<pre><code>&lt;?php
+
+namespace App\Casts;
+
+use Illuminate\Contracts\Database\Eloquent\CastsInboundAttributes;
+
+class Hash implements CastsInboundAttributes
+{
+    /**
+     * The hashing algorithm.
+     *
+     * @var string
+     */
+    protected $algorithm;
+
+    /**
+     * Create a new cast class instance.
+     *
+     * @param  string|null  $algorithm
+     * @return void
+     */
+    public function __construct($algorithm = null)
+    {
+        $this-&gt;algorithm = $algorithm;
+    }
+
+    /**
+     * Prepare the given value for storage.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  array  $value
+     * @param  array  $attributes
+     * @return string
+     */
+    public function set($model, $key, $value, $attributes)
+    {
+        return is_null($this-&gt;algorithm)
+                    ? bcrypt($value)
+                    : hash($this-&gt;algorithm, $value);
+    }
+}</code></pre>
+<h4>Cast Parameters</h4>
+<p>When attaching a custom cast to a model, cast parameters may be specified by separating them from the class name using a <code>:</code> character and comma-delimiting multiple parameters. The parameters will be passed to the constructor of the cast class:</p>
+<pre><code>/**
+ * The attributes that should be cast.
+ *
+ * @var array
+ */
+protected $casts = [
+    'secret' =&gt; Hash::class.':sha256',
+];</code></pre>
+<h4>Castables</h4>
+<p>Instead of attaching the custom cast to your model, you may alternatively attach a class that implements the <code>Illuminate\Contracts\Database\Eloquent\Castable</code> interface:</p>
+<pre><code>protected $casts = [
+    'options' =&gt; \App\Address::class,
+];</code></pre>
+<p>Objects that implement the <code>Castable</code> interface must define a <code>castUsing</code> method that returns the class name of the custom caster class that is responsible for casting to and from the <code>Castable</code> class:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Contracts\Database\Eloquent\Castable;
+use App\Casts\Address as AddressCast;
+
+class Address implements Castable
+{
+    /**
+     * Get the name of the caster class to use when casting from / to this cast target.
+     *
+     * @return string
+     */
+    public static function castUsing()
+    {
+        return AddressCast::class;
+    }
+}</code></pre>
+<p>When using <code>Castable</code> classes, you may still provide arguments in the <code>$casts</code> definition. The arguments will be passed directly to the caster class:</p>
+<pre><code>protected $casts = [
+    'options' =&gt; \App\Address::class.':argument',
+];</code></pre>
+<p><a name="array-and-json-casting"></a></p>
+<h3 id="array-and-json-casting">Array &amp; JSON Casting</h3>
+<p>The <code>array</code> cast type is particularly useful when working with columns that are stored as serialized JSON. For example, if your database has a <code>JSON</code> or <code>TEXT</code> field type that contains serialized JSON, adding the <code>array</code> cast to that attribute will automatically deserialize the attribute to a PHP array when you access it on your Eloquent model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'options' =&gt; 'array',
+    ];
+}</code></pre>
+<p>Once the cast is defined, you may access the <code>options</code> attribute and it will automatically be deserialized from JSON into a PHP array. When you set the value of the <code>options</code> attribute, the given array will automatically be serialized back into JSON for storage:</p>
+<pre><code>$user = App\User::find(1);
+
+$options = $user-&gt;options;
+
+$options['key'] = 'value';
+
+$user-&gt;options = $options;
+
+$user-&gt;save();</code></pre>
+<p><a name="date-casting"></a></p>
+<h3 id="date-casting">Date Casting</h3>
+<p>When using the <code>date</code> or <code>datetime</code> cast type, you may specify the date's format. This format will be used when the <a href="eloquent-serialization.html">model is serialized to an array or JSON</a>:</p>
+<pre><code>/**
+ * The attributes that should be cast.
+ *
+ * @var array
+ */
+protected $casts = [
+    'created_at' =&gt; 'datetime:Y-m-d',
+];</code></pre>
+<p><a name="query-time-casting"></a></p>
+<h3 id="query-time-casting">Query Time Casting</h3>
+<p>Sometimes you may need to apply casts while executing a query, such as when selecting a raw value from a table. For example, consider the following query:</p>
+<pre><code>use App\Post;
+use App\User;
+
+$users = User::select([
+    'users.*',
+    'last_posted_at' =&gt; Post::selectRaw('MAX(created_at)')
+            -&gt;whereColumn('user_id', 'users.id')
+])-&gt;get();</code></pre>
+<p>The <code>last_posted_at</code> attribute on the results of this query will be a raw string. It would be convenient if we could apply a <code>date</code> cast to this attribute when executing the query. To accomplish this, we may use the <code>withCasts</code> method:</p>
+<pre><code>$users = User::select([
+    'users.*',
+    'last_posted_at' =&gt; Post::selectRaw('MAX(created_at)')
+            -&gt;whereColumn('user_id', 'users.id')
+])-&gt;withCasts([
+    'last_posted_at' =&gt; 'datetime'
+])-&gt;get();</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/eloquent-mutators by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+</html>

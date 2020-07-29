@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/controllers by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Controllers - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="controllers.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/controllers">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/controllers">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/controllers">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/controllers">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/controllers">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/controllers">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/controllers">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/controllers">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/controllers">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/controllers">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/controllers">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/controllers">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/controllers">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Controllers</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#basic-controllers">Basic Controllers</a>
+<ul>
+<li><a href="#defining-controllers">Defining Controllers</a></li>
+<li><a href="#controllers-and-namespaces">Controllers &amp; Namespaces</a></li>
+<li><a href="#single-action-controllers">Single Action Controllers</a></li>
+</ul></li>
+<li><a href="#controller-middleware">Controller Middleware</a></li>
+<li><a href="#resource-controllers">Resource Controllers</a>
+<ul>
+<li><a href="#restful-partial-resource-routes">Partial Resource Routes</a></li>
+<li><a href="#restful-nested-resources">Nested Resources</a></li>
+<li><a href="#restful-naming-resource-routes">Naming Resource Routes</a></li>
+<li><a href="#restful-naming-resource-route-parameters">Naming Resource Route Parameters</a></li>
+<li><a href="#restful-localizing-resource-uris">Localizing Resource URIs</a></li>
+<li><a href="#restful-supplementing-resource-controllers">Supplementing Resource Controllers</a></li>
+</ul></li>
+<li><a href="#dependency-injection-and-controllers">Dependency Injection &amp; Controllers</a></li>
+<li><a href="#route-caching">Route Caching</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Instead of defining all of your request handling logic as Closures in route files, you may wish to organize this behavior using Controller classes. Controllers can group related request handling logic into a single class. Controllers are stored in the <code>app/Http/Controllers</code> directory.</p>
+<p><a name="basic-controllers"></a></p>
+<h2 id="basic-controllers">Basic Controllers</h2>
+<p><a name="defining-controllers"></a></p>
+<h3 id="defining-controllers">Defining Controllers</h3>
+<p>Below is an example of a basic controller class. Note that the controller extends the base controller class included with Laravel. The base class provides a few convenience methods such as the <code>middleware</code> method, which may be used to attach middleware to controller actions:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\User;
+
+class UserController extends Controller
+{
+    /**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return View
+     */
+    public function show($id)
+    {
+        return view('user.profile', ['user' =&gt; User::findOrFail($id)]);
+    }
+}</code></pre>
+<p>You can define a route to this controller action like so:</p>
+<pre><code>Route::get('user/{id}', '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="56032533241539382224393a3a332416253e3921">[email&#160;protected]</a>');</code></pre>
+<p>Now, when a request matches the specified route URI, the <code>show</code> method on the <code>UserController</code> class will be executed. The route parameters will also be passed to the method.</p>
+<blockquote>
+<p>{tip} Controllers are not <strong>required</strong> to extend a base class. However, you will not have access to convenience features such as the <code>middleware</code>, <code>validate</code>, and <code>dispatch</code> methods.</p>
+</blockquote>
+<p><a name="controllers-and-namespaces"></a></p>
+<h3 id="controllers-and-namespaces">Controllers &amp; Namespaces</h3>
+<p>It is very important to note that we did not need to specify the full controller namespace when defining the controller route. Since the <code>RouteServiceProvider</code> loads your route files within a route group that contains the namespace, we only specified the portion of the class name that comes after the <code>App\Http\Controllers</code> portion of the namespace.</p>
+<p>If you choose to nest your controllers deeper into the <code>App\Http\Controllers</code> directory, use the specific class name relative to the <code>App\Http\Controllers</code> root namespace. So, if your full controller class is <code>App\Http\Controllers\Photos\AdminController</code>, you should register routes to the controller like so:</p>
+<pre><code>Route::get('foo', 'Photos\<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fabb9e979394b995948e889596969f88ba979f8e92959e">[email&#160;protected]</a>');</code></pre>
+<p><a name="single-action-controllers"></a></p>
+<h3 id="single-action-controllers">Single Action Controllers</h3>
+<p>If you would like to define a controller that only handles a single action, you may place a single <code>__invoke</code> method on the controller:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\User;
+
+class ShowProfile extends Controller
+{
+    /**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return View
+     */
+    public function __invoke($id)
+    {
+        return view('user.profile', ['user' =&gt; User::findOrFail($id)]);
+    }
+}</code></pre>
+<p>When registering routes for single action controllers, you do not need to specify a method:</p>
+<pre><code>Route::get('user/{id}', 'ShowProfile');</code></pre>
+<p>You may generate an invokable controller by using the <code>--invokable</code> option of the <code>make:controller</code> Artisan command:</p>
+<pre><code>php artisan make:controller ShowProfile --invokable</code></pre>
+<blockquote>
+<p>{tip} Controller stubs may be customized using <a href="artisan.html#stub-customization">stub publishing</a></p>
+</blockquote>
+<p><a name="controller-middleware"></a></p>
+<h2 id="controller-middleware">Controller Middleware</h2>
+<p><a href="middleware.html">Middleware</a> may be assigned to the controller's routes in your route files:</p>
+<pre><code>Route::get('profile', '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0a5f796f784965647e786566666f784a7962657d">[email&#160;protected]</a>')-&gt;middleware('auth');</code></pre>
+<p>However, it is more convenient to specify middleware within your controller's constructor. Using the <code>middleware</code> method from your controller's constructor, you may easily assign middleware to the controller's action. You may even restrict the middleware to only certain methods on the controller class:</p>
+<pre><code>class UserController extends Controller
+{
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this-&gt;middleware('auth');
+
+        $this-&gt;middleware('log')-&gt;only('index');
+
+        $this-&gt;middleware('subscribed')-&gt;except('store');
+    }
+}</code></pre>
+<p>Controllers also allow you to register middleware using a Closure. This provides a convenient way to define a middleware for a single controller without defining an entire middleware class:</p>
+<pre><code>$this-&gt;middleware(function ($request, $next) {
+    // ...
+
+    return $next($request);
+});</code></pre>
+<blockquote>
+<p>{tip} You may assign middleware to a subset of controller actions; however, it may indicate your controller is growing too large. Instead, consider breaking your controller into multiple, smaller controllers.</p>
+</blockquote>
+<p><a name="resource-controllers"></a></p>
+<h2 id="resource-controllers">Resource Controllers</h2>
+<p>Laravel resource routing assigns the typical &quot;CRUD&quot; routes to a controller with a single line of code. For example, you may wish to create a controller that handles all HTTP requests for &quot;photos&quot; stored by your application. Using the <code>make:controller</code> Artisan command, we can quickly create such a controller:</p>
+<pre><code>php artisan make:controller PhotoController --resource</code></pre>
+<p>This command will generate a controller at <code>app/Http/Controllers/PhotoController.php</code>. The controller will contain a method for each of the available resource operations.</p>
+<p>Next, you may register a resourceful route to the controller:</p>
+<pre><code>Route::resource('photos', 'PhotoController');</code></pre>
+<p>This single route declaration creates multiple routes to handle a variety of actions on the resource. The generated controller will already have methods stubbed for each of these actions, including notes informing you of the HTTP verbs and URIs they handle.</p>
+<p>You may register many resource controllers at once by passing an array to the <code>resources</code> method:</p>
+<pre><code>Route::resources([
+    'photos' =&gt; 'PhotoController',
+    'posts' =&gt; 'PostController',
+]);</code></pre>
+<h4>Actions Handled By Resource Controller</h4>
+<table>
+<thead>
+<tr>
+<th>Verb</th>
+<th>URI</th>
+<th>Action</th>
+<th>Route Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/photos</code></td>
+<td>index</td>
+<td>photos.index</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/photos/create</code></td>
+<td>create</td>
+<td>photos.create</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/photos</code></td>
+<td>store</td>
+<td>photos.store</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/photos/{photo}</code></td>
+<td>show</td>
+<td>photos.show</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/photos/{photo}/edit</code></td>
+<td>edit</td>
+<td>photos.edit</td>
+</tr>
+<tr>
+<td>PUT/PATCH</td>
+<td><code>/photos/{photo}</code></td>
+<td>update</td>
+<td>photos.update</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/photos/{photo}</code></td>
+<td>destroy</td>
+<td>photos.destroy</td>
+</tr>
+</tbody>
+</table>
+<h4>Specifying The Resource Model</h4>
+<p>If you are using route model binding and would like the resource controller's methods to type-hint a model instance, you may use the <code>--model</code> option when generating the controller:</p>
+<pre><code>php artisan make:controller PhotoController --resource --model=Photo</code></pre>
+<h4>Spoofing Form Methods</h4>
+<p>Since HTML forms can't make <code>PUT</code>, <code>PATCH</code>, or <code>DELETE</code> requests, you will need to add a hidden <code>_method</code> field to spoof these HTTP verbs. The <code>@method</code> Blade directive can create this field for you:</p>
+<pre><code>&lt;form action="/foo/bar" method="POST"&gt;
+    @method('PUT')
+&lt;/form&gt;</code></pre>
+<p><a name="restful-partial-resource-routes"></a></p>
+<h3 id="restful-partial-resource-routes">Partial Resource Routes</h3>
+<p>When declaring a resource route, you may specify a subset of actions the controller should handle instead of the full set of default actions:</p>
+<pre><code>Route::resource('photos', 'PhotoController')-&gt;only([
+    'index', 'show'
+]);
+
+Route::resource('photos', 'PhotoController')-&gt;except([
+    'create', 'store', 'update', 'destroy'
+]);</code></pre>
+<h4>API Resource Routes</h4>
+<p>When declaring resource routes that will be consumed by APIs, you will commonly want to exclude routes that present HTML templates such as <code>create</code> and <code>edit</code>. For convenience, you may use the <code>apiResource</code> method to automatically exclude these two routes:</p>
+<pre><code>Route::apiResource('photos', 'PhotoController');</code></pre>
+<p>You may register many API resource controllers at once by passing an array to the <code>apiResources</code> method:</p>
+<pre><code>Route::apiResources([
+    'photos' =&gt; 'PhotoController',
+    'posts' =&gt; 'PostController',
+]);</code></pre>
+<p>To quickly generate an API resource controller that does not include the <code>create</code> or <code>edit</code> methods, use the <code>--api</code> switch when executing the <code>make:controller</code> command:</p>
+<pre><code>php artisan make:controller API/PhotoController --api</code></pre>
+<p><a name="restful-nested-resources"></a></p>
+<h3 id="restful-nested-resources">Nested Resources</h3>
+<p>Sometimes you may need to define routes to a nested resource. For example, a photo resource may have multiple comments that may be attached to the photo. To nest the resource controllers, use &quot;dot&quot; notation in your route declaration:</p>
+<pre><code>Route::resource('photos.comments', 'PhotoCommentController');</code></pre>
+<p>This route will register a nested resource that may be accessed with URIs like the following:</p>
+<pre><code>/photos/{photo}/comments/{comment}</code></pre>
+<h4>Shallow Nesting</h4>
+<p>Often, it is not entirely necessary to have both the parent and the child IDs within a URI since the child ID is already a unique identifier. When using unique identifier such as auto-incrementing primary keys to identify your models in URI segments, you may choose to use &quot;shallow nesting&quot;:</p>
+<pre><code>Route::resource('photos.comments', 'CommentController')-&gt;shallow();</code></pre>
+<p>The route definition above will define the following routes:</p>
+<table>
+<thead>
+<tr>
+<th>Verb</th>
+<th>URI</th>
+<th>Action</th>
+<th>Route Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/photos/{photo}/comments</code></td>
+<td>index</td>
+<td>photos.comments.index</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/photos/{photo}/comments/create</code></td>
+<td>create</td>
+<td>photos.comments.create</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/photos/{photo}/comments</code></td>
+<td>store</td>
+<td>photos.comments.store</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/comments/{comment}</code></td>
+<td>show</td>
+<td>comments.show</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/comments/{comment}/edit</code></td>
+<td>edit</td>
+<td>comments.edit</td>
+</tr>
+<tr>
+<td>PUT/PATCH</td>
+<td><code>/comments/{comment}</code></td>
+<td>update</td>
+<td>comments.update</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/comments/{comment}</code></td>
+<td>destroy</td>
+<td>comments.destroy</td>
+</tr>
+</tbody>
+</table>
+<p><a name="restful-naming-resource-routes"></a></p>
+<h3 id="restful-naming-resource-routes">Naming Resource Routes</h3>
+<p>By default, all resource controller actions have a route name; however, you can override these names by passing a <code>names</code> array with your options:</p>
+<pre><code>Route::resource('photos', 'PhotoController')-&gt;names([
+    'create' =&gt; 'photos.build'
+]);</code></pre>
+<p><a name="restful-naming-resource-route-parameters"></a></p>
+<h3 id="restful-naming-resource-route-parameters">Naming Resource Route Parameters</h3>
+<p>By default, <code>Route::resource</code> will create the route parameters for your resource routes based on the &quot;singularized&quot; version of the resource name. You can easily override this on a per resource basis by using the <code>parameters</code> method. The array passed into the <code>parameters</code> method should be an associative array of resource names and parameter names:</p>
+<pre><code>Route::resource('users', 'AdminUserController')-&gt;parameters([
+    'users' =&gt; 'admin_user'
+]);</code></pre>
+<p>The example above generates the following URIs for the resource's <code>show</code> route:</p>
+<pre><code>/users/{admin_user}</code></pre>
+<p><a name="restful-localizing-resource-uris"></a></p>
+<h3 id="restful-localizing-resource-uris">Localizing Resource URIs</h3>
+<p>By default, <code>Route::resource</code> will create resource URIs using English verbs. If you need to localize the <code>create</code> and <code>edit</code> action verbs, you may use the <code>Route::resourceVerbs</code> method. This may be done in the <code>boot</code> method of your <code>AppServiceProvider</code>:</p>
+<pre><code>use Illuminate\Support\Facades\Route;
+
+/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Route::resourceVerbs([
+        'create' =&gt; 'crear',
+        'edit' =&gt; 'editar',
+    ]);
+}</code></pre>
+<p>Once the verbs have been customized, a resource route registration such as <code>Route::resource('fotos', 'PhotoController')</code> will produce the following URIs:</p>
+<pre><code>/fotos/crear
+
+/fotos/{foto}/editar</code></pre>
+<p><a name="restful-supplementing-resource-controllers"></a></p>
+<h3 id="restful-supplementing-resource-controllers">Supplementing Resource Controllers</h3>
+<p>If you need to add additional routes to a resource controller beyond the default set of resource routes, you should define those routes before your call to <code>Route::resource</code>; otherwise, the routes defined by the <code>resource</code> method may unintentionally take precedence over your supplemental routes:</p>
+<pre><code>Route::get('photos/popular', '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="35655d5a415a765a5b41475a59595047755850415d5a51">[email&#160;protected]</a>');
+
+Route::resource('photos', 'PhotoController');</code></pre>
+<blockquote>
+<p>{tip} Remember to keep your controllers focused. If you find yourself routinely needing methods outside of the typical set of resource actions, consider splitting your controller into two, smaller controllers.</p>
+</blockquote>
+<p><a name="dependency-injection-and-controllers"></a></p>
+<h2 id="dependency-injection-and-controllers">Dependency Injection &amp; Controllers</h2>
+<h4>Constructor Injection</h4>
+<p>The Laravel <a href="container.html">service container</a> is used to resolve all Laravel controllers. As a result, you are able to type-hint any dependencies your controller may need in its constructor. The declared dependencies will automatically be resolved and injected into the controller instance:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Repositories\UserRepository;
+
+class UserController extends Controller
+{
+    /**
+     * The user repository instance.
+     */
+    protected $users;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param  UserRepository  $users
+     * @return void
+     */
+    public function __construct(UserRepository $users)
+    {
+        $this-&gt;users = $users;
+    }
+}</code></pre>
+<p>You may also type-hint any <a href="contracts.html">Laravel contract</a>. If the container can resolve it, you can type-hint it. Depending on your application, injecting your dependencies into your controller may provide better testability.</p>
+<h4>Method Injection</h4>
+<p>In addition to constructor injection, you may also type-hint dependencies on your controller's methods. A common use-case for method injection is injecting the <code>Illuminate\Http\Request</code> instance into your controller methods:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    /**
+     * Store a new user.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        $name = $request-&gt;name;
+
+        //
+    }
+}</code></pre>
+<p>If your controller method is also expecting input from a route parameter, list your route arguments after your other dependencies. For example, if your route is defined like so:</p>
+<pre><code>Route::put('user/{id}', '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d580a6b0a796babba1a7bab9b9b0a795a0a5b1b4a1b0">[email&#160;protected]</a>');</code></pre>
+<p>You may still type-hint the <code>Illuminate\Http\Request</code> and access your <code>id</code> parameter by defining your controller method as follows:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    /**
+     * Update the given user.
+     *
+     * @param  Request  $request
+     * @param  string  $id
+     * @return Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+}</code></pre>
+<p><a name="route-caching"></a></p>
+<h2 id="route-caching">Route Caching</h2>
+<blockquote>
+<p>{note} Closure based routes cannot be cached. To use route caching, you must convert any Closure routes to controller classes.</p>
+</blockquote>
+<p>If your application is exclusively using controller based routes, you should take advantage of Laravel's route cache. Using the route cache will drastically decrease the amount of time it takes to register all of your application's routes. In some cases, your route registration may even be up to 100x faster. To generate a route cache, just execute the <code>route:cache</code> Artisan command:</p>
+<pre><code>php artisan route:cache</code></pre>
+<p>After running this command, your cached routes file will be loaded on every request. Remember, if you add any new routes you will need to generate a fresh route cache. Because of this, you should only run the <code>route:cache</code> command during your project's deployment.</p>
+<p>You may use the <code>route:clear</code> command to clear the route cache:</p>
+<pre><code>php artisan route:clear</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/controllers by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+</html>

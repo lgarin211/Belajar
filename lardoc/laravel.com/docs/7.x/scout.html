@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/scout by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Laravel Scout - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="scout.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/scout">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/scout">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/scout">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/scout">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/scout">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/scout">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/scout">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/scout">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/scout">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/scout">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/scout">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/scout">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/scout">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Laravel Scout</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#installation">Installation</a>
+<ul>
+<li><a href="#queueing">Queueing</a></li>
+<li><a href="#driver-prerequisites">Driver Prerequisites</a></li>
+</ul></li>
+<li><a href="#configuration">Configuration</a>
+<ul>
+<li><a href="#configuring-model-indexes">Configuring Model Indexes</a></li>
+<li><a href="#configuring-searchable-data">Configuring Searchable Data</a></li>
+<li><a href="#configuring-the-model-id">Configuring The Model ID</a></li>
+</ul></li>
+<li><a href="#indexing">Indexing</a>
+<ul>
+<li><a href="#batch-import">Batch Import</a></li>
+<li><a href="#adding-records">Adding Records</a></li>
+<li><a href="#updating-records">Updating Records</a></li>
+<li><a href="#removing-records">Removing Records</a></li>
+<li><a href="#pausing-indexing">Pausing Indexing</a></li>
+<li><a href="#conditionally-searchable-model-instances">Conditionally Searchable Model Instances</a></li>
+</ul></li>
+<li><a href="#searching">Searching</a>
+<ul>
+<li><a href="#where-clauses">Where Clauses</a></li>
+<li><a href="#pagination">Pagination</a></li>
+<li><a href="#soft-deleting">Soft Deleting</a></li>
+<li><a href="#customizing-engine-searches">Customizing Engine Searches</a></li>
+</ul></li>
+<li><a href="#custom-engines">Custom Engines</a></li>
+<li><a href="#builder-macros">Builder Macros</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Laravel Scout provides a simple, driver based solution for adding full-text search to your <a href="eloquent.html">Eloquent models</a>. Using model observers, Scout will automatically keep your search indexes in sync with your Eloquent records.</p>
+<p>Currently, Scout ships with an <a href="https://www.algolia.com/">Algolia</a> driver; however, writing custom drivers is simple and you are free to extend Scout with your own search implementations.</p>
+<p><a name="installation"></a></p>
+<h2 id="installation">Installation</h2>
+<p>First, install Scout via the Composer package manager:</p>
+<pre><code>composer require laravel/scout</code></pre>
+<p>After installing Scout, you should publish the Scout configuration using the <code>vendor:publish</code> Artisan command. This command will publish the <code>scout.php</code> configuration file to your <code>config</code> directory:</p>
+<pre><code>php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"</code></pre>
+<p>Finally, add the <code>Laravel\Scout\Searchable</code> trait to the model you would like to make searchable. This trait will register a model observer to keep the model in sync with your search driver:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+
+class Post extends Model
+{
+    use Searchable;
+}</code></pre>
+<p><a name="queueing"></a></p>
+<h3 id="queueing">Queueing</h3>
+<p>While not strictly required to use Scout, you should strongly consider configuring a <a href="queues.html">queue driver</a> before using the library. Running a queue worker will allow Scout to queue all operations that sync your model information to your search indexes, providing much better response times for your application's web interface.</p>
+<p>Once you have configured a queue driver, set the value of the <code>queue</code> option in your <code>config/scout.php</code> configuration file to <code>true</code>:</p>
+<pre><code>'queue' =&gt; true,</code></pre>
+<p><a name="driver-prerequisites"></a></p>
+<h3 id="driver-prerequisites">Driver Prerequisites</h3>
+<h4>Algolia</h4>
+<p>When using the Algolia driver, you should configure your Algolia <code>id</code> and <code>secret</code> credentials in your <code>config/scout.php</code> configuration file. Once your credentials have been configured, you will also need to install the Algolia PHP SDK via the Composer package manager:</p>
+<pre><code>composer require algolia/algoliasearch-client-php:^2.2</code></pre>
+<p><a name="configuration"></a></p>
+<h2 id="configuration">Configuration</h2>
+<p><a name="configuring-model-indexes"></a></p>
+<h3 id="configuring-model-indexes">Configuring Model Indexes</h3>
+<p>Each Eloquent model is synced with a given search &quot;index&quot;, which contains all of the searchable records for that model. In other words, you can think of each index like a MySQL table. By default, each model will be persisted to an index matching the model's typical &quot;table&quot; name. Typically, this is the plural form of the model name; however, you are free to customize the model's index by overriding the <code>searchableAs</code> method on the model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+
+class Post extends Model
+{
+    use Searchable;
+
+    /**
+     * Get the index name for the model.
+     *
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return 'posts_index';
+    }
+}</code></pre>
+<p><a name="configuring-searchable-data"></a></p>
+<h3 id="configuring-searchable-data">Configuring Searchable Data</h3>
+<p>By default, the entire <code>toArray</code> form of a given model will be persisted to its search index. If you would like to customize the data that is synchronized to the search index, you may override the <code>toSearchableArray</code> method on the model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+
+class Post extends Model
+{
+    use Searchable;
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = $this-&gt;toArray();
+
+        // Customize array...
+
+        return $array;
+    }
+}</code></pre>
+<p><a name="configuring-the-model-id"></a></p>
+<h3 id="configuring-the-model-id">Configuring The Model ID</h3>
+<p>By default, Scout will use the primary key of the model as the unique ID stored in the search index. If you need to customize this behavior, you may override the <code>getScoutKey</code> and the <code>getScoutKeyName</code> methods on the model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+
+class User extends Model
+{
+    use Searchable;
+
+    /**
+     * Get the value used to index the model.
+     *
+     * @return mixed
+     */
+    public function getScoutKey()
+    {
+        return $this-&gt;email;
+    }
+
+    /**
+     * Get the key name used to index the model.
+     *
+     * @return mixed
+     */
+    public function getScoutKeyName()
+    {
+        return 'email';
+    }
+}</code></pre>
+<p><a name="indexing"></a></p>
+<h2 id="indexing">Indexing</h2>
+<p><a name="batch-import"></a></p>
+<h3 id="batch-import">Batch Import</h3>
+<p>If you are installing Scout into an existing project, you may already have database records you need to import into your search driver. Scout provides an <code>import</code> Artisan command that you may use to import all of your existing records into your search indexes:</p>
+<pre><code>php artisan scout:import "App\Post"</code></pre>
+<p>The <code>flush</code> command may be used to remove all of a model's records from your search indexes:</p>
+<pre><code>php artisan scout:flush "App\Post"</code></pre>
+<p><a name="adding-records"></a></p>
+<h3 id="adding-records">Adding Records</h3>
+<p>Once you have added the <code>Laravel\Scout\Searchable</code> trait to a model, all you need to do is <code>save</code> a model instance and it will automatically be added to your search index. If you have configured Scout to <a href="#queueing">use queues</a> this operation will be performed in the background by your queue worker:</p>
+<pre><code>$order = new App\Order;
+
+// ...
+
+$order-&gt;save();</code></pre>
+<h4>Adding Via Query</h4>
+<p>If you would like to add a collection of models to your search index via an Eloquent query, you may chain the <code>searchable</code> method onto an Eloquent query. The <code>searchable</code> method will <a href="eloquent.html#chunking-results">chunk the results</a> of the query and add the records to your search index. Again, if you have configured Scout to use queues, all of the chunks will be added in the background by your queue workers:</p>
+<pre><code>// Adding via Eloquent query...
+App\Order::where('price', '&gt;', 100)-&gt;searchable();
+
+// You may also add records via relationships...
+$user-&gt;orders()-&gt;searchable();
+
+// You may also add records via collections...
+$orders-&gt;searchable();</code></pre>
+<p>The <code>searchable</code> method can be considered an &quot;upsert&quot; operation. In other words, if the model record is already in your index, it will be updated. If it does not exist in the search index, it will be added to the index.</p>
+<p><a name="updating-records"></a></p>
+<h3 id="updating-records">Updating Records</h3>
+<p>To update a searchable model, you only need to update the model instance's properties and <code>save</code> the model to your database. Scout will automatically persist the changes to your search index:</p>
+<pre><code>$order = App\Order::find(1);
+
+// Update the order...
+
+$order-&gt;save();</code></pre>
+<p>You may also use the <code>searchable</code> method on an Eloquent query to update a collection of models. If the models do not exist in your search index, they will be created:</p>
+<pre><code>// Updating via Eloquent query...
+App\Order::where('price', '&gt;', 100)-&gt;searchable();
+
+// You may also update via relationships...
+$user-&gt;orders()-&gt;searchable();
+
+// You may also update via collections...
+$orders-&gt;searchable();</code></pre>
+<p><a name="removing-records"></a></p>
+<h3 id="removing-records">Removing Records</h3>
+<p>To remove a record from your index, <code>delete</code> the model from the database. This form of removal is even compatible with <a href="eloquent.html#soft-deleting">soft deleted</a> models:</p>
+<pre><code>$order = App\Order::find(1);
+
+$order-&gt;delete();</code></pre>
+<p>If you do not want to retrieve the model before deleting the record, you may use the <code>unsearchable</code> method on an Eloquent query instance or collection:</p>
+<pre><code>// Removing via Eloquent query...
+App\Order::where('price', '&gt;', 100)-&gt;unsearchable();
+
+// You may also remove via relationships...
+$user-&gt;orders()-&gt;unsearchable();
+
+// You may also remove via collections...
+$orders-&gt;unsearchable();</code></pre>
+<p><a name="pausing-indexing"></a></p>
+<h3 id="pausing-indexing">Pausing Indexing</h3>
+<p>Sometimes you may need to perform a batch of Eloquent operations on a model without syncing the model data to your search index. You may do this using the <code>withoutSyncingToSearch</code> method. This method accepts a single callback which will be immediately executed. Any model operations that occur within the callback will not be synced to the model's index:</p>
+<pre><code>App\Order::withoutSyncingToSearch(function () {
+    // Perform model actions...
+});</code></pre>
+<p><a name="conditionally-searchable-model-instances"></a></p>
+<h3 id="conditionally-searchable-model-instances">Conditionally Searchable Model Instances</h3>
+<p>Sometimes you may need to only make a model searchable under certain conditions. For example, imagine you have <code>App\Post</code> model that may be in one of two states: &quot;draft&quot; and &quot;published&quot;. You may only want to allow &quot;published&quot; posts to be searchable. To accomplish this, you may define a <code>shouldBeSearchable</code> method on your model:</p>
+<pre><code>public function shouldBeSearchable()
+{
+    return $this-&gt;isPublished();
+}</code></pre>
+<p>The <code>shouldBeSearchable</code> method is only applied when manipulating models through the <code>save</code> method, queries, or relationships. Directly making models or collections searchable using the <code>searchable</code> method will override the result of the <code>shouldBeSearchable</code> method:</p>
+<pre><code>// Will respect "shouldBeSearchable"...
+App\Order::where('price', '&gt;', 100)-&gt;searchable();
+
+$user-&gt;orders()-&gt;searchable();
+
+$order-&gt;save();
+
+// Will override "shouldBeSearchable"...
+$orders-&gt;searchable();
+
+$order-&gt;searchable();</code></pre>
+<p><a name="searching"></a></p>
+<h2 id="searching">Searching</h2>
+<p>You may begin searching a model using the <code>search</code> method. The search method accepts a single string that will be used to search your models. You should then chain the <code>get</code> method onto the search query to retrieve the Eloquent models that match the given search query:</p>
+<pre><code>$orders = App\Order::search('Star Trek')-&gt;get();</code></pre>
+<p>Since Scout searches return a collection of Eloquent models, you may even return the results directly from a route or controller and they will automatically be converted to JSON:</p>
+<pre><code>use Illuminate\Http\Request;
+
+Route::get('/search', function (Request $request) {
+    return App\Order::search($request-&gt;search)-&gt;get();
+});</code></pre>
+<p>If you would like to get the raw results before they are converted to Eloquent models, you should use the <code>raw</code> method:</p>
+<pre><code>$orders = App\Order::search('Star Trek')-&gt;raw();</code></pre>
+<p>Search queries will typically be performed on the index specified by the model's <a href="#configuring-model-indexes"><code>searchableAs</code></a> method. However, you may use the <code>within</code> method to specify a custom index that should be searched instead:</p>
+<pre><code>$orders = App\Order::search('Star Trek')
+    -&gt;within('tv_shows_popularity_desc')
+    -&gt;get();</code></pre>
+<p><a name="where-clauses"></a></p>
+<h3 id="where-clauses">Where Clauses</h3>
+<p>Scout allows you to add simple &quot;where&quot; clauses to your search queries. Currently, these clauses only support basic numeric equality checks, and are primarily useful for scoping search queries by a tenant ID. Since a search index is not a relational database, more advanced &quot;where&quot; clauses are not currently supported:</p>
+<pre><code>$orders = App\Order::search('Star Trek')-&gt;where('user_id', 1)-&gt;get();</code></pre>
+<p><a name="pagination"></a></p>
+<h3 id="pagination">Pagination</h3>
+<p>In addition to retrieving a collection of models, you may paginate your search results using the <code>paginate</code> method. This method will return a <code>Paginator</code> instance just as if you had <a href="pagination.html">paginated a traditional Eloquent query</a>:</p>
+<pre><code>$orders = App\Order::search('Star Trek')-&gt;paginate();</code></pre>
+<p>You may specify how many models to retrieve per page by passing the amount as the first argument to the <code>paginate</code> method:</p>
+<pre><code>$orders = App\Order::search('Star Trek')-&gt;paginate(15);</code></pre>
+<p>Once you have retrieved the results, you may display the results and render the page links using <a href="blade.html">Blade</a> just as if you had paginated a traditional Eloquent query:</p>
+<pre><code>&lt;div class="container"&gt;
+    @foreach ($orders as $order)
+        {{ $order-&gt;price }}
+    @endforeach
+&lt;/div&gt;
+
+{{ $orders-&gt;links() }}</code></pre>
+<p><a name="soft-deleting"></a></p>
+<h3 id="soft-deleting">Soft Deleting</h3>
+<p>If your indexed models are <a href="eloquent.html#soft-deleting">soft deleting</a> and you need to search your soft deleted models, set the <code>soft_delete</code> option of the <code>config/scout.php</code> configuration file to <code>true</code>:</p>
+<pre><code>'soft_delete' =&gt; true,</code></pre>
+<p>When this configuration option is <code>true</code>, Scout will not remove soft deleted models from the search index. Instead, it will set a hidden <code>__soft_deleted</code> attribute on the indexed record. Then, you may use the <code>withTrashed</code> or <code>onlyTrashed</code> methods to retrieve the soft deleted records when searching:</p>
+<pre><code>// Include trashed records when retrieving results...
+$orders = App\Order::search('Star Trek')-&gt;withTrashed()-&gt;get();
+
+// Only include trashed records when retrieving results...
+$orders = App\Order::search('Star Trek')-&gt;onlyTrashed()-&gt;get();</code></pre>
+<blockquote>
+<p>{tip} When a soft deleted model is permanently deleted using <code>forceDelete</code>, Scout will remove it from the search index automatically.</p>
+</blockquote>
+<p><a name="customizing-engine-searches"></a></p>
+<h3 id="customizing-engine-searches">Customizing Engine Searches</h3>
+<p>If you need to customize the search behavior of an engine you may pass a callback as the second argument to the <code>search</code> method. For example, you could use this callback to add geo-location data to your search options before the search query is passed to Algolia:</p>
+<pre><code>use Algolia\AlgoliaSearch\SearchIndex;
+
+App\Order::search('Star Trek', function (SearchIndex $algolia, string $query, array $options) {
+    $options['body']['query']['bool']['filter']['geo_distance'] = [
+        'distance' =&gt; '1000km',
+        'location' =&gt; ['lat' =&gt; 36, 'lon' =&gt; 111],
+    ];
+
+    return $algolia-&gt;search($query, $options);
+})-&gt;get();</code></pre>
+<p><a name="custom-engines"></a></p>
+<h2 id="custom-engines">Custom Engines</h2>
+<h4>Writing The Engine</h4>
+<p>If one of the built-in Scout search engines doesn't fit your needs, you may write your own custom engine and register it with Scout. Your engine should extend the <code>Laravel\Scout\Engines\Engine</code> abstract class. This abstract class contains eight methods your custom engine must implement:</p>
+<pre><code>use Laravel\Scout\Builder;
+
+abstract public function update($models);
+abstract public function delete($models);
+abstract public function search(Builder $builder);
+abstract public function paginate(Builder $builder, $perPage, $page);
+abstract public function mapIds($results);
+abstract public function map(Builder $builder, $results, $model);
+abstract public function getTotalCount($results);
+abstract public function flush($model);</code></pre>
+<p>You may find it helpful to review the implementations of these methods on the <code>Laravel\Scout\Engines\AlgoliaEngine</code> class. This class will provide you with a good starting point for learning how to implement each of these methods in your own engine.</p>
+<h4>Registering The Engine</h4>
+<p>Once you have written your custom engine, you may register it with Scout using the <code>extend</code> method of the Scout engine manager. You should call the <code>extend</code> method from the <code>boot</code> method of your <code>AppServiceProvider</code> or any other service provider used by your application. For example, if you have written a <code>MySqlSearchEngine</code>, you may register it like so:</p>
+<pre><code>use Laravel\Scout\EngineManager;
+
+/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    resolve(EngineManager::class)-&gt;extend('mysql', function () {
+        return new MySqlSearchEngine;
+    });
+}</code></pre>
+<p>Once your engine has been registered, you may specify it as your default Scout <code>driver</code> in your <code>config/scout.php</code> configuration file:</p>
+<pre><code>'driver' =&gt; 'mysql',</code></pre>
+<p><a name="builder-macros"></a></p>
+<h2 id="builder-macros">Builder Macros</h2>
+<p>If you would like to define a custom builder method, you may use the <code>macro</code> method on the <code>Laravel\Scout\Builder</code> class. Typically, &quot;macros&quot; should be defined within a <a href="providers.html">service provider's</a> <code>boot</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\ServiceProvider;
+use Laravel\Scout\Builder;
+
+class ScoutMacroServiceProvider extends ServiceProvider
+{
+    /**
+     * Register the application's scout macros.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Builder::macro('count', function () {
+            return $this-&gt;engine-&gt;getTotalCount(
+                $this-&gt;engine()-&gt;search($this)
+            );
+        });
+    }
+}</code></pre>
+<p>The <code>macro</code> function accepts a name as its first argument, and a Closure as its second. The macro's Closure will be executed when calling the macro name from a <code>Laravel\Scout\Builder</code> implementation:</p>
+<pre><code>App\Order::search('Star Trek')-&gt;count();</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/scout by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:16 GMT -->
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/sanctum by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Laravel Sanctum - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="sanctum.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/sanctum">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/sanctum">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/sanctum">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/sanctum">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/sanctum">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/sanctum">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/sanctum">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/sanctum">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/sanctum">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/sanctum">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/sanctum">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/sanctum">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/sanctum">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Laravel Sanctum</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#how-it-works">How It Works</a></li>
+</ul></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#api-token-authentication">API Token Authentication</a>
+<ul>
+<li><a href="#issuing-api-tokens">Issuing API Tokens</a></li>
+<li><a href="#token-abilities">Token Abilities</a></li>
+<li><a href="#protecting-routes">Protecting Routes</a></li>
+<li><a href="#revoking-tokens">Revoking Tokens</a></li>
+</ul></li>
+<li><a href="#spa-authentication">SPA Authentication</a>
+<ul>
+<li><a href="#spa-configuration">Configuration</a></li>
+<li><a href="#spa-authenticating">Authenticating</a></li>
+<li><a href="#protecting-spa-routes">Protecting Routes</a></li>
+<li><a href="#authorizing-private-broadcast-channels">Authorizing Private Broadcast Channels</a></li>
+</ul></li>
+<li><a href="#mobile-application-authentication">Mobile Application Authentication</a>
+<ul>
+<li><a href="#issuing-mobile-api-tokens">Issuing API Tokens</a></li>
+<li><a href="#protecting-mobile-api-routes">Protecting Routes</a></li>
+<li><a href="#revoking-mobile-api-tokens">Revoking Tokens</a></li>
+</ul></li>
+<li><a href="#testing">Testing</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Laravel Sanctum provides a featherweight authentication system for SPAs (single page applications), mobile applications, and simple, token based APIs. Sanctum allows each user of your application to generate multiple API tokens for their account. These tokens may be granted abilities / scopes which specify which actions the tokens are allowed to perform.</p>
+<p><a name="how-it-works"></a></p>
+<h3 id="how-it-works">How It Works</h3>
+<p>Laravel Sanctum exists to solve two separate problems.</p>
+<h4>API Tokens</h4>
+<p>First, it is a simple package to issue API tokens to your users without the complication of OAuth. This feature is inspired by GitHub &quot;access tokens&quot;. For example, imagine the &quot;account settings&quot; of your application has a screen where a user may generate an API token for their account. You may use Sanctum to generate and manage those tokens. These tokens typically have a very long expiration time (years), but may be manually revoked by the user at anytime.</p>
+<p>Laravel Sanctum offers this feature by storing user API tokens in a single database table and authenticating incoming requests via the <code>Authorization</code> header which should contain a valid API token.</p>
+<h4>SPA Authentication</h4>
+<p>Second, Sanctum exists to offer a simple way to authenticate single page applications (SPAs) that need to communicate with a Laravel powered API. These SPAs might exist in the same repository as your Laravel application or might be an entirely separate repository, such as a SPA created using Vue CLI.</p>
+<p>For this feature, Sanctum does not use tokens of any kind. Instead, Sanctum uses Laravel's built-in cookie based session authentication services. This provides the benefits of CSRF protection, session authentication, as well as protects against leakage of the authentication credentials via XSS. Sanctum will only attempt to authenticate using cookies when the incoming request originates from your own SPA frontend.</p>
+<blockquote>
+<p>{tip} It is perfectly fine to use Sanctum only for API token authentication or only for SPA authentication. Just because you use Sanctum does not mean you are required to use both features it offers.</p>
+</blockquote>
+<p><a name="installation"></a></p>
+<h2 id="installation">Installation</h2>
+<p>You may install Laravel Sanctum via Composer:</p>
+<pre><code>composer require laravel/sanctum</code></pre>
+<p>Next, you should publish the Sanctum configuration and migration files using the <code>vendor:publish</code> Artisan command. The <code>sanctum</code> configuration file will be placed in your <code>config</code> directory:</p>
+<pre><code>php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"</code></pre>
+<p>Finally, you should run your database migrations. Sanctum will create one database table in which to store API tokens:</p>
+<pre><code>php artisan migrate</code></pre>
+<p>Next, if you plan to utilize Sanctum to authenticate an SPA, you should add Sanctum's middleware to your <code>api</code> middleware group within your <code>app/Http/Kernel.php</code> file:</p>
+<pre><code>use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
+
+'api' =&gt; [
+    EnsureFrontendRequestsAreStateful::class,
+    'throttle:60,1',
+    \Illuminate\Routing\Middleware\SubstituteBindings::class,
+],</code></pre>
+<h4>Migration Customization</h4>
+<p>If you are not going to use Sanctum's default migrations, you should call the <code>Sanctum::ignoreMigrations</code> method in the <code>register</code> method of your <code>AppServiceProvider</code>. You may export the default migrations using <code>php artisan vendor:publish --tag=sanctum-migrations</code>.</p>
+<p><a name="api-token-authentication"></a></p>
+<h2 id="api-token-authentication">API Token Authentication</h2>
+<blockquote>
+<p>{tip} You should not use API tokens to authenticate your own first-party SPA. Instead, use Sanctum's built-in <a href="#spa-authentication">SPA authentication</a>.</p>
+</blockquote>
+<p><a name="issuing-api-tokens"></a></p>
+<h3 id="issuing-api-tokens">Issuing API Tokens</h3>
+<p>Sanctum allows you to issue API tokens / personal access tokens that may be used to authenticate API requests. When making requests using API tokens, the token should be included in the <code>Authorization</code> header as a <code>Bearer</code> token.</p>
+<p>To begin issuing tokens for users, your User model should use the <code>HasApiTokens</code> trait:</p>
+<pre><code>use Laravel\Sanctum\HasApiTokens;
+
+class User extends Authenticatable
+{
+    use HasApiTokens, Notifiable;
+}</code></pre>
+<p>To issue a token, you may use the <code>createToken</code> method. The <code>createToken</code> method returns a <code>Laravel\Sanctum\NewAccessToken</code> instance. API tokens are hashed using SHA-256 hashing before being stored in your database, but you may access the plain-text value of the token using the <code>plainTextToken</code> property of the <code>NewAccessToken</code> instance. You should display this value to the user immediately after the token has been created:</p>
+<pre><code>$token = $user-&gt;createToken('token-name');
+
+return $token-&gt;plainTextToken;</code></pre>
+<p>You may access all of the user's tokens using the <code>tokens</code> Eloquent relationship provided by the <code>HasApiTokens</code> trait:</p>
+<pre><code>foreach ($user-&gt;tokens as $token) {
+    //
+}</code></pre>
+<p><a name="token-abilities"></a></p>
+<h3 id="token-abilities">Token Abilities</h3>
+<p>Sanctum allows you to assign &quot;abilities&quot; to tokens, similar to OAuth &quot;scopes&quot;. You may pass an array of string abilities as the second argument to the <code>createToken</code> method:</p>
+<pre><code>return $user-&gt;createToken('token-name', ['server:update'])-&gt;plainTextToken;</code></pre>
+<p>When handling an incoming request authenticated by Sanctum, you may determine if the token has a given ability using the <code>tokenCan</code> method:</p>
+<pre><code>if ($user-&gt;tokenCan('server:update')) {
+    //
+}</code></pre>
+<blockquote>
+<p>{tip} For convenience, the <code>tokenCan</code> method will always return <code>true</code> if the incoming authenticated request was from your first-party SPA and you are using Sanctum's built-in <a href="#spa-authentication">SPA authentication</a>.</p>
+</blockquote>
+<p><a name="protecting-routes"></a></p>
+<h3 id="protecting-routes">Protecting Routes</h3>
+<p>To protect routes so that all incoming requests must be authenticated, you should attach the <code>sanctum</code> authentication guard to your API routes within your <code>routes/api.php</code> file. This guard will ensure that incoming requests are authenticated as either a stateful authenticated requests from your SPA or contain a valid API token header if the request is from a third party:</p>
+<pre><code>Route::middleware('auth:sanctum')-&gt;get('/user', function (Request $request) {
+    return $request-&gt;user();
+});</code></pre>
+<p><a name="revoking-tokens"></a></p>
+<h3 id="revoking-tokens">Revoking Tokens</h3>
+<p>You may &quot;revoke&quot; tokens by deleting them from your database using the <code>tokens</code> relationship that is provided by the <code>HasApiTokens</code> trait:</p>
+<pre><code>// Revoke all tokens...
+$user-&gt;tokens()-&gt;delete();
+
+// Revoke a specific token...
+$user-&gt;tokens()-&gt;where('id', $id)-&gt;delete();</code></pre>
+<p><a name="spa-authentication"></a></p>
+<h2 id="spa-authentication">SPA Authentication</h2>
+<p>Sanctum exists to offer a simple way to authenticate single page applications (SPAs) that need to communicate with a Laravel powered API. These SPAs might exist in the same repository as your Laravel application or might be an entirely separate repository, such as a SPA created using Vue CLI.</p>
+<p>For this feature, Sanctum does not use tokens of any kind. Instead, Sanctum uses Laravel's built-in cookie based session authentication services. This provides the benefits of CSRF protection, session authentication, as well as protects against leakage of the authentication credentials via XSS. Sanctum will only attempt to authenticate using cookies when the incoming request originates from your own SPA frontend.</p>
+<blockquote>
+<p>{note} In order to authenticate, your SPA and API must share the same top-level domain. However, they may be placed on different subdomains.</p>
+</blockquote>
+<p><a name="spa-configuration"></a></p>
+<h3 id="spa-configuration">Configuration</h3>
+<h4>Configuring Your First-Party Domains</h4>
+<p>First, you should configure which domains your SPA will be making requests from. You may configure these domains using the <code>stateful</code> configuration option in your <code>sanctum</code> configuration file. This configuration setting determines which domains will maintain &quot;stateful&quot; authentication using Laravel session cookies when making requests to your API.</p>
+<blockquote>
+<p>{note} If you are accessing your application via a URL that includes the port (<code>127.0.0.1:8000</code>), you should ensure that you include the port number with the domain.</p>
+</blockquote>
+<h4>Sanctum Middleware</h4>
+<p>Next, you should add Sanctum's middleware to your <code>api</code> middleware group within your <code>app/Http/Kernel.php</code> file. This middleware is responsible for ensuring that incoming requests from your SPA can authenticate using Laravel's session cookies, while still allowing requests from third parties or mobile applications to authenticate using API tokens:</p>
+<pre><code>use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
+
+'api' =&gt; [
+    EnsureFrontendRequestsAreStateful::class,
+    'throttle:60,1',
+    \Illuminate\Routing\Middleware\SubstituteBindings::class,
+],</code></pre>
+<p><a name="cors-and-cookies"></a></p>
+<h4 id="cors-and-cookies">CORS &amp; Cookies</h4>
+<p>If you are having trouble authenticating with your application from an SPA that executes on a separate subdomain, you have likely misconfigured your CORS (Cross-Origin Resource Sharing) or session cookie settings.</p>
+<p>You should ensure that your application's CORS configuration is returning the <code>Access-Control-Allow-Credentials</code> header with a value of <code>True</code> by setting the <code>supports_credentials</code> option within your application's <code>cors</code> configuration file to <code>true</code>.</p>
+<p>In addition, you should enable the <code>withCredentials</code> option on your global <code>axios</code> instance. Typically, this should be performed in your <code>resources/js/bootstrap.js</code> file:</p>
+<pre><code>axios.defaults.withCredentials = true;</code></pre>
+<p>Finally, you should ensure your application's session cookie domain configuration supports any subdomain of your root domain. You may do this by prefixing the domain with a leading <code>.</code> within your <code>session</code> configuration file:</p>
+<pre><code>'domain' =&gt; '.domain.com',</code></pre>
+<p><a name="spa-authenticating"></a></p>
+<h3 id="spa-authenticating">Authenticating</h3>
+<p>To authenticate your SPA, your SPA's login page should first make a request to the <code>/sanctum/csrf-cookie</code> route to initialize CSRF protection for the application:</p>
+<pre><code>axios.get('/sanctum/csrf-cookie').then(response =&gt; {
+    // Login...
+});</code></pre>
+<p>During this request Laravel will set an <code>XSRF-TOKEN</code> cookie containing the current CSRF token. This token should then be passed in an <code>X-XSRF-TOKEN</code> header on subsequent requests, which libraries like Axios and the Angular HttpClient will do automatically for you.</p>
+<p>Once CSRF protection has been initialized, you should make a <code>POST</code> request to the typical Laravel <code>/login</code> route. This <code>/login</code> route may be provided by the <code>laravel/ui</code> <a href="authentication.html#introduction">authentication scaffolding</a> package.</p>
+<p>If the login request is successful, you will be authenticated and subsequent requests to your API routes will automatically be authenticated via the session cookie that the Laravel backend issued to your client.</p>
+<blockquote>
+<p>{tip} You are free to write your own <code>/login</code> endpoint; however, you should ensure that it authenticates the user using the standard, <a href="authentication.html#authenticating-users">session based authentication services that Laravel provides</a>.</p>
+</blockquote>
+<p><a name="protecting-spa-routes"></a></p>
+<h3 id="protecting-spa-routes">Protecting Routes</h3>
+<p>To protect routes so that all incoming requests must be authenticated, you should attach the <code>sanctum</code> authentication guard to your API routes within your <code>routes/api.php</code> file. This guard will ensure that incoming requests are authenticated as either a stateful authenticated requests from your SPA or contain a valid API token header if the request is from a third party:</p>
+<pre><code>Route::middleware('auth:sanctum')-&gt;get('/user', function (Request $request) {
+    return $request-&gt;user();
+});</code></pre>
+<p><a name="authorizing-private-broadcast-channels"></a></p>
+<h3 id="authorizing-private-broadcast-channels">Authorizing Private Broadcast Channels</h3>
+<p>If your SPA needs to authenticate with <a href="broadcasting.html#authorizing-channels">private / presence broadcast channels</a>, you should place the <code>Broadcast::routes</code> method call within your <code>routes/api.php</code> file:</p>
+<pre><code>Broadcast::routes(['middleware' =&gt; ['auth:sanctum']]);</code></pre>
+<p>Next, in order for Pusher's authorization requests to succeed, you will need to provide a custom Pusher <code>authorizer</code> when initializing <a href="broadcasting.html#installing-laravel-echo">Laravel Echo</a>. This allows your application to configure Pusher to use the <code>axios</code> instance that is <a href="#cors-and-cookies">properly configured for cross-domain requests</a>:</p>
+<pre><code>window.Echo = new Echo({
+    broadcaster: "pusher",
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    encrypted: true,
+    key: process.env.MIX_PUSHER_APP_KEY,
+    authorizer: (channel, options) =&gt; {
+        return {
+            authorize: (socketId, callback) =&gt; {
+                axios.post('/api/broadcasting/auth', {
+                    socket_id: socketId,
+                    channel_name: channel.name
+                })
+                .then(response =&gt; {
+                    callback(false, response.data);
+                })
+                .catch(error =&gt; {
+                    callback(true, error);
+                });
+            }
+        };
+    },
+})</code></pre>
+<p><a name="mobile-application-authentication"></a></p>
+<h2 id="mobile-application-authentication">Mobile Application Authentication</h2>
+<p>You may use Sanctum tokens to authenticate your mobile application's requests to your API. The process for authenticating mobile application requests is similar to authenticating third-party API requests; however, there are small differences in how you will issue the API tokens.</p>
+<p><a name="issuing-mobile-api-tokens"></a></p>
+<h3 id="issuing-mobile-api-tokens">Issuing API Tokens</h3>
+<p>To get started, create a route that accepts the user's email / username, password, and device name, then exchanges those credentials for a new Sanctum token. The endpoint will return the plain-text Sanctum token which may then be stored on the mobile device and used to make additional API requests:</p>
+<pre><code>use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
+
+Route::post('/sanctum/token', function (Request $request) {
+    $request-&gt;validate([
+        'email' =&gt; 'required|email',
+        'password' =&gt; 'required',
+        'device_name' =&gt; 'required',
+    ]);
+
+    $user = User::where('email', $request-&gt;email)-&gt;first();
+
+    if (! $user || ! Hash::check($request-&gt;password, $user-&gt;password)) {
+        throw ValidationException::withMessages([
+            'email' =&gt; ['The provided credentials are incorrect.'],
+        ]);
+    }
+
+    return $user-&gt;createToken($request-&gt;device_name)-&gt;plainTextToken;
+});</code></pre>
+<p>When the mobile device uses the token to make an API request to your application, it should pass the token in the <code>Authorization</code> header as a <code>Bearer</code> token.</p>
+<blockquote>
+<p>{tip} When issuing tokens for a mobile application, you are also free to specify <a href="#token-abilities">token abilities</a></p>
+</blockquote>
+<p><a name="protecting-mobile-api-routes"></a></p>
+<h3 id="protecting-mobile-api-routes">Protecting Routes</h3>
+<p>As previously documented, you may protect routes so that all incoming requests must be authenticated by attaching the <code>sanctum</code> authentication guard to the routes. Typically, you will attach this guard to the routes defined within your <code>routes/api.php</code> file:</p>
+<pre><code>Route::middleware('auth:sanctum')-&gt;get('/user', function (Request $request) {
+    return $request-&gt;user();
+});</code></pre>
+<p><a name="revoking-mobile-api-tokens"></a></p>
+<h3 id="revoking-mobile-api-tokens">Revoking Tokens</h3>
+<p>To allow users to revoke API tokens issued to mobile devices, you may list them by name, along with a &quot;Revoke&quot; button, within an &quot;account settings&quot; portion of your web application's UI. When the user clicks the &quot;Revoke&quot; button, you can delete the token from the database. Remember, you can access a user's API tokens via the <code>tokens</code> relationship provided by the <code>HasApiTokens</code> trait:</p>
+<pre><code>// Revoke all tokens...
+$user-&gt;tokens()-&gt;delete();
+
+// Revoke a specific token...
+$user-&gt;tokens()-&gt;where('id', $id)-&gt;delete();</code></pre>
+<p><a name="testing"></a></p>
+<h2 id="testing">Testing</h2>
+<p>While testing, the <code>Sanctum::actingAs</code> method may be used to authenticate a user and specify which abilities are granted to their token:</p>
+<pre><code>use App\User;
+use Laravel\Sanctum\Sanctum;
+
+public function test_task_list_can_be_retrieved()
+{
+    Sanctum::actingAs(
+        factory(User::class)-&gt;create(),
+        ['view-tasks']
+    );
+
+    $response = $this-&gt;get('/api/task');
+
+    $response-&gt;assertOk();
+}</code></pre>
+<p>If you would like to grant all abilities to the token, you should include <code>*</code> in the ability list provided to the <code>actingAs</code> method:</p>
+<pre><code>Sanctum::actingAs(
+    factory(User::class)-&gt;create(),
+    ['*']
+);</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/sanctum by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:16 GMT -->
+</html>

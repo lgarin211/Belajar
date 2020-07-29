@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/requests by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>HTTP Requests - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="requests.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/requests">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/requests">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/requests">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/requests">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/requests">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/requests">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/requests">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/requests">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/requests">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/requests">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/requests">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/requests">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/requests">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>HTTP Requests</h1>
+<ul>
+<li><a href="#accessing-the-request">Accessing The Request</a>
+<ul>
+<li><a href="#request-path-and-method">Request Path &amp; Method</a></li>
+<li><a href="#psr7-requests">PSR-7 Requests</a></li>
+</ul></li>
+<li><a href="#input-trimming-and-normalization">Input Trimming &amp; Normalization</a></li>
+<li><a href="#retrieving-input">Retrieving Input</a>
+<ul>
+<li><a href="#old-input">Old Input</a></li>
+<li><a href="#cookies">Cookies</a></li>
+</ul></li>
+<li><a href="#files">Files</a>
+<ul>
+<li><a href="#retrieving-uploaded-files">Retrieving Uploaded Files</a></li>
+<li><a href="#storing-uploaded-files">Storing Uploaded Files</a></li>
+</ul></li>
+<li><a href="#configuring-trusted-proxies">Configuring Trusted Proxies</a></li>
+</ul>
+<p><a name="accessing-the-request"></a></p>
+<h2 id="accessing-the-request">Accessing The Request</h2>
+<p>To obtain an instance of the current HTTP request via dependency injection, you should type-hint the <code>Illuminate\Http\Request</code> class on your controller method. The incoming request instance will automatically be injected by the <a href="container.html">service container</a>:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    /**
+     * Store a new user.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        $name = $request-&gt;input('name');
+
+        //
+    }
+}</code></pre>
+<h4>Dependency Injection &amp; Route Parameters</h4>
+<p>If your controller method is also expecting input from a route parameter you should list your route parameters after your other dependencies. For example, if your route is defined like so:</p>
+<pre><code>Route::put('user/{id}', '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="edb89e889fae8283999f828181889fad989d898c9988">[email&#160;protected]</a>');</code></pre>
+<p>You may still type-hint the <code>Illuminate\Http\Request</code> and access your route parameter <code>id</code> by defining your controller method as follows:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    /**
+     * Update the specified user.
+     *
+     * @param  Request  $request
+     * @param  string  $id
+     * @return Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+}</code></pre>
+<h4>Accessing The Request Via Route Closures</h4>
+<p>You may also type-hint the <code>Illuminate\Http\Request</code> class on a route Closure. The service container will automatically inject the incoming request into the Closure when it is executed:</p>
+<pre><code>use Illuminate\Http\Request;
+
+Route::get('/', function (Request $request) {
+    //
+});</code></pre>
+<p><a name="request-path-and-method"></a></p>
+<h3 id="request-path-and-method">Request Path &amp; Method</h3>
+<p>The <code>Illuminate\Http\Request</code> instance provides a variety of methods for examining the HTTP request for your application and extends the <code>Symfony\Component\HttpFoundation\Request</code> class. We will discuss a few of the most important methods below.</p>
+<h4>Retrieving The Request Path</h4>
+<p>The <code>path</code> method returns the request's path information. So, if the incoming request is targeted at <code>http://domain.com/foo/bar</code>, the <code>path</code> method will return <code>foo/bar</code>:</p>
+<pre><code>$uri = $request-&gt;path();</code></pre>
+<p>The <code>is</code> method allows you to verify that the incoming request path matches a given pattern. You may use the <code>*</code> character as a wildcard when utilizing this method:</p>
+<pre><code>if ($request-&gt;is('admin/*')) {
+    //
+}</code></pre>
+<h4>Retrieving The Request URL</h4>
+<p>To retrieve the full URL for the incoming request you may use the <code>url</code> or <code>fullUrl</code> methods. The <code>url</code> method will return the URL without the query string, while the <code>fullUrl</code> method includes the query string:</p>
+<pre><code>// Without Query String...
+$url = $request-&gt;url();
+
+// With Query String...
+$url = $request-&gt;fullUrl();</code></pre>
+<h4>Retrieving The Request Method</h4>
+<p>The <code>method</code> method will return the HTTP verb for the request. You may use the <code>isMethod</code> method to verify that the HTTP verb matches a given string:</p>
+<pre><code>$method = $request-&gt;method();
+
+if ($request-&gt;isMethod('post')) {
+    //
+}</code></pre>
+<p><a name="psr7-requests"></a></p>
+<h3 id="psr7-requests">PSR-7 Requests</h3>
+<p>The <a href="https://www.php-fig.org/psr/psr-7/">PSR-7 standard</a> specifies interfaces for HTTP messages, including requests and responses. If you would like to obtain an instance of a PSR-7 request instead of a Laravel request, you will first need to install a few libraries. Laravel uses the <em>Symfony HTTP Message Bridge</em> component to convert typical Laravel requests and responses into PSR-7 compatible implementations:</p>
+<pre><code>composer require symfony/psr-http-message-bridge
+composer require nyholm/psr7</code></pre>
+<p>Once you have installed these libraries, you may obtain a PSR-7 request by type-hinting the request interface on your route Closure or controller method:</p>
+<pre><code>use Psr\Http\Message\ServerRequestInterface;
+
+Route::get('/', function (ServerRequestInterface $request) {
+    //
+});</code></pre>
+<blockquote>
+<p>{tip} If you return a PSR-7 response instance from a route or controller, it will automatically be converted back to a Laravel response instance and be displayed by the framework.</p>
+</blockquote>
+<p><a name="input-trimming-and-normalization"></a></p>
+<h2 id="input-trimming-and-normalization">Input Trimming &amp; Normalization</h2>
+<p>By default, Laravel includes the <code>TrimStrings</code> and <code>ConvertEmptyStringsToNull</code> middleware in your application's global middleware stack. These middleware are listed in the stack by the <code>App\Http\Kernel</code> class. These middleware will automatically trim all incoming string fields on the request, as well as convert any empty string fields to <code>null</code>. This allows you to not have to worry about these normalization concerns in your routes and controllers.</p>
+<p>If you would like to disable this behavior, you may remove the two middleware from your application's middleware stack by removing them from the <code>$middleware</code> property of your <code>App\Http\Kernel</code> class.</p>
+<p><a name="retrieving-input"></a></p>
+<h2 id="retrieving-input">Retrieving Input</h2>
+<h4>Retrieving All Input Data</h4>
+<p>You may also retrieve all of the input data as an <code>array</code> using the <code>all</code> method:</p>
+<pre><code>$input = $request-&gt;all();</code></pre>
+<h4>Retrieving An Input Value</h4>
+<p>Using a few simple methods, you may access all of the user input from your <code>Illuminate\Http\Request</code> instance without worrying about which HTTP verb was used for the request. Regardless of the HTTP verb, the <code>input</code> method may be used to retrieve user input:</p>
+<pre><code>$name = $request-&gt;input('name');</code></pre>
+<p>You may pass a default value as the second argument to the <code>input</code> method. This value will be returned if the requested input value is not present on the request:</p>
+<pre><code>$name = $request-&gt;input('name', 'Sally');</code></pre>
+<p>When working with forms that contain array inputs, use &quot;dot&quot; notation to access the arrays:</p>
+<pre><code>$name = $request-&gt;input('products.0.name');
+
+$names = $request-&gt;input('products.*.name');</code></pre>
+<p>You may call the <code>input</code> method without any arguments in order to retrieve all of the input values as an associative array:</p>
+<pre><code>$input = $request-&gt;input();</code></pre>
+<h4>Retrieving Input From The Query String</h4>
+<p>While the <code>input</code> method retrieves values from entire request payload (including the query string), the <code>query</code> method will only retrieve values from the query string:</p>
+<pre><code>$name = $request-&gt;query('name');</code></pre>
+<p>If the requested query string value data is not present, the second argument to this method will be returned:</p>
+<pre><code>$name = $request-&gt;query('name', 'Helen');</code></pre>
+<p>You may call the <code>query</code> method without any arguments in order to retrieve all of the query string values as an associative array:</p>
+<pre><code>$query = $request-&gt;query();</code></pre>
+<h4>Retrieving Input Via Dynamic Properties</h4>
+<p>You may also access user input using dynamic properties on the <code>Illuminate\Http\Request</code> instance. For example, if one of your application's forms contains a <code>name</code> field, you may access the value of the field like so:</p>
+<pre><code>$name = $request-&gt;name;</code></pre>
+<p>When using dynamic properties, Laravel will first look for the parameter's value in the request payload. If it is not present, Laravel will search for the field in the route parameters.</p>
+<h4>Retrieving JSON Input Values</h4>
+<p>When sending JSON requests to your application, you may access the JSON data via the <code>input</code> method as long as the <code>Content-Type</code> header of the request is properly set to <code>application/json</code>. You may even use &quot;dot&quot; syntax to dig into JSON arrays:</p>
+<pre><code>$name = $request-&gt;input('user.name');</code></pre>
+<h4>Retrieving Boolean Input Values</h4>
+<p>When dealing with HTML elements like checkboxes, your application may receive &quot;truthy&quot; values that are actually strings. For example, &quot;true&quot; or &quot;on&quot;. For convenience, you may use the <code>boolean</code> method to retrieve these values as booleans. The <code>boolean</code> method returns <code>true</code> for 1, &quot;1&quot;, true, &quot;true&quot;, &quot;on&quot;, and &quot;yes&quot;. All other values will return <code>false</code>:</p>
+<pre><code>$archived = $request-&gt;boolean('archived');</code></pre>
+<h4>Retrieving A Portion Of The Input Data</h4>
+<p>If you need to retrieve a subset of the input data, you may use the <code>only</code> and <code>except</code> methods. Both of these methods accept a single <code>array</code> or a dynamic list of arguments:</p>
+<pre><code>$input = $request-&gt;only(['username', 'password']);
+
+$input = $request-&gt;only('username', 'password');
+
+$input = $request-&gt;except(['credit_card']);
+
+$input = $request-&gt;except('credit_card');</code></pre>
+<blockquote>
+<p>{tip} The <code>only</code> method returns all of the key / value pairs that you request; however, it will not return key / value pairs that are not present on the request.</p>
+</blockquote>
+<h4>Determining If An Input Value Is Present</h4>
+<p>You should use the <code>has</code> method to determine if a value is present on the request. The <code>has</code> method returns <code>true</code> if the value is present on the request:</p>
+<pre><code>if ($request-&gt;has('name')) {
+    //
+}</code></pre>
+<p>When given an array, the <code>has</code> method will determine if all of the specified values are present:</p>
+<pre><code>if ($request-&gt;has(['name', 'email'])) {
+    //
+}</code></pre>
+<p>The <code>hasAny</code> method returns <code>true</code> if any of the specified values are present:</p>
+<pre><code>if ($request-&gt;hasAny(['name', 'email'])) {
+    //
+}</code></pre>
+<p>If you would like to determine if a value is present on the request and is not empty, you may use the <code>filled</code> method:</p>
+<pre><code>if ($request-&gt;filled('name')) {
+    //
+}</code></pre>
+<p>To determine if a given key is absent from the request, you may use the <code>missing</code> method:</p>
+<pre><code>if ($request-&gt;missing('name')) {
+    //
+}</code></pre>
+<p><a name="old-input"></a></p>
+<h3 id="old-input">Old Input</h3>
+<p>Laravel allows you to keep input from one request during the next request. This feature is particularly useful for re-populating forms after detecting validation errors. However, if you are using Laravel's included <a href="validation.html">validation features</a>, it is unlikely you will need to manually use these methods, as some of Laravel's built-in validation facilities will call them automatically.</p>
+<h4>Flashing Input To The Session</h4>
+<p>The <code>flash</code> method on the <code>Illuminate\Http\Request</code> class will flash the current input to the <a href="session.html">session</a> so that it is available during the user's next request to the application:</p>
+<pre><code>$request-&gt;flash();</code></pre>
+<p>You may also use the <code>flashOnly</code> and <code>flashExcept</code> methods to flash a subset of the request data to the session. These methods are useful for keeping sensitive information such as passwords out of the session:</p>
+<pre><code>$request-&gt;flashOnly(['username', 'email']);
+
+$request-&gt;flashExcept('password');</code></pre>
+<h4>Flashing Input Then Redirecting</h4>
+<p>Since you often will want to flash input to the session and then redirect to the previous page, you may easily chain input flashing onto a redirect using the <code>withInput</code> method:</p>
+<pre><code>return redirect('form')-&gt;withInput();
+
+return redirect('form')-&gt;withInput(
+    $request-&gt;except('password')
+);</code></pre>
+<h4>Retrieving Old Input</h4>
+<p>To retrieve flashed input from the previous request, use the <code>old</code> method on the <code>Request</code> instance. The <code>old</code> method will pull the previously flashed input data from the <a href="session.html">session</a>:</p>
+<pre><code>$username = $request-&gt;old('username');</code></pre>
+<p>Laravel also provides a global <code>old</code> helper. If you are displaying old input within a <a href="blade.html">Blade template</a>, it is more convenient to use the <code>old</code> helper. If no old input exists for the given field, <code>null</code> will be returned:</p>
+<pre><code>&lt;input type="text" name="username" value="{{ old('username') }}"&gt;</code></pre>
+<p><a name="cookies"></a></p>
+<h3 id="cookies">Cookies</h3>
+<h4>Retrieving Cookies From Requests</h4>
+<p>All cookies created by the Laravel framework are encrypted and signed with an authentication code, meaning they will be considered invalid if they have been changed by the client. To retrieve a cookie value from the request, use the <code>cookie</code> method on a <code>Illuminate\Http\Request</code> instance:</p>
+<pre><code>$value = $request-&gt;cookie('name');</code></pre>
+<p>Alternatively, you may use the <code>Cookie</code> facade to access cookie values:</p>
+<pre><code>use Illuminate\Support\Facades\Cookie;
+
+$value = Cookie::get('name');</code></pre>
+<h4>Attaching Cookies To Responses</h4>
+<p>You may attach a cookie to an outgoing <code>Illuminate\Http\Response</code> instance using the <code>cookie</code> method. You should pass the name, value, and number of minutes the cookie should be considered valid to this method:</p>
+<pre><code>return response('Hello World')-&gt;cookie(
+    'name', 'value', $minutes
+);</code></pre>
+<p>The <code>cookie</code> method also accepts a few more arguments which are used less frequently. Generally, these arguments have the same purpose and meaning as the arguments that would be given to PHP's native <a href="https://secure.php.net/manual/en/function.setcookie.php">setcookie</a> method:</p>
+<pre><code>return response('Hello World')-&gt;cookie(
+    'name', 'value', $minutes, $path, $domain, $secure, $httpOnly
+);</code></pre>
+<p>Alternatively, you can use the <code>Cookie</code> facade to &quot;queue&quot; cookies for attachment to the outgoing response from your application. The <code>queue</code> method accepts a <code>Cookie</code> instance or the arguments needed to create a <code>Cookie</code> instance. These cookies will be attached to the outgoing response before it is sent to the browser:</p>
+<pre><code>Cookie::queue(Cookie::make('name', 'value', $minutes));
+
+Cookie::queue('name', 'value', $minutes);</code></pre>
+<h4>Generating Cookie Instances</h4>
+<p>If you would like to generate a <code>Symfony\Component\HttpFoundation\Cookie</code> instance that can be given to a response instance at a later time, you may use the global <code>cookie</code> helper. This cookie will not be sent back to the client unless it is attached to a response instance:</p>
+<pre><code>$cookie = cookie('name', 'value', $minutes);
+
+return response('Hello World')-&gt;cookie($cookie);</code></pre>
+<p><a name="files"></a></p>
+<h2 id="files">Files</h2>
+<p><a name="retrieving-uploaded-files"></a></p>
+<h3 id="retrieving-uploaded-files">Retrieving Uploaded Files</h3>
+<p>You may access uploaded files from a <code>Illuminate\Http\Request</code> instance using the <code>file</code> method or using dynamic properties. The <code>file</code> method returns an instance of the <code>Illuminate\Http\UploadedFile</code> class, which extends the PHP <code>SplFileInfo</code> class and provides a variety of methods for interacting with the file:</p>
+<pre><code>$file = $request-&gt;file('photo');
+
+$file = $request-&gt;photo;</code></pre>
+<p>You may determine if a file is present on the request using the <code>hasFile</code> method:</p>
+<pre><code>if ($request-&gt;hasFile('photo')) {
+    //
+}</code></pre>
+<h4>Validating Successful Uploads</h4>
+<p>In addition to checking if the file is present, you may verify that there were no problems uploading the file via the <code>isValid</code> method:</p>
+<pre><code>if ($request-&gt;file('photo')-&gt;isValid()) {
+    //
+}</code></pre>
+<h4>File Paths &amp; Extensions</h4>
+<p>The <code>UploadedFile</code> class also contains methods for accessing the file's fully-qualified path and its extension. The <code>extension</code> method will attempt to guess the file's extension based on its contents. This extension may be different from the extension that was supplied by the client:</p>
+<pre><code>$path = $request-&gt;photo-&gt;path();
+
+$extension = $request-&gt;photo-&gt;extension();</code></pre>
+<h4>Other File Methods</h4>
+<p>There are a variety of other methods available on <code>UploadedFile</code> instances. Check out the <a href="https://api.symfony.com/master/Symfony/Component/HttpFoundation/File/UploadedFile.html">API documentation for the class</a> for more information regarding these methods.</p>
+<p><a name="storing-uploaded-files"></a></p>
+<h3 id="storing-uploaded-files">Storing Uploaded Files</h3>
+<p>To store an uploaded file, you will typically use one of your configured <a href="filesystem.html">filesystems</a>. The <code>UploadedFile</code> class has a <code>store</code> method which will move an uploaded file to one of your disks, which may be a location on your local filesystem or even a cloud storage location like Amazon S3.</p>
+<p>The <code>store</code> method accepts the path where the file should be stored relative to the filesystem's configured root directory. This path should not contain a file name, since a unique ID will automatically be generated to serve as the file name.</p>
+<p>The <code>store</code> method also accepts an optional second argument for the name of the disk that should be used to store the file. The method will return the path of the file relative to the disk's root:</p>
+<pre><code>$path = $request-&gt;photo-&gt;store('images');
+
+$path = $request-&gt;photo-&gt;store('images', 's3');</code></pre>
+<p>If you do not want a file name to be automatically generated, you may use the <code>storeAs</code> method, which accepts the path, file name, and disk name as its arguments:</p>
+<pre><code>$path = $request-&gt;photo-&gt;storeAs('images', 'filename.jpg');
+
+$path = $request-&gt;photo-&gt;storeAs('images', 'filename.jpg', 's3');</code></pre>
+<p><a name="configuring-trusted-proxies"></a></p>
+<h2 id="configuring-trusted-proxies">Configuring Trusted Proxies</h2>
+<p>When running your applications behind a load balancer that terminates TLS / SSL certificates, you may notice your application sometimes does not generate HTTPS links. Typically this is because your application is being forwarded traffic from your load balancer on port 80 and does not know it should generate secure links.</p>
+<p>To solve this, you may use the <code>App\Http\Middleware\TrustProxies</code> middleware that is included in your Laravel application, which allows you to quickly customize the load balancers or proxies that should be trusted by your application. Your trusted proxies should be listed as an array on the <code>$proxies</code> property of this middleware. In addition to configuring the trusted proxies, you may configure the proxy <code>$headers</code> that should be trusted:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Fideloper\Proxy\TrustProxies as Middleware;
+use Illuminate\Http\Request;
+
+class TrustProxies extends Middleware
+{
+    /**
+     * The trusted proxies for this application.
+     *
+     * @var string|array
+     */
+    protected $proxies = [
+        '192.168.1.1',
+        '192.168.1.2',
+    ];
+
+    /**
+     * The headers that should be used to detect proxies.
+     *
+     * @var string
+     */
+    protected $headers = Request::HEADER_X_FORWARDED_ALL;
+}</code></pre>
+<blockquote>
+<p>{tip} If you are using AWS Elastic Load Balancing, your <code>$headers</code> value should be <code>Request::HEADER_X_FORWARDED_AWS_ELB</code>. For more information on the constants that may be used in the <code>$headers</code> property, check out Symfony's documentation on <a href="https://symfony.com/doc/current/deployment/proxies.html">trusting proxies</a>.</p>
+</blockquote>
+<h4>Trusting All Proxies</h4>
+<p>If you are using Amazon AWS or another &quot;cloud&quot; load balancer provider, you may not know the IP addresses of your actual balancers. In this case, you may use <code>*</code> to trust all proxies:</p>
+<pre><code>/**
+ * The trusted proxies for this application.
+ *
+ * @var string|array
+ */
+protected $proxies = '*';</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/requests by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+</html>

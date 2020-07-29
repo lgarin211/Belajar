@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/packages by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Package Development - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="packages.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/packages">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/packages">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/packages">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/packages">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/packages">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/packages">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/packages">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/packages">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/packages">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/packages">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/packages">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/packages">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/packages">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Package Development</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#a-note-on-facades">A Note On Facades</a></li>
+</ul></li>
+<li><a href="#package-discovery">Package Discovery</a></li>
+<li><a href="#service-providers">Service Providers</a></li>
+<li><a href="#resources">Resources</a>
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#migrations">Migrations</a></li>
+<li><a href="#factories">Factories</a></li>
+<li><a href="#routes">Routes</a></li>
+<li><a href="#translations">Translations</a></li>
+<li><a href="#views">Views</a></li>
+<li><a href="#view-components">View Components</a></li>
+</ul></li>
+<li><a href="#commands">Commands</a></li>
+<li><a href="#public-assets">Public Assets</a></li>
+<li><a href="#publishing-file-groups">Publishing File Groups</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Packages are the primary way of adding functionality to Laravel. Packages might be anything from a great way to work with dates like <a href="https://github.com/briannesbitt/Carbon">Carbon</a>, or an entire BDD testing framework like <a href="https://github.com/Behat/Behat">Behat</a>.</p>
+<p>There are different types of packages. Some packages are stand-alone, meaning they work with any PHP framework. Carbon and Behat are examples of stand-alone packages. Any of these packages may be used with Laravel by requesting them in your <code>composer.json</code> file.</p>
+<p>On the other hand, other packages are specifically intended for use with Laravel. These packages may have routes, controllers, views, and configuration specifically intended to enhance a Laravel application. This guide primarily covers the development of those packages that are Laravel specific.</p>
+<p><a name="a-note-on-facades"></a></p>
+<h3 id="a-note-on-facades">A Note On Facades</h3>
+<p>When writing a Laravel application, it generally does not matter if you use contracts or facades since both provide essentially equal levels of testability. However, when writing packages, your package will not typically have access to all of Laravel's testing helpers. If you would like to be able to write your package tests as if they existed inside a typical Laravel application, you may use the <a href="https://github.com/orchestral/testbench">Orchestral Testbench</a> package.</p>
+<p><a name="package-discovery"></a></p>
+<h2 id="package-discovery">Package Discovery</h2>
+<p>In a Laravel application's <code>config/app.php</code> configuration file, the <code>providers</code> option defines a list of service providers that should be loaded by Laravel. When someone installs your package, you will typically want your service provider to be included in this list. Instead of requiring users to manually add your service provider to the list, you may define the provider in the <code>extra</code> section of your package's <code>composer.json</code> file. In addition to service providers, you may also list any <a href="facades.html">facades</a> you would like to be registered:</p>
+<pre><code>"extra": {
+    "laravel": {
+        "providers": [
+            "Barryvdh\\Debugbar\\ServiceProvider"
+        ],
+        "aliases": {
+            "Debugbar": "Barryvdh\\Debugbar\\Facade"
+        }
+    }
+},</code></pre>
+<p>Once your package has been configured for discovery, Laravel will automatically register its service providers and facades when it is installed, creating a convenient installation experience for your package's users.</p>
+<h3>Opting Out Of Package Discovery</h3>
+<p>If you are the consumer of a package and would like to disable package discovery for a package, you may list the package name in the <code>extra</code> section of your application's <code>composer.json</code> file:</p>
+<pre><code>"extra": {
+    "laravel": {
+        "dont-discover": [
+            "barryvdh/laravel-debugbar"
+        ]
+    }
+},</code></pre>
+<p>You may disable package discovery for all packages using the <code>*</code> character inside of your application's <code>dont-discover</code> directive:</p>
+<pre><code>"extra": {
+    "laravel": {
+        "dont-discover": [
+            "*"
+        ]
+    }
+},</code></pre>
+<p><a name="service-providers"></a></p>
+<h2 id="service-providers">Service Providers</h2>
+<p><a href="providers.html">Service providers</a> are the connection points between your package and Laravel. A service provider is responsible for binding things into Laravel's <a href="container.html">service container</a> and informing Laravel where to load package resources such as views, configuration, and localization files.</p>
+<p>A service provider extends the <code>Illuminate\Support\ServiceProvider</code> class and contains two methods: <code>register</code> and <code>boot</code>. The base <code>ServiceProvider</code> class is located in the <code>illuminate/support</code> Composer package, which you should add to your own package's dependencies. To learn more about the structure and purpose of service providers, check out <a href="providers.html">their documentation</a>.</p>
+<p><a name="resources"></a></p>
+<h2 id="resources">Resources</h2>
+<p><a name="configuration"></a></p>
+<h3 id="configuration">Configuration</h3>
+<p>Typically, you will need to publish your package's configuration file to the application's own <code>config</code> directory. This will allow users of your package to easily override your default configuration options. To allow your configuration files to be published, call the <code>publishes</code> method from the <code>boot</code> method of your service provider:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;publishes([
+        __DIR__.'/path/to/config/courier.php' =&gt; config_path('courier.php'),
+    ]);
+}</code></pre>
+<p>Now, when users of your package execute Laravel's <code>vendor:publish</code> command, your file will be copied to the specified publish location. Once your configuration has been published, its values may be accessed like any other configuration file:</p>
+<pre><code>$value = config('courier.option');</code></pre>
+<blockquote>
+<p>{note} You should not define Closures in your configuration files. They can not be serialized correctly when users execute the <code>config:cache</code> Artisan command.</p>
+</blockquote>
+<h4>Default Package Configuration</h4>
+<p>You may also merge your own package configuration file with the application's published copy. This will allow your users to define only the options they actually want to override in the published copy of the configuration. To merge the configurations, use the <code>mergeConfigFrom</code> method within your service provider's <code>register</code> method:</p>
+<pre><code>/**
+ * Register any application services.
+ *
+ * @return void
+ */
+public function register()
+{
+    $this-&gt;mergeConfigFrom(
+        __DIR__.'/path/to/config/courier.php', 'courier'
+    );
+}</code></pre>
+<blockquote>
+<p>{note} This method only merges the first level of the configuration array. If your users partially define a multi-dimensional configuration array, the missing options will not be merged.</p>
+</blockquote>
+<p><a name="routes"></a></p>
+<h3 id="routes">Routes</h3>
+<p>If your package contains routes, you may load them using the <code>loadRoutesFrom</code> method. This method will automatically determine if the application's routes are cached and will not load your routes file if the routes have already been cached:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;loadRoutesFrom(__DIR__.'/routes.php');
+}</code></pre>
+<p><a name="migrations"></a></p>
+<h3 id="migrations">Migrations</h3>
+<p>If your package contains <a href="migrations.html">database migrations</a>, you may use the <code>loadMigrationsFrom</code> method to inform Laravel how to load them. The <code>loadMigrationsFrom</code> method accepts the path to your package's migrations as its only argument:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;loadMigrationsFrom(__DIR__.'/path/to/migrations');
+}</code></pre>
+<p>Once your package's migrations have been registered, they will automatically be run when the <code>php artisan migrate</code> command is executed. You do not need to export them to the application's main <code>database/migrations</code> directory.</p>
+<p><a name="factories"></a></p>
+<h3 id="factories">Factories</h3>
+<p>If your package contains <a href="database-testing.html#writing-factories">database factories</a>, you may use the <code>loadFactoriesFrom</code> method to inform Laravel how to load them. The <code>loadFactoriesFrom</code> method accepts the path to your package's factories as its only argument:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;loadFactoriesFrom(__DIR__.'/path/to/factories');
+}</code></pre>
+<p>Once your package's factories have been registered, you can use them in your application:</p>
+<pre><code>factory(Package\Namespace\Model::class)-&gt;create();</code></pre>
+<p><a name="translations"></a></p>
+<h3 id="translations">Translations</h3>
+<p>If your package contains <a href="localization.html">translation files</a>, you may use the <code>loadTranslationsFrom</code> method to inform Laravel how to load them. For example, if your package is named <code>courier</code>, you should add the following to your service provider's <code>boot</code> method:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;loadTranslationsFrom(__DIR__.'/path/to/translations', 'courier');
+}</code></pre>
+<p>Package translations are referenced using the <code>package::file.line</code> syntax convention. So, you may load the <code>courier</code> package's <code>welcome</code> line from the <code>messages</code> file like so:</p>
+<pre><code>echo trans('courier::messages.welcome');</code></pre>
+<h4>Publishing Translations</h4>
+<p>If you would like to publish your package's translations to the application's <code>resources/lang/vendor</code> directory, you may use the service provider's <code>publishes</code> method. The <code>publishes</code> method accepts an array of package paths and their desired publish locations. For example, to publish the translation files for the <code>courier</code> package, you may do the following:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;loadTranslationsFrom(__DIR__.'/path/to/translations', 'courier');
+
+    $this-&gt;publishes([
+        __DIR__.'/path/to/translations' =&gt; resource_path('lang/vendor/courier'),
+    ]);
+}</code></pre>
+<p>Now, when users of your package execute Laravel's <code>vendor:publish</code> Artisan command, your package's translations will be published to the specified publish location.</p>
+<p><a name="views"></a></p>
+<h3 id="views">Views</h3>
+<p>To register your package's <a href="views.html">views</a> with Laravel, you need to tell Laravel where the views are located. You may do this using the service provider's <code>loadViewsFrom</code> method. The <code>loadViewsFrom</code> method accepts two arguments: the path to your view templates and your package's name. For example, if your package's name is <code>courier</code>, you would add the following to your service provider's <code>boot</code> method:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;loadViewsFrom(__DIR__.'/path/to/views', 'courier');
+}</code></pre>
+<p>Package views are referenced using the <code>package::view</code> syntax convention. So, once your view path is registered in a service provider, you may load the <code>admin</code> view from the <code>courier</code> package like so:</p>
+<pre><code>Route::get('admin', function () {
+    return view('courier::admin');
+});</code></pre>
+<h4>Overriding Package Views</h4>
+<p>When you use the <code>loadViewsFrom</code> method, Laravel actually registers two locations for your views: the application's <code>resources/views/vendor</code> directory and the directory you specify. So, using the <code>courier</code> example, Laravel will first check if a custom version of the view has been provided by the developer in <code>resources/views/vendor/courier</code>. Then, if the view has not been customized, Laravel will search the package view directory you specified in your call to <code>loadViewsFrom</code>. This makes it easy for package users to customize / override your package's views.</p>
+<h4>Publishing Views</h4>
+<p>If you would like to make your views available for publishing to the application's <code>resources/views/vendor</code> directory, you may use the service provider's <code>publishes</code> method. The <code>publishes</code> method accepts an array of package view paths and their desired publish locations:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;loadViewsFrom(__DIR__.'/path/to/views', 'courier');
+
+    $this-&gt;publishes([
+        __DIR__.'/path/to/views' =&gt; resource_path('views/vendor/courier'),
+    ]);
+}</code></pre>
+<p>Now, when users of your package execute Laravel's <code>vendor:publish</code> Artisan command, your package's views will be copied to the specified publish location.</p>
+<p><a name="view-components"></a></p>
+<h3 id="view-components">View Components</h3>
+<p>If your package contains <a href="blade.html#components">view components</a>, you may use the <code>loadViewComponentsAs</code> method to inform Laravel how to load them. The <code>loadViewComponentsAs</code> method accepts two arguments: the tag prefix for your view components and an array of your view components class. For example, if your package's prefix is <code>courier</code> and you have <code>Alert</code> and <code>Button</code> view components, you would add the following to your service provider's <code>boot</code> method:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;loadViewComponentsAs('courier', [
+        Alert::class,
+        Button::class,
+    ]);
+}</code></pre>
+<p>Once your view components are registered in a service provider, you may reference them in your view like so:</p>
+<pre><code>&lt;x-courier-alert /&gt;
+
+&lt;x-courier-button /&gt;</code></pre>
+<p><a name="commands"></a></p>
+<h2 id="commands">Commands</h2>
+<p>To register your package's Artisan commands with Laravel, you may use the <code>commands</code> method. This method expects an array of command class names. Once the commands have been registered, you may execute them using the <a href="artisan.html">Artisan CLI</a>:</p>
+<pre><code>/**
+ * Bootstrap the application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    if ($this-&gt;app-&gt;runningInConsole()) {
+        $this-&gt;commands([
+            FooCommand::class,
+            BarCommand::class,
+        ]);
+    }
+}</code></pre>
+<p><a name="public-assets"></a></p>
+<h2 id="public-assets">Public Assets</h2>
+<p>Your package may have assets such as JavaScript, CSS, and images. To publish these assets to the application's <code>public</code> directory, use the service provider's <code>publishes</code> method. In this example, we will also add a <code>public</code> asset group tag, which may be used to publish groups of related assets:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;publishes([
+        __DIR__.'/path/to/assets' =&gt; public_path('vendor/courier'),
+    ], 'public');
+}</code></pre>
+<p>Now, when your package's users execute the <code>vendor:publish</code> command, your assets will be copied to the specified publish location. Since you will typically need to overwrite the assets every time the package is updated, you may use the <code>--force</code> flag:</p>
+<pre><code>php artisan vendor:publish --tag=public --force</code></pre>
+<p><a name="publishing-file-groups"></a></p>
+<h2 id="publishing-file-groups">Publishing File Groups</h2>
+<p>You may want to publish groups of package assets and resources separately. For instance, you might want to allow your users to publish your package's configuration files without being forced to publish your package's assets. You may do this by &quot;tagging&quot; them when calling the <code>publishes</code> method from a package's service provider. For example, let's use tags to define two publish groups in the <code>boot</code> method of a package service provider:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;publishes([
+        __DIR__.'/../config/package.php' =&gt; config_path('package.php')
+    ], 'config');
+
+    $this-&gt;publishes([
+        __DIR__.'/../database/migrations/' =&gt; database_path('migrations')
+    ], 'migrations');
+}</code></pre>
+<p>Now your users may publish these groups separately by referencing their tag when executing the <code>vendor:publish</code> command:</p>
+<pre><code>php artisan vendor:publish --tag=config</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/packages by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+</html>

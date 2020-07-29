@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/eloquent-relationships by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Eloquent: Relationships - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="eloquent-relationships.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/eloquent-relationships">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/eloquent-relationships">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/eloquent-relationships">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/eloquent-relationships">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/eloquent-relationships">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/eloquent-relationships">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/eloquent-relationships">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/eloquent-relationships">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/eloquent-relationships">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/eloquent-relationships">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/eloquent-relationships">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/eloquent-relationships">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/eloquent-relationships">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Eloquent: Relationships</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#defining-relationships">Defining Relationships</a>
+<ul>
+<li><a href="#one-to-one">One To One</a></li>
+<li><a href="#one-to-many">One To Many</a></li>
+<li><a href="#one-to-many-inverse">One To Many (Inverse)</a></li>
+<li><a href="#many-to-many">Many To Many</a></li>
+<li><a href="#defining-custom-intermediate-table-models">Defining Custom Intermediate Table Models</a></li>
+<li><a href="#has-one-through">Has One Through</a></li>
+<li><a href="#has-many-through">Has Many Through</a></li>
+</ul></li>
+<li><a href="#polymorphic-relationships">Polymorphic Relationships</a>
+<ul>
+<li><a href="#one-to-one-polymorphic-relations">One To One</a></li>
+<li><a href="#one-to-many-polymorphic-relations">One To Many</a></li>
+<li><a href="#many-to-many-polymorphic-relations">Many To Many</a></li>
+<li><a href="#custom-polymorphic-types">Custom Polymorphic Types</a></li>
+</ul></li>
+<li><a href="#dynamic-relationships">Dynamic Relationships</a></li>
+<li><a href="#querying-relations">Querying Relations</a>
+<ul>
+<li><a href="#relationship-methods-vs-dynamic-properties">Relationship Methods Vs. Dynamic Properties</a></li>
+<li><a href="#querying-relationship-existence">Querying Relationship Existence</a></li>
+<li><a href="#querying-relationship-absence">Querying Relationship Absence</a></li>
+<li><a href="#querying-polymorphic-relationships">Querying Polymorphic Relationships</a></li>
+<li><a href="#counting-related-models">Counting Related Models</a></li>
+<li><a href="#counting-related-models-on-polymorphic-relationships">Counting Related Models On Polymorphic Relationships</a></li>
+</ul></li>
+<li><a href="#eager-loading">Eager Loading</a>
+<ul>
+<li><a href="#constraining-eager-loads">Constraining Eager Loads</a></li>
+<li><a href="#lazy-eager-loading">Lazy Eager Loading</a></li>
+</ul></li>
+<li><a href="#inserting-and-updating-related-models">Inserting &amp; Updating Related Models</a>
+<ul>
+<li><a href="#the-save-method">The <code>save</code> Method</a></li>
+<li><a href="#the-create-method">The <code>create</code> Method</a></li>
+<li><a href="#updating-belongs-to-relationships">Belongs To Relationships</a></li>
+<li><a href="#updating-many-to-many-relationships">Many To Many Relationships</a></li>
+</ul></li>
+<li><a href="#touching-parent-timestamps">Touching Parent Timestamps</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Database tables are often related to one another. For example, a blog post may have many comments, or an order could be related to the user who placed it. Eloquent makes managing and working with these relationships easy, and supports several different types of relationships:</p>
+<div class="content-list">
+<ul>
+<li><a href="#one-to-one">One To One</a></li>
+<li><a href="#one-to-many">One To Many</a></li>
+<li><a href="#many-to-many">Many To Many</a></li>
+<li><a href="#has-one-through">Has One Through</a></li>
+<li><a href="#has-many-through">Has Many Through</a></li>
+<li><a href="#one-to-one-polymorphic-relations">One To One (Polymorphic)</a></li>
+<li><a href="#one-to-many-polymorphic-relations">One To Many (Polymorphic)</a></li>
+<li><a href="#many-to-many-polymorphic-relations">Many To Many (Polymorphic)</a></li>
+</ul>
+</div>
+<p><a name="defining-relationships"></a></p>
+<h2 id="defining-relationships">Defining Relationships</h2>
+<p>Eloquent relationships are defined as methods on your Eloquent model classes. Since, like Eloquent models themselves, relationships also serve as powerful <a href="queries.html">query builders</a>, defining relationships as methods provides powerful method chaining and querying capabilities. For example, we may chain additional constraints on this <code>posts</code> relationship:</p>
+<pre><code>$user-&gt;posts()-&gt;where('active', 1)-&gt;get();</code></pre>
+<p>But, before diving too deep into using relationships, let's learn how to define each type.</p>
+<blockquote>
+<p>{note} Relationship names cannot collide with attribute names as that could lead to your model not being able to know which one to resolve.</p>
+</blockquote>
+<p><a name="one-to-one"></a></p>
+<h3 id="one-to-one">One To One</h3>
+<p>A one-to-one relationship is a very basic relation. For example, a <code>User</code> model might be associated with one <code>Phone</code>. To define this relationship, we place a <code>phone</code> method on the <code>User</code> model. The <code>phone</code> method should call the <code>hasOne</code> method and return its result:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function phone()
+    {
+        return $this-&gt;hasOne('App\Phone');
+    }
+}</code></pre>
+<p>The first argument passed to the <code>hasOne</code> method is the name of the related model. Once the relationship is defined, we may retrieve the related record using Eloquent's dynamic properties. Dynamic properties allow you to access relationship methods as if they were properties defined on the model:</p>
+<pre><code>$phone = User::find(1)-&gt;phone;</code></pre>
+<p>Eloquent determines the foreign key of the relationship based on the model name. In this case, the <code>Phone</code> model is automatically assumed to have a <code>user_id</code> foreign key. If you wish to override this convention, you may pass a second argument to the <code>hasOne</code> method:</p>
+<pre><code>return $this-&gt;hasOne('App\Phone', 'foreign_key');</code></pre>
+<p>Additionally, Eloquent assumes that the foreign key should have a value matching the <code>id</code> (or the custom <code>$primaryKey</code>) column of the parent. In other words, Eloquent will look for the value of the user's <code>id</code> column in the <code>user_id</code> column of the <code>Phone</code> record. If you would like the relationship to use a value other than <code>id</code>, you may pass a third argument to the <code>hasOne</code> method specifying your custom key:</p>
+<pre><code>return $this-&gt;hasOne('App\Phone', 'foreign_key', 'local_key');</code></pre>
+<h4>Defining The Inverse Of The Relationship</h4>
+<p>So, we can access the <code>Phone</code> model from our <code>User</code>. Now, let's define a relationship on the <code>Phone</code> model that will let us access the <code>User</code> that owns the phone. We can define the inverse of a <code>hasOne</code> relationship using the <code>belongsTo</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Phone extends Model
+{
+    /**
+     * Get the user that owns the phone.
+     */
+    public function user()
+    {
+        return $this-&gt;belongsTo('App\User');
+    }
+}</code></pre>
+<p>In the example above, Eloquent will try to match the <code>user_id</code> from the <code>Phone</code> model to an <code>id</code> on the <code>User</code> model. Eloquent determines the default foreign key name by examining the name of the relationship method and suffixing the method name with <code>_id</code>. However, if the foreign key on the <code>Phone</code> model is not <code>user_id</code>, you may pass a custom key name as the second argument to the <code>belongsTo</code> method:</p>
+<pre><code>/**
+ * Get the user that owns the phone.
+ */
+public function user()
+{
+    return $this-&gt;belongsTo('App\User', 'foreign_key');
+}</code></pre>
+<p>If your parent model does not use <code>id</code> as its primary key, or you wish to join the child model to a different column, you may pass a third argument to the <code>belongsTo</code> method specifying your parent table's custom key:</p>
+<pre><code>/**
+ * Get the user that owns the phone.
+ */
+public function user()
+{
+    return $this-&gt;belongsTo('App\User', 'foreign_key', 'other_key');
+}</code></pre>
+<p><a name="one-to-many"></a></p>
+<h3 id="one-to-many">One To Many</h3>
+<p>A one-to-many relationship is used to define relationships where a single model owns any amount of other models. For example, a blog post may have an infinite number of comments. Like all other Eloquent relationships, one-to-many relationships are defined by placing a function on your Eloquent model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    /**
+     * Get the comments for the blog post.
+     */
+    public function comments()
+    {
+        return $this-&gt;hasMany('App\Comment');
+    }
+}</code></pre>
+<p>Remember, Eloquent will automatically determine the proper foreign key column on the <code>Comment</code> model. By convention, Eloquent will take the &quot;snake case&quot; name of the owning model and suffix it with <code>_id</code>. So, for this example, Eloquent will assume the foreign key on the <code>Comment</code> model is <code>post_id</code>.</p>
+<p>Once the relationship has been defined, we can access the collection of comments by accessing the <code>comments</code> property. Remember, since Eloquent provides &quot;dynamic properties&quot;, we can access relationship methods as if they were defined as properties on the model:</p>
+<pre><code>$comments = App\Post::find(1)-&gt;comments;
+
+foreach ($comments as $comment) {
+    //
+}</code></pre>
+<p>Since all relationships also serve as query builders, you can add further constraints to which comments are retrieved by calling the <code>comments</code> method and continuing to chain conditions onto the query:</p>
+<pre><code>$comment = App\Post::find(1)-&gt;comments()-&gt;where('title', 'foo')-&gt;first();</code></pre>
+<p>Like the <code>hasOne</code> method, you may also override the foreign and local keys by passing additional arguments to the <code>hasMany</code> method:</p>
+<pre><code>return $this-&gt;hasMany('App\Comment', 'foreign_key');
+
+return $this-&gt;hasMany('App\Comment', 'foreign_key', 'local_key');</code></pre>
+<p><a name="one-to-many-inverse"></a></p>
+<h3 id="one-to-many-inverse">One To Many (Inverse)</h3>
+<p>Now that we can access all of a post's comments, let's define a relationship to allow a comment to access its parent post. To define the inverse of a <code>hasMany</code> relationship, define a relationship function on the child model which calls the <code>belongsTo</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+    /**
+     * Get the post that owns the comment.
+     */
+    public function post()
+    {
+        return $this-&gt;belongsTo('App\Post');
+    }
+}</code></pre>
+<p>Once the relationship has been defined, we can retrieve the <code>Post</code> model for a <code>Comment</code> by accessing the <code>post</code> &quot;dynamic property&quot;:</p>
+<pre><code>$comment = App\Comment::find(1);
+
+echo $comment-&gt;post-&gt;title;</code></pre>
+<p>In the example above, Eloquent will try to match the <code>post_id</code> from the <code>Comment</code> model to an <code>id</code> on the <code>Post</code> model. Eloquent determines the default foreign key name by examining the name of the relationship method and suffixing the method name with a <code>_</code> followed by the name of the primary key column. However, if the foreign key on the <code>Comment</code> model is not <code>post_id</code>, you may pass a custom key name as the second argument to the <code>belongsTo</code> method:</p>
+<pre><code>/**
+ * Get the post that owns the comment.
+ */
+public function post()
+{
+    return $this-&gt;belongsTo('App\Post', 'foreign_key');
+}</code></pre>
+<p>If your parent model does not use <code>id</code> as its primary key, or you wish to join the child model to a different column, you may pass a third argument to the <code>belongsTo</code> method specifying your parent table's custom key:</p>
+<pre><code>/**
+ * Get the post that owns the comment.
+ */
+public function post()
+{
+    return $this-&gt;belongsTo('App\Post', 'foreign_key', 'other_key');
+}</code></pre>
+<p><a name="many-to-many"></a></p>
+<h3 id="many-to-many">Many To Many</h3>
+<p>Many-to-many relations are slightly more complicated than <code>hasOne</code> and <code>hasMany</code> relationships. An example of such a relationship is a user with many roles, where the roles are also shared by other users. For example, many users may have the role of &quot;Admin&quot;.</p>
+<h4>Table Structure</h4>
+<p>To define this relationship, three database tables are needed: <code>users</code>, <code>roles</code>, and <code>role_user</code>. The <code>role_user</code> table is derived from the alphabetical order of the related model names, and contains the <code>user_id</code> and <code>role_id</code> columns:</p>
+<pre><code>users
+    id - integer
+    name - string
+
+roles
+    id - integer
+    name - string
+
+role_user
+    user_id - integer
+    role_id - integer</code></pre>
+<h4>Model Structure</h4>
+<p>Many-to-many relationships are defined by writing a method that returns the result of the <code>belongsToMany</code> method. For example, let's define the <code>roles</code> method on our <code>User</code> model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * The roles that belong to the user.
+     */
+    public function roles()
+    {
+        return $this-&gt;belongsToMany('App\Role');
+    }
+}</code></pre>
+<p>Once the relationship is defined, you may access the user's roles using the <code>roles</code> dynamic property:</p>
+<pre><code>$user = App\User::find(1);
+
+foreach ($user-&gt;roles as $role) {
+    //
+}</code></pre>
+<p>Like all other relationship types, you may call the <code>roles</code> method to continue chaining query constraints onto the relationship:</p>
+<pre><code>$roles = App\User::find(1)-&gt;roles()-&gt;orderBy('name')-&gt;get();</code></pre>
+<p>As mentioned previously, to determine the table name of the relationship's joining table, Eloquent will join the two related model names in alphabetical order. However, you are free to override this convention. You may do so by passing a second argument to the <code>belongsToMany</code> method:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Role', 'role_user');</code></pre>
+<p>In addition to customizing the name of the joining table, you may also customize the column names of the keys on the table by passing additional arguments to the <code>belongsToMany</code> method. The third argument is the foreign key name of the model on which you are defining the relationship, while the fourth argument is the foreign key name of the model that you are joining to:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');</code></pre>
+<h4>Defining The Inverse Of The Relationship</h4>
+<p>To define the inverse of a many-to-many relationship, you place another call to <code>belongsToMany</code> on your related model. To continue our user roles example, let's define the <code>users</code> method on the <code>Role</code> model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Role extends Model
+{
+    /**
+     * The users that belong to the role.
+     */
+    public function users()
+    {
+        return $this-&gt;belongsToMany('App\User');
+    }
+}</code></pre>
+<p>As you can see, the relationship is defined exactly the same as its <code>User</code> counterpart, with the exception of referencing the <code>App\User</code> model. Since we're reusing the <code>belongsToMany</code> method, all of the usual table and key customization options are available when defining the inverse of many-to-many relationships.</p>
+<h4>Retrieving Intermediate Table Columns</h4>
+<p>As you have already learned, working with many-to-many relations requires the presence of an intermediate table. Eloquent provides some very helpful ways of interacting with this table. For example, let's assume our <code>User</code> object has many <code>Role</code> objects that it is related to. After accessing this relationship, we may access the intermediate table using the <code>pivot</code> attribute on the models:</p>
+<pre><code>$user = App\User::find(1);
+
+foreach ($user-&gt;roles as $role) {
+    echo $role-&gt;pivot-&gt;created_at;
+}</code></pre>
+<p>Notice that each <code>Role</code> model we retrieve is automatically assigned a <code>pivot</code> attribute. This attribute contains a model representing the intermediate table, and may be used like any other Eloquent model.</p>
+<p>By default, only the model keys will be present on the <code>pivot</code> object. If your pivot table contains extra attributes, you must specify them when defining the relationship:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Role')-&gt;withPivot('column1', 'column2');</code></pre>
+<p>If you want your pivot table to have automatically maintained <code>created_at</code> and <code>updated_at</code> timestamps, use the <code>withTimestamps</code> method on the relationship definition:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Role')-&gt;withTimestamps();</code></pre>
+<h4>Customizing The <code>pivot</code> Attribute Name</h4>
+<p>As noted earlier, attributes from the intermediate table may be accessed on models using the <code>pivot</code> attribute. However, you are free to customize the name of this attribute to better reflect its purpose within your application.</p>
+<p>For example, if your application contains users that may subscribe to podcasts, you probably have a many-to-many relationship between users and podcasts. If this is the case, you may wish to rename your intermediate table accessor to <code>subscription</code> instead of <code>pivot</code>. This can be done using the <code>as</code> method when defining the relationship:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Podcast')
+                -&gt;as('subscription')
+                -&gt;withTimestamps();</code></pre>
+<p>Once this is done, you may access the intermediate table data using the customized name:</p>
+<pre><code>$users = User::with('podcasts')-&gt;get();
+
+foreach ($users-&gt;flatMap-&gt;podcasts as $podcast) {
+    echo $podcast-&gt;subscription-&gt;created_at;
+}</code></pre>
+<h4>Filtering Relationships Via Intermediate Table Columns</h4>
+<p>You can also filter the results returned by <code>belongsToMany</code> using the <code>wherePivot</code>, <code>wherePivotIn</code>, and <code>wherePivotNotIn</code> methods when defining the relationship:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Role')-&gt;wherePivot('approved', 1);
+
+return $this-&gt;belongsToMany('App\Role')-&gt;wherePivotIn('priority', [1, 2]);
+
+return $this-&gt;belongsToMany('App\Role')-&gt;wherePivotNotIn('priority', [1, 2]);</code></pre>
+<p><a name="defining-custom-intermediate-table-models"></a></p>
+<h3 id="defining-custom-intermediate-table-models">Defining Custom Intermediate Table Models</h3>
+<p>If you would like to define a custom model to represent the intermediate table of your relationship, you may call the <code>using</code> method when defining the relationship. Custom many-to-many pivot models should extend the <code>Illuminate\Database\Eloquent\Relations\Pivot</code> class while custom polymorphic many-to-many pivot models should extend the <code>Illuminate\Database\Eloquent\Relations\MorphPivot</code> class. For example, we may define a <code>Role</code> which uses a custom <code>RoleUser</code> pivot model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Role extends Model
+{
+    /**
+     * The users that belong to the role.
+     */
+    public function users()
+    {
+        return $this-&gt;belongsToMany('App\User')-&gt;using('App\RoleUser');
+    }
+}</code></pre>
+<p>When defining the <code>RoleUser</code> model, we will extend the <code>Pivot</code> class:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Relations\Pivot;
+
+class RoleUser extends Pivot
+{
+    //
+}</code></pre>
+<p>You can combine <code>using</code> and <code>withPivot</code> in order to retrieve columns from the intermediate table. For example, you may retrieve the <code>created_by</code> and <code>updated_by</code> columns from the <code>RoleUser</code> pivot table by passing the column names to the <code>withPivot</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Role extends Model
+{
+    /**
+     * The users that belong to the role.
+     */
+    public function users()
+    {
+        return $this-&gt;belongsToMany('App\User')
+                        -&gt;using('App\RoleUser')
+                        -&gt;withPivot([
+                            'created_by',
+                            'updated_by',
+                        ]);
+    }
+}</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Pivot models may not use the <code>SoftDeletes</code> trait. If you need to soft delete pivot records consider converting your pivot model to an actual Eloquent model.</p>
+</blockquote>
+<h4>Custom Pivot Models And Incrementing IDs</h4>
+<p>If you have defined a many-to-many relationship that uses a custom pivot model, and that pivot model has an auto-incrementing primary key, you should ensure your custom pivot model class defines an <code>incrementing</code> property that is set to <code>true</code>.</p>
+<pre><code>/**
+ * Indicates if the IDs are auto-incrementing.
+ *
+ * @var bool
+ */
+public $incrementing = true;</code></pre>
+<p><a name="has-one-through"></a></p>
+<h3 id="has-one-through">Has One Through</h3>
+<p>The &quot;has-one-through&quot; relationship links models through a single intermediate relation.</p>
+<p>For example, in a vehicle repair shop application, each <code>Mechanic</code> may have one <code>Car</code>, and each <code>Car</code> may have one <code>Owner</code>. While the <code>Mechanic</code> and the <code>Owner</code> have no direct connection, the <code>Mechanic</code> can access to the <code>Owner</code> <em>through</em> the <code>Car</code> itself. Let's look at the tables necessary to define this relationship:</p>
+<pre><code>mechanics
+    id - integer
+    name - string
+
+cars
+    id - integer
+    model - string
+    mechanic_id - integer
+
+owners
+    id - integer
+    name - string
+    car_id - integer</code></pre>
+<p>Now that we have examined the table structure for the relationship, let's define the relationship on the <code>Mechanic</code> model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Mechanic extends Model
+{
+    /**
+     * Get the car's owner.
+     */
+    public function carOwner()
+    {
+        return $this-&gt;hasOneThrough('App\Owner', 'App\Car');
+    }
+}</code></pre>
+<p>The first argument passed to the <code>hasOneThrough</code> method is the name of the final model we wish to access, while the second argument is the name of the intermediate model.</p>
+<p>Typical Eloquent foreign key conventions will be used when performing the relationship's queries. If you would like to customize the keys of the relationship, you may pass them as the third and fourth arguments to the <code>hasOneThrough</code> method. The third argument is the name of the foreign key on the intermediate model. The fourth argument is the name of the foreign key on the final model. The fifth argument is the local key, while the sixth argument is the local key of the intermediate model:</p>
+<pre><code>class Mechanic extends Model
+{
+    /**
+     * Get the car's owner.
+     */
+    public function carOwner()
+    {
+        return $this-&gt;hasOneThrough(
+            'App\Owner',
+            'App\Car',
+            'mechanic_id', // Foreign key on cars table...
+            'car_id', // Foreign key on owners table...
+            'id', // Local key on mechanics table...
+            'id' // Local key on cars table...
+        );
+    }
+}</code></pre>
+<p><a name="has-many-through"></a></p>
+<h3 id="has-many-through">Has Many Through</h3>
+<p>The &quot;has-many-through&quot; relationship provides a convenient shortcut for accessing distant relations via an intermediate relation. For example, a <code>Country</code> model might have many <code>Post</code> models through an intermediate <code>User</code> model. In this example, you could easily gather all blog posts for a given country. Let's look at the tables required to define this relationship:</p>
+<pre><code>countries
+    id - integer
+    name - string
+
+users
+    id - integer
+    country_id - integer
+    name - string
+
+posts
+    id - integer
+    user_id - integer
+    title - string</code></pre>
+<p>Though <code>posts</code> does not contain a <code>country_id</code> column, the <code>hasManyThrough</code> relation provides access to a country's posts via <code>$country-&gt;posts</code>. To perform this query, Eloquent inspects the <code>country_id</code> on the intermediate <code>users</code> table. After finding the matching user IDs, they are used to query the <code>posts</code> table.</p>
+<p>Now that we have examined the table structure for the relationship, let's define it on the <code>Country</code> model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Country extends Model
+{
+    /**
+     * Get all of the posts for the country.
+     */
+    public function posts()
+    {
+        return $this-&gt;hasManyThrough('App\Post', 'App\User');
+    }
+}</code></pre>
+<p>The first argument passed to the <code>hasManyThrough</code> method is the name of the final model we wish to access, while the second argument is the name of the intermediate model.</p>
+<p>Typical Eloquent foreign key conventions will be used when performing the relationship's queries. If you would like to customize the keys of the relationship, you may pass them as the third and fourth arguments to the <code>hasManyThrough</code> method. The third argument is the name of the foreign key on the intermediate model. The fourth argument is the name of the foreign key on the final model. The fifth argument is the local key, while the sixth argument is the local key of the intermediate model:</p>
+<pre><code>class Country extends Model
+{
+    public function posts()
+    {
+        return $this-&gt;hasManyThrough(
+            'App\Post',
+            'App\User',
+            'country_id', // Foreign key on users table...
+            'user_id', // Foreign key on posts table...
+            'id', // Local key on countries table...
+            'id' // Local key on users table...
+        );
+    }
+}</code></pre>
+<p><a name="polymorphic-relationships"></a></p>
+<h2 id="polymorphic-relationships">Polymorphic Relationships</h2>
+<p>A polymorphic relationship allows the target model to belong to more than one type of model using a single association.</p>
+<p><a name="one-to-one-polymorphic-relations"></a></p>
+<h3 id="one-to-one-polymorphic-relations">One To One (Polymorphic)</h3>
+<h4>Table Structure</h4>
+<p>A one-to-one polymorphic relation is similar to a simple one-to-one relation; however, the target model can belong to more than one type of model on a single association. For example, a blog <code>Post</code> and a <code>User</code> may share a polymorphic relation to an <code>Image</code> model. Using a one-to-one polymorphic relation allows you to have a single list of unique images that are used for both blog posts and user accounts. First, let's examine the table structure:</p>
+<pre><code>posts
+    id - integer
+    name - string
+
+users
+    id - integer
+    name - string
+
+images
+    id - integer
+    url - string
+    imageable_id - integer
+    imageable_type - string</code></pre>
+<p>Take note of the <code>imageable_id</code> and <code>imageable_type</code> columns on the <code>images</code> table. The <code>imageable_id</code> column will contain the ID value of the post or user, while the <code>imageable_type</code> column will contain the class name of the parent model. The <code>imageable_type</code> column is used by Eloquent to determine which &quot;type&quot; of parent model to return when accessing the <code>imageable</code> relation.</p>
+<h4>Model Structure</h4>
+<p>Next, let's examine the model definitions needed to build this relationship:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Image extends Model
+{
+    /**
+     * Get the owning imageable model.
+     */
+    public function imageable()
+    {
+        return $this-&gt;morphTo();
+    }
+}
+
+class Post extends Model
+{
+    /**
+     * Get the post's image.
+     */
+    public function image()
+    {
+        return $this-&gt;morphOne('App\Image', 'imageable');
+    }
+}
+
+class User extends Model
+{
+    /**
+     * Get the user's image.
+     */
+    public function image()
+    {
+        return $this-&gt;morphOne('App\Image', 'imageable');
+    }
+}</code></pre>
+<h4>Retrieving The Relationship</h4>
+<p>Once your database table and models are defined, you may access the relationships via your models. For example, to retrieve the image for a post, we can use the <code>image</code> dynamic property:</p>
+<pre><code>$post = App\Post::find(1);
+
+$image = $post-&gt;image;</code></pre>
+<p>You may also retrieve the parent from the polymorphic model by accessing the name of the method that performs the call to <code>morphTo</code>. In our case, that is the <code>imageable</code> method on the <code>Image</code> model. So, we will access that method as a dynamic property:</p>
+<pre><code>$image = App\Image::find(1);
+
+$imageable = $image-&gt;imageable;</code></pre>
+<p>The <code>imageable</code> relation on the <code>Image</code> model will return either a <code>Post</code> or <code>User</code> instance, depending on which type of model owns the image. If you need to specify custom <code>type</code> and <code>id</code> columns for the <code>morphTo</code> relation, always ensure you pass the relationship name (which should exactly match the method name) as the first parameter:</p>
+<pre><code>/**
+ * Get the model that the image belongs to.
+ */
+public function imageable()
+{
+    return $this-&gt;morphTo(__FUNCTION__, 'imageable_type', 'imageable_id');
+}</code></pre>
+<p><a name="one-to-many-polymorphic-relations"></a></p>
+<h3 id="one-to-many-polymorphic-relations">One To Many (Polymorphic)</h3>
+<h4>Table Structure</h4>
+<p>A one-to-many polymorphic relation is similar to a simple one-to-many relation; however, the target model can belong to more than one type of model on a single association. For example, imagine users of your application can &quot;comment&quot; on both posts and videos. Using polymorphic relationships, you may use a single <code>comments</code> table for both of these scenarios. First, let's examine the table structure required to build this relationship:</p>
+<pre><code>posts
+    id - integer
+    title - string
+    body - text
+
+videos
+    id - integer
+    title - string
+    url - string
+
+comments
+    id - integer
+    body - text
+    commentable_id - integer
+    commentable_type - string</code></pre>
+<h4>Model Structure</h4>
+<p>Next, let's examine the model definitions needed to build this relationship:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+    /**
+     * Get the owning commentable model.
+     */
+    public function commentable()
+    {
+        return $this-&gt;morphTo();
+    }
+}
+
+class Post extends Model
+{
+    /**
+     * Get all of the post's comments.
+     */
+    public function comments()
+    {
+        return $this-&gt;morphMany('App\Comment', 'commentable');
+    }
+}
+
+class Video extends Model
+{
+    /**
+     * Get all of the video's comments.
+     */
+    public function comments()
+    {
+        return $this-&gt;morphMany('App\Comment', 'commentable');
+    }
+}</code></pre>
+<h4>Retrieving The Relationship</h4>
+<p>Once your database table and models are defined, you may access the relationships via your models. For example, to access all of the comments for a post, we can use the <code>comments</code> dynamic property:</p>
+<pre><code>$post = App\Post::find(1);
+
+foreach ($post-&gt;comments as $comment) {
+    //
+}</code></pre>
+<p>You may also retrieve the owner of a polymorphic relation from the polymorphic model by accessing the name of the method that performs the call to <code>morphTo</code>. In our case, that is the <code>commentable</code> method on the <code>Comment</code> model. So, we will access that method as a dynamic property:</p>
+<pre><code>$comment = App\Comment::find(1);
+
+$commentable = $comment-&gt;commentable;</code></pre>
+<p>The <code>commentable</code> relation on the <code>Comment</code> model will return either a <code>Post</code> or <code>Video</code> instance, depending on which type of model owns the comment.</p>
+<p><a name="many-to-many-polymorphic-relations"></a></p>
+<h3 id="many-to-many-polymorphic-relations">Many To Many (Polymorphic)</h3>
+<h4>Table Structure</h4>
+<p>Many-to-many polymorphic relations are slightly more complicated than <code>morphOne</code> and <code>morphMany</code> relationships. For example, a blog <code>Post</code> and <code>Video</code> model could share a polymorphic relation to a <code>Tag</code> model. Using a many-to-many polymorphic relation allows you to have a single list of unique tags that are shared across blog posts and videos. First, let's examine the table structure:</p>
+<pre><code>posts
+    id - integer
+    name - string
+
+videos
+    id - integer
+    name - string
+
+tags
+    id - integer
+    name - string
+
+taggables
+    tag_id - integer
+    taggable_id - integer
+    taggable_type - string</code></pre>
+<h4>Model Structure</h4>
+<p>Next, we're ready to define the relationships on the model. The <code>Post</code> and <code>Video</code> models will both have a <code>tags</code> method that calls the <code>morphToMany</code> method on the base Eloquent class:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    /**
+     * Get all of the tags for the post.
+     */
+    public function tags()
+    {
+        return $this-&gt;morphToMany('App\Tag', 'taggable');
+    }
+}</code></pre>
+<h4>Defining The Inverse Of The Relationship</h4>
+<p>Next, on the <code>Tag</code> model, you should define a method for each of its related models. So, for this example, we will define a <code>posts</code> method and a <code>videos</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Tag extends Model
+{
+    /**
+     * Get all of the posts that are assigned this tag.
+     */
+    public function posts()
+    {
+        return $this-&gt;morphedByMany('App\Post', 'taggable');
+    }
+
+    /**
+     * Get all of the videos that are assigned this tag.
+     */
+    public function videos()
+    {
+        return $this-&gt;morphedByMany('App\Video', 'taggable');
+    }
+}</code></pre>
+<h4>Retrieving The Relationship</h4>
+<p>Once your database table and models are defined, you may access the relationships via your models. For example, to access all of the tags for a post, you can use the <code>tags</code> dynamic property:</p>
+<pre><code>$post = App\Post::find(1);
+
+foreach ($post-&gt;tags as $tag) {
+    //
+}</code></pre>
+<p>You may also retrieve the owner of a polymorphic relation from the polymorphic model by accessing the name of the method that performs the call to <code>morphedByMany</code>. In our case, that is the <code>posts</code> or <code>videos</code> methods on the <code>Tag</code> model. So, you will access those methods as dynamic properties:</p>
+<pre><code>$tag = App\Tag::find(1);
+
+foreach ($tag-&gt;videos as $video) {
+    //
+}</code></pre>
+<p><a name="custom-polymorphic-types"></a></p>
+<h3 id="custom-polymorphic-types">Custom Polymorphic Types</h3>
+<p>By default, Laravel will use the fully qualified class name to store the type of the related model. For instance, given the one-to-many example above where a <code>Comment</code> may belong to a <code>Post</code> or a <code>Video</code>, the default <code>commentable_type</code> would be either <code>App\Post</code> or <code>App\Video</code>, respectively. However, you may wish to decouple your database from your application's internal structure. In that case, you may define a &quot;morph map&quot; to instruct Eloquent to use a custom name for each model instead of the class name:</p>
+<pre><code>use Illuminate\Database\Eloquent\Relations\Relation;
+
+Relation::morphMap([
+    'posts' =&gt; 'App\Post',
+    'videos' =&gt; 'App\Video',
+]);</code></pre>
+<p>You may register the <code>morphMap</code> in the <code>boot</code> function of your <code>AppServiceProvider</code> or create a separate service provider if you wish.</p>
+<blockquote>
+<p>{note} When adding a &quot;morph map&quot; to your existing application, every morphable <code>*_type</code> column value in your database that still contains a fully-qualified class will need to be converted to its &quot;map&quot; name.</p>
+</blockquote>
+<p>You may determine the morph alias of a given model at runtime using the <code>getMorphClass</code> method. Conversely, you may determine the fully-qualified class name associated with a morph alias using the <code>Relation::getMorphedModel</code> method:</p>
+<pre><code>use Illuminate\Database\Eloquent\Relations\Relation;
+
+$alias = $post-&gt;getMorphClass();
+
+$class = Relation::getMorphedModel($alias);</code></pre>
+<p><a name="dynamic-relationships"></a></p>
+<h3 id="dynamic-relationships">Dynamic Relationships</h3>
+<p>You may use the <code>resolveRelationUsing</code> method to define relations between Eloquent models at runtime. While not typically recommended for normal application development, this may occasionally be useful when developing Laravel packages:</p>
+<pre><code>use App\Order;
+use App\Customer;
+
+Order::resolveRelationUsing('customer', function ($orderModel) {
+    return $orderModel-&gt;belongsTo(Customer::class, 'customer_id');
+});</code></pre>
+<blockquote>
+<p>{note} When defining dynamic relationships, always provide explicit key name arguments to the Eloquent relationship methods.</p>
+</blockquote>
+<p><a name="querying-relations"></a></p>
+<h2 id="querying-relations">Querying Relations</h2>
+<p>Since all types of Eloquent relationships are defined via methods, you may call those methods to obtain an instance of the relationship without actually executing the relationship queries. In addition, all types of Eloquent relationships also serve as <a href="queries.html">query builders</a>, allowing you to continue to chain constraints onto the relationship query before finally executing the SQL against your database.</p>
+<p>For example, imagine a blog system in which a <code>User</code> model has many associated <code>Post</code> models:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * Get all of the posts for the user.
+     */
+    public function posts()
+    {
+        return $this-&gt;hasMany('App\Post');
+    }
+}</code></pre>
+<p>You may query the <code>posts</code> relationship and add additional constraints to the relationship like so:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;posts()-&gt;where('active', 1)-&gt;get();</code></pre>
+<p>You are able to use any of the <a href="queries.html">query builder</a> methods on the relationship, so be sure to explore the query builder documentation to learn about all of the methods that are available to you.</p>
+<h4>Chaining <code>orWhere</code> Clauses After Relationships</h4>
+<p>As demonstrated in the example above, you are free to add additional constraints to relationships when querying them. However, use caution when chaining <code>orWhere</code> clauses onto a relationship, as the <code>orWhere</code> clauses will be logically grouped at the same level as the relationship constraint:</p>
+<pre><code>$user-&gt;posts()
+        -&gt;where('active', 1)
+        -&gt;orWhere('votes', '&gt;=', 100)
+        -&gt;get();
+
+// select * from posts
+// where user_id = ? and active = 1 or votes &gt;= 100</code></pre>
+<p>In most situations, you likely intend to use <a href="queries.html#parameter-grouping">constraint groups</a> to logically group the conditional checks between parentheses:</p>
+<pre><code>use Illuminate\Database\Eloquent\Builder;
+
+$user-&gt;posts()
+        -&gt;where(function (Builder $query) {
+            return $query-&gt;where('active', 1)
+                         -&gt;orWhere('votes', '&gt;=', 100);
+        })
+        -&gt;get();
+
+// select * from posts
+// where user_id = ? and (active = 1 or votes &gt;= 100)</code></pre>
+<p><a name="relationship-methods-vs-dynamic-properties"></a></p>
+<h3 id="relationship-methods-vs-dynamic-properties">Relationship Methods Vs. Dynamic Properties</h3>
+<p>If you do not need to add additional constraints to an Eloquent relationship query, you may access the relationship as if it were a property. For example, continuing to use our <code>User</code> and <code>Post</code> example models, we may access all of a user's posts like so:</p>
+<pre><code>$user = App\User::find(1);
+
+foreach ($user-&gt;posts as $post) {
+    //
+}</code></pre>
+<p>Dynamic properties are &quot;lazy loading&quot;, meaning they will only load their relationship data when you actually access them. Because of this, developers often use <a href="#eager-loading">eager loading</a> to pre-load relationships they know will be accessed after loading the model. Eager loading provides a significant reduction in SQL queries that must be executed to load a model's relations.</p>
+<p><a name="querying-relationship-existence"></a></p>
+<h3 id="querying-relationship-existence">Querying Relationship Existence</h3>
+<p>When accessing the records for a model, you may wish to limit your results based on the existence of a relationship. For example, imagine you want to retrieve all blog posts that have at least one comment. To do so, you may pass the name of the relationship to the <code>has</code> and <code>orHas</code> methods:</p>
+<pre><code>// Retrieve all posts that have at least one comment...
+$posts = App\Post::has('comments')-&gt;get();</code></pre>
+<p>You may also specify an operator and count to further customize the query:</p>
+<pre><code>// Retrieve all posts that have three or more comments...
+$posts = App\Post::has('comments', '&gt;=', 3)-&gt;get();</code></pre>
+<p>Nested <code>has</code> statements may also be constructed using &quot;dot&quot; notation. For example, you may retrieve all posts that have at least one comment and vote:</p>
+<pre><code>// Retrieve posts that have at least one comment with votes...
+$posts = App\Post::has('comments.votes')-&gt;get();</code></pre>
+<p>If you need even more power, you may use the <code>whereHas</code> and <code>orWhereHas</code> methods to put &quot;where&quot; conditions on your <code>has</code> queries. These methods allow you to add customized constraints to a relationship constraint, such as checking the content of a comment:</p>
+<pre><code>use Illuminate\Database\Eloquent\Builder;
+
+// Retrieve posts with at least one comment containing words like foo%...
+$posts = App\Post::whereHas('comments', function (Builder $query) {
+    $query-&gt;where('content', 'like', 'foo%');
+})-&gt;get();
+
+// Retrieve posts with at least ten comments containing words like foo%...
+$posts = App\Post::whereHas('comments', function (Builder $query) {
+    $query-&gt;where('content', 'like', 'foo%');
+}, '&gt;=', 10)-&gt;get();</code></pre>
+<p><a name="querying-relationship-absence"></a></p>
+<h3 id="querying-relationship-absence">Querying Relationship Absence</h3>
+<p>When accessing the records for a model, you may wish to limit your results based on the absence of a relationship. For example, imagine you want to retrieve all blog posts that <strong>don't</strong> have any comments. To do so, you may pass the name of the relationship to the <code>doesntHave</code> and <code>orDoesntHave</code> methods:</p>
+<pre><code>$posts = App\Post::doesntHave('comments')-&gt;get();</code></pre>
+<p>If you need even more power, you may use the <code>whereDoesntHave</code> and <code>orWhereDoesntHave</code> methods to put &quot;where&quot; conditions on your <code>doesntHave</code> queries. These methods allows you to add customized constraints to a relationship constraint, such as checking the content of a comment:</p>
+<pre><code>use Illuminate\Database\Eloquent\Builder;
+
+$posts = App\Post::whereDoesntHave('comments', function (Builder $query) {
+    $query-&gt;where('content', 'like', 'foo%');
+})-&gt;get();</code></pre>
+<p>You may use &quot;dot&quot; notation to execute a query against a nested relationship. For example, the following query will retrieve all posts with comments from authors that are not banned:</p>
+<pre><code>use Illuminate\Database\Eloquent\Builder;
+
+$posts = App\Post::whereDoesntHave('comments.author', function (Builder $query) {
+    $query-&gt;where('banned', 0);
+})-&gt;get();</code></pre>
+<p><a name="querying-polymorphic-relationships"></a></p>
+<h3 id="querying-polymorphic-relationships">Querying Polymorphic Relationships</h3>
+<p>To query the existence of <code>MorphTo</code> relationships, you may use the <code>whereHasMorph</code> method and its corresponding methods:</p>
+<pre><code>use Illuminate\Database\Eloquent\Builder;
+
+// Retrieve comments associated to posts or videos with a title like foo%...
+$comments = App\Comment::whereHasMorph(
+    'commentable',
+    ['App\Post', 'App\Video'],
+    function (Builder $query) {
+        $query-&gt;where('title', 'like', 'foo%');
+    }
+)-&gt;get();
+
+// Retrieve comments associated to posts with a title not like foo%...
+$comments = App\Comment::whereDoesntHaveMorph(
+    'commentable',
+    'App\Post',
+    function (Builder $query) {
+        $query-&gt;where('title', 'like', 'foo%');
+    }
+)-&gt;get();</code></pre>
+<p>You may use the <code>$type</code> parameter to add different constraints depending on the related model:</p>
+<pre><code>use Illuminate\Database\Eloquent\Builder;
+
+$comments = App\Comment::whereHasMorph(
+    'commentable',
+    ['App\Post', 'App\Video'],
+    function (Builder $query, $type) {
+        $query-&gt;where('title', 'like', 'foo%');
+
+        if ($type === 'App\Post') {
+            $query-&gt;orWhere('content', 'like', 'foo%');
+        }
+    }
+)-&gt;get();</code></pre>
+<p>Instead of passing an array of possible polymorphic models, you may provide <code>*</code> as a wildcard and let Laravel retrieve all the possible polymorphic types from the database. Laravel will execute an additional query in order to perform this operation:</p>
+<pre><code>use Illuminate\Database\Eloquent\Builder;
+
+$comments = App\Comment::whereHasMorph('commentable', '*', function (Builder $query) {
+    $query-&gt;where('title', 'like', 'foo%');
+})-&gt;get();</code></pre>
+<p><a name="counting-related-models"></a></p>
+<h3 id="counting-related-models">Counting Related Models</h3>
+<p>If you want to count the number of results from a relationship without actually loading them you may use the <code>withCount</code> method, which will place a <code>{relation}_count</code> column on your resulting models. For example:</p>
+<pre><code>$posts = App\Post::withCount('comments')-&gt;get();
+
+foreach ($posts as $post) {
+    echo $post-&gt;comments_count;
+}</code></pre>
+<p>You may add the &quot;counts&quot; for multiple relations as well as add constraints to the queries:</p>
+<pre><code>use Illuminate\Database\Eloquent\Builder;
+
+$posts = App\Post::withCount(['votes', 'comments' =&gt; function (Builder $query) {
+    $query-&gt;where('content', 'like', 'foo%');
+}])-&gt;get();
+
+echo $posts[0]-&gt;votes_count;
+echo $posts[0]-&gt;comments_count;</code></pre>
+<p>You may also alias the relationship count result, allowing multiple counts on the same relationship:</p>
+<pre><code>use Illuminate\Database\Eloquent\Builder;
+
+$posts = App\Post::withCount([
+    'comments',
+    'comments as pending_comments_count' =&gt; function (Builder $query) {
+        $query-&gt;where('approved', false);
+    },
+])-&gt;get();
+
+echo $posts[0]-&gt;comments_count;
+
+echo $posts[0]-&gt;pending_comments_count;</code></pre>
+<p>If you're combining <code>withCount</code> with a <code>select</code> statement, ensure that you call <code>withCount</code> after the <code>select</code> method:</p>
+<pre><code>$posts = App\Post::select(['title', 'body'])-&gt;withCount('comments')-&gt;get();
+
+echo $posts[0]-&gt;title;
+echo $posts[0]-&gt;body;
+echo $posts[0]-&gt;comments_count;</code></pre>
+<p>In addition, using the <code>loadCount</code> method, you may load a relationship count after the parent model has already been retrieved:</p>
+<pre><code>$book = App\Book::first();
+
+$book-&gt;loadCount('genres');</code></pre>
+<p>If you need to set additional query constraints on the eager loading query, you may pass an array keyed by the relationships you wish to load. The array values should be <code>Closure</code> instances which receive the query builder instance:</p>
+<pre><code>$book-&gt;loadCount(['reviews' =&gt; function ($query) {
+    $query-&gt;where('rating', 5);
+}])</code></pre>
+<p><a name="counting-related-models-on-polymorphic-relationships"></a></p>
+<h3 id="counting-related-models-on-polymorphic-relationships">Counting Related Models On Polymorphic Relationships</h3>
+<p>If you would like to eager load a <code>morphTo</code> relationship, as well as nested relationship counts on the various entities that may be returned by that relationship, you may use the <code>with</code> method in combination with the <code>morphTo</code> relationship's <code>morphWithCount</code> method.</p>
+<p>In this example, let's assume <code>Photo</code> and <code>Post</code> models may create <code>ActivityFeed</code> models. Additionally, let's assume that <code>Photo</code> models are associated with <code>Tag</code> models, and <code>Post</code> models are associated with <code>Comment</code> models.</p>
+<p>Using these model definitions and relationships, we may retrieve <code>ActivityFeed</code> model instances and eager load all <code>parentable</code> models and their respective nested relationship counts:</p>
+<pre><code>use Illuminate\Database\Eloquent\Relations\MorphTo;
+
+$activities = ActivityFeed::query()
+    -&gt;with(['parentable' =&gt; function (MorphTo $morphTo) {
+        $morphTo-&gt;morphWithCount([
+            Photo::class =&gt; ['tags'],
+            Post::class =&gt; ['comments'],
+        ]);
+    }])-&gt;get();</code></pre>
+<p>In addition, you may use the <code>loadMorphCount</code> method to eager load all nested relationship counts on the various entities of the polymorphic relation if the <code>ActivityFeed</code> models have already been retrieved:</p>
+<pre><code>$activities = ActivityFeed::with('parentable')
+    -&gt;get()
+    -&gt;loadMorphCount('parentable', [
+        Photo::class =&gt; ['tags'],
+        Post::class =&gt; ['comments'],
+    ]);</code></pre>
+<p><a name="eager-loading"></a></p>
+<h2 id="eager-loading">Eager Loading</h2>
+<p>When accessing Eloquent relationships as properties, the relationship data is &quot;lazy loaded&quot;. This means the relationship data is not actually loaded until you first access the property. However, Eloquent can &quot;eager load&quot; relationships at the time you query the parent model. Eager loading alleviates the N + 1 query problem. To illustrate the N + 1 query problem, consider a <code>Book</code> model that is related to <code>Author</code>:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Book extends Model
+{
+    /**
+     * Get the author that wrote the book.
+     */
+    public function author()
+    {
+        return $this-&gt;belongsTo('App\Author');
+    }
+}</code></pre>
+<p>Now, let's retrieve all books and their authors:</p>
+<pre><code>$books = App\Book::all();
+
+foreach ($books as $book) {
+    echo $book-&gt;author-&gt;name;
+}</code></pre>
+<p>This loop will execute 1 query to retrieve all of the books on the table, then another query for each book to retrieve the author. So, if we have 25 books, this loop would run 26 queries: 1 for the original book, and 25 additional queries to retrieve the author of each book.</p>
+<p>Thankfully, we can use eager loading to reduce this operation to just 2 queries. When querying, you may specify which relationships should be eager loaded using the <code>with</code> method:</p>
+<pre><code>$books = App\Book::with('author')-&gt;get();
+
+foreach ($books as $book) {
+    echo $book-&gt;author-&gt;name;
+}</code></pre>
+<p>For this operation, only two queries will be executed:</p>
+<pre><code>select * from books
+
+select * from authors where id in (1, 2, 3, 4, 5, ...)</code></pre>
+<h4>Eager Loading Multiple Relationships</h4>
+<p>Sometimes you may need to eager load several different relationships in a single operation. To do so, just pass additional arguments to the <code>with</code> method:</p>
+<pre><code>$books = App\Book::with(['author', 'publisher'])-&gt;get();</code></pre>
+<h4>Nested Eager Loading</h4>
+<p>To eager load nested relationships, you may use &quot;dot&quot; syntax. For example, let's eager load all of the book's authors and all of the author's personal contacts in one Eloquent statement:</p>
+<pre><code>$books = App\Book::with('author.contacts')-&gt;get();</code></pre>
+<h4>Nested Eager Loading <code>morphTo</code> Relationships</h4>
+<p>If you would like to eager load a <code>morphTo</code> relationship, as well as nested relationships on the various entities that may be returned by that relationship, you may use the <code>with</code> method in combination with the <code>morphTo</code> relationship's <code>morphWith</code> method. To help illustrate this method, let's consider the following model:</p>
+<pre><code>&lt;?php
+
+use Illuminate\Database\Eloquent\Model;
+
+class ActivityFeed extends Model
+{
+    /**
+     * Get the parent of the activity feed record.
+     */
+    public function parentable()
+    {
+        return $this-&gt;morphTo();
+    }
+}</code></pre>
+<p>In this example, let's assume <code>Event</code>, <code>Photo</code>, and <code>Post</code> models may create <code>ActivityFeed</code> models. Additionally, let's assume that <code>Event</code> models belong to a <code>Calendar</code> model, <code>Photo</code> models are associated with <code>Tag</code> models, and <code>Post</code> models belong to an <code>Author</code> model.</p>
+<p>Using these model definitions and relationships, we may retrieve <code>ActivityFeed</code> model instances and eager load all <code>parentable</code> models and their respective nested relationships:</p>
+<pre><code>use Illuminate\Database\Eloquent\Relations\MorphTo;
+
+$activities = ActivityFeed::query()
+    -&gt;with(['parentable' =&gt; function (MorphTo $morphTo) {
+        $morphTo-&gt;morphWith([
+            Event::class =&gt; ['calendar'],
+            Photo::class =&gt; ['tags'],
+            Post::class =&gt; ['author'],
+        ]);
+    }])-&gt;get();</code></pre>
+<h4>Eager Loading Specific Columns</h4>
+<p>You may not always need every column from the relationships you are retrieving. For this reason, Eloquent allows you to specify which columns of the relationship you would like to retrieve:</p>
+<pre><code>$books = App\Book::with('author:id,name')-&gt;get();</code></pre>
+<blockquote>
+<p>{note} When using this feature, you should always include the <code>id</code> column and any relevant foreign key columns in the list of columns you wish to retrieve.</p>
+</blockquote>
+<h4>Eager Loading By Default</h4>
+<p>Sometimes you might want to always load some relationships when retrieving a model. To accomplish this, you may define a <code>$with</code> property on the model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Book extends Model
+{
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['author'];
+
+    /**
+     * Get the author that wrote the book.
+     */
+    public function author()
+    {
+        return $this-&gt;belongsTo('App\Author');
+    }
+}</code></pre>
+<p>If you would like to remove an item from the <code>$with</code> property for a single query, you may use the <code>without</code> method:</p>
+<pre><code>$books = App\Book::without('author')-&gt;get();</code></pre>
+<p><a name="constraining-eager-loads"></a></p>
+<h3 id="constraining-eager-loads">Constraining Eager Loads</h3>
+<p>Sometimes you may wish to eager load a relationship, but also specify additional query conditions for the eager loading query. Here's an example:</p>
+<pre><code>$users = App\User::with(['posts' =&gt; function ($query) {
+    $query-&gt;where('title', 'like', '%first%');
+}])-&gt;get();</code></pre>
+<p>In this example, Eloquent will only eager load posts where the post's <code>title</code> column contains the word <code>first</code>. You may call other <a href="queries.html">query builder</a> methods to further customize the eager loading operation:</p>
+<pre><code>$users = App\User::with(['posts' =&gt; function ($query) {
+    $query-&gt;orderBy('created_at', 'desc');
+}])-&gt;get();</code></pre>
+<blockquote>
+<p>{note} The <code>limit</code> and <code>take</code> query builder methods may not be used when constraining eager loads.</p>
+</blockquote>
+<p><a name="lazy-eager-loading"></a></p>
+<h3 id="lazy-eager-loading">Lazy Eager Loading</h3>
+<p>Sometimes you may need to eager load a relationship after the parent model has already been retrieved. For example, this may be useful if you need to dynamically decide whether to load related models:</p>
+<pre><code>$books = App\Book::all();
+
+if ($someCondition) {
+    $books-&gt;load('author', 'publisher');
+}</code></pre>
+<p>If you need to set additional query constraints on the eager loading query, you may pass an array keyed by the relationships you wish to load. The array values should be <code>Closure</code> instances which receive the query instance:</p>
+<pre><code>$author-&gt;load(['books' =&gt; function ($query) {
+    $query-&gt;orderBy('published_date', 'asc');
+}]);</code></pre>
+<p>To load a relationship only when it has not already been loaded, use the <code>loadMissing</code> method:</p>
+<pre><code>public function format(Book $book)
+{
+    $book-&gt;loadMissing('author');
+
+    return [
+        'name' =&gt; $book-&gt;name,
+        'author' =&gt; $book-&gt;author-&gt;name,
+    ];
+}</code></pre>
+<h4>Nested Lazy Eager Loading &amp; <code>morphTo</code></h4>
+<p>If you would like to eager load a <code>morphTo</code> relationship, as well as nested relationships on the various entities that may be returned by that relationship, you may use the <code>loadMorph</code> method.</p>
+<p>This method accepts the name of the <code>morphTo</code> relationship as its first argument, and an array of model / relationship pairs as its second argument. To help illustrate this method, let's consider the following model:</p>
+<pre><code>&lt;?php
+
+use Illuminate\Database\Eloquent\Model;
+
+class ActivityFeed extends Model
+{
+    /**
+     * Get the parent of the activity feed record.
+     */
+    public function parentable()
+    {
+        return $this-&gt;morphTo();
+    }
+}</code></pre>
+<p>In this example, let's assume <code>Event</code>, <code>Photo</code>, and <code>Post</code> models may create <code>ActivityFeed</code> models. Additionally, let's assume that <code>Event</code> models belong to a <code>Calendar</code> model, <code>Photo</code> models are associated with <code>Tag</code> models, and <code>Post</code> models belong to an <code>Author</code> model.</p>
+<p>Using these model definitions and relationships, we may retrieve <code>ActivityFeed</code> model instances and eager load all <code>parentable</code> models and their respective nested relationships:</p>
+<pre><code>$activities = ActivityFeed::with('parentable')
+    -&gt;get()
+    -&gt;loadMorph('parentable', [
+        Event::class =&gt; ['calendar'],
+        Photo::class =&gt; ['tags'],
+        Post::class =&gt; ['author'],
+    ]);</code></pre>
+<p><a name="inserting-and-updating-related-models"></a></p>
+<h2 id="inserting-and-updating-related-models">Inserting &amp; Updating Related Models</h2>
+<p><a name="the-save-method"></a></p>
+<h3 id="the-save-method">The Save Method</h3>
+<p>Eloquent provides convenient methods for adding new models to relationships. For example, perhaps you need to insert a new <code>Comment</code> for a <code>Post</code> model. Instead of manually setting the <code>post_id</code> attribute on the <code>Comment</code>, you may insert the <code>Comment</code> directly from the relationship's <code>save</code> method:</p>
+<pre><code>$comment = new App\Comment(['message' =&gt; 'A new comment.']);
+
+$post = App\Post::find(1);
+
+$post-&gt;comments()-&gt;save($comment);</code></pre>
+<p>Notice that we did not access the <code>comments</code> relationship as a dynamic property. Instead, we called the <code>comments</code> method to obtain an instance of the relationship. The <code>save</code> method will automatically add the appropriate <code>post_id</code> value to the new <code>Comment</code> model.</p>
+<p>If you need to save multiple related models, you may use the <code>saveMany</code> method:</p>
+<pre><code>$post = App\Post::find(1);
+
+$post-&gt;comments()-&gt;saveMany([
+    new App\Comment(['message' =&gt; 'A new comment.']),
+    new App\Comment(['message' =&gt; 'Another comment.']),
+]);</code></pre>
+<p>The <code>save</code> and <code>saveMany</code> methods will not add the new models to any in-memory relationships that are already loaded onto the parent model. If you plan on accessing the relationship after using the <code>save</code> or <code>saveMany</code> methods, you may wish to use the <code>refresh</code> method to reload the model and its relationships:</p>
+<pre><code>$post-&gt;comments()-&gt;save($comment);
+
+$post-&gt;refresh();
+
+// All comments, including the newly saved comment...
+$post-&gt;comments;</code></pre>
+<p><a name="the-push-method"></a></p>
+<h4 id="the-push-method">Recursively Saving Models &amp; Relationships</h4>
+<p>If you would like to <code>save</code> your model and all of its associated relationships, you may use the <code>push</code> method:</p>
+<pre><code>$post = App\Post::find(1);
+
+$post-&gt;comments[0]-&gt;message = 'Message';
+$post-&gt;comments[0]-&gt;author-&gt;name = 'Author Name';
+
+$post-&gt;push();</code></pre>
+<p><a name="the-create-method"></a></p>
+<h3 id="the-create-method">The Create Method</h3>
+<p>In addition to the <code>save</code> and <code>saveMany</code> methods, you may also use the <code>create</code> method, which accepts an array of attributes, creates a model, and inserts it into the database. Again, the difference between <code>save</code> and <code>create</code> is that <code>save</code> accepts a full Eloquent model instance while <code>create</code> accepts a plain PHP <code>array</code>:</p>
+<pre><code>$post = App\Post::find(1);
+
+$comment = $post-&gt;comments()-&gt;create([
+    'message' =&gt; 'A new comment.',
+]);</code></pre>
+<blockquote>
+<p>{tip} Before using the <code>create</code> method, be sure to review the documentation on attribute <a href="eloquent.html#mass-assignment">mass assignment</a>.</p>
+</blockquote>
+<p>You may use the <code>createMany</code> method to create multiple related models:</p>
+<pre><code>$post = App\Post::find(1);
+
+$post-&gt;comments()-&gt;createMany([
+    [
+        'message' =&gt; 'A new comment.',
+    ],
+    [
+        'message' =&gt; 'Another new comment.',
+    ],
+]);</code></pre>
+<p>You may also use the <code>findOrNew</code>, <code>firstOrNew</code>, <code>firstOrCreate</code> and <code>updateOrCreate</code> methods to <a href="eloquent.html#other-creation-methods">create and update models on relationships</a>.</p>
+<p><a name="updating-belongs-to-relationships"></a></p>
+<h3 id="updating-belongs-to-relationships">Belongs To Relationships</h3>
+<p>When updating a <code>belongsTo</code> relationship, you may use the <code>associate</code> method. This method will set the foreign key on the child model:</p>
+<pre><code>$account = App\Account::find(10);
+
+$user-&gt;account()-&gt;associate($account);
+
+$user-&gt;save();</code></pre>
+<p>When removing a <code>belongsTo</code> relationship, you may use the <code>dissociate</code> method. This method will set the relationship's foreign key to <code>null</code>:</p>
+<pre><code>$user-&gt;account()-&gt;dissociate();
+
+$user-&gt;save();</code></pre>
+<p><a name="default-models"></a></p>
+<h4 id="default-models">Default Models</h4>
+<p>The <code>belongsTo</code>, <code>hasOne</code>, <code>hasOneThrough</code>, and <code>morphOne</code> relationships allow you to define a default model that will be returned if the given relationship is <code>null</code>. This pattern is often referred to as the <a href="https://en.wikipedia.org/wiki/Null_Object_pattern">Null Object pattern</a> and can help remove conditional checks in your code. In the following example, the <code>user</code> relation will return an empty <code>App\User</code> model if no <code>user</code> is attached to the post:</p>
+<pre><code>/**
+ * Get the author of the post.
+ */
+public function user()
+{
+    return $this-&gt;belongsTo('App\User')-&gt;withDefault();
+}</code></pre>
+<p>To populate the default model with attributes, you may pass an array or Closure to the <code>withDefault</code> method:</p>
+<pre><code>/**
+ * Get the author of the post.
+ */
+public function user()
+{
+    return $this-&gt;belongsTo('App\User')-&gt;withDefault([
+        'name' =&gt; 'Guest Author',
+    ]);
+}
+
+/**
+ * Get the author of the post.
+ */
+public function user()
+{
+    return $this-&gt;belongsTo('App\User')-&gt;withDefault(function ($user, $post) {
+        $user-&gt;name = 'Guest Author';
+    });
+}</code></pre>
+<p><a name="updating-many-to-many-relationships"></a></p>
+<h3 id="updating-many-to-many-relationships">Many To Many Relationships</h3>
+<h4>Attaching / Detaching</h4>
+<p>Eloquent also provides a few additional helper methods to make working with related models more convenient. For example, let's imagine a user can have many roles and a role can have many users. To attach a role to a user by inserting a record in the intermediate table that joins the models, use the <code>attach</code> method:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;roles()-&gt;attach($roleId);</code></pre>
+<p>When attaching a relationship to a model, you may also pass an array of additional data to be inserted into the intermediate table:</p>
+<pre><code>$user-&gt;roles()-&gt;attach($roleId, ['expires' =&gt; $expires]);</code></pre>
+<p>Sometimes it may be necessary to remove a role from a user. To remove a many-to-many relationship record, use the <code>detach</code> method. The <code>detach</code> method will delete the appropriate record out of the intermediate table; however, both models will remain in the database:</p>
+<pre><code>// Detach a single role from the user...
+$user-&gt;roles()-&gt;detach($roleId);
+
+// Detach all roles from the user...
+$user-&gt;roles()-&gt;detach();</code></pre>
+<p>For convenience, <code>attach</code> and <code>detach</code> also accept arrays of IDs as input:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;roles()-&gt;detach([1, 2, 3]);
+
+$user-&gt;roles()-&gt;attach([
+    1 =&gt; ['expires' =&gt; $expires],
+    2 =&gt; ['expires' =&gt; $expires],
+]);</code></pre>
+<h4>Syncing Associations</h4>
+<p>You may also use the <code>sync</code> method to construct many-to-many associations. The <code>sync</code> method accepts an array of IDs to place on the intermediate table. Any IDs that are not in the given array will be removed from the intermediate table. So, after this operation is complete, only the IDs in the given array will exist in the intermediate table:</p>
+<pre><code>$user-&gt;roles()-&gt;sync([1, 2, 3]);</code></pre>
+<p>You may also pass additional intermediate table values with the IDs:</p>
+<pre><code>$user-&gt;roles()-&gt;sync([1 =&gt; ['expires' =&gt; true], 2, 3]);</code></pre>
+<p>If you do not want to detach existing IDs, you may use the <code>syncWithoutDetaching</code> method:</p>
+<pre><code>$user-&gt;roles()-&gt;syncWithoutDetaching([1, 2, 3]);</code></pre>
+<h4>Toggling Associations</h4>
+<p>The many-to-many relationship also provides a <code>toggle</code> method which &quot;toggles&quot; the attachment status of the given IDs. If the given ID is currently attached, it will be detached. Likewise, if it is currently detached, it will be attached:</p>
+<pre><code>$user-&gt;roles()-&gt;toggle([1, 2, 3]);</code></pre>
+<h4>Saving Additional Data On A Pivot Table</h4>
+<p>When working with a many-to-many relationship, the <code>save</code> method accepts an array of additional intermediate table attributes as its second argument:</p>
+<pre><code>App\User::find(1)-&gt;roles()-&gt;save($role, ['expires' =&gt; $expires]);</code></pre>
+<h4>Updating A Record On A Pivot Table</h4>
+<p>If you need to update an existing row in your pivot table, you may use <code>updateExistingPivot</code> method. This method accepts the pivot record foreign key and an array of attributes to update:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;roles()-&gt;updateExistingPivot($roleId, $attributes);</code></pre>
+<p><a name="touching-parent-timestamps"></a></p>
+<h2 id="touching-parent-timestamps">Touching Parent Timestamps</h2>
+<p>When a model <code>belongsTo</code> or <code>belongsToMany</code> another model, such as a <code>Comment</code> which belongs to a <code>Post</code>, it is sometimes helpful to update the parent's timestamp when the child model is updated. For example, when a <code>Comment</code> model is updated, you may want to automatically &quot;touch&quot; the <code>updated_at</code> timestamp of the owning <code>Post</code>. Eloquent makes it easy. Just add a <code>touches</code> property containing the names of the relationships to the child model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+    /**
+     * All of the relationships to be touched.
+     *
+     * @var array
+     */
+    protected $touches = ['post'];
+
+    /**
+     * Get the post that the comment belongs to.
+     */
+    public function post()
+    {
+        return $this-&gt;belongsTo('App\Post');
+    }
+}</code></pre>
+<p>Now, when you update a <code>Comment</code>, the owning <code>Post</code> will have its <code>updated_at</code> column updated as well, making it more convenient to know when to invalidate a cache of the <code>Post</code> model:</p>
+<pre><code>$comment = App\Comment::find(1);
+
+$comment-&gt;text = 'Edit to this comment!';
+
+$comment-&gt;save();</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/eloquent-relationships by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+</html>

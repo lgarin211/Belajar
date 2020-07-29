@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanbercode chl1 day1</title>
+</head>
+
+<body>
+  <h1>Buat Account Baru!</h1>
+  <p><Strong>Sign Up From</Strong></p>
+  <form action="welcome.html">
+    <!-- bagian pengisian nama -->
+    <p><label for="nama1">First Name</label></p>
+    <input id="nama1" type="text" name="nama1" autofocus required>
+    <p><label for="nama2">Last Name</label></p>
+    <input type="text" id="nama2" name="nama2" autofocus required>
+    <!-- bagian pengisian gender -->
+    <p><label for="gender">Gender</label></p>
+    <input type="radio" name="gender" name="genderM" id="genderM">Male</p>
+    <p>
+      <input type="radio" name="gender" name="genderM" id="genderM">Female</p>
+    <p>
+      <input type="radio" name="gender" name="genderM" id="genderM">Other</p>
+    <!-- bagian pengisian negara -->
+    <p><label for="Negara">Nationality :</label></p>
+    <p>
+      <select name='negara'>
+        <option value='Indonesia'>Indonesia</option>
+        <option value='Malaysia'>Malaysia</option>
+        <option value='Singapura'>Singapura</option>
+      </select>
+    </p>
+
+    <!-- bagian pengisian bahasa -->
+    <label for="bahasa">Language Spoken:</label>
+    <p><input type='checkbox' name='bahasa1' value='Indonesia' />Indonesia</p>
+    <p><input type='checkbox' name='bahasa2' value='Ingris' />Ingris </p>
+    <p><input type='checkbox' name='bahasa3' value='Jepang' />Jepang </p>
+    <!-- bagian pengisian bio data -->
+    <p><label for="bio">Bio</label></p>
+    <p><textarea name="alamat" rows="10" cols="30"></textarea></p>
+    <!-- tombol submit -->
+    <button type="submit"> Sign Up</button>
+  </form>
+</body>
+
+</html>

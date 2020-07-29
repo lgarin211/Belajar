@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:37:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Installation - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="7.x/installation.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="7.x/releases.html">Release Notes</a></li>
+<li><a href="7.x/upgrade.html">Upgrade Guide</a></li>
+<li><a href="7.x/contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="7.x/installation.html">Installation</a></li>
+<li><a href="7.x/configuration.html">Configuration</a></li>
+<li><a href="7.x/structure.html">Directory Structure</a></li>
+<li><a href="7.x/homestead.html">Homestead</a></li>
+<li><a href="7.x/valet.html">Valet</a></li>
+<li><a href="7.x/deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="7.x/lifecycle.html">Request Lifecycle</a></li>
+<li><a href="7.x/container.html">Service Container</a></li>
+<li><a href="7.x/providers.html">Service Providers</a></li>
+<li><a href="7.x/facades.html">Facades</a></li>
+<li><a href="7.x/contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="7.x/routing.html">Routing</a></li>
+<li><a href="7.x/middleware.html">Middleware</a></li>
+<li><a href="7.x/csrf.html">CSRF Protection</a></li>
+<li><a href="7.x/controllers.html">Controllers</a></li>
+<li><a href="7.x/requests.html">Requests</a></li>
+<li><a href="7.x/responses.html">Responses</a></li>
+<li><a href="7.x/views.html">Views</a></li>
+<li><a href="7.x/urls.html">URL Generation</a></li>
+<li><a href="7.x/session.html">Session</a></li>
+<li><a href="7.x/validation.html">Validation</a></li>
+<li><a href="7.x/errors.html">Error Handling</a></li>
+<li><a href="7.x/logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="7.x/blade.html">Blade Templates</a></li>
+<li><a href="7.x/localization.html">Localization</a></li>
+<li><a href="7.x/frontend.html">Frontend Scaffolding</a></li>
+<li><a href="7.x/mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="7.x/authentication.html">Authentication</a></li>
+<li><a href="7.x/authorization.html">Authorization</a></li>
+<li><a href="7.x/verification.html">Email Verification</a></li>
+<li><a href="7.x/encryption.html">Encryption</a></li>
+<li><a href="7.x/hashing.html">Hashing</a></li>
+<li><a href="7.x/passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="7.x/artisan.html">Artisan Console</a></li>
+<li><a href="7.x/broadcasting.html">Broadcasting</a></li>
+<li><a href="7.x/cache.html">Cache</a></li>
+<li><a href="7.x/collections.html">Collections</a></li>
+<li><a href="7.x/events.html">Events</a></li>
+<li><a href="7.x/filesystem.html">File Storage</a></li>
+<li><a href="7.x/helpers.html">Helpers</a></li>
+<li><a href="7.x/http-client.html">HTTP Client</a></li>
+<li><a href="7.x/mail.html">Mail</a></li>
+<li><a href="7.x/notifications.html">Notifications</a></li>
+<li><a href="7.x/packages.html">Package Development</a></li>
+<li><a href="7.x/queues.html">Queues</a></li>
+<li><a href="7.x/scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="7.x/database.html">Getting Started</a></li>
+<li><a href="7.x/queries.html">Query Builder</a></li>
+<li><a href="7.x/pagination.html">Pagination</a></li>
+<li><a href="7.x/migrations.html">Migrations</a></li>
+<li><a href="7.x/seeding.html">Seeding</a></li>
+<li><a href="7.x/redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="7.x/eloquent.html">Getting Started</a></li>
+<li><a href="7.x/eloquent-relationships.html">Relationships</a></li>
+<li><a href="7.x/eloquent-collections.html">Collections</a></li>
+<li><a href="7.x/eloquent-mutators.html">Mutators</a></li>
+<li><a href="7.x/eloquent-resources.html">API Resources</a></li>
+<li><a href="7.x/eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="7.x/testing.html">Getting Started</a></li>
+<li><a href="7.x/http-tests.html">HTTP Tests</a></li>
+<li><a href="7.x/console-tests.html">Console Tests</a></li>
+<li><a href="7.x/dusk.html">Browser Tests</a></li>
+<li><a href="7.x/database-testing.html">Database</a></li>
+<li><a href="7.x/mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="7.x/billing.html">Cashier (Stripe)</a></li>
+<li><a href="7.x/cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="7.x/dusk.html">Dusk</a></li>
+<li><a href="7.x/envoy.html">Envoy</a></li>
+<li><a href="7.x/horizon.html">Horizon</a></li>
+<li><a href="7.x/passport.html">Passport</a></li>
+<li><a href="7.x/sanctum.html">Sanctum</a></li>
+<li><a href="7.x/scout.html">Scout</a></li>
+<li><a href="7.x/socialite.html">Socialite</a></li>
+<li><a href="7.x/telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Installation</h1>
+<ul>
+<li><a href="#installation">Installation</a>
+<ul>
+<li><a href="#server-requirements">Server Requirements</a></li>
+<li><a href="#installing-laravel">Installing Laravel</a></li>
+<li><a href="#configuration">Configuration</a></li>
+</ul></li>
+<li><a href="#web-server-configuration">Web Server Configuration</a>
+<ul>
+<li><a href="#directory-configuration">Directory Configuration</a></li>
+<li><a href="#pretty-urls">Pretty URLs</a></li>
+</ul></li>
+</ul>
+<p><a name="installation"></a></p>
+<h2 id="installation">Installation</h2>
+<p><a name="server-requirements"></a></p>
+<h3 id="server-requirements">Server Requirements</h3>
+<p>The Laravel framework has a few system requirements. All of these requirements are satisfied by the <a href="7.x/homestead.html">Laravel Homestead</a> virtual machine, so it's highly recommended that you use Homestead as your local Laravel development environment.</p>
+<p>However, if you are not using Homestead, you will need to make sure your server meets the following requirements:</p>
+<div class="content-list">
+<ul>
+<li>PHP &gt;= 7.2.5</li>
+<li>BCMath PHP Extension</li>
+<li>Ctype PHP Extension</li>
+<li>Fileinfo PHP extension</li>
+<li>JSON PHP Extension</li>
+<li>Mbstring PHP Extension</li>
+<li>OpenSSL PHP Extension</li>
+<li>PDO PHP Extension</li>
+<li>Tokenizer PHP Extension</li>
+<li>XML PHP Extension</li>
+</ul>
+</div>
+<p><a name="installing-laravel"></a></p>
+<h3 id="installing-laravel">Installing Laravel</h3>
+<p>Laravel utilizes <a href="https://getcomposer.org/">Composer</a> to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.</p>
+<h4>Via Laravel Installer</h4>
+<p>First, download the Laravel installer using Composer:</p>
+<pre><code>composer global require laravel/installer</code></pre>
+<p>Make sure to place Composer's system-wide vendor bin directory in your <code>$PATH</code> so the laravel executable can be located by your system. This directory exists in different locations based on your operating system; however, some common locations include:</p>
+<div class="content-list">
+<ul>
+<li>macOS: <code>$HOME/.composer/vendor/bin</code></li>
+<li>Windows: <code>%USERPROFILE%\AppData\Roaming\Composer\vendor\bin</code></li>
+<li>GNU / Linux Distributions: <code>$HOME/.config/composer/vendor/bin</code> or <code>$HOME/.composer/vendor/bin</code></li>
+</ul>
+</div>
+<p>You could also find the composer's global installation path by running <code>composer global about</code> and looking up from the first line.</p>
+<p>Once installed, the <code>laravel new</code> command will create a fresh Laravel installation in the directory you specify. For instance, <code>laravel new blog</code> will create a directory named <code>blog</code> containing a fresh Laravel installation with all of Laravel's dependencies already installed:</p>
+<pre><code>laravel new blog</code></pre>
+<h4>Via Composer Create-Project</h4>
+<p>Alternatively, you may also install Laravel by issuing the Composer <code>create-project</code> command in your terminal:</p>
+<pre><code>composer create-project --prefer-dist laravel/laravel blog</code></pre>
+<h4>Local Development Server</h4>
+<p>If you have PHP installed locally and you would like to use PHP's built-in development server to serve your application, you may use the <code>serve</code> Artisan command. This command will start a development server at <code>http://localhost:8000</code>:</p>
+<pre><code>php artisan serve</code></pre>
+<p>More robust local development options are available via <a href="7.x/homestead.html">Homestead</a> and <a href="7.x/valet.html">Valet</a>.</p>
+<p><a name="configuration"></a></p>
+<h3 id="configuration">Configuration</h3>
+<h4>Public Directory</h4>
+<p>After installing Laravel, you should configure your web server's document / web root to be the <code>public</code> directory. The <code>index.php</code> in this directory serves as the front controller for all HTTP requests entering your application.</p>
+<h4>Configuration Files</h4>
+<p>All of the configuration files for the Laravel framework are stored in the <code>config</code> directory. Each option is documented, so feel free to look through the files and get familiar with the options available to you.</p>
+<h4>Directory Permissions</h4>
+<p>After installing Laravel, you may need to configure some permissions. Directories within the <code>storage</code> and the <code>bootstrap/cache</code> directories should be writable by your web server or Laravel will not run. If you are using the <a href="7.x/homestead.html">Homestead</a> virtual machine, these permissions should already be set.</p>
+<h4>Application Key</h4>
+<p>The next thing you should do after installing Laravel is set your application key to a random string. If you installed Laravel via Composer or the Laravel installer, this key has already been set for you by the <code>php artisan key:generate</code> command.</p>
+<p>Typically, this string should be 32 characters long. The key can be set in the <code>.env</code> environment file. If you have not copied the <code>.env.example</code> file to a new file named <code>.env</code>, you should do that now. <strong>If the application key is not set, your user sessions and other encrypted data will not be secure!</strong></p>
+<h4>Additional Configuration</h4>
+<p>Laravel needs almost no other configuration out of the box. You are free to get started developing! However, you may wish to review the <code>config/app.php</code> file and its documentation. It contains several options such as <code>timezone</code> and <code>locale</code> that you may wish to change according to your application.</p>
+<p>You may also want to configure a few additional components of Laravel, such as:</p>
+<div class="content-list">
+<ul>
+<li><a href="7.x/cache.html#configuration">Cache</a></li>
+<li><a href="7.x/database.html#configuration">Database</a></li>
+<li><a href="7.x/session.html#configuration">Session</a></li>
+</ul>
+</div>
+<p><a name="web-server-configuration"></a></p>
+<h2 id="web-server-configuration">Web Server Configuration</h2>
+<p><a name="directory-configuration"></a></p>
+<h3 id="directory-configuration">Directory Configuration</h3>
+<p>Laravel should always be served out of the root of the &quot;web directory&quot; configured for your web server. You should not attempt to serve a Laravel application out of a subdirectory of the &quot;web directory&quot;. Attempting to do so could expose sensitive files present within your application.</p>
+<p><a name="pretty-urls"></a></p>
+<h3 id="pretty-urls">Pretty URLs</h3>
+<h4>Apache</h4>
+<p>Laravel includes a <code>public/.htaccess</code> file that is used to provide URLs without the <code>index.php</code> front controller in the path. Before serving Laravel with Apache, be sure to enable the <code>mod_rewrite</code> module so the <code>.htaccess</code> file will be honored by the server.</p>
+<p>If the <code>.htaccess</code> file that ships with Laravel does not work with your Apache installation, try this alternative:</p>
+<pre><code>Options +FollowSymLinks -Indexes
+RewriteEngine On
+
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]</code></pre>
+<h4>Nginx</h4>
+<p>If you are using Nginx, the following directive in your site configuration will direct all requests to the <code>index.php</code> front controller:</p>
+<pre><code>location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}</code></pre>
+<p>When using <a href="7.x/homestead.html">Homestead</a> or <a href="7.x/valet.html">Valet</a>, pretty URLs will be automatically configured.</p>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="7.x/releases.html">Release Notes</a></li>
+                                    <li><a href="7.x/installation.html">Getting Started</a></li>
+                                    <li><a href="7.x/routing.html">Routing</a></li>
+                                    <li><a href="7.x/blade.html">Blade Templates</a></li>
+                                    <li><a href="7.x/authentication.html">Authentication</a></li>
+                                    <li><a href="7.x/authorization.html">Authorization</a></li>
+                                    <li><a href="7.x/artisan.html">Artisan Console</a></li>
+                                    <li><a href="7.x/database.html">Database</a></li>
+                                    <li><a href="7.x/eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="7.x/testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="7.x/horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="7.x/broadcasting.html">Echo</a></li>
+                                    <li><a href="7.x/valet.html">Valet</a></li>
+                                    <li><a href="7.x/mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="7.x/billing.html">Cashier</a></li>
+                                    <li><a href="7.x/homestead.html">Homestead</a></li>
+                                    <li><a href="7.x/dusk.html">Dusk</a></li>
+                                    <li><a href="7.x/passport.html">Passport</a></li>
+                                    <li><a href="7.x/scout.html">Scout</a></li>
+                                    <li><a href="7.x/socialite.html">Socialite</a></li>
+                                    <li><a href="7.x/telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:02 GMT -->
+</html>

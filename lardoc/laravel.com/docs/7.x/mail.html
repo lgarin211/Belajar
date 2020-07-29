@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/mail by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Mail - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="mail.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/mail">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/mail">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/mail">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/mail">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/mail">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/mail">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/mail">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/mail">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/mail">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/mail">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/mail">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/mail">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/mail">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Mail</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#driver-prerequisites">Driver Prerequisites</a></li>
+</ul></li>
+<li><a href="#generating-mailables">Generating Mailables</a></li>
+<li><a href="#writing-mailables">Writing Mailables</a>
+<ul>
+<li><a href="#configuring-the-sender">Configuring The Sender</a></li>
+<li><a href="#configuring-the-view">Configuring The View</a></li>
+<li><a href="#view-data">View Data</a></li>
+<li><a href="#attachments">Attachments</a></li>
+<li><a href="#inline-attachments">Inline Attachments</a></li>
+<li><a href="#customizing-the-swiftmailer-message">Customizing The SwiftMailer Message</a></li>
+</ul></li>
+<li><a href="#markdown-mailables">Markdown Mailables</a>
+<ul>
+<li><a href="#generating-markdown-mailables">Generating Markdown Mailables</a></li>
+<li><a href="#writing-markdown-messages">Writing Markdown Messages</a></li>
+<li><a href="#customizing-the-components">Customizing The Components</a></li>
+</ul></li>
+<li><a href="#sending-mail">Sending Mail</a>
+<ul>
+<li><a href="#queueing-mail">Queueing Mail</a></li>
+</ul></li>
+<li><a href="#rendering-mailables">Rendering Mailables</a>
+<ul>
+<li><a href="#previewing-mailables-in-the-browser">Previewing Mailables In The Browser</a></li>
+</ul></li>
+<li><a href="#localizing-mailables">Localizing Mailables</a></li>
+<li><a href="#mail-and-local-development">Mail &amp; Local Development</a></li>
+<li><a href="#events">Events</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Laravel provides a clean, simple API over the popular <a href="https://swiftmailer.symfony.com/">SwiftMailer</a> library with drivers for SMTP, Mailgun, Postmark, Amazon SES, and <code>sendmail</code>, allowing you to quickly get started sending mail through a local or cloud based service of your choice.</p>
+<p><a name="configuration"></a></p>
+<h3 id="configuration">Configuration</h3>
+<p>Laravel's email services may be configured via the <code>mail</code> configuration file. Each mailer configured within this file may have its own options and even its own unique &quot;transport&quot;, allowing your application to use different email services to send certain email messages. For example, your application might use Postmark to send transactional mail while using Amazon SES to send bulk mail.</p>
+<p><a name="driver-prerequisites"></a></p>
+<h3 id="driver-prerequisites">Driver Prerequisites</h3>
+<p>The API based drivers such as Mailgun and Postmark are often simpler and faster than SMTP servers. If possible, you should use one of these drivers. All of the API drivers require the Guzzle HTTP library, which may be installed via the Composer package manager:</p>
+<pre><code>composer require guzzlehttp/guzzle</code></pre>
+<h4>Mailgun Driver</h4>
+<p>To use the Mailgun driver, first install Guzzle, then set the <code>default</code> option in your <code>config/mail.php</code> configuration file to <code>mailgun</code>. Next, verify that your <code>config/services.php</code> configuration file contains the following options:</p>
+<pre><code>'mailgun' =&gt; [
+    'domain' =&gt; 'your-mailgun-domain',
+    'secret' =&gt; 'your-mailgun-key',
+],</code></pre>
+<p>If you are not using the &quot;US&quot; <a href="https://documentation.mailgun.com/en/latest/api-intro.html#mailgun-regions">Mailgun region</a>, you may define your region's endpoint in the <code>services</code> configuration file:</p>
+<pre><code>'mailgun' =&gt; [
+    'domain' =&gt; 'your-mailgun-domain',
+    'secret' =&gt; 'your-mailgun-key',
+    'endpoint' =&gt; 'api.eu.mailgun.net',
+],</code></pre>
+<h4>Postmark Driver</h4>
+<p>To use the Postmark driver, install Postmark's SwiftMailer transport via Composer:</p>
+<pre><code>composer require wildbit/swiftmailer-postmark</code></pre>
+<p>Next, install Guzzle and set the <code>default</code> option in your <code>config/mail.php</code> configuration file to <code>postmark</code>. Finally, verify that your <code>config/services.php</code> configuration file contains the following options:</p>
+<pre><code>'postmark' =&gt; [
+    'token' =&gt; 'your-postmark-token',
+],</code></pre>
+<h4>SES Driver</h4>
+<p>To use the Amazon SES driver you must first install the Amazon AWS SDK for PHP. You may install this library by adding the following line to your <code>composer.json</code> file's <code>require</code> section and running the <code>composer update</code> command:</p>
+<pre><code>"aws/aws-sdk-php": "~3.0"</code></pre>
+<p>Next, set the <code>default</code> option in your <code>config/mail.php</code> configuration file to <code>ses</code> and verify that your <code>config/services.php</code> configuration file contains the following options:</p>
+<pre><code>'ses' =&gt; [
+    'key' =&gt; 'your-ses-key',
+    'secret' =&gt; 'your-ses-secret',
+    'region' =&gt; 'ses-region',  // e.g. us-east-1
+],</code></pre>
+<p>If you need to include <a href="https://docs.aws.amazon.com/aws-sdk-php/v3/api/api-email-2010-12-01.html#sendrawemail">additional options</a> when executing the SES <code>SendRawEmail</code> request, you may define an <code>options</code> array within your <code>ses</code> configuration:</p>
+<pre><code>'ses' =&gt; [
+    'key' =&gt; 'your-ses-key',
+    'secret' =&gt; 'your-ses-secret',
+    'region' =&gt; 'ses-region',  // e.g. us-east-1
+    'options' =&gt; [
+        'ConfigurationSetName' =&gt; 'MyConfigurationSet',
+        'Tags' =&gt; [
+            [
+                'Name' =&gt; 'foo',
+                'Value' =&gt; 'bar',
+            ],
+        ],
+    ],
+],</code></pre>
+<p><a name="generating-mailables"></a></p>
+<h2 id="generating-mailables">Generating Mailables</h2>
+<p>In Laravel, each type of email sent by your application is represented as a &quot;mailable&quot; class. These classes are stored in the <code>app/Mail</code> directory. Don't worry if you don't see this directory in your application, since it will be generated for you when you create your first mailable class using the <code>make:mail</code> command:</p>
+<pre><code>php artisan make:mail OrderShipped</code></pre>
+<p><a name="writing-mailables"></a></p>
+<h2 id="writing-mailables">Writing Mailables</h2>
+<p>All of a mailable class' configuration is done in the <code>build</code> method. Within this method, you may call various methods such as <code>from</code>, <code>subject</code>, <code>view</code>, and <code>attach</code> to configure the email's presentation and delivery.</p>
+<p><a name="configuring-the-sender"></a></p>
+<h3 id="configuring-the-sender">Configuring The Sender</h3>
+<h4>Using The <code>from</code> Method</h4>
+<p>First, let's explore configuring the sender of the email. Or, in other words, who the email is going to be &quot;from&quot;. There are two ways to configure the sender. First, you may use the <code>from</code> method within your mailable class' <code>build</code> method:</p>
+<pre><code>/**
+ * Build the message.
+ *
+ * @return $this
+ */
+public function build()
+{
+    return $this-&gt;from('<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0c5d8c1cdd0ccc5e0c5d8c1cdd0ccc58ec3cfcd">[email&#160;protected]</a>')
+                -&gt;view('emails.orders.shipped');
+}</code></pre>
+<h4>Using A Global <code>from</code> Address</h4>
+<p>However, if your application uses the same &quot;from&quot; address for all of its emails, it can become cumbersome to call the <code>from</code> method in each mailable class you generate. Instead, you may specify a global &quot;from&quot; address in your <code>config/mail.php</code> configuration file. This address will be used if no other &quot;from&quot; address is specified within the mailable class:</p>
+<pre><code>'from' =&gt; ['address' =&gt; '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e7b667f736e727b5e7b667f736e727b307d7173">[email&#160;protected]</a>', 'name' =&gt; 'App Name'],</code></pre>
+<p>In addition, you may define a global &quot;reply_to&quot; address within your <code>config/mail.php</code> configuration file:</p>
+<pre><code>'reply_to' =&gt; ['address' =&gt; '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e2879a838f928e87a2879a838f928e87cc818d8f">[email&#160;protected]</a>', 'name' =&gt; 'App Name'],</code></pre>
+<p><a name="configuring-the-view"></a></p>
+<h3 id="configuring-the-view">Configuring The View</h3>
+<p>Within a mailable class' <code>build</code> method, you may use the <code>view</code> method to specify which template should be used when rendering the email's contents. Since each email typically uses a <a href="blade.html">Blade template</a> to render its contents, you have the full power and convenience of the Blade templating engine when building your email's HTML:</p>
+<pre><code>/**
+ * Build the message.
+ *
+ * @return $this
+ */
+public function build()
+{
+    return $this-&gt;view('emails.orders.shipped');
+}</code></pre>
+<blockquote>
+<p>{tip} You may wish to create a <code>resources/views/emails</code> directory to house all of your email templates; however, you are free to place them wherever you wish within your <code>resources/views</code> directory.</p>
+</blockquote>
+<h4>Plain Text Emails</h4>
+<p>If you would like to define a plain-text version of your email, you may use the <code>text</code> method. Like the <code>view</code> method, the <code>text</code> method accepts a template name which will be used to render the contents of the email. You are free to define both an HTML and plain-text version of your message:</p>
+<pre><code>/**
+ * Build the message.
+ *
+ * @return $this
+ */
+public function build()
+{
+    return $this-&gt;view('emails.orders.shipped')
+                -&gt;text('emails.orders.shipped_plain');
+}</code></pre>
+<p><a name="view-data"></a></p>
+<h3 id="view-data">View Data</h3>
+<h4>Via Public Properties</h4>
+<p>Typically, you will want to pass some data to your view that you can utilize when rendering the email's HTML. There are two ways you may make data available to your view. First, any public property defined on your mailable class will automatically be made available to the view. So, for example, you may pass data into your mailable class' constructor and set that data to public properties defined on the class:</p>
+<pre><code>&lt;?php
+
+namespace App\Mail;
+
+use App\Order;
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class OrderShipped extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    /**
+     * The order instance.
+     *
+     * @var Order
+     */
+    public $order;
+
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
+    public function __construct(Order $order)
+    {
+        $this-&gt;order = $order;
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this-&gt;view('emails.orders.shipped');
+    }
+}</code></pre>
+<p>Once the data has been set to a public property, it will automatically be available in your view, so you may access it like you would access any other data in your Blade templates:</p>
+<pre><code>&lt;div&gt;
+    Price: {{ $order-&gt;price }}
+&lt;/div&gt;</code></pre>
+<h4>Via The <code>with</code> Method:</h4>
+<p>If you would like to customize the format of your email's data before it is sent to the template, you may manually pass your data to the view via the <code>with</code> method. Typically, you will still pass data via the mailable class' constructor; however, you should set this data to <code>protected</code> or <code>private</code> properties so the data is not automatically made available to the template. Then, when calling the <code>with</code> method, pass an array of data that you wish to make available to the template:</p>
+<pre><code>&lt;?php
+
+namespace App\Mail;
+
+use App\Order;
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class OrderShipped extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    /**
+     * The order instance.
+     *
+     * @var Order
+     */
+    protected $order;
+
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
+    public function __construct(Order $order)
+    {
+        $this-&gt;order = $order;
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this-&gt;view('emails.orders.shipped')
+                    -&gt;with([
+                        'orderName' =&gt; $this-&gt;order-&gt;name,
+                        'orderPrice' =&gt; $this-&gt;order-&gt;price,
+                    ]);
+    }
+}</code></pre>
+<p>Once the data has been passed to the <code>with</code> method, it will automatically be available in your view, so you may access it like you would access any other data in your Blade templates:</p>
+<pre><code>&lt;div&gt;
+    Price: {{ $orderPrice }}
+&lt;/div&gt;</code></pre>
+<p><a name="attachments"></a></p>
+<h3 id="attachments">Attachments</h3>
+<p>To add attachments to an email, use the <code>attach</code> method within the mailable class' <code>build</code> method. The <code>attach</code> method accepts the full path to the file as its first argument:</p>
+<pre><code>/**
+ * Build the message.
+ *
+ * @return $this
+ */
+public function build()
+{
+    return $this-&gt;view('emails.orders.shipped')
+                -&gt;attach('/path/to/file');
+}</code></pre>
+<p>When attaching files to a message, you may also specify the display name and / or MIME type by passing an <code>array</code> as the second argument to the <code>attach</code> method:</p>
+<pre><code>/**
+ * Build the message.
+ *
+ * @return $this
+ */
+public function build()
+{
+    return $this-&gt;view('emails.orders.shipped')
+                -&gt;attach('/path/to/file', [
+                    'as' =&gt; 'name.pdf',
+                    'mime' =&gt; 'application/pdf',
+                ]);
+}</code></pre>
+<h4>Attaching Files from Disk</h4>
+<p>If you have stored a file on one of your <a href="filesystem.html">filesystem disks</a>, you may attach it to the email using the <code>attachFromStorage</code> method:</p>
+<pre><code>/**
+ * Build the message.
+ *
+ * @return $this
+ */
+public function build()
+{
+   return $this-&gt;view('email.orders.shipped')
+               -&gt;attachFromStorage('/path/to/file');
+}</code></pre>
+<p>If necessary, you may specify the file's attachment name and additional options using the second and third arguments to the <code>attachFromStorage</code> method:</p>
+<pre><code>/**
+ * Build the message.
+ *
+ * @return $this
+ */
+public function build()
+{
+   return $this-&gt;view('email.orders.shipped')
+               -&gt;attachFromStorage('/path/to/file', 'name.pdf', [
+                   'mime' =&gt; 'application/pdf'
+               ]);
+}</code></pre>
+<p>The <code>attachFromStorageDisk</code> method may be used if you need to specify a storage disk other than your default disk:</p>
+<pre><code>/**
+ * Build the message.
+ *
+ * @return $this
+ */
+public function build()
+{
+   return $this-&gt;view('email.orders.shipped')
+               -&gt;attachFromStorageDisk('s3', '/path/to/file');
+}</code></pre>
+<h4>Raw Data Attachments</h4>
+<p>The <code>attachData</code> method may be used to attach a raw string of bytes as an attachment. For example, you might use this method if you have generated a PDF in memory and want to attach it to the email without writing it to disk. The <code>attachData</code> method accepts the raw data bytes as its first argument, the name of the file as its second argument, and an array of options as its third argument:</p>
+<pre><code>/**
+ * Build the message.
+ *
+ * @return $this
+ */
+public function build()
+{
+    return $this-&gt;view('emails.orders.shipped')
+                -&gt;attachData($this-&gt;pdf, 'name.pdf', [
+                    'mime' =&gt; 'application/pdf',
+                ]);
+}</code></pre>
+<p><a name="inline-attachments"></a></p>
+<h3 id="inline-attachments">Inline Attachments</h3>
+<p>Embedding inline images into your emails is typically cumbersome; however, Laravel provides a convenient way to attach images to your emails and retrieving the appropriate CID. To embed an inline image, use the <code>embed</code> method on the <code>$message</code> variable within your email template. Laravel automatically makes the <code>$message</code> variable available to all of your email templates, so you don't need to worry about passing it in manually:</p>
+<pre><code>&lt;body&gt;
+    Here is an image:
+
+    &lt;img src="{{ $message-&gt;embed($pathToImage) }}"&gt;
+&lt;/body&gt;</code></pre>
+<blockquote>
+<p>{note} <code>$message</code> variable is not available in plain-text messages since plain-text messages do not utilize inline attachments.</p>
+</blockquote>
+<h4>Embedding Raw Data Attachments</h4>
+<p>If you already have a raw data string you wish to embed into an email template, you may use the <code>embedData</code> method on the <code>$message</code> variable:</p>
+<pre><code>&lt;body&gt;
+    Here is an image from raw data:
+
+    &lt;img src="{{ $message-&gt;embedData($data, $name) }}"&gt;
+&lt;/body&gt;</code></pre>
+<p><a name="customizing-the-swiftmailer-message"></a></p>
+<h3 id="customizing-the-swiftmailer-message">Customizing The SwiftMailer Message</h3>
+<p>The <code>withSwiftMessage</code> method of the <code>Mailable</code> base class allows you to register a callback which will be invoked with the raw SwiftMailer message instance before sending the message. This gives you an opportunity to customize the message before it is delivered:</p>
+<pre><code>/**
+ * Build the message.
+ *
+ * @return $this
+ */
+public function build()
+{
+    $this-&gt;view('emails.orders.shipped');
+
+    $this-&gt;withSwiftMessage(function ($message) {
+        $message-&gt;getHeaders()
+                -&gt;addTextHeader('Custom-Header', 'HeaderValue');
+    });
+}</code></pre>
+<p><a name="markdown-mailables"></a></p>
+<h2 id="markdown-mailables">Markdown Mailables</h2>
+<p>Markdown mailable messages allow you to take advantage of the pre-built templates and components of mail notifications in your mailables. Since the messages are written in Markdown, Laravel is able to render beautiful, responsive HTML templates for the messages while also automatically generating a plain-text counterpart.</p>
+<p><a name="generating-markdown-mailables"></a></p>
+<h3 id="generating-markdown-mailables">Generating Markdown Mailables</h3>
+<p>To generate a mailable with a corresponding Markdown template, you may use the <code>--markdown</code> option of the <code>make:mail</code> Artisan command:</p>
+<pre><code>php artisan make:mail OrderShipped --markdown=emails.orders.shipped</code></pre>
+<p>Then, when configuring the mailable within its <code>build</code> method, call the <code>markdown</code> method instead of the <code>view</code> method. The <code>markdown</code> method accepts the name of the Markdown template and an optional array of data to make available to the template:</p>
+<pre><code>/**
+ * Build the message.
+ *
+ * @return $this
+ */
+public function build()
+{
+    return $this-&gt;from('<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="22475a434f524e4762475a434f524e470c414d4f">[email&#160;protected]</a>')
+                -&gt;markdown('emails.orders.shipped');
+}</code></pre>
+<p><a name="writing-markdown-messages"></a></p>
+<h3 id="writing-markdown-messages">Writing Markdown Messages</h3>
+<p>Markdown mailables use a combination of Blade components and Markdown syntax which allow you to easily construct mail messages while leveraging Laravel's pre-crafted components:</p>
+<pre><code>@component('mail::message')
+# Order Shipped
+
+Your order has been shipped!
+
+@component('mail::button', ['url' =&gt; $url])
+View Order
+@endcomponent
+
+Thanks,&lt;br&gt;
+{{ config('app.name') }}
+@endcomponent</code></pre>
+<blockquote>
+<p>{tip} Do not use excess indentation when writing Markdown emails. Markdown parsers will render indented content as code blocks.</p>
+</blockquote>
+<h4>Button Component</h4>
+<p>The button component renders a centered button link. The component accepts two arguments, a <code>url</code> and an optional <code>color</code>. Supported colors are <code>primary</code>, <code>success</code>, and <code>error</code>. You may add as many button components to a message as you wish:</p>
+<pre><code>@component('mail::button', ['url' =&gt; $url, 'color' =&gt; 'success'])
+View Order
+@endcomponent</code></pre>
+<h4>Panel Component</h4>
+<p>The panel component renders the given block of text in a panel that has a slightly different background color than the rest of the message. This allows you to draw attention to a given block of text:</p>
+<pre><code>@component('mail::panel')
+This is the panel content.
+@endcomponent</code></pre>
+<h4>Table Component</h4>
+<p>The table component allows you to transform a Markdown table into an HTML table. The component accepts the Markdown table as its content. Table column alignment is supported using the default Markdown table alignment syntax:</p>
+<pre><code>@component('mail::table')
+| Laravel       | Table         | Example  |
+| ------------- |:-------------:| --------:|
+| Col 2 is      | Centered      | $10      |
+| Col 3 is      | Right-Aligned | $20      |
+@endcomponent</code></pre>
+<p><a name="customizing-the-components"></a></p>
+<h3 id="customizing-the-components">Customizing The Components</h3>
+<p>You may export all of the Markdown mail components to your own application for customization. To export the components, use the <code>vendor:publish</code> Artisan command to publish the <code>laravel-mail</code> asset tag:</p>
+<pre><code>php artisan vendor:publish --tag=laravel-mail</code></pre>
+<p>This command will publish the Markdown mail components to the <code>resources/views/vendor/mail</code> directory. The <code>mail</code> directory will contain an <code>html</code> and a <code>text</code> directory, each containing their respective representations of every available component. You are free to customize these components however you like.</p>
+<h4>Customizing The CSS</h4>
+<p>After exporting the components, the <code>resources/views/vendor/mail/html/themes</code> directory will contain a <code>default.css</code> file. You may customize the CSS in this file and your styles will automatically be in-lined within the HTML representations of your Markdown mail messages.</p>
+<p>If you would like to build an entirely new theme for Laravel's Markdown components, you may place a CSS file within the <code>html/themes</code> directory. After naming and saving your CSS file, update the <code>theme</code> option of the <code>mail</code> configuration file to match the name of your new theme.</p>
+<p>To customize the theme for an individual mailable, you may set the <code>$theme</code> property of the mailable class to the name of the theme that should be used when sending that mailable.</p>
+<p><a name="sending-mail"></a></p>
+<h2 id="sending-mail">Sending Mail</h2>
+<p>To send a message, use the <code>to</code> method on the <code>Mail</code> <a href="facades.html">facade</a>. The <code>to</code> method accepts an email address, a user instance, or a collection of users. If you pass an object or collection of objects, the mailer will automatically use their <code>email</code> and <code>name</code> properties when setting the email recipients, so make sure these attributes are available on your objects. Once you have specified your recipients, you may pass an instance of your mailable class to the <code>send</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\Mail\OrderShipped;
+use App\Order;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
+class OrderController extends Controller
+{
+    /**
+     * Ship the given order.
+     *
+     * @param  Request  $request
+     * @param  int  $orderId
+     * @return Response
+     */
+    public function ship(Request $request, $orderId)
+    {
+        $order = Order::findOrFail($orderId);
+
+        // Ship order...
+
+        Mail::to($request-&gt;user())-&gt;send(new OrderShipped($order));
+    }
+}</code></pre>
+<p>You are not limited to just specifying the &quot;to&quot; recipients when sending a message. You are free to set &quot;to&quot;, &quot;cc&quot;, and &quot;bcc&quot; recipients all within a single, chained method call:</p>
+<pre><code>use Illuminate\Support\Facades\Mail;
+
+Mail::to($request-&gt;user())
+    -&gt;cc($moreUsers)
+    -&gt;bcc($evenMoreUsers)
+    -&gt;send(new OrderShipped($order));</code></pre>
+<h4>Looping Over Recipients</h4>
+<p>Occasionally, you may need to send a mailable to a list of recipients by iterating over an array of recipients / email addresses. Since the <code>to</code> method appends email addresses to the mailable's list of recipients, you should always re-create the mailable instance for each recipient:</p>
+<pre><code>foreach (['<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5226332b3e3d2012372a333f223e377c313d3f">[email&#160;protected]</a>', '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="abcfd9c2ced8ebced3cac6dbc7ce85c8c4c6">[email&#160;protected]</a>'] as $recipient) {
+    Mail::to($recipient)-&gt;send(new OrderShipped($order));
+}</code></pre>
+<h4>Sending Mail Via A Specific Mailer</h4>
+<p>By default, Laravel will use the mailer configured as the <code>default</code> mailer in your <code>mail</code> configuration file. However, you may use the <code>mailer</code> method to send a message using a specific mailer configuration:</p>
+<pre><code>Mail::mailer('postmark')
+        -&gt;to($request-&gt;user())
+        -&gt;send(new OrderShipped($order));</code></pre>
+<p><a name="queueing-mail"></a></p>
+<h3 id="queueing-mail">Queueing Mail</h3>
+<h4>Queueing A Mail Message</h4>
+<p>Since sending email messages can drastically lengthen the response time of your application, many developers choose to queue email messages for background sending. Laravel makes this easy using its built-in <a href="queues.html">unified queue API</a>. To queue a mail message, use the <code>queue</code> method on the <code>Mail</code> facade after specifying the message's recipients:</p>
+<pre><code>Mail::to($request-&gt;user())
+    -&gt;cc($moreUsers)
+    -&gt;bcc($evenMoreUsers)
+    -&gt;queue(new OrderShipped($order));</code></pre>
+<p>This method will automatically take care of pushing a job onto the queue so the message is sent in the background. You will need to <a href="queues.html">configure your queues</a> before using this feature.</p>
+<h4>Delayed Message Queueing</h4>
+<p>If you wish to delay the delivery of a queued email message, you may use the <code>later</code> method. As its first argument, the <code>later</code> method accepts a <code>DateTime</code> instance indicating when the message should be sent:</p>
+<pre><code>$when = now()-&gt;addMinutes(10);
+
+Mail::to($request-&gt;user())
+    -&gt;cc($moreUsers)
+    -&gt;bcc($evenMoreUsers)
+    -&gt;later($when, new OrderShipped($order));</code></pre>
+<h4>Pushing To Specific Queues</h4>
+<p>Since all mailable classes generated using the <code>make:mail</code> command make use of the <code>Illuminate\Bus\Queueable</code> trait, you may call the <code>onQueue</code> and <code>onConnection</code> methods on any mailable class instance, allowing you to specify the connection and queue name for the message:</p>
+<pre><code>$message = (new OrderShipped($order))
+                -&gt;onConnection('sqs')
+                -&gt;onQueue('emails');
+
+Mail::to($request-&gt;user())
+    -&gt;cc($moreUsers)
+    -&gt;bcc($evenMoreUsers)
+    -&gt;queue($message);</code></pre>
+<h4>Queueing By Default</h4>
+<p>If you have mailable classes that you want to always be queued, you may implement the <code>ShouldQueue</code> contract on the class. Now, even if you call the <code>send</code> method when mailing, the mailable will still be queued since it implements the contract:</p>
+<pre><code>use Illuminate\Contracts\Queue\ShouldQueue;
+
+class OrderShipped extends Mailable implements ShouldQueue
+{
+    //
+}</code></pre>
+<p><a name="rendering-mailables"></a></p>
+<h2 id="rendering-mailables">Rendering Mailables</h2>
+<p>Sometimes you may wish to capture the HTML content of a mailable without sending it. To accomplish this, you may call the <code>render</code> method of the mailable. This method will return the evaluated contents of the mailable as a string:</p>
+<pre><code>$invoice = App\Invoice::find(1);
+
+return (new App\Mail\InvoicePaid($invoice))-&gt;render();</code></pre>
+<p><a name="previewing-mailables-in-the-browser"></a></p>
+<h3 id="previewing-mailables-in-the-browser">Previewing Mailables In The Browser</h3>
+<p>When designing a mailable's template, it is convenient to quickly preview the rendered mailable in your browser like a typical Blade template. For this reason, Laravel allows you to return any mailable directly from a route Closure or controller. When a mailable is returned, it will be rendered and displayed in the browser, allowing you to quickly preview its design without needing to send it to an actual email address:</p>
+<pre><code>Route::get('mailable', function () {
+    $invoice = App\Invoice::find(1);
+
+    return new App\Mail\InvoicePaid($invoice);
+});</code></pre>
+<p><a name="localizing-mailables"></a></p>
+<h2 id="localizing-mailables">Localizing Mailables</h2>
+<p>Laravel allows you to send mailables in a locale other than the current language, and will even remember this locale if the mail is queued.</p>
+<p>To accomplish this, the <code>Mail</code> facade offers a <code>locale</code> method to set the desired language. The application will change into this locale when the mailable is being formatted and then revert back to the previous locale when formatting is complete:</p>
+<pre><code>Mail::to($request-&gt;user())-&gt;locale('es')-&gt;send(
+    new OrderShipped($order)
+);</code></pre>
+<h3>User Preferred Locales</h3>
+<p>Sometimes, applications store each user's preferred locale. By implementing the <code>HasLocalePreference</code> contract on one or more of your models, you may instruct Laravel to use this stored locale when sending mail:</p>
+<pre><code>use Illuminate\Contracts\Translation\HasLocalePreference;
+
+class User extends Model implements HasLocalePreference
+{
+    /**
+     * Get the user's preferred locale.
+     *
+     * @return string
+     */
+    public function preferredLocale()
+    {
+        return $this-&gt;locale;
+    }
+}</code></pre>
+<p>Once you have implemented the interface, Laravel will automatically use the preferred locale when sending mailables and notifications to the model. Therefore, there is no need to call the <code>locale</code> method when using this interface:</p>
+<pre><code>Mail::to($request-&gt;user())-&gt;send(new OrderShipped($order));</code></pre>
+<p><a name="mail-and-local-development"></a></p>
+<h2 id="mail-and-local-development">Mail &amp; Local Development</h2>
+<p>When developing an application that sends email, you probably don't want to actually send emails to live email addresses. Laravel provides several ways to &quot;disable&quot; the actual sending of emails during local development.</p>
+<h4>Log Driver</h4>
+<p>Instead of sending your emails, the <code>log</code> mail driver will write all email messages to your log files for inspection. For more information on configuring your application per environment, check out the <a href="configuration.html#environment-configuration">configuration documentation</a>.</p>
+<h4>Universal To</h4>
+<p>Another solution provided by Laravel is to set a universal recipient of all emails sent by the framework. This way, all the emails generated by your application will be sent to a specific address, instead of the address actually specified when sending the message. This can be done via the <code>to</code> option in your <code>config/mail.php</code> configuration file:</p>
+<pre><code>'to' =&gt; [
+    'address' =&gt; '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="99fce1f8f4e9f5fcd9fce1f8f4e9f5fcb7faf6f4">[email&#160;protected]</a>',
+    'name' =&gt; 'Example'
+],</code></pre>
+<h4>Mailtrap</h4>
+<p>Finally, you may use a service like <a href="https://mailtrap.io/">Mailtrap</a> and the <code>smtp</code> driver to send your email messages to a &quot;dummy&quot; mailbox where you may view them in a true email client. This approach has the benefit of allowing you to actually inspect the final emails in Mailtrap's message viewer.</p>
+<p><a name="events"></a></p>
+<h2 id="events">Events</h2>
+<p>Laravel fires two events during the process of sending mail messages. The <code>MessageSending</code> event is fired prior to a message being sent, while the <code>MessageSent</code> event is fired after a message has been sent. Remember, these events are fired when the mail is being <em>sent</em>, not when it is queued. You may register an event listener for this event in your <code>EventServiceProvider</code>:</p>
+<pre><code>/**
+ * The event listener mappings for the application.
+ *
+ * @var array
+ */
+protected $listen = [
+    'Illuminate\Mail\Events\MessageSending' =&gt; [
+        'App\Listeners\LogSendingMessage',
+    ],
+    'Illuminate\Mail\Events\MessageSent' =&gt; [
+        'App\Listeners\LogSentMessage',
+    ],
+];</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/mail by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:10 GMT -->
+</html>

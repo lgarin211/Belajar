@@ -1,0 +1,29 @@
+HTTrack3.49-2 launched on Mon, 13 Jul 2020 13:37:12 at http://https://laravel.com/docs/7.x +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/*
+(webhttrack -q -%i -w http://https://laravel.com/docs/7.x -O "/home/suga/websites/lardoc" -n -%P -N0 -s2 -p7 -D -a -K0 -c4 -%k -A25000 -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -%s -%u )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+13:39:17	Error: 	"Not Found" (404) at link https://laravel.com/docs/7.x/subscription-quantity (from https://laravel.com/docs/7.x/billing)
+13:39:17	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://laravel.com/img/favicon/favicon.ico
+13:39:17	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js
+13:39:20	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): cdn.carbonads.com/carbon.js?serve=CKYILK3E&placement=laravelcom
+13:39:20	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://laravel.com/js/app.js?id=9a4d608e7b4ef7d1ae45
+13:39:21	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://laravel.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+13:39:21	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://res.cloudinary.com/dtfbvvkyp/image/upload/v1582142435/Screen_Shot_2020-02-19_at_2.00.01_PM.png
+13:39:21	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://res.cloudinary.com/dtfbvvkyp/image/upload/v1582142674/Screen_Shot_2020-02-19_at_2.04.11_PM.png
+13:39:25	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://use.typekit.net/af/3c21b3/0000000000000000000179cf/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3
+13:39:33	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://use.typekit.net/af/466f33/00000000000000003b9ace2b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3
+13:39:33	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://use.typekit.net/af/466f33/00000000000000003b9ace2b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3
+13:39:37	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://use.typekit.net/af/eadc3e/00000000000000003b9ace29/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3
+13:39:37	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://use.typekit.net/af/ffb99e/00000000000000003b9ace2a/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3
+13:39:42	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://use.typekit.net/af/13767c/0000000000000000000158dd/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3
+13:39:42	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://use.typekit.net/af/13767c/0000000000000000000158dd/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3
+13:39:43	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://use.typekit.net/af/7e0390/0000000000000000000158e4/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3
+13:39:47	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://use.typekit.net/af/4cf72c/0000000000000000000158e6/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3
+13:39:52	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://use.typekit.net/af/396f3b/0000000000000000000158e8/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 minutes 50 seconds : 143 links scanned, 159 files written (17724952 bytes overall) [8365517 bytes received at 49208 bytes/sec], 4922530 bytes transferred using HTTP compression in 116 files, ratio 28%, 6.3 requests per connection
+(1 errors, 17 warnings, 0 messages)

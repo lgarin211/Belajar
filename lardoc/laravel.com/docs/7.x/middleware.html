@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/middleware by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Middleware - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="middleware.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/middleware">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/middleware">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/middleware">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/middleware">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/middleware">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/middleware">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/middleware">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/middleware">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/middleware">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/middleware">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/middleware">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/middleware">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/middleware">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Middleware</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#defining-middleware">Defining Middleware</a></li>
+<li><a href="#registering-middleware">Registering Middleware</a>
+<ul>
+<li><a href="#global-middleware">Global Middleware</a></li>
+<li><a href="#assigning-middleware-to-routes">Assigning Middleware To Routes</a></li>
+<li><a href="#middleware-groups">Middleware Groups</a></li>
+<li><a href="#sorting-middleware">Sorting Middleware</a></li>
+</ul></li>
+<li><a href="#middleware-parameters">Middleware Parameters</a></li>
+<li><a href="#terminable-middleware">Terminable Middleware</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Middleware provide a convenient mechanism for filtering HTTP requests entering your application. For example, Laravel includes a middleware that verifies the user of your application is authenticated. If the user is not authenticated, the middleware will redirect the user to the login screen. However, if the user is authenticated, the middleware will allow the request to proceed further into the application.</p>
+<p>Additional middleware can be written to perform a variety of tasks besides authentication. A CORS middleware might be responsible for adding the proper headers to all responses leaving your application. A logging middleware might log all incoming requests to your application.</p>
+<p>There are several middleware included in the Laravel framework, including middleware for authentication and CSRF protection. All of these middleware are located in the <code>app/Http/Middleware</code> directory.</p>
+<p><a name="defining-middleware"></a></p>
+<h2 id="defining-middleware">Defining Middleware</h2>
+<p>To create a new middleware, use the <code>make:middleware</code> Artisan command:</p>
+<pre><code>php artisan make:middleware CheckAge</code></pre>
+<p>This command will place a new <code>CheckAge</code> class within your <code>app/Http/Middleware</code> directory. In this middleware, we will only allow access to the route if the supplied <code>age</code> is greater than 200. Otherwise, we will redirect the users back to the <code>home</code> URI:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class CheckAge
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        if ($request-&gt;age &lt;= 200) {
+            return redirect('home');
+        }
+
+        return $next($request);
+    }
+}</code></pre>
+<p>As you can see, if the given <code>age</code> is less than or equal to <code>200</code>, the middleware will return an HTTP redirect to the client; otherwise, the request will be passed further into the application. To pass the request deeper into the application (allowing the middleware to &quot;pass&quot;), call the <code>$next</code> callback with the <code>$request</code>.</p>
+<p>It's best to envision middleware as a series of &quot;layers&quot; HTTP requests must pass through before they hit your application. Each layer can examine the request and even reject it entirely.</p>
+<blockquote>
+<p>{tip} All middleware are resolved via the <a href="container.html">service container</a>, so you may type-hint any dependencies you need within a middleware's constructor.</p>
+</blockquote>
+<h3>Before &amp; After Middleware</h3>
+<p>Whether a middleware runs before or after a request depends on the middleware itself. For example, the following middleware would perform some task <strong>before</strong> the request is handled by the application:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class BeforeMiddleware
+{
+    public function handle($request, Closure $next)
+    {
+        // Perform action
+
+        return $next($request);
+    }
+}</code></pre>
+<p>However, this middleware would perform its task <strong>after</strong> the request is handled by the application:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class AfterMiddleware
+{
+    public function handle($request, Closure $next)
+    {
+        $response = $next($request);
+
+        // Perform action
+
+        return $response;
+    }
+}</code></pre>
+<p><a name="registering-middleware"></a></p>
+<h2 id="registering-middleware">Registering Middleware</h2>
+<p><a name="global-middleware"></a></p>
+<h3 id="global-middleware">Global Middleware</h3>
+<p>If you want a middleware to run during every HTTP request to your application, list the middleware class in the <code>$middleware</code> property of your <code>app/Http/Kernel.php</code> class.</p>
+<p><a name="assigning-middleware-to-routes"></a></p>
+<h3 id="assigning-middleware-to-routes">Assigning Middleware To Routes</h3>
+<p>If you would like to assign middleware to specific routes, you should first assign the middleware a key in your <code>app/Http/Kernel.php</code> file. By default, the <code>$routeMiddleware</code> property of this class contains entries for the middleware included with Laravel. To add your own, append it to this list and assign it a key of your choosing:</p>
+<pre><code>// Within App\Http\Kernel Class...
+
+protected $routeMiddleware = [
+    'auth' =&gt; \App\Http\Middleware\Authenticate::class,
+    'auth.basic' =&gt; \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+    'bindings' =&gt; \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    'cache.headers' =&gt; \Illuminate\Http\Middleware\SetCacheHeaders::class,
+    'can' =&gt; \Illuminate\Auth\Middleware\Authorize::class,
+    'guest' =&gt; \App\Http\Middleware\RedirectIfAuthenticated::class,
+    'signed' =&gt; \Illuminate\Routing\Middleware\ValidateSignature::class,
+    'throttle' =&gt; \Illuminate\Routing\Middleware\ThrottleRequests::class,
+    'verified' =&gt; \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+];</code></pre>
+<p>Once the middleware has been defined in the HTTP kernel, you may use the <code>middleware</code> method to assign middleware to a route:</p>
+<pre><code>Route::get('admin/profile', function () {
+    //
+})-&gt;middleware('auth');</code></pre>
+<p>You may also assign multiple middleware to the route:</p>
+<pre><code>Route::get('/', function () {
+    //
+})-&gt;middleware('first', 'second');</code></pre>
+<p>When assigning middleware, you may also pass the fully qualified class name:</p>
+<pre><code>use App\Http\Middleware\CheckAge;
+
+Route::get('admin/profile', function () {
+    //
+})-&gt;middleware(CheckAge::class);</code></pre>
+<p>When assigning middleware to a group of routes, you may occasionally need to prevent the middleware from being applied to an individual route within the group. You may accomplish this using the <code>withoutMiddleware</code> method:</p>
+<pre><code>use App\Http\Middleware\CheckAge;
+
+Route::middleware([CheckAge::class])-&gt;group(function () {
+    Route::get('/', function () {
+        //
+    });
+
+    Route::get('admin/profile', function () {
+        //
+    })-&gt;withoutMiddleware([CheckAge::class]);
+});</code></pre>
+<p>The <code>withoutMiddleware</code> method can only remove route middleware and does not apply to <a href="#global-middleware">global middleware</a>.</p>
+<p><a name="middleware-groups"></a></p>
+<h3 id="middleware-groups">Middleware Groups</h3>
+<p>Sometimes you may want to group several middleware under a single key to make them easier to assign to routes. You may do this using the <code>$middlewareGroups</code> property of your HTTP kernel.</p>
+<p>Out of the box, Laravel comes with <code>web</code> and <code>api</code> middleware groups that contain common middleware you may want to apply to your web UI and API routes:</p>
+<pre><code>/**
+ * The application's route middleware groups.
+ *
+ * @var array
+ */
+protected $middlewareGroups = [
+    'web' =&gt; [
+        \App\Http\Middleware\EncryptCookies::class,
+        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \App\Http\Middleware\VerifyCsrfToken::class,
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    ],
+
+    'api' =&gt; [
+        'throttle:60,1',
+        'auth:api',
+    ],
+];</code></pre>
+<p>Middleware groups may be assigned to routes and controller actions using the same syntax as individual middleware. Again, middleware groups make it more convenient to assign many middleware to a route at once:</p>
+<pre><code>Route::get('/', function () {
+    //
+})-&gt;middleware('web');
+
+Route::group(['middleware' =&gt; ['web']], function () {
+    //
+});
+
+Route::middleware(['web', 'subscribed'])-&gt;group(function () {
+    //
+});</code></pre>
+<blockquote>
+<p>{tip} Out of the box, the <code>web</code> middleware group is automatically applied to your <code>routes/web.php</code> file by the <code>RouteServiceProvider</code>.</p>
+</blockquote>
+<p><a name="sorting-middleware"></a></p>
+<h3 id="sorting-middleware">Sorting Middleware</h3>
+<p>Rarely, you may need your middleware to execute in a specific order but not have control over their order when they are assigned to the route. In this case, you may specify your middleware priority using the <code>$middlewarePriority</code> property of your <code>app/Http/Kernel.php</code> file:</p>
+<pre><code>/**
+ * The priority-sorted list of middleware.
+ *
+ * This forces non-global middleware to always be in the given order.
+ *
+ * @var array
+ */
+protected $middlewarePriority = [
+    \Illuminate\Session\Middleware\StartSession::class,
+    \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+    \Illuminate\Contracts\Auth\Middleware\AuthenticatesRequests::class,
+    \Illuminate\Routing\Middleware\ThrottleRequests::class,
+    \Illuminate\Session\Middleware\AuthenticateSession::class,
+    \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    \Illuminate\Auth\Middleware\Authorize::class,
+];</code></pre>
+<p><a name="middleware-parameters"></a></p>
+<h2 id="middleware-parameters">Middleware Parameters</h2>
+<p>Middleware can also receive additional parameters. For example, if your application needs to verify that the authenticated user has a given &quot;role&quot; before performing a given action, you could create a <code>CheckRole</code> middleware that receives a role name as an additional argument.</p>
+<p>Additional middleware parameters will be passed to the middleware after the <code>$next</code> argument:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class CheckRole
+{
+    /**
+     * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  string  $role
+     * @return mixed
+     */
+    public function handle($request, Closure $next, $role)
+    {
+        if (! $request-&gt;user()-&gt;hasRole($role)) {
+            // Redirect...
+        }
+
+        return $next($request);
+    }
+
+}</code></pre>
+<p>Middleware parameters may be specified when defining the route by separating the middleware name and parameters with a <code>:</code>. Multiple parameters should be delimited by commas:</p>
+<pre><code>Route::put('post/{id}', function ($id) {
+    //
+})-&gt;middleware('role:editor');</code></pre>
+<p><a name="terminable-middleware"></a></p>
+<h2 id="terminable-middleware">Terminable Middleware</h2>
+<p>Sometimes a middleware may need to do some work after the HTTP response has been sent to the browser. If you define a <code>terminate</code> method on your middleware and your web server is using FastCGI, the <code>terminate</code> method will automatically be called after the response is sent to the browser:</p>
+<pre><code>&lt;?php
+
+namespace Illuminate\Session\Middleware;
+
+use Closure;
+
+class StartSession
+{
+    public function handle($request, Closure $next)
+    {
+        return $next($request);
+    }
+
+    public function terminate($request, $response)
+    {
+        // Store the session data...
+    }
+}</code></pre>
+<p>The <code>terminate</code> method should receive both the request and the response. Once you have defined a terminable middleware, you should add it to the list of route or global middleware in the <code>app/Http/Kernel.php</code> file.</p>
+<p>When calling the <code>terminate</code> method on your middleware, Laravel will resolve a fresh instance of the middleware from the <a href="container.html">service container</a>. If you would like to use the same middleware instance when the <code>handle</code> and <code>terminate</code> methods are called, register the middleware with the container using the container's <code>singleton</code> method. Typically this should be done in the <code>register</code> method of your <code>AppServiceProvider.php</code>:</p>
+<pre><code>use App\Http\Middleware\TerminableMiddleware;
+
+/**
+ * Register any application services.
+ *
+ * @return void
+ */
+public function register()
+{
+    $this-&gt;app-&gt;singleton(TerminableMiddleware::class);
+}</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/middleware by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+</html>

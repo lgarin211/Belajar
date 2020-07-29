@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/redis by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Redis - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="redis.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/redis">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/redis">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/redis">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/redis">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/redis">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/redis">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/redis">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/redis">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/redis">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/redis">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/redis">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/redis">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/redis">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Redis</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#predis">Predis</a></li>
+<li><a href="#phpredis">PhpRedis</a></li>
+</ul></li>
+<li><a href="#interacting-with-redis">Interacting With Redis</a>
+<ul>
+<li><a href="#pipelining-commands">Pipelining Commands</a></li>
+</ul></li>
+<li><a href="#pubsub">Pub / Sub</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p><a href="https://redis.io/">Redis</a> is an open source, advanced key-value store. It is often referred to as a data structure server since keys can contain <a href="https://redis.io/topics/data-types#strings">strings</a>, <a href="https://redis.io/topics/data-types#hashes">hashes</a>, <a href="https://redis.io/topics/data-types#lists">lists</a>, <a href="https://redis.io/topics/data-types#sets">sets</a>, and <a href="https://redis.io/topics/data-types#sorted-sets">sorted sets</a>.</p>
+<p>Before using Redis with Laravel, we encourage you to install and use the <a href="https://github.com/phpredis/phpredis">PhpRedis</a> PHP extension via PECL. The extension is more complex to install but may yield better performance for applications that make heavy use of Redis.</p>
+<p>Alternatively, you can install the <code>predis/predis</code> package via Composer:</p>
+<pre><code>composer require predis/predis</code></pre>
+<blockquote>
+<p>{note} Predis has been abandoned by the package's original author and may be removed from Laravel in a future release.</p>
+</blockquote>
+<p><a name="configuration"></a></p>
+<h3 id="configuration">Configuration</h3>
+<p>The Redis configuration for your application is located in the <code>config/database.php</code> configuration file. Within this file, you will see a <code>redis</code> array containing the Redis servers utilized by your application:</p>
+<pre><code>'redis' =&gt; [
+
+    'client' =&gt; env('REDIS_CLIENT', 'phpredis'),
+
+    'default' =&gt; [
+        'host' =&gt; env('REDIS_HOST', '127.0.0.1'),
+        'password' =&gt; env('REDIS_PASSWORD', null),
+        'port' =&gt; env('REDIS_PORT', 6379),
+        'database' =&gt; env('REDIS_DB', 0),
+    ],
+
+    'cache' =&gt; [
+        'host' =&gt; env('REDIS_HOST', '127.0.0.1'),
+        'password' =&gt; env('REDIS_PASSWORD', null),
+        'port' =&gt; env('REDIS_PORT', 6379),
+        'database' =&gt; env('REDIS_CACHE_DB', 1),
+    ],
+
+],</code></pre>
+<p>The default server configuration should suffice for development. However, you are free to modify this array based on your environment. Each Redis server defined in your configuration file is required to have a name, host, and port.</p>
+<h4>Configuring Clusters</h4>
+<p>If your application is utilizing a cluster of Redis servers, you should define these clusters within a <code>clusters</code> key of your Redis configuration:</p>
+<pre><code>'redis' =&gt; [
+
+    'client' =&gt; env('REDIS_CLIENT', 'phpredis'),
+
+    'clusters' =&gt; [
+        'default' =&gt; [
+            [
+                'host' =&gt; env('REDIS_HOST', 'localhost'),
+                'password' =&gt; env('REDIS_PASSWORD', null),
+                'port' =&gt; env('REDIS_PORT', 6379),
+                'database' =&gt; 0,
+            ],
+        ],
+    ],
+
+],</code></pre>
+<p>By default, clusters will perform client-side sharding across your nodes, allowing you to pool nodes and create a large amount of available RAM. However, note that client-side sharding does not handle failover; therefore, is primarily suited for cached data that is available from another primary data store. If you would like to use native Redis clustering, you should specify this in the <code>options</code> key of your Redis configuration:</p>
+<pre><code>'redis' =&gt; [
+
+    'client' =&gt; env('REDIS_CLIENT', 'phpredis'),
+
+    'options' =&gt; [
+        'cluster' =&gt; env('REDIS_CLUSTER', 'redis'),
+    ],
+
+    'clusters' =&gt; [
+        // ...
+    ],
+
+],</code></pre>
+<p><a name="predis"></a></p>
+<h3 id="predis">Predis</h3>
+<p>To utilize the Predis extension, you should change the <code>REDIS_CLIENT</code> environment variable from <code>phpredis</code> to <code>predis</code>:</p>
+<pre><code>'redis' =&gt; [
+
+    'client' =&gt; env('REDIS_CLIENT', 'predis'),
+
+    // Rest of Redis configuration...
+],</code></pre>
+<p>In addition to the default <code>host</code>, <code>port</code>, <code>database</code>, and <code>password</code> server configuration options, Predis supports additional <a href="https://github.com/nrk/predis/wiki/Connection-Parameters">connection parameters</a> that may be defined for each of your Redis servers. To utilize these additional configuration options, add them to your Redis server configuration in the <code>config/database.php</code> configuration file:</p>
+<pre><code>'default' =&gt; [
+    'host' =&gt; env('REDIS_HOST', 'localhost'),
+    'password' =&gt; env('REDIS_PASSWORD', null),
+    'port' =&gt; env('REDIS_PORT', 6379),
+    'database' =&gt; 0,
+    'read_write_timeout' =&gt; 60,
+],</code></pre>
+<p><a name="phpredis"></a></p>
+<h3 id="phpredis">PhpRedis</h3>
+<p>The PhpRedis extension is configured as default at <code>REDIS_CLIENT</code> env and in your <code>config/database.php</code>:</p>
+<pre><code>'redis' =&gt; [
+
+    'client' =&gt; env('REDIS_CLIENT', 'phpredis'),
+
+    // Rest of Redis configuration...
+],</code></pre>
+<p>If you plan to use PhpRedis extension along with the <code>Redis</code> Facade alias, you should rename it to something else, like <code>RedisManager</code>, to avoid a collision with the Redis class. You can do that in the aliases section of your <code>app.php</code> config file.</p>
+<pre><code>'RedisManager' =&gt; Illuminate\Support\Facades\Redis::class,</code></pre>
+<p>In addition to the default <code>host</code>, <code>port</code>, <code>database</code>, and <code>password</code> server configuration options, PhpRedis supports the following additional connection parameters: <code>persistent</code>, <code>prefix</code>, <code>read_timeout</code> and <code>timeout</code>. You may add any of these options to your Redis server configuration in the <code>config/database.php</code> configuration file:</p>
+<pre><code>'default' =&gt; [
+    'host' =&gt; env('REDIS_HOST', 'localhost'),
+    'password' =&gt; env('REDIS_PASSWORD', null),
+    'port' =&gt; env('REDIS_PORT', 6379),
+    'database' =&gt; 0,
+    'read_timeout' =&gt; 60,
+],</code></pre>
+<h4>The Redis Facade</h4>
+<p>To avoid class naming collisions with the Redis PHP extension itself, you will need to delete or rename the <code>Illuminate\Support\Facades\Redis</code> facade alias from your <code>app</code> configuration file's <code>aliases</code> array. Generally, you should remove this alias entirely and only reference the facade by its fully qualified class name while using the Redis PHP extension.</p>
+<p><a name="interacting-with-redis"></a></p>
+<h2 id="interacting-with-redis">Interacting With Redis</h2>
+<p>You may interact with Redis by calling various methods on the <code>Redis</code> <a href="facades.html">facade</a>. The <code>Redis</code> facade supports dynamic methods, meaning you may call any <a href="https://redis.io/commands">Redis command</a> on the facade and the command will be passed directly to Redis. In this example, we will call the Redis <code>GET</code> command by calling the <code>get</code> method on the <code>Redis</code> facade:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redis;
+
+class UserController extends Controller
+{
+    /**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function showProfile($id)
+    {
+        $user = Redis::get('user:profile:'.$id);
+
+        return view('user.profile', ['user' =&gt; $user]);
+    }
+}</code></pre>
+<p>As mentioned above, you may call any of the Redis commands on the <code>Redis</code> facade. Laravel uses magic methods to pass the commands to the Redis server, so pass the arguments the Redis command expects:</p>
+<pre><code>Redis::set('name', 'Taylor');
+
+$values = Redis::lrange('names', 5, 10);</code></pre>
+<p>Alternatively, you may also pass commands to the server using the <code>command</code> method, which accepts the name of the command as its first argument, and an array of values as its second argument:</p>
+<pre><code>$values = Redis::command('lrange', ['name', 5, 10]);</code></pre>
+<h4>Using Multiple Redis Connections</h4>
+<p>You may get a Redis instance by calling the <code>Redis::connection</code> method:</p>
+<pre><code>$redis = Redis::connection();</code></pre>
+<p>This will give you an instance of the default Redis server. You may also pass the connection or cluster name to the <code>connection</code> method to get a specific server or cluster as defined in your Redis configuration:</p>
+<pre><code>$redis = Redis::connection('my-connection');</code></pre>
+<p><a name="pipelining-commands"></a></p>
+<h3 id="pipelining-commands">Pipelining Commands</h3>
+<p>Pipelining should be used when you need to send many commands to the server. The <code>pipeline</code> method accepts one argument: a <code>Closure</code> that receives a Redis instance. You may issue all of your commands to this Redis instance and they will all be streamed to the server thus providing better performance:</p>
+<pre><code>Redis::pipeline(function ($pipe) {
+    for ($i = 0; $i &lt; 1000; $i++) {
+        $pipe-&gt;set("key:$i", $i);
+    }
+});</code></pre>
+<p><a name="pubsub"></a></p>
+<h2 id="pubsub">Pub / Sub</h2>
+<p>Laravel provides a convenient interface to the Redis <code>publish</code> and <code>subscribe</code> commands. These Redis commands allow you to listen for messages on a given &quot;channel&quot;. You may publish messages to the channel from another application, or even using another programming language, allowing easy communication between applications and processes.</p>
+<p>First, let's setup a channel listener using the <code>subscribe</code> method. We'll place this method call within an <a href="artisan.html">Artisan command</a> since calling the <code>subscribe</code> method begins a long-running process:</p>
+<pre><code>&lt;?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Redis;
+
+class RedisSubscribe extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'redis:subscribe';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Subscribe to a Redis channel';
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        Redis::subscribe(['test-channel'], function ($message) {
+            echo $message;
+        });
+    }
+}</code></pre>
+<p>Now we may publish messages to the channel using the <code>publish</code> method:</p>
+<pre><code>Route::get('publish', function () {
+    // Route logic...
+
+    Redis::publish('test-channel', json_encode(['foo' =&gt; 'bar']));
+});</code></pre>
+<h4>Wildcard Subscriptions</h4>
+<p>Using the <code>psubscribe</code> method, you may subscribe to a wildcard channel, which may be useful for catching all messages on all channels. The <code>$channel</code> name will be passed as the second argument to the provided callback <code>Closure</code>:</p>
+<pre><code>Redis::psubscribe(['*'], function ($message, $channel) {
+    echo $message;
+});
+
+Redis::psubscribe(['users.*'], function ($message, $channel) {
+    echo $message;
+});</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/redis by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+</html>

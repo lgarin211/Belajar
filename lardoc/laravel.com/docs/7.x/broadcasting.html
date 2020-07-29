@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/broadcasting by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Broadcasting - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="broadcasting.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/broadcasting">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/broadcasting">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/broadcasting">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/broadcasting">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/broadcasting">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/broadcasting">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/broadcasting">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/broadcasting">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/broadcasting">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/broadcasting">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/broadcasting">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/broadcasting">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/broadcasting">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Broadcasting</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#driver-prerequisites">Driver Prerequisites</a></li>
+</ul></li>
+<li><a href="#concept-overview">Concept Overview</a>
+<ul>
+<li><a href="#using-example-application">Using An Example Application</a></li>
+</ul></li>
+<li><a href="#defining-broadcast-events">Defining Broadcast Events</a>
+<ul>
+<li><a href="#broadcast-name">Broadcast Name</a></li>
+<li><a href="#broadcast-data">Broadcast Data</a></li>
+<li><a href="#broadcast-queue">Broadcast Queue</a></li>
+<li><a href="#broadcast-conditions">Broadcast Conditions</a></li>
+</ul></li>
+<li><a href="#authorizing-channels">Authorizing Channels</a>
+<ul>
+<li><a href="#defining-authorization-routes">Defining Authorization Routes</a></li>
+<li><a href="#defining-authorization-callbacks">Defining Authorization Callbacks</a></li>
+<li><a href="#defining-channel-classes">Defining Channel Classes</a></li>
+</ul></li>
+<li><a href="#broadcasting-events">Broadcasting Events</a>
+<ul>
+<li><a href="#only-to-others">Only To Others</a></li>
+</ul></li>
+<li><a href="#receiving-broadcasts">Receiving Broadcasts</a>
+<ul>
+<li><a href="#installing-laravel-echo">Installing Laravel Echo</a></li>
+<li><a href="#listening-for-events">Listening For Events</a></li>
+<li><a href="#leaving-a-channel">Leaving A Channel</a></li>
+<li><a href="#namespaces">Namespaces</a></li>
+</ul></li>
+<li><a href="#presence-channels">Presence Channels</a>
+<ul>
+<li><a href="#authorizing-presence-channels">Authorizing Presence Channels</a></li>
+<li><a href="#joining-presence-channels">Joining Presence Channels</a></li>
+<li><a href="#broadcasting-to-presence-channels">Broadcasting To Presence Channels</a></li>
+</ul></li>
+<li><a href="#client-events">Client Events</a></li>
+<li><a href="#notifications">Notifications</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>In many modern web applications, WebSockets are used to implement realtime, live-updating user interfaces. When some data is updated on the server, a message is typically sent over a WebSocket connection to be handled by the client. This provides a more robust, efficient alternative to continually polling your application for changes.</p>
+<p>To assist you in building these types of applications, Laravel makes it easy to &quot;broadcast&quot; your <a href="events.html">events</a> over a WebSocket connection. Broadcasting your Laravel events allows you to share the same event names between your server-side code and your client-side JavaScript application.</p>
+<blockquote>
+<p>{tip} Before diving into event broadcasting, make sure you have read all of the documentation regarding Laravel <a href="events.html">events and listeners</a>.</p>
+</blockquote>
+<p><a name="configuration"></a></p>
+<h3 id="configuration">Configuration</h3>
+<p>All of your application's event broadcasting configuration is stored in the <code>config/broadcasting.php</code> configuration file. Laravel supports several broadcast drivers out of the box: <a href="https://pusher.com/channels">Pusher Channels</a>, <a href="redis.html">Redis</a>, and a <code>log</code> driver for local development and debugging. Additionally, a <code>null</code> driver is included which allows you to totally disable broadcasting. A configuration example is included for each of these drivers in the <code>config/broadcasting.php</code> configuration file.</p>
+<h4>Broadcast Service Provider</h4>
+<p>Before broadcasting any events, you will first need to register the <code>App\Providers\BroadcastServiceProvider</code>. In fresh Laravel applications, you only need to uncomment this provider in the <code>providers</code> array of your <code>config/app.php</code> configuration file. This provider will allow you to register the broadcast authorization routes and callbacks.</p>
+<h4>CSRF Token</h4>
+<p><a href="#installing-laravel-echo">Laravel Echo</a> will need access to the current session's CSRF token. You should verify that your application's <code>head</code> HTML element defines a <code>meta</code> tag containing the CSRF token:</p>
+<pre><code>&lt;meta name="csrf-token" content="{{ csrf_token() }}"&gt;</code></pre>
+<p><a name="driver-prerequisites"></a></p>
+<h3 id="driver-prerequisites">Driver Prerequisites</h3>
+<h4>Pusher Channels</h4>
+<p>If you are broadcasting your events over <a href="https://pusher.com/channels">Pusher Channels</a>, you should install the Pusher Channels PHP SDK using the Composer package manager:</p>
+<pre><code>composer require pusher/pusher-php-server "~4.0"</code></pre>
+<p>Next, you should configure your Channels credentials in the <code>config/broadcasting.php</code> configuration file. An example Channels configuration is already included in this file, allowing you to quickly specify your Channels key, secret, and application ID. The <code>config/broadcasting.php</code> file's <code>pusher</code> configuration also allows you to specify additional <code>options</code> that are supported by Channels, such as the cluster:</p>
+<pre><code>'options' =&gt; [
+    'cluster' =&gt; 'eu',
+    'useTLS' =&gt; true
+],</code></pre>
+<p>When using Channels and <a href="#installing-laravel-echo">Laravel Echo</a>, you should specify <code>pusher</code> as your desired broadcaster when instantiating the Echo instance in your <code>resources/js/bootstrap.js</code> file:</p>
+<pre><code>import Echo from "laravel-echo";
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'your-pusher-channels-key'
+});</code></pre>
+<p>Finally, you will need to change your broadcast driver to <code>pusher</code> in your <code>.env</code> file:</p>
+<pre><code>BROADCAST_DRIVER=pusher</code></pre>
+<h4>Pusher Compatible Laravel Websockets</h4>
+<p>The <a href="https://github.com/beyondcode/laravel-websockets">laravel-websockets</a> is a pure PHP, Pusher compatible websocket package for Laravel. This package allows you to leverage the full power of Laravel broadcasting without an external websocket provider or Node. For more information on installing and using this package, please consult its <a href="https://beyondco.de/docs/laravel-websockets">official documentation</a>.</p>
+<h4>Redis</h4>
+<p>If you are using the Redis broadcaster, you should either install the phpredis PHP extension via PECL or install the Predis library via Composer:</p>
+<pre><code>composer require predis/predis</code></pre>
+<p>Next, you should update your broadcast driver to <code>redis</code> in your <code>.env</code> file:</p>
+<pre><code>BROADCAST_DRIVER=redis</code></pre>
+<p>The Redis broadcaster will broadcast messages using Redis' pub / sub feature; however, you will need to pair this with a WebSocket server that can receive the messages from Redis and broadcast them to your WebSocket channels.</p>
+<p>When the Redis broadcaster publishes an event, it will be published on the event's specified channel names and the payload will be a JSON encoded string containing the event name, a <code>data</code> payload, and the user that generated the event's socket ID (if applicable).</p>
+<h4>Socket.IO</h4>
+<p>If you are going to pair the Redis broadcaster with a Socket.IO server, you will need to include the Socket.IO JavaScript client library in your application. You may install it via the NPM package manager:</p>
+<pre><code>npm install --save socket.io-client</code></pre>
+<p>Next, you will need to instantiate Echo with the <code>socket.io</code> connector and a <code>host</code>.</p>
+<pre><code>import Echo from "laravel-echo"
+
+window.io = require('socket.io-client');
+
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':6001'
+});</code></pre>
+<p>Finally, you will need to run a compatible Socket.IO server. Laravel does not include a Socket.IO server implementation; however, a community driven Socket.IO server is currently maintained at the <a href="https://github.com/tlaverdure/laravel-echo-server">tlaverdure/laravel-echo-server</a> GitHub repository.</p>
+<h4>Queue Prerequisites</h4>
+<p>Before broadcasting events, you will also need to configure and run a <a href="queues.html">queue listener</a>. All event broadcasting is done via queued jobs so that the response time of your application is not seriously affected.</p>
+<p><a name="concept-overview"></a></p>
+<h2 id="concept-overview">Concept Overview</h2>
+<p>Laravel's event broadcasting allows you to broadcast your server-side Laravel events to your client-side JavaScript application using a driver-based approach to WebSockets. Currently, Laravel ships with <a href="https://pusher.com/channels">Pusher Channels</a> and Redis drivers. The events may be easily consumed on the client-side using the <a href="#installing-laravel-echo">Laravel Echo</a> Javascript package.</p>
+<p>Events are broadcast over &quot;channels&quot;, which may be specified as public or private. Any visitor to your application may subscribe to a public channel without any authentication or authorization; however, in order to subscribe to a private channel, a user must be authenticated and authorized to listen on that channel.</p>
+<blockquote>
+<p>{tip} If you would like to use an open source, PHP driven alternative to Pusher, check out the <a href="https://github.com/beyondcode/laravel-websockets">laravel-websockets</a> package.</p>
+</blockquote>
+<p><a name="using-example-application"></a></p>
+<h3 id="using-example-application">Using An Example Application</h3>
+<p>Before diving into each component of event broadcasting, let's take a high level overview using an e-commerce store as an example. We won't discuss the details of configuring <a href="https://pusher.com/channels">Pusher Channels</a> or <a href="#installing-laravel-echo">Laravel Echo</a> since that will be discussed in detail in other sections of this documentation.</p>
+<p>In our application, let's assume we have a page that allows users to view the shipping status for their orders. Let's also assume that a <code>ShippingStatusUpdated</code> event is fired when a shipping status update is processed by the application:</p>
+<pre><code>event(new ShippingStatusUpdated($update));</code></pre>
+<h4>The <code>ShouldBroadcast</code> Interface</h4>
+<p>When a user is viewing one of their orders, we don't want them to have to refresh the page to view status updates. Instead, we want to broadcast the updates to the application as they are created. So, we need to mark the <code>ShippingStatusUpdated</code> event with the <code>ShouldBroadcast</code> interface. This will instruct Laravel to broadcast the event when it is fired:</p>
+<pre><code>&lt;?php
+
+namespace App\Events;
+
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Queue\SerializesModels;
+
+class ShippingStatusUpdated implements ShouldBroadcast
+{
+    /**
+     * Information about the shipping status update.
+     *
+     * @var string
+     */
+    public $update;
+}</code></pre>
+<p>The <code>ShouldBroadcast</code> interface requires our event to define a <code>broadcastOn</code> method. This method is responsible for returning the channels that the event should broadcast on. An empty stub of this method is already defined on generated event classes, so we only need to fill in its details. We only want the creator of the order to be able to view status updates, so we will broadcast the event on a private channel that is tied to the order:</p>
+<pre><code>/**
+ * Get the channels the event should broadcast on.
+ *
+ * @return \Illuminate\Broadcasting\PrivateChannel
+ */
+public function broadcastOn()
+{
+    return new PrivateChannel('order.'.$this-&gt;update-&gt;order_id);
+}</code></pre>
+<h4>Authorizing Channels</h4>
+<p>Remember, users must be authorized to listen on private channels. We may define our channel authorization rules in the <code>routes/channels.php</code> file. In this example, we need to verify that any user attempting to listen on the private <code>order.1</code> channel is actually the creator of the order:</p>
+<pre><code>Broadcast::channel('order.{orderId}', function ($user, $orderId) {
+    return $user-&gt;id === Order::findOrNew($orderId)-&gt;user_id;
+});</code></pre>
+<p>The <code>channel</code> method accepts two arguments: the name of the channel and a callback which returns <code>true</code> or <code>false</code> indicating whether the user is authorized to listen on the channel.</p>
+<p>All authorization callbacks receive the currently authenticated user as their first argument and any additional wildcard parameters as their subsequent arguments. In this example, we are using the <code>{orderId}</code> placeholder to indicate that the &quot;ID&quot; portion of the channel name is a wildcard.</p>
+<h4>Listening For Event Broadcasts</h4>
+<p>Next, all that remains is to listen for the event in our JavaScript application. We can do this using Laravel Echo. First, we'll use the <code>private</code> method to subscribe to the private channel. Then, we may use the <code>listen</code> method to listen for the <code>ShippingStatusUpdated</code> event. By default, all of the event's public properties will be included on the broadcast event:</p>
+<pre><code>Echo.private(`order.${orderId}`)
+    .listen('ShippingStatusUpdated', (e) =&gt; {
+        console.log(e.update);
+    });</code></pre>
+<p><a name="defining-broadcast-events"></a></p>
+<h2 id="defining-broadcast-events">Defining Broadcast Events</h2>
+<p>To inform Laravel that a given event should be broadcast, implement the <code>Illuminate\Contracts\Broadcasting\ShouldBroadcast</code> interface on the event class. This interface is already imported into all event classes generated by the framework so you may easily add it to any of your events.</p>
+<p>The <code>ShouldBroadcast</code> interface requires you to implement a single method: <code>broadcastOn</code>. The <code>broadcastOn</code> method should return a channel or array of channels that the event should broadcast on. The channels should be instances of <code>Channel</code>, <code>PrivateChannel</code>, or <code>PresenceChannel</code>. Instances of <code>Channel</code> represent public channels that any user may subscribe to, while <code>PrivateChannels</code> and <code>PresenceChannels</code> represent private channels that require <a href="#authorizing-channels">channel authorization</a>:</p>
+<pre><code>&lt;?php
+
+namespace App\Events;
+
+use App\User;
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Queue\SerializesModels;
+
+class ServerCreated implements ShouldBroadcast
+{
+    use SerializesModels;
+
+    public $user;
+
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
+    public function __construct(User $user)
+    {
+        $this-&gt;user = $user;
+    }
+
+    /**
+     * Get the channels the event should broadcast on.
+     *
+     * @return Channel|array
+     */
+    public function broadcastOn()
+    {
+        return new PrivateChannel('user.'.$this-&gt;user-&gt;id);
+    }
+}</code></pre>
+<p>Then, you only need to <a href="events.html">fire the event</a> as you normally would. Once the event has been fired, a <a href="queues.html">queued job</a> will automatically broadcast the event over your specified broadcast driver.</p>
+<p><a name="broadcast-name"></a></p>
+<h3 id="broadcast-name">Broadcast Name</h3>
+<p>By default, Laravel will broadcast the event using the event's class name. However, you may customize the broadcast name by defining a <code>broadcastAs</code> method on the event:</p>
+<pre><code>/**
+ * The event's broadcast name.
+ *
+ * @return string
+ */
+public function broadcastAs()
+{
+    return 'server.created';
+}</code></pre>
+<p>If you customize the broadcast name using the <code>broadcastAs</code> method, you should make sure to register your listener with a leading <code>.</code> character. This will instruct Echo to not prepend the application's namespace to the event:</p>
+<pre><code>.listen('.server.created', function (e) {
+    ....
+});</code></pre>
+<p><a name="broadcast-data"></a></p>
+<h3 id="broadcast-data">Broadcast Data</h3>
+<p>When an event is broadcast, all of its <code>public</code> properties are automatically serialized and broadcast as the event's payload, allowing you to access any of its public data from your JavaScript application. So, for example, if your event has a single public <code>$user</code> property that contains an Eloquent model, the event's broadcast payload would be:</p>
+<pre><code>{
+    "user": {
+        "id": 1,
+        "name": "Patrick Stewart"
+        ...
+    }
+}</code></pre>
+<p>However, if you wish to have more fine-grained control over your broadcast payload, you may add a <code>broadcastWith</code> method to your event. This method should return the array of data that you wish to broadcast as the event payload:</p>
+<pre><code>/**
+ * Get the data to broadcast.
+ *
+ * @return array
+ */
+public function broadcastWith()
+{
+    return ['id' =&gt; $this-&gt;user-&gt;id];
+}</code></pre>
+<p><a name="broadcast-queue"></a></p>
+<h3 id="broadcast-queue">Broadcast Queue</h3>
+<p>By default, each broadcast event is placed on the default queue for the default queue connection specified in your <code>queue.php</code> configuration file. You may customize the queue used by the broadcaster by defining a <code>broadcastQueue</code> property on your event class. This property should specify the name of the queue you wish to use when broadcasting:</p>
+<pre><code>/**
+ * The name of the queue on which to place the event.
+ *
+ * @var string
+ */
+public $broadcastQueue = 'your-queue-name';</code></pre>
+<p>If you want to broadcast your event using the <code>sync</code> queue instead of the default queue driver, you can implement the <code>ShouldBroadcastNow</code> interface instead of <code>ShouldBroadcast</code>:</p>
+<pre><code>&lt;?php
+
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
+
+class ShippingStatusUpdated implements ShouldBroadcastNow
+{
+    //
+}</code></pre>
+<p><a name="broadcast-conditions"></a></p>
+<h3 id="broadcast-conditions">Broadcast Conditions</h3>
+<p>Sometimes you want to broadcast your event only if a given condition is true. You may define these conditions by adding a <code>broadcastWhen</code> method to your event class:</p>
+<pre><code>/**
+ * Determine if this event should broadcast.
+ *
+ * @return bool
+ */
+public function broadcastWhen()
+{
+    return $this-&gt;value &gt; 100;
+}</code></pre>
+<p><a name="authorizing-channels"></a></p>
+<h2 id="authorizing-channels">Authorizing Channels</h2>
+<p>Private channels require you to authorize that the currently authenticated user can actually listen on the channel. This is accomplished by making an HTTP request to your Laravel application with the channel name and allowing your application to determine if the user can listen on that channel. When using <a href="#installing-laravel-echo">Laravel Echo</a>, the HTTP request to authorize subscriptions to private channels will be made automatically; however, you do need to define the proper routes to respond to these requests.</p>
+<p><a name="defining-authorization-routes"></a></p>
+<h3 id="defining-authorization-routes">Defining Authorization Routes</h3>
+<p>Thankfully, Laravel makes it easy to define the routes to respond to channel authorization requests. In the <code>BroadcastServiceProvider</code> included with your Laravel application, you will see a call to the <code>Broadcast::routes</code> method. This method will register the <code>/broadcasting/auth</code> route to handle authorization requests:</p>
+<pre><code>Broadcast::routes();</code></pre>
+<p>The <code>Broadcast::routes</code> method will automatically place its routes within the <code>web</code> middleware group; however, you may pass an array of route attributes to the method if you would like to customize the assigned attributes:</p>
+<pre><code>Broadcast::routes($attributes);</code></pre>
+<h4>Customizing The Authorization Endpoint</h4>
+<p>By default, Echo will use the <code>/broadcasting/auth</code> endpoint to authorize channel access. However, you may specify your own authorization endpoint by passing the <code>authEndpoint</code> configuration option to your Echo instance:</p>
+<pre><code>window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'your-pusher-channels-key',
+    authEndpoint: '/custom/endpoint/auth'
+});</code></pre>
+<p><a name="defining-authorization-callbacks"></a></p>
+<h3 id="defining-authorization-callbacks">Defining Authorization Callbacks</h3>
+<p>Next, we need to define the logic that will actually perform the channel authorization. This is done in the <code>routes/channels.php</code> file that is included with your application. In this file, you may use the <code>Broadcast::channel</code> method to register channel authorization callbacks:</p>
+<pre><code>Broadcast::channel('order.{orderId}', function ($user, $orderId) {
+    return $user-&gt;id === Order::findOrNew($orderId)-&gt;user_id;
+});</code></pre>
+<p>The <code>channel</code> method accepts two arguments: the name of the channel and a callback which returns <code>true</code> or <code>false</code> indicating whether the user is authorized to listen on the channel.</p>
+<p>All authorization callbacks receive the currently authenticated user as their first argument and any additional wildcard parameters as their subsequent arguments. In this example, we are using the <code>{orderId}</code> placeholder to indicate that the &quot;ID&quot; portion of the channel name is a wildcard.</p>
+<h4>Authorization Callback Model Binding</h4>
+<p>Just like HTTP routes, channel routes may also take advantage of implicit and explicit <a href="routing.html#route-model-binding">route model binding</a>. For example, instead of receiving the string or numeric order ID, you may request an actual <code>Order</code> model instance:</p>
+<pre><code>use App\Order;
+
+Broadcast::channel('order.{order}', function ($user, Order $order) {
+    return $user-&gt;id === $order-&gt;user_id;
+});</code></pre>
+<h4>Authorization Callback Authentication</h4>
+<p>Private and presence broadcast channels authenticate the current user via your application's default authentication guard. If the user is not authenticated, channel authorization is automatically denied and the authorization callback is never executed. However, you may assign multiple, custom guards that should authenticate the incoming request if necessary:</p>
+<pre><code>Broadcast::channel('channel', function () {
+    // ...
+}, ['guards' =&gt; ['web', 'admin']]);</code></pre>
+<p><a name="defining-channel-classes"></a></p>
+<h3 id="defining-channel-classes">Defining Channel Classes</h3>
+<p>If your application is consuming many different channels, your <code>routes/channels.php</code> file could become bulky. So, instead of using Closures to authorize channels, you may use channel classes. To generate a channel class, use the <code>make:channel</code> Artisan command. This command will place a new channel class in the <code>App/Broadcasting</code> directory.</p>
+<pre><code>php artisan make:channel OrderChannel</code></pre>
+<p>Next, register your channel in your <code>routes/channels.php</code> file:</p>
+<pre><code>use App\Broadcasting\OrderChannel;
+
+Broadcast::channel('order.{order}', OrderChannel::class);</code></pre>
+<p>Finally, you may place the authorization logic for your channel in the channel class' <code>join</code> method. This <code>join</code> method will house the same logic you would have typically placed in your channel authorization Closure. You may also take advantage of channel model binding:</p>
+<pre><code>&lt;?php
+
+namespace App\Broadcasting;
+
+use App\Order;
+use App\User;
+
+class OrderChannel
+{
+    /**
+     * Create a new channel instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Authenticate the user's access to the channel.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Order  $order
+     * @return array|bool
+     */
+    public function join(User $user, Order $order)
+    {
+        return $user-&gt;id === $order-&gt;user_id;
+    }
+}</code></pre>
+<blockquote>
+<p>{tip} Like many other classes in Laravel, channel classes will automatically be resolved by the <a href="container.html">service container</a>. So, you may type-hint any dependencies required by your channel in its constructor.</p>
+</blockquote>
+<p><a name="broadcasting-events"></a></p>
+<h2 id="broadcasting-events">Broadcasting Events</h2>
+<p>Once you have defined an event and marked it with the <code>ShouldBroadcast</code> interface, you only need to fire the event using the <code>event</code> function. The event dispatcher will notice that the event is marked with the <code>ShouldBroadcast</code> interface and will queue the event for broadcasting:</p>
+<pre><code>event(new ShippingStatusUpdated($update));</code></pre>
+<p><a name="only-to-others"></a></p>
+<h3 id="only-to-others">Only To Others</h3>
+<p>When building an application that utilizes event broadcasting, you may substitute the <code>event</code> function with the <code>broadcast</code> function. Like the <code>event</code> function, the <code>broadcast</code> function dispatches the event to your server-side listeners:</p>
+<pre><code>broadcast(new ShippingStatusUpdated($update));</code></pre>
+<p>However, the <code>broadcast</code> function also exposes the <code>toOthers</code> method which allows you to exclude the current user from the broadcast's recipients:</p>
+<pre><code>broadcast(new ShippingStatusUpdated($update))-&gt;toOthers();</code></pre>
+<p>To better understand when you may want to use the <code>toOthers</code> method, let's imagine a task list application where a user may create a new task by entering a task name. To create a task, your application might make a request to a <code>/task</code> end-point which broadcasts the task's creation and returns a JSON representation of the new task. When your JavaScript application receives the response from the end-point, it might directly insert the new task into its task list like so:</p>
+<pre><code>axios.post('/task', task)
+    .then((response) =&gt; {
+        this.tasks.push(response.data);
+    });</code></pre>
+<p>However, remember that we also broadcast the task's creation. If your JavaScript application is listening for this event in order to add tasks to the task list, you will have duplicate tasks in your list: one from the end-point and one from the broadcast. You may solve this by using the <code>toOthers</code> method to instruct the broadcaster to not broadcast the event to the current user.</p>
+<blockquote>
+<p>{note} Your event must use the <code>Illuminate\Broadcasting\InteractsWithSockets</code> trait in order to call the <code>toOthers</code> method.</p>
+</blockquote>
+<h4>Configuration</h4>
+<p>When you initialize a Laravel Echo instance, a socket ID is assigned to the connection. If you are using <a href="https://vuejs.org/">Vue</a> and <a href="https://github.com/mzabriskie/axios">Axios</a>, the socket ID will automatically be attached to every outgoing request as a <code>X-Socket-ID</code> header. Then, when you call the <code>toOthers</code> method, Laravel will extract the socket ID from the header and instruct the broadcaster to not broadcast to any connections with that socket ID.</p>
+<p>If you are not using Vue and Axios, you will need to manually configure your JavaScript application to send the <code>X-Socket-ID</code> header. You may retrieve the socket ID using the <code>Echo.socketId</code> method:</p>
+<pre><code>var socketId = Echo.socketId();</code></pre>
+<p><a name="receiving-broadcasts"></a></p>
+<h2 id="receiving-broadcasts">Receiving Broadcasts</h2>
+<p><a name="installing-laravel-echo"></a></p>
+<h3 id="installing-laravel-echo">Installing Laravel Echo</h3>
+<p>Laravel Echo is a JavaScript library that makes it painless to subscribe to channels and listen for events broadcast by Laravel. You may install Echo via the NPM package manager. In this example, we will also install the <code>pusher-js</code> package since we will be using the Pusher Channels broadcaster:</p>
+<pre><code>npm install --save laravel-echo pusher-js</code></pre>
+<p>Once Echo is installed, you are ready to create a fresh Echo instance in your application's JavaScript. A great place to do this is at the bottom of the <code>resources/js/bootstrap.js</code> file that is included with the Laravel framework:</p>
+<pre><code>import Echo from "laravel-echo"
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'your-pusher-channels-key'
+});</code></pre>
+<p>When creating an Echo instance that uses the <code>pusher</code> connector, you may also specify a <code>cluster</code> as well as whether the connection must be made over TLS (by default, when <code>forceTLS</code> is <code>false</code>, a non-TLS connection will be made if the page was loaded over HTTP, or as a fallback if a TLS connection fails):</p>
+<pre><code>window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'your-pusher-channels-key',
+    cluster: 'eu',
+    forceTLS: true
+});</code></pre>
+<h4>Using An Existing Client Instance</h4>
+<p>If you already have a Pusher Channels or Socket.io client instance that you would like Echo to utilize, you may pass it to Echo via the <code>client</code> configuration option:</p>
+<pre><code>const client = require('pusher-js');
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'your-pusher-channels-key',
+    client: client
+});</code></pre>
+<p><a name="listening-for-events"></a></p>
+<h3 id="listening-for-events">Listening For Events</h3>
+<p>Once you have installed and instantiated Echo, you are ready to start listening for event broadcasts. First, use the <code>channel</code> method to retrieve an instance of a channel, then call the <code>listen</code> method to listen for a specified event:</p>
+<pre><code>Echo.channel('orders')
+    .listen('OrderShipped', (e) =&gt; {
+        console.log(e.order.name);
+    });</code></pre>
+<p>If you would like to listen for events on a private channel, use the <code>private</code> method instead. You may continue to chain calls to the <code>listen</code> method to listen for multiple events on a single channel:</p>
+<pre><code>Echo.private('orders')
+    .listen(...)
+    .listen(...)
+    .listen(...);</code></pre>
+<p><a name="leaving-a-channel"></a></p>
+<h3 id="leaving-a-channel">Leaving A Channel</h3>
+<p>To leave a channel, you may call the <code>leaveChannel</code> method on your Echo instance:</p>
+<pre><code>Echo.leaveChannel('orders');</code></pre>
+<p>If you would like to leave a channel and also its associated private and presence channels, you may call the <code>leave</code> method:</p>
+<pre><code>Echo.leave('orders');</code></pre>
+<p><a name="namespaces"></a></p>
+<h3 id="namespaces">Namespaces</h3>
+<p>You may have noticed in the examples above that we did not specify the full namespace for the event classes. This is because Echo will automatically assume the events are located in the <code>App\Events</code> namespace. However, you may configure the root namespace when you instantiate Echo by passing a <code>namespace</code> configuration option:</p>
+<pre><code>window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'your-pusher-channels-key',
+    namespace: 'App.Other.Namespace'
+});</code></pre>
+<p>Alternatively, you may prefix event classes with a <code>.</code> when subscribing to them using Echo. This will allow you to always specify the fully-qualified class name:</p>
+<pre><code>Echo.channel('orders')
+    .listen('.Namespace\\Event\\Class', (e) =&gt; {
+        //
+    });</code></pre>
+<p><a name="presence-channels"></a></p>
+<h2 id="presence-channels">Presence Channels</h2>
+<p>Presence channels build on the security of private channels while exposing the additional feature of awareness of who is subscribed to the channel. This makes it easy to build powerful, collaborative application features such as notifying users when another user is viewing the same page.</p>
+<p><a name="authorizing-presence-channels"></a></p>
+<h3 id="authorizing-presence-channels">Authorizing Presence Channels</h3>
+<p>All presence channels are also private channels; therefore, users must be <a href="#authorizing-channels">authorized to access them</a>. However, when defining authorization callbacks for presence channels, you will not return <code>true</code> if the user is authorized to join the channel. Instead, you should return an array of data about the user.</p>
+<p>The data returned by the authorization callback will be made available to the presence channel event listeners in your JavaScript application. If the user is not authorized to join the presence channel, you should return <code>false</code> or <code>null</code>:</p>
+<pre><code>Broadcast::channel('chat.{roomId}', function ($user, $roomId) {
+    if ($user-&gt;canJoinRoom($roomId)) {
+        return ['id' =&gt; $user-&gt;id, 'name' =&gt; $user-&gt;name];
+    }
+});</code></pre>
+<p><a name="joining-presence-channels"></a></p>
+<h3 id="joining-presence-channels">Joining Presence Channels</h3>
+<p>To join a presence channel, you may use Echo's <code>join</code> method. The <code>join</code> method will return a <code>PresenceChannel</code> implementation which, along with exposing the <code>listen</code> method, allows you to subscribe to the <code>here</code>, <code>joining</code>, and <code>leaving</code> events.</p>
+<pre><code>Echo.join(`chat.${roomId}`)
+    .here((users) =&gt; {
+        //
+    })
+    .joining((user) =&gt; {
+        console.log(user.name);
+    })
+    .leaving((user) =&gt; {
+        console.log(user.name);
+    });</code></pre>
+<p>The <code>here</code> callback will be executed immediately once the channel is joined successfully, and will receive an array containing the user information for all of the other users currently subscribed to the channel. The <code>joining</code> method will be executed when a new user joins a channel, while the <code>leaving</code> method will be executed when a user leaves the channel.</p>
+<p><a name="broadcasting-to-presence-channels"></a></p>
+<h3 id="broadcasting-to-presence-channels">Broadcasting To Presence Channels</h3>
+<p>Presence channels may receive events just like public or private channels. Using the example of a chatroom, we may want to broadcast <code>NewMessage</code> events to the room's presence channel. To do so, we'll return an instance of <code>PresenceChannel</code> from the event's <code>broadcastOn</code> method:</p>
+<pre><code>/**
+ * Get the channels the event should broadcast on.
+ *
+ * @return Channel|array
+ */
+public function broadcastOn()
+{
+    return new PresenceChannel('room.'.$this-&gt;message-&gt;room_id);
+}</code></pre>
+<p>Like public or private events, presence channel events may be broadcast using the <code>broadcast</code> function. As with other events, you may use the <code>toOthers</code> method to exclude the current user from receiving the broadcast:</p>
+<pre><code>broadcast(new NewMessage($message));
+
+broadcast(new NewMessage($message))-&gt;toOthers();</code></pre>
+<p>You may listen for the join event via Echo's <code>listen</code> method:</p>
+<pre><code>Echo.join(`chat.${roomId}`)
+    .here(...)
+    .joining(...)
+    .leaving(...)
+    .listen('NewMessage', (e) =&gt; {
+        //
+    });</code></pre>
+<p><a name="client-events"></a></p>
+<h2 id="client-events">Client Events</h2>
+<blockquote>
+<p>{tip} When using <a href="https://pusher.com/channels">Pusher Channels</a>, you must enable the &quot;Client Events&quot; option in the &quot;App Settings&quot; section of your <a href="https://dashboard.pusher.com/">application dashboard</a> in order to send client events.</p>
+</blockquote>
+<p>Sometimes you may wish to broadcast an event to other connected clients without hitting your Laravel application at all. This can be particularly useful for things like &quot;typing&quot; notifications, where you want to alert users of your application that another user is typing a message on a given screen.</p>
+<p>To broadcast client events, you may use Echo's <code>whisper</code> method:</p>
+<pre><code>Echo.private('chat')
+    .whisper('typing', {
+        name: this.user.name
+    });</code></pre>
+<p>To listen for client events, you may use the <code>listenForWhisper</code> method:</p>
+<pre><code>Echo.private('chat')
+    .listenForWhisper('typing', (e) =&gt; {
+        console.log(e.name);
+    });</code></pre>
+<p><a name="notifications"></a></p>
+<h2 id="notifications">Notifications</h2>
+<p>By pairing event broadcasting with <a href="notifications.html">notifications</a>, your JavaScript application may receive new notifications as they occur without needing to refresh the page. First, be sure to read over the documentation on using <a href="notifications.html#broadcast-notifications">the broadcast notification channel</a>.</p>
+<p>Once you have configured a notification to use the broadcast channel, you may listen for the broadcast events using Echo's <code>notification</code> method. Remember, the channel name should match the class name of the entity receiving the notifications:</p>
+<pre><code>Echo.private(`App.User.${userId}`)
+    .notification((notification) =&gt; {
+        console.log(notification.type);
+    });</code></pre>
+<p>In this example, all notifications sent to <code>App\User</code> instances via the <code>broadcast</code> channel would be received by the callback. A channel authorization callback for the <code>App.User.{id}</code> channel is included in the default <code>BroadcastServiceProvider</code> that ships with the Laravel framework.</p>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/broadcasting by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:10 GMT -->
+</html>

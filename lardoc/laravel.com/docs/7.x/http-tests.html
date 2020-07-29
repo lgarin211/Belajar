@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/http-tests by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>HTTP Tests - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="http-tests.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/http-tests">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/http-tests">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/http-tests">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/http-tests">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/http-tests">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/http-tests">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/http-tests">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/http-tests">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/http-tests">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/http-tests">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/http-tests">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/http-tests">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/http-tests">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>HTTP Tests</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#customizing-request-headers">Customizing Request Headers</a></li>
+<li><a href="#cookies">Cookies</a></li>
+<li><a href="#debugging-responses">Debugging Responses</a></li>
+</ul></li>
+<li><a href="#session-and-authentication">Session / Authentication</a></li>
+<li><a href="#testing-json-apis">Testing JSON APIs</a></li>
+<li><a href="#testing-file-uploads">Testing File Uploads</a></li>
+<li><a href="#available-assertions">Available Assertions</a>
+<ul>
+<li><a href="#response-assertions">Response Assertions</a></li>
+<li><a href="#authentication-assertions">Authentication Assertions</a></li>
+</ul></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Laravel provides a very fluent API for making HTTP requests to your application and examining the output. For example, take a look at the feature test defined below:</p>
+<pre><code>&lt;?php
+
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Tests\TestCase;
+
+class ExampleTest extends TestCase
+{
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testBasicTest()
+    {
+        $response = $this-&gt;get('/');
+
+        $response-&gt;assertStatus(200);
+    }
+}</code></pre>
+<p>The <code>get</code> method makes a <code>GET</code> request into the application, while the <code>assertStatus</code> method asserts that the returned response should have the given HTTP status code. In addition to this simple assertion, Laravel also contains a variety of assertions for inspecting the response headers, content, JSON structure, and more.</p>
+<p><a name="customizing-request-headers"></a></p>
+<h3 id="customizing-request-headers">Customizing Request Headers</h3>
+<p>You may use the <code>withHeaders</code> method to customize the request's headers before it is sent to the application. This allows you to add any custom headers you would like to the request:</p>
+<pre><code>&lt;?php
+
+class ExampleTest extends TestCase
+{
+    /**
+     * A basic functional test example.
+     *
+     * @return void
+     */
+    public function testBasicExample()
+    {
+        $response = $this-&gt;withHeaders([
+            'X-Header' =&gt; 'Value',
+        ])-&gt;json('POST', '/user', ['name' =&gt; 'Sally']);
+
+        $response
+            -&gt;assertStatus(201)
+            -&gt;assertJson([
+                'created' =&gt; true,
+            ]);
+    }
+}</code></pre>
+<blockquote>
+<p>{tip} The CSRF middleware is automatically disabled when running tests.</p>
+</blockquote>
+<p><a name="cookies"></a></p>
+<h3 id="cookies">Cookies</h3>
+<p>You may use the <code>withCookie</code> or <code>withCookies</code> methods to set cookie values before making a request. The <code>withCookie</code> method accepts a cookie name and value as its two arguments, while the <code>withCookies</code> method accepts an array of name / value pairs:</p>
+<pre><code>&lt;?php
+
+class ExampleTest extends TestCase
+{
+    public function testCookies()
+    {
+        $response = $this-&gt;withCookie('color', 'blue')-&gt;get('/');
+
+        $response = $this-&gt;withCookies([
+            'color' =&gt; 'blue',
+            'name' =&gt; 'Taylor',
+        ])-&gt;get('/');
+    }
+}</code></pre>
+<p><a name="debugging-responses"></a></p>
+<h3 id="debugging-responses">Debugging Responses</h3>
+<p>After making a test request to your application, the <code>dump</code>, <code>dumpHeaders</code>, and <code>dumpSession</code> methods may be used to examine and debug the response contents:</p>
+<pre><code>&lt;?php
+
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Tests\TestCase;
+
+class ExampleTest extends TestCase
+{
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testBasicTest()
+    {
+        $response = $this-&gt;get('/');
+
+        $response-&gt;dumpHeaders();
+
+        $response-&gt;dumpSession();
+
+        $response-&gt;dump();
+    }
+}</code></pre>
+<p><a name="session-and-authentication"></a></p>
+<h2 id="session-and-authentication">Session / Authentication</h2>
+<p>Laravel provides several helpers for working with the session during HTTP testing. First, you may set the session data to a given array using the <code>withSession</code> method. This is useful for loading the session with data before issuing a request to your application:</p>
+<pre><code>&lt;?php
+
+class ExampleTest extends TestCase
+{
+    public function testApplication()
+    {
+        $response = $this-&gt;withSession(['foo' =&gt; 'bar'])
+                         -&gt;get('/');
+    }
+}</code></pre>
+<p>One common use of the session is for maintaining state for the authenticated user. The <code>actingAs</code> helper method provides a simple way to authenticate a given user as the current user. For example, we may use a <a href="database-testing.html#writing-factories">model factory</a> to generate and authenticate a user:</p>
+<pre><code>&lt;?php
+
+use App\User;
+
+class ExampleTest extends TestCase
+{
+    public function testApplication()
+    {
+        $user = factory(User::class)-&gt;create();
+
+        $response = $this-&gt;actingAs($user)
+                         -&gt;withSession(['foo' =&gt; 'bar'])
+                         -&gt;get('/');
+    }
+}</code></pre>
+<p>You may also specify which guard should be used to authenticate the given user by passing the guard name as the second argument to the <code>actingAs</code> method:</p>
+<pre><code>$this-&gt;actingAs($user, 'api')</code></pre>
+<p><a name="testing-json-apis"></a></p>
+<h2 id="testing-json-apis">Testing JSON APIs</h2>
+<p>Laravel also provides several helpers for testing JSON APIs and their responses. For example, the <code>json</code>, <code>getJson</code>, <code>postJson</code>, <code>putJson</code>, <code>patchJson</code>, <code>deleteJson</code>, and <code>optionsJson</code> methods may be used to issue JSON requests with various HTTP verbs. You may also easily pass data and headers to these methods. To get started, let's write a test to make a <code>POST</code> request to <code>/user</code> and assert that the expected data was returned:</p>
+<pre><code>&lt;?php
+
+class ExampleTest extends TestCase
+{
+    /**
+     * A basic functional test example.
+     *
+     * @return void
+     */
+    public function testBasicExample()
+    {
+        $response = $this-&gt;postJson('/user', ['name' =&gt; 'Sally']);
+
+        $response
+            -&gt;assertStatus(201)
+            -&gt;assertJson([
+                'created' =&gt; true,
+            ]);
+    }
+}</code></pre>
+<blockquote>
+<p>{tip} The <code>assertJson</code> method converts the response to an array and utilizes <code>PHPUnit::assertArraySubset</code> to verify that the given array exists within the JSON response returned by the application. So, if there are other properties in the JSON response, this test will still pass as long as the given fragment is present.</p>
+</blockquote>
+<p>In addition, JSON response data may be accessed as array variables on the response:</p>
+<pre><code>$this-&gt;assertTrue($response['created']);</code></pre>
+<p><a name="verifying-exact-match"></a></p>
+<h3 id="verifying-exact-match">Verifying An Exact JSON Match</h3>
+<p>If you would like to verify that the given array is an <strong>exact</strong> match for the JSON returned by the application, you should use the <code>assertExactJson</code> method:</p>
+<pre><code>&lt;?php
+
+class ExampleTest extends TestCase
+{
+    /**
+     * A basic functional test example.
+     *
+     * @return void
+     */
+    public function testBasicExample()
+    {
+        $response = $this-&gt;json('POST', '/user', ['name' =&gt; 'Sally']);
+
+        $response
+            -&gt;assertStatus(201)
+            -&gt;assertExactJson([
+                'created' =&gt; true,
+            ]);
+    }
+}</code></pre>
+<p><a name="verifying-json-paths"></a></p>
+<h3 id="verifying-json-paths">Verifying JSON Paths</h3>
+<p>If you would like to verify that the JSON response contains some given data at a specified path, you should use the <code>assertJsonPath</code> method:</p>
+<pre><code>&lt;?php
+
+class ExampleTest extends TestCase
+{
+    /**
+     * A basic functional test example.
+     *
+     * @return void
+     */
+    public function testBasicExample()
+    {
+        $response = $this-&gt;json('POST', '/user', ['name' =&gt; 'Sally']);
+
+        $response
+            -&gt;assertStatus(201)
+            -&gt;assertJsonPath('team.owner.name', 'foo')
+    }
+}</code></pre>
+<p><a name="testing-file-uploads"></a></p>
+<h2 id="testing-file-uploads">Testing File Uploads</h2>
+<p>The <code>Illuminate\Http\UploadedFile</code> class provides a <code>fake</code> method which may be used to generate dummy files or images for testing. This, combined with the <code>Storage</code> facade's <code>fake</code> method greatly simplifies the testing of file uploads. For example, you may combine these two features to easily test an avatar upload form:</p>
+<pre><code>&lt;?php
+
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Tests\TestCase;
+
+class ExampleTest extends TestCase
+{
+    public function testAvatarUpload()
+    {
+        Storage::fake('avatars');
+
+        $file = UploadedFile::fake()-&gt;image('avatar.jpg');
+
+        $response = $this-&gt;json('POST', '/avatar', [
+            'avatar' =&gt; $file,
+        ]);
+
+        // Assert the file was stored...
+        Storage::disk('avatars')-&gt;assertExists($file-&gt;hashName());
+
+        // Assert a file does not exist...
+        Storage::disk('avatars')-&gt;assertMissing('missing.jpg');
+    }
+}</code></pre>
+<h4>Fake File Customization</h4>
+<p>When creating files using the <code>fake</code> method, you may specify the width, height, and size of the image in order to better test your validation rules:</p>
+<pre><code>UploadedFile::fake()-&gt;image('avatar.jpg', $width, $height)-&gt;size(100);</code></pre>
+<p>In addition to creating images, you may create files of any other type using the <code>create</code> method:</p>
+<pre><code>UploadedFile::fake()-&gt;create('document.pdf', $sizeInKilobytes);</code></pre>
+<p>If needed, you may pass a <code>$mimeType</code> argument to the method to explicitly define the MIME type that should be returned by the file:</p>
+<pre><code>UploadedFile::fake()-&gt;create('document.pdf', $sizeInKilobytes, 'application/pdf');</code></pre>
+<p><a name="available-assertions"></a></p>
+<h2 id="available-assertions">Available Assertions</h2>
+<p><a name="response-assertions"></a></p>
+<h3 id="response-assertions">Response Assertions</h3>
+<p>Laravel provides a variety of custom assertion methods for your <a href="https://phpunit.de/">PHPUnit</a> feature tests. These assertions may be accessed on the response that is returned from the <code>json</code>, <code>get</code>, <code>post</code>, <code>put</code>, and <code>delete</code> test methods:</p>
+<style>
+    .collection-method-list > p {
+        column-count: 2; -moz-column-count: 2; -webkit-column-count: 2;
+        column-gap: 2em; -moz-column-gap: 2em; -webkit-column-gap: 2em;
+    }
+
+    .collection-method-list a {
+        display: block;
+    }
+</style>
+<div class="collection-method-list">
+<p><a href="#assert-cookie">assertCookie</a>
+<a href="#assert-cookie-expired">assertCookieExpired</a>
+<a href="#assert-cookie-not-expired">assertCookieNotExpired</a>
+<a href="#assert-cookie-missing">assertCookieMissing</a>
+<a href="#assert-created">assertCreated</a>
+<a href="#assert-dont-see">assertDontSee</a>
+<a href="#assert-dont-see-text">assertDontSeeText</a>
+<a href="#assert-exact-json">assertExactJson</a>
+<a href="#assert-forbidden">assertForbidden</a>
+<a href="#assert-header">assertHeader</a>
+<a href="#assert-header-missing">assertHeaderMissing</a>
+<a href="#assert-json">assertJson</a>
+<a href="#assert-json-count">assertJsonCount</a>
+<a href="#assert-json-fragment">assertJsonFragment</a>
+<a href="#assert-json-missing">assertJsonMissing</a>
+<a href="#assert-json-missing-exact">assertJsonMissingExact</a>
+<a href="#assert-json-missing-validation-errors">assertJsonMissingValidationErrors</a>
+<a href="#assert-json-path">assertJsonPath</a>
+<a href="#assert-json-structure">assertJsonStructure</a>
+<a href="#assert-json-validation-errors">assertJsonValidationErrors</a>
+<a href="#assert-location">assertLocation</a>
+<a href="#assert-no-content">assertNoContent</a>
+<a href="#assert-not-found">assertNotFound</a>
+<a href="#assert-ok">assertOk</a>
+<a href="#assert-plain-cookie">assertPlainCookie</a>
+<a href="#assert-redirect">assertRedirect</a>
+<a href="#assert-see">assertSee</a>
+<a href="#assert-see-in-order">assertSeeInOrder</a>
+<a href="#assert-see-text">assertSeeText</a>
+<a href="#assert-see-text-in-order">assertSeeTextInOrder</a>
+<a href="#assert-session-has">assertSessionHas</a>
+<a href="#assert-session-has-input">assertSessionHasInput</a>
+<a href="#assert-session-has-all">assertSessionHasAll</a>
+<a href="#assert-session-has-errors">assertSessionHasErrors</a>
+<a href="#assert-session-has-errors-in">assertSessionHasErrorsIn</a>
+<a href="#assert-session-has-no-errors">assertSessionHasNoErrors</a>
+<a href="#assert-session-doesnt-have-errors">assertSessionDoesntHaveErrors</a>
+<a href="#assert-session-missing">assertSessionMissing</a>
+<a href="#assert-status">assertStatus</a>
+<a href="#assert-successful">assertSuccessful</a>
+<a href="#assert-unauthorized">assertUnauthorized</a>
+<a href="#assert-view-has">assertViewHas</a>
+<a href="#assert-view-has-all">assertViewHasAll</a>
+<a href="#assert-view-is">assertViewIs</a>
+<a href="#assert-view-missing">assertViewMissing</a></p>
+</div>
+<p><a name="assert-cookie"></a></p>
+<h4 id="assert-cookie">assertCookie</h4>
+<p>Assert that the response contains the given cookie:</p>
+<pre><code>$response-&gt;assertCookie($cookieName, $value = null);</code></pre>
+<p><a name="assert-cookie-expired"></a></p>
+<h4 id="assert-cookie-expired">assertCookieExpired</h4>
+<p>Assert that the response contains the given cookie and it is expired:</p>
+<pre><code>$response-&gt;assertCookieExpired($cookieName);</code></pre>
+<p><a name="assert-cookie-not-expired"></a></p>
+<h4 id="assert-cookie-not-expired">assertCookieNotExpired</h4>
+<p>Assert that the response contains the given cookie and it is not expired:</p>
+<pre><code>$response-&gt;assertCookieNotExpired($cookieName);</code></pre>
+<p><a name="assert-cookie-missing"></a></p>
+<h4 id="assert-cookie-missing">assertCookieMissing</h4>
+<p>Assert that the response does not contains the given cookie:</p>
+<pre><code>$response-&gt;assertCookieMissing($cookieName);</code></pre>
+<p><a name="assert-created"></a></p>
+<h4 id="assert-created">assertCreated</h4>
+<p>Assert that the response has a 201 status code:</p>
+<pre><code>$response-&gt;assertCreated();</code></pre>
+<p><a name="assert-dont-see"></a></p>
+<h4 id="assert-dont-see">assertDontSee</h4>
+<p>Assert that the given string is not contained within the response. This assertion will automatically escape the given string unless you pass a second argument of <code>false</code>:</p>
+<pre><code>$response-&gt;assertDontSee($value, $escaped = true);</code></pre>
+<p><a name="assert-dont-see-text"></a></p>
+<h4 id="assert-dont-see-text">assertDontSeeText</h4>
+<p>Assert that the given string is not contained within the response text. This assertion will automatically escape the given string unless you pass a second argument of <code>false</code>:</p>
+<pre><code>$response-&gt;assertDontSeeText($value, $escaped = true);</code></pre>
+<p><a name="assert-exact-json"></a></p>
+<h4 id="assert-exact-json">assertExactJson</h4>
+<p>Assert that the response contains an exact match of the given JSON data:</p>
+<pre><code>$response-&gt;assertExactJson(array $data);</code></pre>
+<p><a name="assert-forbidden"></a></p>
+<h4 id="assert-forbidden">assertForbidden</h4>
+<p>Assert that the response has a forbidden (403) status code:</p>
+<pre><code>$response-&gt;assertForbidden();</code></pre>
+<p><a name="assert-header"></a></p>
+<h4 id="assert-header">assertHeader</h4>
+<p>Assert that the given header is present on the response:</p>
+<pre><code>$response-&gt;assertHeader($headerName, $value = null);</code></pre>
+<p><a name="assert-header-missing"></a></p>
+<h4 id="assert-header-missing">assertHeaderMissing</h4>
+<p>Assert that the given header is not present on the response:</p>
+<pre><code>$response-&gt;assertHeaderMissing($headerName);</code></pre>
+<p><a name="assert-json"></a></p>
+<h4 id="assert-json">assertJson</h4>
+<p>Assert that the response contains the given JSON data:</p>
+<pre><code>$response-&gt;assertJson(array $data, $strict = false);</code></pre>
+<p><a name="assert-json-count"></a></p>
+<h4 id="assert-json-count">assertJsonCount</h4>
+<p>Assert that the response JSON has an array with the expected number of items at the given key:</p>
+<pre><code>$response-&gt;assertJsonCount($count, $key = null);</code></pre>
+<p><a name="assert-json-fragment"></a></p>
+<h4 id="assert-json-fragment">assertJsonFragment</h4>
+<p>Assert that the response contains the given JSON fragment:</p>
+<pre><code>$response-&gt;assertJsonFragment(array $data);</code></pre>
+<p><a name="assert-json-missing"></a></p>
+<h4 id="assert-json-missing">assertJsonMissing</h4>
+<p>Assert that the response does not contain the given JSON fragment:</p>
+<pre><code>$response-&gt;assertJsonMissing(array $data);</code></pre>
+<p><a name="assert-json-missing-exact"></a></p>
+<h4 id="assert-json-missing-exact">assertJsonMissingExact</h4>
+<p>Assert that the response does not contain the exact JSON fragment:</p>
+<pre><code>$response-&gt;assertJsonMissingExact(array $data);</code></pre>
+<p><a name="assert-json-missing-validation-errors"></a></p>
+<h4 id="assert-json-missing-validation-errors">assertJsonMissingValidationErrors</h4>
+<p>Assert that the response has no JSON validation errors for the given keys:</p>
+<pre><code>$response-&gt;assertJsonMissingValidationErrors($keys);</code></pre>
+<p><a name="assert-json-path"></a></p>
+<h4 id="assert-json-path">assertJsonPath</h4>
+<p>Assert that the response contains the given data at the specified path:</p>
+<pre><code>$response-&gt;assertJsonPath($path, array $data, $strict = false);</code></pre>
+<p><a name="assert-json-structure"></a></p>
+<h4 id="assert-json-structure">assertJsonStructure</h4>
+<p>Assert that the response has a given JSON structure:</p>
+<pre><code>$response-&gt;assertJsonStructure(array $structure);</code></pre>
+<p><a name="assert-json-validation-errors"></a></p>
+<h4 id="assert-json-validation-errors">assertJsonValidationErrors</h4>
+<p>Assert that the response has the given JSON validation errors:</p>
+<pre><code>$response-&gt;assertJsonValidationErrors(array $data);</code></pre>
+<p><a name="assert-location"></a></p>
+<h4 id="assert-location">assertLocation</h4>
+<p>Assert that the response has the given URI value in the <code>Location</code> header:</p>
+<pre><code>$response-&gt;assertLocation($uri);</code></pre>
+<p><a name="assert-no-content"></a></p>
+<h4 id="assert-no-content">assertNoContent</h4>
+<p>Assert that the response has the given status code and no content.</p>
+<pre><code>$response-&gt;assertNoContent($status = 204);</code></pre>
+<p><a name="assert-not-found"></a></p>
+<h4 id="assert-not-found">assertNotFound</h4>
+<p>Assert that the response has a not found status code:</p>
+<pre><code>$response-&gt;assertNotFound();</code></pre>
+<p><a name="assert-ok"></a></p>
+<h4 id="assert-ok">assertOk</h4>
+<p>Assert that the response has a 200 status code:</p>
+<pre><code>$response-&gt;assertOk();</code></pre>
+<p><a name="assert-plain-cookie"></a></p>
+<h4 id="assert-plain-cookie">assertPlainCookie</h4>
+<p>Assert that the response contains the given cookie (unencrypted):</p>
+<pre><code>$response-&gt;assertPlainCookie($cookieName, $value = null);</code></pre>
+<p><a name="assert-redirect"></a></p>
+<h4 id="assert-redirect">assertRedirect</h4>
+<p>Assert that the response is a redirect to a given URI:</p>
+<pre><code>$response-&gt;assertRedirect($uri);</code></pre>
+<p><a name="assert-see"></a></p>
+<h4 id="assert-see">assertSee</h4>
+<p>Assert that the given string is contained within the response. This assertion will automatically escape the given string unless you pass a second argument of <code>false</code>:</p>
+<pre><code>$response-&gt;assertSee($value, $escaped = true);</code></pre>
+<p><a name="assert-see-in-order"></a></p>
+<h4 id="assert-see-in-order">assertSeeInOrder</h4>
+<p>Assert that the given strings are contained in order within the response. This assertion will automatically escape the given strings unless you pass a second argument of <code>false</code>:</p>
+<pre><code>$response-&gt;assertSeeInOrder(array $values, $escaped = true);</code></pre>
+<p><a name="assert-see-text"></a></p>
+<h4 id="assert-see-text">assertSeeText</h4>
+<p>Assert that the given string is contained within the response text. This assertion will automatically escape the given string unless you pass a second argument of <code>false</code>:</p>
+<pre><code>$response-&gt;assertSeeText($value, $escaped = true);</code></pre>
+<p><a name="assert-see-text-in-order"></a></p>
+<h4 id="assert-see-text-in-order">assertSeeTextInOrder</h4>
+<p>Assert that the given strings are contained in order within the response text. This assertion will automatically escape the given strings unless you pass a second argument of <code>false</code>:</p>
+<pre><code>$response-&gt;assertSeeTextInOrder(array $values, $escaped = true);</code></pre>
+<p><a name="assert-session-has"></a></p>
+<h4 id="assert-session-has">assertSessionHas</h4>
+<p>Assert that the session contains the given piece of data:</p>
+<pre><code>$response-&gt;assertSessionHas($key, $value = null);</code></pre>
+<p><a name="assert-session-has-input"></a></p>
+<h4 id="assert-session-has-input">assertSessionHasInput</h4>
+<p>Assert that the session has a given value in the flashed input array:</p>
+<pre><code>$response-&gt;assertSessionHasInput($key, $value = null);</code></pre>
+<p><a name="assert-session-has-all"></a></p>
+<h4 id="assert-session-has-all">assertSessionHasAll</h4>
+<p>Assert that the session has a given list of values:</p>
+<pre><code>$response-&gt;assertSessionHasAll(array $data);</code></pre>
+<p><a name="assert-session-has-errors"></a></p>
+<h4 id="assert-session-has-errors">assertSessionHasErrors</h4>
+<p>Assert that the session contains an error for the given <code>$keys</code>. If <code>$keys</code> is an associative array, assert that the session contains a specific error message (value) for each field (key):</p>
+<pre><code>$response-&gt;assertSessionHasErrors(array $keys, $format = null, $errorBag = 'default');</code></pre>
+<p><a name="assert-session-has-errors-in"></a></p>
+<h4 id="assert-session-has-errors-in">assertSessionHasErrorsIn</h4>
+<p>Assert that the session contains an error for the given <code>$keys</code>, within a specific error bag. If <code>$keys</code> is an associative array, assert that the session contains a specific error message (value) for each field (key), within the error bag:</p>
+<pre><code>$response-&gt;assertSessionHasErrorsIn($errorBag, $keys = [], $format = null);</code></pre>
+<p><a name="assert-session-has-no-errors"></a></p>
+<h4 id="assert-session-has-no-errors">assertSessionHasNoErrors</h4>
+<p>Assert that the session has no errors:</p>
+<pre><code>$response-&gt;assertSessionHasNoErrors();</code></pre>
+<p><a name="assert-session-doesnt-have-errors"></a></p>
+<h4 id="assert-session-doesnt-have-errors">assertSessionDoesntHaveErrors</h4>
+<p>Assert that the session has no errors for the given keys:</p>
+<pre><code>$response-&gt;assertSessionDoesntHaveErrors($keys = [], $format = null, $errorBag = 'default');</code></pre>
+<p><a name="assert-session-missing"></a></p>
+<h4 id="assert-session-missing">assertSessionMissing</h4>
+<p>Assert that the session does not contain the given key:</p>
+<pre><code>$response-&gt;assertSessionMissing($key);</code></pre>
+<p><a name="assert-status"></a></p>
+<h4 id="assert-status">assertStatus</h4>
+<p>Assert that the response has a given code:</p>
+<pre><code>$response-&gt;assertStatus($code);</code></pre>
+<p><a name="assert-successful"></a></p>
+<h4 id="assert-successful">assertSuccessful</h4>
+<p>Assert that the response has a successful (&gt;= 200 and &lt; 300) status code:</p>
+<pre><code>$response-&gt;assertSuccessful();</code></pre>
+<p><a name="assert-unauthorized"></a></p>
+<h4 id="assert-unauthorized">assertUnauthorized</h4>
+<p>Assert that the response has an unauthorized (401) status code:</p>
+<pre><code>$response-&gt;assertUnauthorized();</code></pre>
+<p><a name="assert-view-has"></a></p>
+<h4 id="assert-view-has">assertViewHas</h4>
+<p>Assert that the response view was given a piece of data:</p>
+<pre><code>$response-&gt;assertViewHas($key, $value = null);</code></pre>
+<p>In addition, view data may be accessed as array variables on the response:</p>
+<pre><code>$this-&gt;assertEquals('Taylor', $response['name']);</code></pre>
+<p><a name="assert-view-has-all"></a></p>
+<h4 id="assert-view-has-all">assertViewHasAll</h4>
+<p>Assert that the response view has a given list of data:</p>
+<pre><code>$response-&gt;assertViewHasAll(array $data);</code></pre>
+<p><a name="assert-view-is"></a></p>
+<h4 id="assert-view-is">assertViewIs</h4>
+<p>Assert that the given view was returned by the route:</p>
+<pre><code>$response-&gt;assertViewIs($value);</code></pre>
+<p><a name="assert-view-missing"></a></p>
+<h4 id="assert-view-missing">assertViewMissing</h4>
+<p>Assert that the response view is missing a piece of bound data:</p>
+<pre><code>$response-&gt;assertViewMissing($key);</code></pre>
+<p><a name="authentication-assertions"></a></p>
+<h3 id="authentication-assertions">Authentication Assertions</h3>
+<p>Laravel also provides a variety of authentication related assertions for your <a href="https://phpunit.de/">PHPUnit</a> feature tests:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$this-&gt;assertAuthenticated($guard = null);</code></td>
+<td>Assert that the user is authenticated.</td>
+</tr>
+<tr>
+<td><code>$this-&gt;assertGuest($guard = null);</code></td>
+<td>Assert that the user is not authenticated.</td>
+</tr>
+<tr>
+<td><code>$this-&gt;assertAuthenticatedAs($user, $guard = null);</code></td>
+<td>Assert that the given user is authenticated.</td>
+</tr>
+<tr>
+<td><code>$this-&gt;assertCredentials(array $credentials, $guard = null);</code></td>
+<td>Assert that the given credentials are valid.</td>
+</tr>
+<tr>
+<td><code>$this-&gt;assertInvalidCredentials(array $credentials, $guard = null);</code></td>
+<td>Assert that the given credentials are invalid.</td>
+</tr>
+</tbody>
+</table>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/http-tests by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+</html>

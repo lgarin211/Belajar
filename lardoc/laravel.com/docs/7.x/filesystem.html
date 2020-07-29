@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/filesystem by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>File Storage - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="filesystem.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/filesystem">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/filesystem">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/filesystem">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/filesystem">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/filesystem">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/filesystem">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/filesystem">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/filesystem">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/filesystem">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/filesystem">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/filesystem">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/filesystem">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/filesystem">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>File Storage</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#configuration">Configuration</a>
+<ul>
+<li><a href="#the-public-disk">The Public Disk</a></li>
+<li><a href="#the-local-driver">The Local Driver</a></li>
+<li><a href="#driver-prerequisites">Driver Prerequisites</a></li>
+<li><a href="#caching">Caching</a></li>
+</ul></li>
+<li><a href="#obtaining-disk-instances">Obtaining Disk Instances</a></li>
+<li><a href="#retrieving-files">Retrieving Files</a>
+<ul>
+<li><a href="#downloading-files">Downloading Files</a></li>
+<li><a href="#file-urls">File URLs</a></li>
+<li><a href="#file-metadata">File Metadata</a></li>
+</ul></li>
+<li><a href="#storing-files">Storing Files</a>
+<ul>
+<li><a href="#file-uploads">File Uploads</a></li>
+<li><a href="#file-visibility">File Visibility</a></li>
+</ul></li>
+<li><a href="#deleting-files">Deleting Files</a></li>
+<li><a href="#directories">Directories</a></li>
+<li><a href="#custom-filesystems">Custom Filesystems</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Laravel provides a powerful filesystem abstraction thanks to the wonderful <a href="https://github.com/thephpleague/flysystem">Flysystem</a> PHP package by Frank de Jonge. The Laravel Flysystem integration provides simple to use drivers for working with local filesystems and Amazon S3. Even better, it's amazingly simple to switch between these storage options as the API remains the same for each system.</p>
+<p><a name="configuration"></a></p>
+<h2 id="configuration">Configuration</h2>
+<p>The filesystem configuration file is located at <code>config/filesystems.php</code>. Within this file you may configure all of your &quot;disks&quot;. Each disk represents a particular storage driver and storage location. Example configurations for each supported driver are included in the configuration file. So, modify the configuration to reflect your storage preferences and credentials.</p>
+<p>You may configure as many disks as you like, and may even have multiple disks that use the same driver.</p>
+<p><a name="the-public-disk"></a></p>
+<h3 id="the-public-disk">The Public Disk</h3>
+<p>The <code>public</code> disk is intended for files that are going to be publicly accessible. By default, the <code>public</code> disk uses the <code>local</code> driver and stores these files in <code>storage/app/public</code>. To make them accessible from the web, you should create a symbolic link from <code>public/storage</code> to <code>storage/app/public</code>. This convention will keep your publicly accessible files in one directory that can be easily shared across deployments when using zero down-time deployment systems like <a href="https://envoyer.io/">Envoyer</a>.</p>
+<p>To create the symbolic link, you may use the <code>storage:link</code> Artisan command:</p>
+<pre><code>php artisan storage:link</code></pre>
+<p>Once a file has been stored and the symbolic link has been created, you can create a URL to the files using the <code>asset</code> helper:</p>
+<pre><code>echo asset('storage/file.txt');</code></pre>
+<p>You may configure additional symbolic links in your <code>filesystems</code> configuration file. Each of the configured links will be created when you run the <code>storage:link</code> command:</p>
+<pre><code>'links' =&gt; [
+    public_path('storage') =&gt; storage_path('app/public'),
+    public_path('images') =&gt; storage_path('app/images'),
+],</code></pre>
+<p><a name="the-local-driver"></a></p>
+<h3 id="the-local-driver">The Local Driver</h3>
+<p>When using the <code>local</code> driver, all file operations are relative to the <code>root</code> directory defined in your <code>filesystems</code> configuration file. By default, this value is set to the <code>storage/app</code> directory. Therefore, the following method would store a file in <code>storage/app/file.txt</code>:</p>
+<pre><code>Storage::disk('local')-&gt;put('file.txt', 'Contents');</code></pre>
+<h4>Permissions</h4>
+<p>The <code>public</code> <a href="#file-visibility">visibility</a> translates to <code>0755</code> for directories and <code>0644</code> for files. You can modify the permissions mappings in your <code>filesystems</code> configuration file:</p>
+<pre><code>'local' =&gt; [
+    'driver' =&gt; 'local',
+    'root' =&gt; storage_path('app'),
+    'permissions' =&gt; [
+        'file' =&gt; [
+            'public' =&gt; 0664,
+            'private' =&gt; 0600,
+        ],
+        'dir' =&gt; [
+            'public' =&gt; 0775,
+            'private' =&gt; 0700,
+        ],
+    ],
+],</code></pre>
+<p><a name="driver-prerequisites"></a></p>
+<h3 id="driver-prerequisites">Driver Prerequisites</h3>
+<h4>Composer Packages</h4>
+<p>Before using the SFTP or S3 drivers, you will need to install the appropriate package via Composer:</p>
+<ul>
+<li>SFTP: <code>league/flysystem-sftp ~1.0</code></li>
+<li>Amazon S3: <code>league/flysystem-aws-s3-v3 ~1.0</code></li>
+</ul>
+<p>An absolute must for performance is to use a cached adapter. You will need an additional package for this:</p>
+<ul>
+<li>CachedAdapter: <code>league/flysystem-cached-adapter ~1.0</code></li>
+</ul>
+<h4>S3 Driver Configuration</h4>
+<p>The S3 driver configuration information is located in your <code>config/filesystems.php</code> configuration file. This file contains an example configuration array for an S3 driver. You are free to modify this array with your own S3 configuration and credentials. For convenience, these environment variables match the naming convention used by the AWS CLI.</p>
+<h4>FTP Driver Configuration</h4>
+<p>Laravel's Flysystem integrations works great with FTP; however, a sample configuration is not included with the framework's default <code>filesystems.php</code> configuration file. If you need to configure a FTP filesystem, you may use the example configuration below:</p>
+<pre><code>'ftp' =&gt; [
+    'driver' =&gt; 'ftp',
+    'host' =&gt; 'ftp.example.com',
+    'username' =&gt; 'your-username',
+    'password' =&gt; 'your-password',
+
+    // Optional FTP Settings...
+    // 'port' =&gt; 21,
+    // 'root' =&gt; '',
+    // 'passive' =&gt; true,
+    // 'ssl' =&gt; true,
+    // 'timeout' =&gt; 30,
+],</code></pre>
+<h4>SFTP Driver Configuration</h4>
+<p>Laravel's Flysystem integrations works great with SFTP; however, a sample configuration is not included with the framework's default <code>filesystems.php</code> configuration file. If you need to configure a SFTP filesystem, you may use the example configuration below:</p>
+<pre><code>'sftp' =&gt; [
+    'driver' =&gt; 'sftp',
+    'host' =&gt; 'example.com',
+    'username' =&gt; 'your-username',
+    'password' =&gt; 'your-password',
+
+    // Settings for SSH key based authentication...
+    // 'privateKey' =&gt; '/path/to/privateKey',
+    // 'password' =&gt; 'encryption-password',
+
+    // Optional SFTP Settings...
+    // 'port' =&gt; 22,
+    // 'root' =&gt; '',
+    // 'timeout' =&gt; 30,
+],</code></pre>
+<p><a name="caching"></a></p>
+<h3 id="caching">Caching</h3>
+<p>To enable caching for a given disk, you may add a <code>cache</code> directive to the disk's configuration options. The <code>cache</code> option should be an array of caching options containing the <code>disk</code> name, the <code>expire</code> time in seconds, and the cache <code>prefix</code>:</p>
+<pre><code>'s3' =&gt; [
+    'driver' =&gt; 's3',
+
+    // Other Disk Options...
+
+    'cache' =&gt; [
+        'store' =&gt; 'memcached',
+        'expire' =&gt; 600,
+        'prefix' =&gt; 'cache-prefix',
+    ],
+],</code></pre>
+<p><a name="obtaining-disk-instances"></a></p>
+<h2 id="obtaining-disk-instances">Obtaining Disk Instances</h2>
+<p>The <code>Storage</code> facade may be used to interact with any of your configured disks. For example, you may use the <code>put</code> method on the facade to store an avatar on the default disk. If you call methods on the <code>Storage</code> facade without first calling the <code>disk</code> method, the method call will automatically be passed to the default disk:</p>
+<pre><code>use Illuminate\Support\Facades\Storage;
+
+Storage::put('avatars/1', $fileContents);</code></pre>
+<p>If your application interacts with multiple disks, you may use the <code>disk</code> method on the <code>Storage</code> facade to work with files on a particular disk:</p>
+<pre><code>Storage::disk('s3')-&gt;put('avatars/1', $fileContents);</code></pre>
+<p><a name="retrieving-files"></a></p>
+<h2 id="retrieving-files">Retrieving Files</h2>
+<p>The <code>get</code> method may be used to retrieve the contents of a file. The raw string contents of the file will be returned by the method. Remember, all file paths should be specified relative to the &quot;root&quot; location configured for the disk:</p>
+<pre><code>$contents = Storage::get('file.jpg');</code></pre>
+<p>The <code>exists</code> method may be used to determine if a file exists on the disk:</p>
+<pre><code>$exists = Storage::disk('s3')-&gt;exists('file.jpg');</code></pre>
+<p>The <code>missing</code> method may be used to determine if a file is missing from the disk:</p>
+<pre><code>$missing = Storage::disk('s3')-&gt;missing('file.jpg');</code></pre>
+<p><a name="downloading-files"></a></p>
+<h3 id="downloading-files">Downloading Files</h3>
+<p>The <code>download</code> method may be used to generate a response that forces the user's browser to download the file at the given path. The <code>download</code> method accepts a file name as the second argument to the method, which will determine the file name that is seen by the user downloading the file. Finally, you may pass an array of HTTP headers as the third argument to the method:</p>
+<pre><code>return Storage::download('file.jpg');
+
+return Storage::download('file.jpg', $name, $headers);</code></pre>
+<p><a name="file-urls"></a></p>
+<h3 id="file-urls">File URLs</h3>
+<p>You may use the <code>url</code> method to get the URL for the given file. If you are using the <code>local</code> driver, this will typically just prepend <code>/storage</code> to the given path and return a relative URL to the file. If you are using the <code>s3</code> driver, the fully qualified remote URL will be returned:</p>
+<pre><code>use Illuminate\Support\Facades\Storage;
+
+$url = Storage::url('file.jpg');</code></pre>
+<blockquote>
+<p>{note} Remember, if you are using the <code>local</code> driver, all files that should be publicly accessible should be placed in the <code>storage/app/public</code> directory. Furthermore, you should <a href="#the-public-disk">create a symbolic link</a> at <code>public/storage</code> which points to the <code>storage/app/public</code> directory.</p>
+</blockquote>
+<h4>Temporary URLs</h4>
+<p>For files stored using the <code>s3</code> you may create a temporary URL to a given file using the <code>temporaryUrl</code> method. This method accepts a path and a <code>DateTime</code> instance specifying when the URL should expire:</p>
+<pre><code>$url = Storage::temporaryUrl(
+    'file.jpg', now()-&gt;addMinutes(5)
+);</code></pre>
+<p>If you need to specify additional <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html#RESTObjectGET-requests">S3 request parameters</a>, you may pass the array of request parameters as the third argument to the <code>temporaryUrl</code> method:</p>
+<pre><code>$url = Storage::temporaryUrl(
+    'file.jpg',
+    now()-&gt;addMinutes(5),
+    ['ResponseContentType' =&gt; 'application/octet-stream']
+);</code></pre>
+<h4>URL Host Customization</h4>
+<p>If you would like to pre-define the host for file URLs generated using the <code>Storage</code> facade, you may add a <code>url</code> option to the disk's configuration array:</p>
+<pre><code>'public' =&gt; [
+    'driver' =&gt; 'local',
+    'root' =&gt; storage_path('app/public'),
+    'url' =&gt; env('APP_URL').'/storage',
+    'visibility' =&gt; 'public',
+],</code></pre>
+<p><a name="file-metadata"></a></p>
+<h3 id="file-metadata">File Metadata</h3>
+<p>In addition to reading and writing files, Laravel can also provide information about the files themselves. For example, the <code>size</code> method may be used to get the size of the file in bytes:</p>
+<pre><code>use Illuminate\Support\Facades\Storage;
+
+$size = Storage::size('file.jpg');</code></pre>
+<p>The <code>lastModified</code> method returns the UNIX timestamp of the last time the file was modified:</p>
+<pre><code>$time = Storage::lastModified('file.jpg');</code></pre>
+<p><a name="storing-files"></a></p>
+<h2 id="storing-files">Storing Files</h2>
+<p>The <code>put</code> method may be used to store raw file contents on a disk. You may also pass a PHP <code>resource</code> to the <code>put</code> method, which will use Flysystem's underlying stream support. Remember, all file paths should be specified relative to the &quot;root&quot; location configured for the disk:</p>
+<pre><code>use Illuminate\Support\Facades\Storage;
+
+Storage::put('file.jpg', $contents);
+
+Storage::put('file.jpg', $resource);</code></pre>
+<h4>Automatic Streaming</h4>
+<p>If you would like Laravel to automatically manage streaming a given file to your storage location, you may use the <code>putFile</code> or <code>putFileAs</code> method. This method accepts either a <code>Illuminate\Http\File</code> or <code>Illuminate\Http\UploadedFile</code> instance and will automatically stream the file to your desired location:</p>
+<pre><code>use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+
+// Automatically generate a unique ID for file name...
+Storage::putFile('photos', new File('/path/to/photo'));
+
+// Manually specify a file name...
+Storage::putFileAs('photos', new File('/path/to/photo'), 'photo.jpg');</code></pre>
+<p>There are a few important things to note about the <code>putFile</code> method. Note that we only specified a directory name, not a file name. By default, the <code>putFile</code> method will generate a unique ID to serve as the file name. The file's extension will be determined by examining the file's MIME type. The path to the file will be returned by the <code>putFile</code> method so you can store the path, including the generated file name, in your database.</p>
+<p>The <code>putFile</code> and <code>putFileAs</code> methods also accept an argument to specify the &quot;visibility&quot; of the stored file. This is particularly useful if you are storing the file on a cloud disk such as S3 and would like the file to be publicly accessible:</p>
+<pre><code>Storage::putFile('photos', new File('/path/to/photo'), 'public');</code></pre>
+<h4>Prepending &amp; Appending To Files</h4>
+<p>The <code>prepend</code> and <code>append</code> methods allow you to write to the beginning or end of a file:</p>
+<pre><code>Storage::prepend('file.log', 'Prepended Text');
+
+Storage::append('file.log', 'Appended Text');</code></pre>
+<h4>Copying &amp; Moving Files</h4>
+<p>The <code>copy</code> method may be used to copy an existing file to a new location on the disk, while the <code>move</code> method may be used to rename or move an existing file to a new location:</p>
+<pre><code>Storage::copy('old/file.jpg', 'new/file.jpg');
+
+Storage::move('old/file.jpg', 'new/file.jpg');</code></pre>
+<p><a name="file-uploads"></a></p>
+<h3 id="file-uploads">File Uploads</h3>
+<p>In web applications, one of the most common use-cases for storing files is storing user uploaded files such as profile pictures, photos, and documents. Laravel makes it very easy to store uploaded files using the <code>store</code> method on an uploaded file instance. Call the <code>store</code> method with the path at which you wish to store the uploaded file:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class UserAvatarController extends Controller
+{
+    /**
+     * Update the avatar for the user.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function update(Request $request)
+    {
+        $path = $request-&gt;file('avatar')-&gt;store('avatars');
+
+        return $path;
+    }
+}</code></pre>
+<p>There are a few important things to note about this example. Note that we only specified a directory name, not a file name. By default, the <code>store</code> method will generate a unique ID to serve as the file name. The file's extension will be determined by examining the file's MIME type. The path to the file will be returned by the <code>store</code> method so you can store the path, including the generated file name, in your database.</p>
+<p>You may also call the <code>putFile</code> method on the <code>Storage</code> facade to perform the same file manipulation as the example above:</p>
+<pre><code>$path = Storage::putFile('avatars', $request-&gt;file('avatar'));</code></pre>
+<h4>Specifying A File Name</h4>
+<p>If you would not like a file name to be automatically assigned to your stored file, you may use the <code>storeAs</code> method, which receives the path, the file name, and the (optional) disk as its arguments:</p>
+<pre><code>$path = $request-&gt;file('avatar')-&gt;storeAs(
+    'avatars', $request-&gt;user()-&gt;id
+);</code></pre>
+<p>You may also use the <code>putFileAs</code> method on the <code>Storage</code> facade, which will perform the same file manipulation as the example above:</p>
+<pre><code>$path = Storage::putFileAs(
+    'avatars', $request-&gt;file('avatar'), $request-&gt;user()-&gt;id
+);</code></pre>
+<blockquote>
+<p>{note} Unprintable and invalid unicode characters will automatically be removed from file paths. Therefore, you may wish to sanitize your file paths before passing them to Laravel's file storage methods. File paths are normalized using the <code>League\Flysystem\Util::normalizePath</code> method.</p>
+</blockquote>
+<h4>Specifying A Disk</h4>
+<p>By default, this method will use your default disk. If you would like to specify another disk, pass the disk name as the second argument to the <code>store</code> method:</p>
+<pre><code>$path = $request-&gt;file('avatar')-&gt;store(
+    'avatars/'.$request-&gt;user()-&gt;id, 's3'
+);</code></pre>
+<p>If you are using the <code>storeAs</code> method, you may pass the disk name as the third argument to the method:</p>
+<pre><code>$path = $request-&gt;file('avatar')-&gt;storeAs(
+    'avatars',
+    $request-&gt;user()-&gt;id,
+    's3'
+);</code></pre>
+<h4>Other File Information</h4>
+<p>If you would like to get original name of the uploaded file, you may do so using the <code>getClientOriginalName</code> method:</p>
+<pre><code>$name = $request-&gt;file('avatar')-&gt;getClientOriginalName();</code></pre>
+<p>The <code>extension</code> method may be used to get the file extension of the uploaded file:</p>
+<pre><code>$extension = $request-&gt;file('avatar')-&gt;extension();</code></pre>
+<p><a name="file-visibility"></a></p>
+<h3 id="file-visibility">File Visibility</h3>
+<p>In Laravel's Flysystem integration, &quot;visibility&quot; is an abstraction of file permissions across multiple platforms. Files may either be declared <code>public</code> or <code>private</code>. When a file is declared <code>public</code>, you are indicating that the file should generally be accessible to others. For example, when using the S3 driver, you may retrieve URLs for <code>public</code> files.</p>
+<p>You can set the visibility when setting the file via the <code>put</code> method:</p>
+<pre><code>use Illuminate\Support\Facades\Storage;
+
+Storage::put('file.jpg', $contents, 'public');</code></pre>
+<p>If the file has already been stored, its visibility can be retrieved and set via the <code>getVisibility</code> and <code>setVisibility</code> methods:</p>
+<pre><code>$visibility = Storage::getVisibility('file.jpg');
+
+Storage::setVisibility('file.jpg', 'public');</code></pre>
+<p><a name="deleting-files"></a></p>
+<h2 id="deleting-files">Deleting Files</h2>
+<p>The <code>delete</code> method accepts a single filename or an array of files to remove from the disk:</p>
+<pre><code>use Illuminate\Support\Facades\Storage;
+
+Storage::delete('file.jpg');
+
+Storage::delete(['file.jpg', 'file2.jpg']);</code></pre>
+<p>If necessary, you may specify the disk that the file should be deleted from:</p>
+<pre><code>use Illuminate\Support\Facades\Storage;
+
+Storage::disk('s3')-&gt;delete('folder_path/file_name.jpg');</code></pre>
+<p><a name="directories"></a></p>
+<h2 id="directories">Directories</h2>
+<h4>Get All Files Within A Directory</h4>
+<p>The <code>files</code> method returns an array of all of the files in a given directory. If you would like to retrieve a list of all files within a given directory including all subdirectories, you may use the <code>allFiles</code> method:</p>
+<pre><code>use Illuminate\Support\Facades\Storage;
+
+$files = Storage::files($directory);
+
+$files = Storage::allFiles($directory);</code></pre>
+<h4>Get All Directories Within A Directory</h4>
+<p>The <code>directories</code> method returns an array of all the directories within a given directory. Additionally, you may use the <code>allDirectories</code> method to get a list of all directories within a given directory and all of its subdirectories:</p>
+<pre><code>$directories = Storage::directories($directory);
+
+// Recursive...
+$directories = Storage::allDirectories($directory);</code></pre>
+<h4>Create A Directory</h4>
+<p>The <code>makeDirectory</code> method will create the given directory, including any needed subdirectories:</p>
+<pre><code>Storage::makeDirectory($directory);</code></pre>
+<h4>Delete A Directory</h4>
+<p>Finally, the <code>deleteDirectory</code> method may be used to remove a directory and all of its files:</p>
+<pre><code>Storage::deleteDirectory($directory);</code></pre>
+<p><a name="custom-filesystems"></a></p>
+<h2 id="custom-filesystems">Custom Filesystems</h2>
+<p>Laravel's Flysystem integration provides drivers for several &quot;drivers&quot; out of the box; however, Flysystem is not limited to these and has adapters for many other storage systems. You can create a custom driver if you want to use one of these additional adapters in your Laravel application.</p>
+<p>In order to set up the custom filesystem you will need a Flysystem adapter. Let's add a community maintained Dropbox adapter to our project:</p>
+<pre><code>composer require spatie/flysystem-dropbox</code></pre>
+<p>Next, you should create a <a href="providers.html">service provider</a> such as <code>DropboxServiceProvider</code>. In the provider's <code>boot</code> method, you may use the <code>Storage</code> facade's <code>extend</code> method to define the custom driver:</p>
+<pre><code>&lt;?php
+
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\ServiceProvider;
+use League\Flysystem\Filesystem;
+use Spatie\Dropbox\Client as DropboxClient;
+use Spatie\FlysystemDropbox\DropboxAdapter;
+
+class DropboxServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Storage::extend('dropbox', function ($app, $config) {
+            $client = new DropboxClient(
+                $config['authorization_token']
+            );
+
+            return new Filesystem(new DropboxAdapter($client));
+        });
+    }
+}</code></pre>
+<p>The first argument of the <code>extend</code> method is the name of the driver and the second is a Closure that receives the <code>$app</code> and <code>$config</code> variables. The resolver Closure must return an instance of <code>League\Flysystem\Filesystem</code>. The <code>$config</code> variable contains the values defined in <code>config/filesystems.php</code> for the specified disk.</p>
+<p>Next, register the service provider in your <code>config/app.php</code> configuration file:</p>
+<pre><code>'providers' =&gt; [
+    // ...
+    App\Providers\DropboxServiceProvider::class,
+];</code></pre>
+<p>Once you have created and registered the extension's service provider, you may use the <code>dropbox</code> driver in your <code>config/filesystems.php</code> configuration file.</p>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/filesystem by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:10 GMT -->
+</html>

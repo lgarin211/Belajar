@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/eloquent by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Eloquent: Getting Started - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="eloquent.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/eloquent">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/eloquent">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/eloquent">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/eloquent">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/eloquent">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/eloquent">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/eloquent">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/eloquent">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/eloquent">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/eloquent">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/eloquent">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/eloquent">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/eloquent">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Eloquent: Getting Started</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#defining-models">Defining Models</a>
+<ul>
+<li><a href="#eloquent-model-conventions">Eloquent Model Conventions</a></li>
+<li><a href="#default-attribute-values">Default Attribute Values</a></li>
+</ul></li>
+<li><a href="#retrieving-models">Retrieving Models</a>
+<ul>
+<li><a href="#collections">Collections</a></li>
+<li><a href="#chunking-results">Chunking Results</a></li>
+<li><a href="#advanced-subqueries">Advanced Subqueries</a></li>
+</ul></li>
+<li><a href="#retrieving-single-models">Retrieving Single Models / Aggregates</a>
+<ul>
+<li><a href="#retrieving-aggregates">Retrieving Aggregates</a></li>
+</ul></li>
+<li><a href="#inserting-and-updating-models">Inserting &amp; Updating Models</a>
+<ul>
+<li><a href="#inserts">Inserts</a></li>
+<li><a href="#updates">Updates</a></li>
+<li><a href="#mass-assignment">Mass Assignment</a></li>
+<li><a href="#other-creation-methods">Other Creation Methods</a></li>
+</ul></li>
+<li><a href="#deleting-models">Deleting Models</a>
+<ul>
+<li><a href="#soft-deleting">Soft Deleting</a></li>
+<li><a href="#querying-soft-deleted-models">Querying Soft Deleted Models</a></li>
+</ul></li>
+<li><a href="#replicating-models">Replicating Models</a></li>
+<li><a href="#query-scopes">Query Scopes</a>
+<ul>
+<li><a href="#global-scopes">Global Scopes</a></li>
+<li><a href="#local-scopes">Local Scopes</a></li>
+</ul></li>
+<li><a href="#comparing-models">Comparing Models</a></li>
+<li><a href="#events">Events</a>
+<ul>
+<li><a href="#events-using-closures">Using Closures</a></li>
+<li><a href="#observers">Observers</a></li>
+<li><a href="#muting-events">Muting Events</a></li>
+</ul></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>The Eloquent ORM included with Laravel provides a beautiful, simple ActiveRecord implementation for working with your database. Each database table has a corresponding &quot;Model&quot; which is used to interact with that table. Models allow you to query for data in your tables, as well as insert new records into the table.</p>
+<p>Before getting started, be sure to configure a database connection in <code>config/database.php</code>. For more information on configuring your database, check out <a href="database.html#configuration">the documentation</a>.</p>
+<p><a name="defining-models"></a></p>
+<h2 id="defining-models">Defining Models</h2>
+<p>To get started, let's create an Eloquent model. Models typically live in the <code>app</code> directory, but you are free to place them anywhere that can be auto-loaded according to your <code>composer.json</code> file. All Eloquent models extend <code>Illuminate\Database\Eloquent\Model</code> class.</p>
+<p>The easiest way to create a model instance is using the <code>make:model</code> <a href="artisan.html">Artisan command</a>:</p>
+<pre><code>php artisan make:model Flight</code></pre>
+<p>If you would like to generate a <a href="migrations.html">database migration</a> when you generate the model, you may use the <code>--migration</code> or <code>-m</code> option:</p>
+<pre><code>php artisan make:model Flight --migration
+
+php artisan make:model Flight -m</code></pre>
+<p><a name="eloquent-model-conventions"></a></p>
+<h3 id="eloquent-model-conventions">Eloquent Model Conventions</h3>
+<p>Now, let's look at an example <code>Flight</code> model, which we will use to retrieve and store information from our <code>flights</code> database table:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Flight extends Model
+{
+    //
+}</code></pre>
+<h4>Table Names</h4>
+<p>Note that we did not tell Eloquent which table to use for our <code>Flight</code> model. By convention, the &quot;snake case&quot;, plural name of the class will be used as the table name unless another name is explicitly specified. So, in this case, Eloquent will assume the <code>Flight</code> model stores records in the <code>flights</code> table. You may specify a custom table by defining a <code>table</code> property on your model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Flight extends Model
+{
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'my_flights';
+}</code></pre>
+<h4>Primary Keys</h4>
+<p>Eloquent will also assume that each table has a primary key column named <code>id</code>. You may define a protected <code>$primaryKey</code> property to override this convention:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Flight extends Model
+{
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'flight_id';
+}</code></pre>
+<p>In addition, Eloquent assumes that the primary key is an incrementing integer value, which means that by default the primary key will automatically be cast to an <code>int</code>. If you wish to use a non-incrementing or a non-numeric primary key you must set the public <code>$incrementing</code> property on your model to <code>false</code>:</p>
+<pre><code>&lt;?php
+
+class Flight extends Model
+{
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+}</code></pre>
+<p>If your primary key is not an integer, you should set the protected <code>$keyType</code> property on your model to <code>string</code>:</p>
+<pre><code>&lt;?php
+
+class Flight extends Model
+{
+    /**
+     * The "type" of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+}</code></pre>
+<h4>Timestamps</h4>
+<p>By default, Eloquent expects <code>created_at</code> and <code>updated_at</code> columns to exist on your tables.  If you do not wish to have these columns automatically managed by Eloquent, set the <code>$timestamps</code> property on your model to <code>false</code>:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Flight extends Model
+{
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+}</code></pre>
+<p>If you need to customize the format of your timestamps, set the <code>$dateFormat</code> property on your model. This property determines how date attributes are stored in the database, as well as their format when the model is serialized to an array or JSON:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Flight extends Model
+{
+    /**
+     * The storage format of the model's date columns.
+     *
+     * @var string
+     */
+    protected $dateFormat = 'U';
+}</code></pre>
+<p>If you need to customize the names of the columns used to store the timestamps, you may set the <code>CREATED_AT</code> and <code>UPDATED_AT</code> constants in your model:</p>
+<pre><code>&lt;?php
+
+class Flight extends Model
+{
+    const CREATED_AT = 'creation_date';
+    const UPDATED_AT = 'last_update';
+}</code></pre>
+<h4>Database Connection</h4>
+<p>By default, all Eloquent models will use the default database connection configured for your application. If you would like to specify a different connection for the model, use the <code>$connection</code> property:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Flight extends Model
+{
+    /**
+     * The connection name for the model.
+     *
+     * @var string
+     */
+    protected $connection = 'connection-name';
+}</code></pre>
+<p><a name="default-attribute-values"></a></p>
+<h3 id="default-attribute-values">Default Attribute Values</h3>
+<p>If you would like to define the default values for some of your model's attributes, you may define an <code>$attributes</code> property on your model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Flight extends Model
+{
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'delayed' =&gt; false,
+    ];
+}</code></pre>
+<p><a name="retrieving-models"></a></p>
+<h2 id="retrieving-models">Retrieving Models</h2>
+<p>Once you have created a model and <a href="migrations.html#writing-migrations">its associated database table</a>, you are ready to start retrieving data from your database. Think of each Eloquent model as a powerful <a href="queries.html">query builder</a> allowing you to fluently query the database table associated with the model. For example:</p>
+<pre><code>&lt;?php
+
+$flights = App\Flight::all();
+
+foreach ($flights as $flight) {
+    echo $flight-&gt;name;
+}</code></pre>
+<h4>Adding Additional Constraints</h4>
+<p>The Eloquent <code>all</code> method will return all of the results in the model's table. Since each Eloquent model serves as a <a href="queries.html">query builder</a>, you may also add constraints to queries, and then use the <code>get</code> method to retrieve the results:</p>
+<pre><code>$flights = App\Flight::where('active', 1)
+               -&gt;orderBy('name', 'desc')
+               -&gt;take(10)
+               -&gt;get();</code></pre>
+<blockquote>
+<p>{tip} Since Eloquent models are query builders, you should review all of the methods available on the <a href="queries.html">query builder</a>. You may use any of these methods in your Eloquent queries.</p>
+</blockquote>
+<h4>Refreshing Models</h4>
+<p>You can refresh models using the <code>fresh</code> and <code>refresh</code> methods. The <code>fresh</code> method will re-retrieve the model from the database. The existing model instance will not be affected:</p>
+<pre><code>$flight = App\Flight::where('number', 'FR 900')-&gt;first();
+
+$freshFlight = $flight-&gt;fresh();</code></pre>
+<p>The <code>refresh</code> method will re-hydrate the existing model using fresh data from the database. In addition, all of its loaded relationships will be refreshed as well:</p>
+<pre><code>$flight = App\Flight::where('number', 'FR 900')-&gt;first();
+
+$flight-&gt;number = 'FR 456';
+
+$flight-&gt;refresh();
+
+$flight-&gt;number; // "FR 900"</code></pre>
+<p><a name="collections"></a></p>
+<h3 id="collections">Collections</h3>
+<p>For Eloquent methods like <code>all</code> and <code>get</code> which retrieve multiple results, an instance of <code>Illuminate\Database\Eloquent\Collection</code> will be returned. The <code>Collection</code> class provides <a href="eloquent-collections.html#available-methods">a variety of helpful methods</a> for working with your Eloquent results:</p>
+<pre><code>$flights = $flights-&gt;reject(function ($flight) {
+    return $flight-&gt;cancelled;
+});</code></pre>
+<p>You may also loop over the collection like an array:</p>
+<pre><code>foreach ($flights as $flight) {
+    echo $flight-&gt;name;
+}</code></pre>
+<p><a name="chunking-results"></a></p>
+<h3 id="chunking-results">Chunking Results</h3>
+<p>If you need to process thousands of Eloquent records, use the <code>chunk</code> command. The <code>chunk</code> method will retrieve a &quot;chunk&quot; of Eloquent models, feeding them to a given <code>Closure</code> for processing. Using the <code>chunk</code> method will conserve memory when working with large result sets:</p>
+<pre><code>Flight::chunk(200, function ($flights) {
+    foreach ($flights as $flight) {
+        //
+    }
+});</code></pre>
+<p>The first argument passed to the method is the number of records you wish to receive per &quot;chunk&quot;. The Closure passed as the second argument will be called for each chunk that is retrieved from the database. A database query will be executed to retrieve each chunk of records passed to the Closure.</p>
+<h4>Using Cursors</h4>
+<p>The <code>cursor</code> method allows you to iterate through your database records using a cursor, which will only execute a single query. When processing large amounts of data, the <code>cursor</code> method may be used to greatly reduce your memory usage:</p>
+<pre><code>foreach (Flight::where('foo', 'bar')-&gt;cursor() as $flight) {
+    //
+}</code></pre>
+<p>The <code>cursor</code> returns an <code>Illuminate\Support\LazyCollection</code> instance. <a href="collections.html#lazy-collections">Lazy collections</a> allow you to use many of collection methods available on typical Laravel collections while only loading a single model into memory at a time:</p>
+<pre><code>$users = App\User::cursor()-&gt;filter(function ($user) {
+    return $user-&gt;id &gt; 500;
+});
+
+foreach ($users as $user) {
+    echo $user-&gt;id;
+}</code></pre>
+<p><a name="advanced-subqueries"></a></p>
+<h3 id="advanced-subqueries">Advanced Subqueries</h3>
+<h4>Subquery Selects</h4>
+<p>Eloquent also offers advanced subquery support, which allows you to pull information from related tables in a single query. For example, let's imagine that we have a table of flight <code>destinations</code> and a table of <code>flights</code> to destinations. The <code>flights</code> table contains an <code>arrived_at</code> column which indicates when the flight arrived at the destination.</p>
+<p>Using the subquery functionality available to the <code>select</code> and <code>addSelect</code> methods, we can select all of the <code>destinations</code> and the name of the flight that most recently arrived at that destination using a single query:</p>
+<pre><code>use App\Destination;
+use App\Flight;
+
+return Destination::addSelect(['last_flight' =&gt; Flight::select('name')
+    -&gt;whereColumn('destination_id', 'destinations.id')
+    -&gt;orderBy('arrived_at', 'desc')
+    -&gt;limit(1)
+])-&gt;get();</code></pre>
+<h4>Subquery Ordering</h4>
+<p>In addition, the query builder's <code>orderBy</code> function supports subqueries. We may use this functionality to sort all destinations based on when the last flight arrived at that destination. Again, this may be done while executing a single query against the database:</p>
+<pre><code>return Destination::orderByDesc(
+    Flight::select('arrived_at')
+        -&gt;whereColumn('destination_id', 'destinations.id')
+        -&gt;orderBy('arrived_at', 'desc')
+        -&gt;limit(1)
+)-&gt;get();</code></pre>
+<p><a name="retrieving-single-models"></a></p>
+<h2 id="retrieving-single-models">Retrieving Single Models / Aggregates</h2>
+<p>In addition to retrieving all of the records for a given table, you may also retrieve single records using <code>find</code>, <code>first</code>, or <code>firstWhere</code>. Instead of returning a collection of models, these methods return a single model instance:</p>
+<pre><code>// Retrieve a model by its primary key...
+$flight = App\Flight::find(1);
+
+// Retrieve the first model matching the query constraints...
+$flight = App\Flight::where('active', 1)-&gt;first();
+
+// Shorthand for retrieving the first model matching the query constraints...
+$flight = App\Flight::firstWhere('active', 1);</code></pre>
+<p>You may also call the <code>find</code> method with an array of primary keys, which will return a collection of the matching records:</p>
+<pre><code>$flights = App\Flight::find([1, 2, 3]);</code></pre>
+<p>Sometimes you may wish to retrieve the first result of a query or perform some other action if no results are found. The <code>firstOr</code> method will return the first result that is found or, if no results are found, execute the given callback. The result of the callback will be considered the result of the <code>firstOr</code> method:</p>
+<pre><code>$model = App\Flight::where('legs', '&gt;', 100)-&gt;firstOr(function () {
+        // ...
+});</code></pre>
+<p>The <code>firstOr</code> method also accepts an array of columns to retrieve:</p>
+<pre><code>$model = App\Flight::where('legs', '&gt;', 100)
+            -&gt;firstOr(['id', 'legs'], function () {
+                // ...
+            });</code></pre>
+<h4>Not Found Exceptions</h4>
+<p>Sometimes you may wish to throw an exception if a model is not found. This is particularly useful in routes or controllers. The <code>findOrFail</code> and <code>firstOrFail</code> methods will retrieve the first result of the query; however, if no result is found, a <code>Illuminate\Database\Eloquent\ModelNotFoundException</code> will be thrown:</p>
+<pre><code>$model = App\Flight::findOrFail(1);
+
+$model = App\Flight::where('legs', '&gt;', 100)-&gt;firstOrFail();</code></pre>
+<p>If the exception is not caught, a <code>404</code> HTTP response is automatically sent back to the user. It is not necessary to write explicit checks to return <code>404</code> responses when using these methods:</p>
+<pre><code>Route::get('/api/flights/{id}', function ($id) {
+    return App\Flight::findOrFail($id);
+});</code></pre>
+<p><a name="retrieving-aggregates"></a></p>
+<h3 id="retrieving-aggregates">Retrieving Aggregates</h3>
+<p>You may also use the <code>count</code>, <code>sum</code>, <code>max</code>, and other <a href="queries.html#aggregates">aggregate methods</a> provided by the <a href="queries.html">query builder</a>. These methods return the appropriate scalar value instead of a full model instance:</p>
+<pre><code>$count = App\Flight::where('active', 1)-&gt;count();
+
+$max = App\Flight::where('active', 1)-&gt;max('price');</code></pre>
+<p><a name="inserting-and-updating-models"></a></p>
+<h2 id="inserting-and-updating-models">Inserting &amp; Updating Models</h2>
+<p><a name="inserts"></a></p>
+<h3 id="inserts">Inserts</h3>
+<p>To create a new record in the database, create a new model instance, set attributes on the model, then call the <code>save</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\Flight;
+use Illuminate\Http\Request;
+
+class FlightController extends Controller
+{
+    /**
+     * Create a new flight instance.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        // Validate the request...
+
+        $flight = new Flight;
+
+        $flight-&gt;name = $request-&gt;name;
+
+        $flight-&gt;save();
+    }
+}</code></pre>
+<p>In this example, we assign the <code>name</code> parameter from the incoming HTTP request to the <code>name</code> attribute of the <code>App\Flight</code> model instance. When we call the <code>save</code> method, a record will be inserted into the database. The <code>created_at</code> and <code>updated_at</code> timestamps will automatically be set when the <code>save</code> method is called, so there is no need to set them manually.</p>
+<p><a name="updates"></a></p>
+<h3 id="updates">Updates</h3>
+<p>The <code>save</code> method may also be used to update models that already exist in the database. To update a model, you should retrieve it, set any attributes you wish to update, and then call the <code>save</code> method. Again, the <code>updated_at</code> timestamp will automatically be updated, so there is no need to manually set its value:</p>
+<pre><code>$flight = App\Flight::find(1);
+
+$flight-&gt;name = 'New Flight Name';
+
+$flight-&gt;save();</code></pre>
+<h4>Mass Updates</h4>
+<p>Updates can also be performed against any number of models that match a given query. In this example, all flights that are <code>active</code> and have a <code>destination</code> of <code>San Diego</code> will be marked as delayed:</p>
+<pre><code>App\Flight::where('active', 1)
+          -&gt;where('destination', 'San Diego')
+          -&gt;update(['delayed' =&gt; 1]);</code></pre>
+<p>The <code>update</code> method expects an array of column and value pairs representing the columns that should be updated.</p>
+<blockquote>
+<p>{note} When issuing a mass update via Eloquent, the <code>saving</code>, <code>saved</code>, <code>updating</code>, and <code>updated</code> model events will not be fired for the updated models. This is because the models are never actually retrieved when issuing a mass update.</p>
+</blockquote>
+<h4>Examining Attribute Changes</h4>
+<p>Eloquent provides the <code>isDirty</code>, <code>isClean</code>, and <code>wasChanged</code> methods to examine the internal state of your model and determine how its attributes have changed from when they were originally loaded.</p>
+<p>The <code>isDirty</code> method determines if any attributes have been changed since the model was loaded. You may pass a specific attribute name to determine if a particular attribute is dirty. The <code>isClean</code> method is the opposite of <code>isDirty</code> and also accepts an optional attribute argument:</p>
+<pre><code>$user = User::create([
+    'first_name' =&gt; 'Taylor',
+    'last_name' =&gt; 'Otwell',
+    'title' =&gt; 'Developer',
+]);
+
+$user-&gt;title = 'Painter';
+
+$user-&gt;isDirty(); // true
+$user-&gt;isDirty('title'); // true
+$user-&gt;isDirty('first_name'); // false
+
+$user-&gt;isClean(); // false
+$user-&gt;isClean('title'); // false
+$user-&gt;isClean('first_name'); // true
+
+$user-&gt;save();
+
+$user-&gt;isDirty(); // false
+$user-&gt;isClean(); // true</code></pre>
+<p>The <code>wasChanged</code> method determines if any attributes were changed when the model was last saved within the current request cycle. You may also pass an attribute name to see if a particular attribute was changed:</p>
+<pre><code>$user = User::create([
+    'first_name' =&gt; 'Taylor',
+    'last_name' =&gt; 'Otwell',
+    'title' =&gt; 'Developer',
+]);
+
+$user-&gt;title = 'Painter';
+$user-&gt;save();
+
+$user-&gt;wasChanged(); // true
+$user-&gt;wasChanged('title'); // true
+$user-&gt;wasChanged('first_name'); // false</code></pre>
+<p>The <code>getOriginal</code> method returns an array containing the original attributes of the model regardless of any changes since the model was loaded. You may pass a specific attribute name to get the original value of a particular attribute:</p>
+<pre><code>$user = User::find(1);
+
+$user-&gt;name; // John
+$user-&gt;email; // <a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f2989d9a9cb2978a939f829e97dc919d9f">[email&#160;protected]</a>
+
+$user-&gt;name = "Jack";
+$user-&gt;name; // Jack
+
+$user-&gt;getOriginal('name'); // John
+$user-&gt;getOriginal(); // Array of original attributes...</code></pre>
+<p><a name="mass-assignment"></a></p>
+<h3 id="mass-assignment">Mass Assignment</h3>
+<p>You may also use the <code>create</code> method to save a new model in a single line. The inserted model instance will be returned to you from the method. However, before doing so, you will need to specify either a <code>fillable</code> or <code>guarded</code> attribute on the model, as all Eloquent models protect against mass-assignment by default.</p>
+<p>A mass-assignment vulnerability occurs when a user passes an unexpected HTTP parameter through a request, and that parameter changes a column in your database you did not expect. For example, a malicious user might send an <code>is_admin</code> parameter through an HTTP request, which is then passed into your model's <code>create</code> method, allowing the user to escalate themselves to an administrator.</p>
+<p>So, to get started, you should define which model attributes you want to make mass assignable. You may do this using the <code>$fillable</code> property on the model. For example, let's make the <code>name</code> attribute of our <code>Flight</code> model mass assignable:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Flight extends Model
+{
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name'];
+}</code></pre>
+<p>Once we have made the attributes mass assignable, we can use the <code>create</code> method to insert a new record in the database. The <code>create</code> method returns the saved model instance:</p>
+<pre><code>$flight = App\Flight::create(['name' =&gt; 'Flight 10']);</code></pre>
+<p>If you already have a model instance, you may use the <code>fill</code> method to populate it with an array of attributes:</p>
+<pre><code>$flight-&gt;fill(['name' =&gt; 'Flight 22']);</code></pre>
+<h4>Guarding Attributes</h4>
+<p>While <code>$fillable</code> serves as a &quot;allow list&quot; of attributes that should be mass assignable, you may also choose to use <code>$guarded</code>. The <code>$guarded</code> property should contain an array of attributes that you do not want to be mass assignable. All other attributes not in the array will be mass assignable. So, <code>$guarded</code> functions like a &quot;deny list&quot;. Importantly, you should use either <code>$fillable</code> or <code>$guarded</code> - not both. In the example below, all attributes <strong>except for <code>price</code></strong> will be mass assignable:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Flight extends Model
+{
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = ['price'];
+}</code></pre>
+<p>If you would like to make all attributes mass assignable, you may define the <code>$guarded</code> property as an empty array:</p>
+<pre><code>/**
+ * The attributes that aren't mass assignable.
+ *
+ * @var array
+ */
+protected $guarded = [];</code></pre>
+<p><a name="other-creation-methods"></a></p>
+<h3 id="other-creation-methods">Other Creation Methods</h3>
+<h4><code>firstOrCreate</code>/ <code>firstOrNew</code></h4>
+<p>There are two other methods you may use to create models by mass assigning attributes: <code>firstOrCreate</code> and <code>firstOrNew</code>. The <code>firstOrCreate</code> method will attempt to locate a database record using the given column / value pairs. If the model can not be found in the database, a record will be inserted with the attributes from the first parameter, along with those in the optional second parameter.</p>
+<p>The <code>firstOrNew</code> method, like <code>firstOrCreate</code> will attempt to locate a record in the database matching the given attributes. However, if a model is not found, a new model instance will be returned. Note that the model returned by <code>firstOrNew</code> has not yet been persisted to the database. You will need to call <code>save</code> manually to persist it:</p>
+<pre><code>// Retrieve flight by name, or create it if it doesn't exist...
+$flight = App\Flight::firstOrCreate(['name' =&gt; 'Flight 10']);
+
+// Retrieve flight by name, or create it with the name, delayed, and arrival_time attributes...
+$flight = App\Flight::firstOrCreate(
+    ['name' =&gt; 'Flight 10'],
+    ['delayed' =&gt; 1, 'arrival_time' =&gt; '11:30']
+);
+
+// Retrieve by name, or instantiate...
+$flight = App\Flight::firstOrNew(['name' =&gt; 'Flight 10']);
+
+// Retrieve by name, or instantiate with the name, delayed, and arrival_time attributes...
+$flight = App\Flight::firstOrNew(
+    ['name' =&gt; 'Flight 10'],
+    ['delayed' =&gt; 1, 'arrival_time' =&gt; '11:30']
+);</code></pre>
+<h4><code>updateOrCreate</code></h4>
+<p>You may also come across situations where you want to update an existing model or create a new model if none exists. Laravel provides an <code>updateOrCreate</code> method to do this in one step. Like the <code>firstOrCreate</code> method, <code>updateOrCreate</code> persists the model, so there's no need to call <code>save()</code>:</p>
+<pre><code>// If there's a flight from Oakland to San Diego, set the price to $99.
+// If no matching model exists, create one.
+$flight = App\Flight::updateOrCreate(
+    ['departure' =&gt; 'Oakland', 'destination' =&gt; 'San Diego'],
+    ['price' =&gt; 99, 'discounted' =&gt; 1]
+);</code></pre>
+<p><a name="deleting-models"></a></p>
+<h2 id="deleting-models">Deleting Models</h2>
+<p>To delete a model, call the <code>delete</code> method on a model instance:</p>
+<pre><code>$flight = App\Flight::find(1);
+
+$flight-&gt;delete();</code></pre>
+<h4>Deleting An Existing Model By Key</h4>
+<p>In the example above, we are retrieving the model from the database before calling the <code>delete</code> method. However, if you know the primary key of the model, you may delete the model without explicitly retrieving it by calling the <code>destroy</code> method.  In addition to a single primary key as its argument, the <code>destroy</code> method will accept multiple primary keys, an array of primary keys, or a <a href="collections.html">collection</a> of primary keys:</p>
+<pre><code>App\Flight::destroy(1);
+
+App\Flight::destroy(1, 2, 3);
+
+App\Flight::destroy([1, 2, 3]);
+
+App\Flight::destroy(collect([1, 2, 3]));</code></pre>
+<blockquote>
+<p>{note} The <code>destroy</code> method loads each model individually and calls the <code>delete</code> method on them so that the <code>deleting</code> and <code>deleted</code> events are fired.</p>
+</blockquote>
+<h4>Deleting Models By Query</h4>
+<p>You can also run a delete statement on a set of models. In this example, we will delete all flights that are marked as inactive. Like mass updates, mass deletes will not fire any model events for the models that are deleted:</p>
+<pre><code>$deletedRows = App\Flight::where('active', 0)-&gt;delete();</code></pre>
+<blockquote>
+<p>{note} When executing a mass delete statement via Eloquent, the <code>deleting</code> and <code>deleted</code> model events will not be fired for the deleted models. This is because the models are never actually retrieved when executing the delete statement.</p>
+</blockquote>
+<p><a name="soft-deleting"></a></p>
+<h3 id="soft-deleting">Soft Deleting</h3>
+<p>In addition to actually removing records from your database, Eloquent can also &quot;soft delete&quot; models. When models are soft deleted, they are not actually removed from your database. Instead, a <code>deleted_at</code> attribute is set on the model and inserted into the database. If a model has a non-null <code>deleted_at</code> value, the model has been soft deleted. To enable soft deletes for a model, use the <code>Illuminate\Database\Eloquent\SoftDeletes</code> trait on the model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Flight extends Model
+{
+    use SoftDeletes;
+}</code></pre>
+<blockquote>
+<p>{tip} The <code>SoftDeletes</code> trait will automatically cast the <code>deleted_at</code> attribute to a <code>DateTime</code> / <code>Carbon</code> instance for you.</p>
+</blockquote>
+<p>You should also add the <code>deleted_at</code> column to your database table. The Laravel <a href="migrations.html">schema builder</a> contains a helper method to create this column:</p>
+<pre><code>Schema::table('flights', function (Blueprint $table) {
+    $table-&gt;softDeletes();
+});</code></pre>
+<p>Now, when you call the <code>delete</code> method on the model, the <code>deleted_at</code> column will be set to the current date and time. And, when querying a model that uses soft deletes, the soft deleted models will automatically be excluded from all query results.</p>
+<p>To determine if a given model instance has been soft deleted, use the <code>trashed</code> method:</p>
+<pre><code>if ($flight-&gt;trashed()) {
+    //
+}</code></pre>
+<p><a name="querying-soft-deleted-models"></a></p>
+<h3 id="querying-soft-deleted-models">Querying Soft Deleted Models</h3>
+<h4>Including Soft Deleted Models</h4>
+<p>As noted above, soft deleted models will automatically be excluded from query results. However, you may force soft deleted models to appear in a result set using the <code>withTrashed</code> method on the query:</p>
+<pre><code>$flights = App\Flight::withTrashed()
+                -&gt;where('account_id', 1)
+                -&gt;get();</code></pre>
+<p>The <code>withTrashed</code> method may also be used on a <a href="eloquent-relationships.html">relationship</a> query:</p>
+<pre><code>$flight-&gt;history()-&gt;withTrashed()-&gt;get();</code></pre>
+<h4>Retrieving Only Soft Deleted Models</h4>
+<p>The <code>onlyTrashed</code> method will retrieve <strong>only</strong> soft deleted models:</p>
+<pre><code>$flights = App\Flight::onlyTrashed()
+                -&gt;where('airline_id', 1)
+                -&gt;get();</code></pre>
+<h4>Restoring Soft Deleted Models</h4>
+<p>Sometimes you may wish to &quot;un-delete&quot; a soft deleted model. To restore a soft deleted model into an active state, use the <code>restore</code> method on a model instance:</p>
+<pre><code>$flight-&gt;restore();</code></pre>
+<p>You may also use the <code>restore</code> method in a query to quickly restore multiple models. Again, like other &quot;mass&quot; operations, this will not fire any model events for the models that are restored:</p>
+<pre><code>App\Flight::withTrashed()
+        -&gt;where('airline_id', 1)
+        -&gt;restore();</code></pre>
+<p>Like the <code>withTrashed</code> method, the <code>restore</code> method may also be used on <a href="eloquent-relationships.html">relationships</a>:</p>
+<pre><code>$flight-&gt;history()-&gt;restore();</code></pre>
+<h4>Permanently Deleting Models</h4>
+<p>Sometimes you may need to truly remove a model from your database. To permanently remove a soft deleted model from the database, use the <code>forceDelete</code> method:</p>
+<pre><code>// Force deleting a single model instance...
+$flight-&gt;forceDelete();
+
+// Force deleting all related models...
+$flight-&gt;history()-&gt;forceDelete();</code></pre>
+<p><a name="replicating-models"></a></p>
+<h2 id="replicating-models">Replicating Models</h2>
+<p>You may create an unsaved copy of a model instance using the <code>replicate</code> method. This is particularly useful when you have model instances that share many of the same attributes:</p>
+<pre><code>$shipping = App\Address::create([
+    'type' =&gt; 'shipping',
+    'line_1' =&gt; '123 Example Street',
+    'city' =&gt; 'Victorville',
+    'state' =&gt; 'CA',
+    'postcode' =&gt; '90001',
+]);
+
+$billing = $shipping-&gt;replicate()-&gt;fill([
+    'type' =&gt; 'billing'
+]);
+
+$billing-&gt;save();</code></pre>
+<p><a name="query-scopes"></a></p>
+<h2 id="query-scopes">Query Scopes</h2>
+<p><a name="global-scopes"></a></p>
+<h3 id="global-scopes">Global Scopes</h3>
+<p>Global scopes allow you to add constraints to all queries for a given model. Laravel's own <a href="#soft-deleting">soft delete</a> functionality utilizes global scopes to only pull &quot;non-deleted&quot; models from the database. Writing your own global scopes can provide a convenient, easy way to make sure every query for a given model receives certain constraints.</p>
+<h4>Writing Global Scopes</h4>
+<p>Writing a global scope is simple. Define a class that implements the <code>Illuminate\Database\Eloquent\Scope</code> interface. This interface requires you to implement one method: <code>apply</code>. The <code>apply</code> method may add <code>where</code> constraints to the query as needed:</p>
+<pre><code>&lt;?php
+
+namespace App\Scopes;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
+
+class AgeScope implements Scope
+{
+    /**
+     * Apply the scope to a given Eloquent query builder.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $builder
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @return void
+     */
+    public function apply(Builder $builder, Model $model)
+    {
+        $builder-&gt;where('age', '&gt;', 200);
+    }
+}</code></pre>
+<blockquote>
+<p>{tip} If your global scope is adding columns to the select clause of the query, you should use the <code>addSelect</code> method instead of <code>select</code>. This will prevent the unintentional replacement of the query's existing select clause.</p>
+</blockquote>
+<h4>Applying Global Scopes</h4>
+<p>To assign a global scope to a model, you should override a given model's <code>booted</code> method and use the <code>addGlobalScope</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use App\Scopes\AgeScope;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::addGlobalScope(new AgeScope);
+    }
+}</code></pre>
+<p>After adding the scope, a query to <code>User::all()</code> will produce the following SQL:</p>
+<pre><code>select * from `users` where `age` &gt; 200</code></pre>
+<h4>Anonymous Global Scopes</h4>
+<p>Eloquent also allows you to define global scopes using Closures, which is particularly useful for simple scopes that do not warrant a separate class:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::addGlobalScope('age', function (Builder $builder) {
+            $builder-&gt;where('age', '&gt;', 200);
+        });
+    }
+}</code></pre>
+<h4>Removing Global Scopes</h4>
+<p>If you would like to remove a global scope for a given query, you may use the <code>withoutGlobalScope</code> method. The method accepts the class name of the global scope as its only argument:</p>
+<pre><code>User::withoutGlobalScope(AgeScope::class)-&gt;get();</code></pre>
+<p>Or, if you defined the global scope using a Closure:</p>
+<pre><code>User::withoutGlobalScope('age')-&gt;get();</code></pre>
+<p>If you would like to remove several or even all of the global scopes, you may use the <code>withoutGlobalScopes</code> method:</p>
+<pre><code>// Remove all of the global scopes...
+User::withoutGlobalScopes()-&gt;get();
+
+// Remove some of the global scopes...
+User::withoutGlobalScopes([
+    FirstScope::class, SecondScope::class
+])-&gt;get();</code></pre>
+<p><a name="local-scopes"></a></p>
+<h3 id="local-scopes">Local Scopes</h3>
+<p>Local scopes allow you to define common sets of constraints that you may easily re-use throughout your application. For example, you may need to frequently retrieve all users that are considered &quot;popular&quot;. To define a scope, prefix an Eloquent model method with <code>scope</code>.</p>
+<p>Scopes should always return a query builder instance:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePopular($query)
+    {
+        return $query-&gt;where('votes', '&gt;', 100);
+    }
+
+    /**
+     * Scope a query to only include active users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeActive($query)
+    {
+        return $query-&gt;where('active', 1);
+    }
+}</code></pre>
+<h4>Utilizing A Local Scope</h4>
+<p>Once the scope has been defined, you may call the scope methods when querying the model. However, you should not include the <code>scope</code> prefix when calling the method. You can even chain calls to various scopes, for example:</p>
+<pre><code>$users = App\User::popular()-&gt;active()-&gt;orderBy('created_at')-&gt;get();</code></pre>
+<p>Combining multiple Eloquent model scopes via an <code>or</code> query operator may require the use of Closure callbacks:</p>
+<pre><code>$users = App\User::popular()-&gt;orWhere(function (Builder $query) {
+    $query-&gt;active();
+})-&gt;get();</code></pre>
+<p>However, since this can be cumbersome, Laravel provides a &quot;higher order&quot; <code>orWhere</code> method that allows you to fluently chain these scopes together without the use of Closures:</p>
+<pre><code>$users = App\User::popular()-&gt;orWhere-&gt;active()-&gt;get();</code></pre>
+<h4>Dynamic Scopes</h4>
+<p>Sometimes you may wish to define a scope that accepts parameters. To get started, just add your additional parameters to your scope. Scope parameters should be defined after the <code>$query</code> parameter:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * Scope a query to only include users of a given type.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  mixed  $type
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfType($query, $type)
+    {
+        return $query-&gt;where('type', $type);
+    }
+}</code></pre>
+<p>Now, you may pass the parameters when calling the scope:</p>
+<pre><code>$users = App\User::ofType('admin')-&gt;get();</code></pre>
+<p><a name="comparing-models"></a></p>
+<h2 id="comparing-models">Comparing Models</h2>
+<p>Sometimes you may need to determine if two models are the &quot;same&quot;. The <code>is</code> method may be used to quickly verify two models have same primary key, table, and database connection:</p>
+<pre><code>if ($post-&gt;is($anotherPost)) {
+    //
+}</code></pre>
+<p><a name="events"></a></p>
+<h2 id="events">Events</h2>
+<p>Eloquent models fire several events, allowing you to hook into the following points in a model's lifecycle: <code>retrieved</code>, <code>creating</code>, <code>created</code>, <code>updating</code>, <code>updated</code>, <code>saving</code>, <code>saved</code>, <code>deleting</code>, <code>deleted</code>, <code>restoring</code>, <code>restored</code>. Events allow you to easily execute code each time a specific model class is saved or updated in the database. Each event receives the instance of the model through its constructor.</p>
+<p>The <code>retrieved</code> event will fire when an existing model is retrieved from the database. When a new model is saved for the first time, the <code>creating</code> and <code>created</code> events will fire. If a model already existed in the database and the <code>save</code> method is called, the <code>updating</code> / <code>updated</code> events will fire. However, in both cases, the <code>saving</code> / <code>saved</code> events will fire.</p>
+<blockquote>
+<p>{note} When issuing a mass update or delete via Eloquent, the <code>saved</code>, <code>updated</code>, <code>deleting</code>, and <code>deleted</code> model events will not be fired for the affected models. This is because the models are never actually retrieved when issuing a mass update or delete.</p>
+</blockquote>
+<p>To get started, define a <code>$dispatchesEvents</code> property on your Eloquent model that maps various points of the Eloquent model's lifecycle to your own <a href="events.html">event classes</a>:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use App\Events\UserDeleted;
+use App\Events\UserSaved;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'saved' =&gt; UserSaved::class,
+        'deleted' =&gt; UserDeleted::class,
+    ];
+}</code></pre>
+<p>After defining and mapping your Eloquent events, you may use <a href="events.html#defining-listeners">event listeners</a> to handle the events.</p>
+<p><a name="events-using-closures"></a></p>
+<h3 id="events-using-closures">Using Closures</h3>
+<p>Instead of using custom event classes, you may register Closures that execute when various model events are fired. Typically, you should register these Closures in the <code>booted</code> method of your model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use App\Scopes\AgeScope;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::created(function ($user) {
+            //
+        });
+    }
+}</code></pre>
+<p><a name="observers"></a></p>
+<h3 id="observers">Observers</h3>
+<h4>Defining Observers</h4>
+<p>If you are listening for many events on a given model, you may use observers to group all of your listeners into a single class. Observers classes have method names which reflect the Eloquent events you wish to listen for. Each of these methods receives the model as their only argument. The <code>make:observer</code> Artisan command is the easiest way to create a new observer class:</p>
+<pre><code>php artisan make:observer UserObserver --model=User</code></pre>
+<p>This command will place the new observer in your <code>App/Observers</code> directory. If this directory does not exist, Artisan will create it for you. Your fresh observer will look like the following:</p>
+<pre><code>&lt;?php
+
+namespace App\Observers;
+
+use App\User;
+
+class UserObserver
+{
+    /**
+     * Handle the User "created" event.
+     *
+     * @param  \App\User  $user
+     * @return void
+     */
+    public function created(User $user)
+    {
+        //
+    }
+
+    /**
+     * Handle the User "updated" event.
+     *
+     * @param  \App\User  $user
+     * @return void
+     */
+    public function updated(User $user)
+    {
+        //
+    }
+
+    /**
+     * Handle the User "deleted" event.
+     *
+     * @param  \App\User  $user
+     * @return void
+     */
+    public function deleted(User $user)
+    {
+        //
+    }
+
+    /**
+     * Handle the User "forceDeleted" event.
+     *
+     * @param  \App\User  $user
+     * @return void
+     */
+    public function forceDeleted(User $user)
+    {
+        //
+    }
+}</code></pre>
+<p>To register an observer, use the <code>observe</code> method on the model you wish to observe. You may register observers in the <code>boot</code> method of one of your service providers. In this example, we'll register the observer in the <code>AppServiceProvider</code>:</p>
+<pre><code>&lt;?php
+
+namespace App\Providers;
+
+use App\Observers\UserObserver;
+use App\User;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        User::observe(UserObserver::class);
+    }
+}</code></pre>
+<p><a name="muting-events"></a></p>
+<h3 id="muting-events">Muting Events</h3>
+<p>You may occasionally wish to temporarily &quot;mute&quot; all events fired by a model. You may achieve this using the <code>withoutEvents</code> method. The <code>withoutEvents</code> method accepts a Closure as its only argument. Any code executed within this Closure will not fire model events. For example, the following will fetch and delete an <code>App\User</code> instance without firing any model events. Any value returned by the given Closure will be returned by the <code>withoutEvents</code> method:</p>
+<pre><code>use App\User;
+
+$user = User::withoutEvents(function () use () {
+    User::findOrFail(1)-&gt;delete();
+
+    return User::find(2);
+});</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/eloquent by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+</html>

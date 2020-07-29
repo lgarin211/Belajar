@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/valet by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Laravel Valet - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="valet.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/valet">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/valet">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/valet">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/valet">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/valet">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/valet">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/valet">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/valet">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/valet">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/valet">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/valet">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/valet">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/valet">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Laravel Valet</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#valet-or-homestead">Valet Or Homestead</a></li>
+</ul></li>
+<li><a href="#installation">Installation</a>
+<ul>
+<li><a href="#upgrading">Upgrading</a></li>
+</ul></li>
+<li><a href="#serving-sites">Serving Sites</a>
+<ul>
+<li><a href="#the-park-command">The &quot;Park&quot; Command</a></li>
+<li><a href="#the-link-command">The &quot;Link&quot; Command</a></li>
+<li><a href="#securing-sites">Securing Sites With TLS</a></li>
+</ul></li>
+<li><a href="#sharing-sites">Sharing Sites</a></li>
+<li><a href="#site-specific-environment-variables">Site Specific Environment Variables</a></li>
+<li><a href="#proxying-services">Proxying Services</a></li>
+<li><a href="#custom-valet-drivers">Custom Valet Drivers</a>
+<ul>
+<li><a href="#local-drivers">Local Drivers</a></li>
+</ul></li>
+<li><a href="#other-valet-commands">Other Valet Commands</a></li>
+<li><a href="#valet-directories-and-files">Valet Directories &amp; Files</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Valet is a Laravel development environment for Mac minimalists. No Vagrant, no <code>/etc/hosts</code> file. You can even share your sites publicly using local tunnels. <em>Yeah, we like it too.</em></p>
+<p>Laravel Valet configures your Mac to always run <a href="https://www.nginx.com/">Nginx</a> in the background when your machine starts. Then, using <a href="https://en.wikipedia.org/wiki/Dnsmasq">DnsMasq</a>, Valet proxies all requests on the <code>*.test</code> domain to point to sites installed on your local machine.</p>
+<p>In other words, a blazing fast Laravel development environment that uses roughly 7 MB of RAM. Valet isn't a complete replacement for Vagrant or Homestead, but provides a great alternative if you want flexible basics, prefer extreme speed, or are working on a machine with a limited amount of RAM.</p>
+<p>Out of the box, Valet support includes, but is not limited to:</p>
+<style>
+    #valet-support > ul {
+        column-count: 3; -moz-column-count: 3; -webkit-column-count: 3;
+        line-height: 1.9;
+    }
+</style>
+<div id="valet-support">
+<ul>
+<li><a href="https://laravel.com/">Laravel</a></li>
+<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+<li><a href="https://roots.io/bedrock/">Bedrock</a></li>
+<li><a href="https://cakephp.org/">CakePHP 3</a></li>
+<li><a href="https://www.concrete5.org/">Concrete5</a></li>
+<li><a href="https://contao.org/en/">Contao</a></li>
+<li><a href="https://craftcms.com/">Craft</a></li>
+<li><a href="https://www.drupal.org/">Drupal</a></li>
+<li><a href="https://www.expressionengine.com/">ExpressionEngine</a></li>
+<li><a href="https://jigsaw.tighten.co/">Jigsaw</a></li>
+<li><a href="https://www.joomla.org/">Joomla</a></li>
+<li><a href="https://github.com/themsaid/katana">Katana</a></li>
+<li><a href="https://getkirby.com/">Kirby</a></li>
+<li><a href="https://magento.com/">Magento</a></li>
+<li><a href="https://octobercms.com/">OctoberCMS</a></li>
+<li><a href="https://sculpin.io/">Sculpin</a></li>
+<li><a href="https://www.slimframework.com/">Slim</a></li>
+<li><a href="https://statamic.com/">Statamic</a></li>
+<li>Static HTML</li>
+<li><a href="https://symfony.com/">Symfony</a></li>
+<li><a href="https://wordpress.org/">WordPress</a></li>
+<li><a href="https://framework.zend.com/">Zend</a></li>
+</ul>
+</div>
+<p>However, you may extend Valet with your own <a href="#custom-valet-drivers">custom drivers</a>.</p>
+<p><a name="valet-or-homestead"></a></p>
+<h3 id="valet-or-homestead">Valet Or Homestead</h3>
+<p>As you may know, Laravel offers <a href="homestead.html">Homestead</a>, another local Laravel development environment. Homestead and Valet differ in regards to their intended audience and their approach to local development. Homestead offers an entire Ubuntu virtual machine with automated Nginx configuration. Homestead is a wonderful choice if you want a fully virtualized Linux development environment or are on Windows / Linux.</p>
+<p>Valet only supports Mac, and requires you to install PHP and a database server directly onto your local machine. This is easily achieved by using <a href="https://brew.sh/">Homebrew</a> with commands like <code>brew install php</code> and <code>brew install mysql</code>. Valet provides a blazing fast local development environment with minimal resource consumption, so it's great for developers who only require PHP / MySQL and do not need a fully virtualized development environment.</p>
+<p>Both Valet and Homestead are great choices for configuring your Laravel development environment. Which one you choose will depend on your personal taste and your team's needs.</p>
+<p><a name="installation"></a></p>
+<h2 id="installation">Installation</h2>
+<p><strong>Valet requires macOS and <a href="https://brew.sh/">Homebrew</a>. Before installation, you should make sure that no other programs such as Apache or Nginx are binding to your local machine's port 80.</strong></p>
+<div class="content-list">
+<ul>
+<li>Install or update <a href="https://brew.sh/">Homebrew</a> to the latest version using <code>brew update</code>.</li>
+<li>Install PHP 7.4 using Homebrew via <code>brew install php</code>.</li>
+<li>Install <a href="https://getcomposer.org/">Composer</a>.</li>
+<li>Install Valet with Composer via <code>composer global require laravel/valet</code>. Make sure the <code>~/.composer/vendor/bin</code> directory is in your system's &quot;PATH&quot;.</li>
+<li>Run the <code>valet install</code> command. This will configure and install Valet and DnsMasq, and register Valet's daemon to launch when your system starts.</li>
+</ul>
+</div>
+<p>Once Valet is installed, try pinging any <code>*.test</code> domain on your terminal using a command such as <code>ping foobar.test</code>. If Valet is installed correctly you should see this domain responding on <code>127.0.0.1</code>.</p>
+<p>Valet will automatically start its daemon each time your machine boots. There is no need to run <code>valet start</code> or <code>valet install</code> ever again once the initial Valet installation is complete.</p>
+<h4>Using Another Domain</h4>
+<p>By default, Valet serves your projects using the <code>.test</code> TLD. If you'd like to use another domain, you can do so using the <code>valet tld tld-name</code> command.</p>
+<p>For example, if you'd like to use <code>.app</code> instead of <code>.test</code>, run <code>valet tld app</code> and Valet will start serving your projects at <code>*.app</code> automatically.</p>
+<h4>Database</h4>
+<p>If you need a database, try MySQL by running <code>brew install <a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8fe2f6fcfee3cfbaa1b8">[email&#160;protected]</a></code> on your command line. Once MySQL has been installed, you may start it using the <code>brew services start <a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8de0f4fefce1cdb8a3ba">[email&#160;protected]</a></code> command. You can then connect to the database at <code>127.0.0.1</code> using the <code>root</code> username and an empty string for the password.</p>
+<h4>PHP Versions</h4>
+<p>Valet allows you to switch PHP versions using the <code>valet use <a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="68180018281e0d1a1b010706">[email&#160;protected]</a></code> command. Valet will install the specified PHP version via Brew if it is not already installed:</p>
+<pre><code>valet use <a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="44342c3404736a76">[email&#160;protected]</a>
+
+valet use php</code></pre>
+<blockquote>
+<p>{note} Valet only serves one PHP version at a time, even if you have multiple PHP versions installed.</p>
+</blockquote>
+<h4>Resetting Your Installation</h4>
+<p>If you are having trouble getting your Valet installation to run properly, executing the <code>composer global update</code> command followed by <code>valet install</code> will reset your installation and can solve a variety of problems. In rare cases it may be necessary to &quot;hard reset&quot; Valet by executing <code>valet uninstall --force</code> followed by <code>valet install</code>.</p>
+<p><a name="upgrading"></a></p>
+<h3 id="upgrading">Upgrading</h3>
+<p>You may update your Valet installation using the <code>composer global update</code> command in your terminal. After upgrading, it is good practice to run the <code>valet install</code> command so Valet can make additional upgrades to your configuration files if necessary.</p>
+<p><a name="serving-sites"></a></p>
+<h2 id="serving-sites">Serving Sites</h2>
+<p>Once Valet is installed, you're ready to start serving sites. Valet provides two commands to help you serve your Laravel sites: <code>park</code> and <code>link</code>.</p>
+<p><a name="the-park-command"></a></p>
+<h4 id="the-park-command">The <code>park</code> Command</h4>
+<div class="content-list">
+<ul>
+<li>Create a new directory on your Mac by running something like <code>mkdir ~/Sites</code>. Next, <code>cd ~/Sites</code> and run <code>valet park</code>. This command will register your current working directory as a path that Valet should search for sites.</li>
+<li>Next, create a new Laravel site within this directory: <code>laravel new blog</code>.</li>
+<li>Open <code>http://blog.test</code> in your browser.</li>
+</ul>
+</div>
+<p><strong>That's all there is to it.</strong> Now, any Laravel project you create within your &quot;parked&quot; directory will automatically be served using the <code>http://folder-name.test</code> convention.</p>
+<p><a name="the-link-command"></a></p>
+<h4 id="the-link-command">The <code>link</code> Command</h4>
+<p>The <code>link</code> command may also be used to serve your Laravel sites. This command is useful if you want to serve a single site in a directory and not the entire directory.</p>
+<div class="content-list">
+<ul>
+<li>To use the command, navigate to one of your projects and run <code>valet link app-name</code> in your terminal. Valet will create a symbolic link in <code>~/.config/valet/Sites</code> which points to your current working directory.</li>
+<li>After running the <code>link</code> command, you can access the site in your browser at <code>http://app-name.test</code>.</li>
+</ul>
+</div>
+<p>To see a listing of all of your linked directories, run the <code>valet links</code> command. You may use <code>valet unlink app-name</code> to destroy the symbolic link.</p>
+<blockquote>
+<p>{tip} You can use <code>valet link</code> to serve the same project from multiple (sub)domains. To add a subdomain or another domain to your project run <code>valet link subdomain.app-name</code> from the project folder.</p>
+</blockquote>
+<p><a name="securing-sites"></a></p>
+<h4 id="securing-sites">Securing Sites With TLS</h4>
+<p>By default, Valet serves sites over plain HTTP. However, if you would like to serve a site over encrypted TLS using HTTP/2, use the <code>secure</code> command. For example, if your site is being served by Valet on the <code>laravel.test</code> domain, you should run the following command to secure it:</p>
+<pre><code>valet secure laravel</code></pre>
+<p>To &quot;unsecure&quot; a site and revert back to serving its traffic over plain HTTP, use the <code>unsecure</code> command. Like the <code>secure</code> command, this command accepts the host name that you wish to unsecure:</p>
+<pre><code>valet unsecure laravel</code></pre>
+<p><a name="sharing-sites"></a></p>
+<h2 id="sharing-sites">Sharing Sites</h2>
+<p>Valet even includes a command to share your local sites with the world, providing an easy way to test your site on mobile devices or share it with team members and clients. No additional software installation is required once Valet is installed.</p>
+<h3>Sharing Sites Via Ngrok</h3>
+<p>To share a site, navigate to the site's directory in your terminal and run the <code>valet share</code> command. A publicly accessible URL will be inserted into your clipboard and is ready to paste directly into your browser or share with your team.</p>
+<p>To stop sharing your site, hit <code>Control + C</code> to cancel the process.</p>
+<blockquote>
+<p>{tip} You may pass additional parameters to the share command, such as <code>valet share --region=eu</code>. For more information, consult the <a href="https://ngrok.com/docs">ngrok documentation</a>.</p>
+</blockquote>
+<h3>Sharing Sites Via Expose</h3>
+<p>If you have <a href="https://beyondco.de/docs/expose">Expose</a> installed, you can share your site by navigating to the site's directory in your terminal and running the <code>expose</code> command. Consult the expose documentation for additional command-line parameters it supports. After sharing the site, Expose will display the sharable URL that you may use on your other devices or amongst team members.</p>
+<p>To stop sharing your site, hit <code>Control + C</code> to cancel the process.</p>
+<h3>Sharing Sites On Your Local Network</h3>
+<p>Valet restricts incoming traffic to the internal <code>127.0.0.1</code> interface by default. This way your development machine isn't exposed to security risks from the Internet.</p>
+<p>If you wish to allow other devices on your local network to access the Valet sites on your machine via your machine's IP address (eg: <code>192.168.1.10/app-name.test</code>), you will need to manually edit the appropriate Nginx configuration file for that site to remove the restriction on the <code>listen</code> directive by removing the the <code>127.0.0.1:</code> prefix on the directive for ports 80 and 443.</p>
+<p>If you have not run <code>valet secure</code> on the project, you can open up network access for all non-HTTPS sites by editing the <code>/usr/local/etc/nginx/valet/valet.conf</code> file. However, if you're serving the project site over HTTPS (you have run <code>valet secure</code> for the site) then you should edit the <code>~/.config/valet/Nginx/app-name.test</code> file.</p>
+<p>Once you have updated your Nginx configuration, run the <code>valet restart</code> command to apply the configuration changes.</p>
+<p><a name="site-specific-environment-variables"></a></p>
+<h2 id="site-specific-environment-variables">Site Specific Environment Variables</h2>
+<p>Some applications using other frameworks may depend on server environment variables but do not provide a way for those variables to be configured within your project. Valet allows you to configure site specific environment variables by adding a <code>.valet-env.php</code> file within the root of your project. These variables will be added to the <code>$_SERVER</code> global array:</p>
+<pre><code>&lt;?php
+
+// Set $_SERVER['key'] to "value" for the foo.test site...
+return [
+    'foo' =&gt; [
+        'key' =&gt; 'value',
+    ],
+];
+
+// Set $_SERVER['key'] to "value" for all sites...
+return [
+    '*' =&gt; [
+        'key' =&gt; 'value',
+    ],
+];</code></pre>
+<p><a name="proxying-services"></a></p>
+<h2 id="proxying-services">Proxying Services</h2>
+<p>Sometimes you may wish to proxy a Valet domain to another service on your local machine. For example, you may occasionally need to run Valet while also running a separate site in Docker; however, Valet and Docker can't both bind to port 80 at the same time.</p>
+<p>To solve this, you may use the <code>proxy</code> command to generate a proxy. For example, you may proxy all traffic from <code>http://elasticsearch.test</code> to <code>http://127.0.0.1:9200</code>:</p>
+<pre><code>valet proxy elasticsearch http://127.0.0.1:9200</code></pre>
+<p>You may remove a proxy using the <code>unproxy</code> command:</p>
+<pre><code>valet unproxy elasticsearch</code></pre>
+<p>You may use the <code>proxies</code> command to list all site configuration that are proxied:</p>
+<pre><code>valet proxies</code></pre>
+<p><a name="custom-valet-drivers"></a></p>
+<h2 id="custom-valet-drivers">Custom Valet Drivers</h2>
+<p>You can write your own Valet &quot;driver&quot; to serve PHP applications running on another framework or CMS that is not natively supported by Valet. When you install Valet, a <code>~/.config/valet/Drivers</code> directory is created which contains a <code>SampleValetDriver.php</code> file. This file contains a sample driver implementation to demonstrate how to write a custom driver. Writing a driver only requires you to implement three methods: <code>serves</code>, <code>isStaticFile</code>, and <code>frontControllerPath</code>.</p>
+<p>All three methods receive the <code>$sitePath</code>, <code>$siteName</code>, and <code>$uri</code> values as their arguments. The <code>$sitePath</code> is the fully qualified path to the site being served on your machine, such as <code>/Users/Lisa/Sites/my-project</code>. The <code>$siteName</code> is the &quot;host&quot; / &quot;site name&quot; portion of the domain (<code>my-project</code>). The <code>$uri</code> is the incoming request URI (<code>/foo/bar</code>).</p>
+<p>Once you have completed your custom Valet driver, place it in the <code>~/.config/valet/Drivers</code> directory using the <code>FrameworkValetDriver.php</code> naming convention. For example, if you are writing a custom valet driver for WordPress, your file name should be <code>WordPressValetDriver.php</code>.</p>
+<p>Let's take a look at a sample implementation of each method your custom Valet driver should implement.</p>
+<h4>The <code>serves</code> Method</h4>
+<p>The <code>serves</code> method should return <code>true</code> if your driver should handle the incoming request. Otherwise, the method should return <code>false</code>. So, within this method you should attempt to determine if the given <code>$sitePath</code> contains a project of the type you are trying to serve.</p>
+<p>For example, let's pretend we are writing a <code>WordPressValetDriver</code>. Our <code>serves</code> method might look something like this:</p>
+<pre><code>/**
+ * Determine if the driver serves the request.
+ *
+ * @param  string  $sitePath
+ * @param  string  $siteName
+ * @param  string  $uri
+ * @return bool
+ */
+public function serves($sitePath, $siteName, $uri)
+{
+    return is_dir($sitePath.'/wp-admin');
+}</code></pre>
+<h4>The <code>isStaticFile</code> Method</h4>
+<p>The <code>isStaticFile</code> should determine if the incoming request is for a file that is &quot;static&quot;, such as an image or a stylesheet. If the file is static, the method should return the fully qualified path to the static file on disk. If the incoming request is not for a static file, the method should return <code>false</code>:</p>
+<pre><code>/**
+ * Determine if the incoming request is for a static file.
+ *
+ * @param  string  $sitePath
+ * @param  string  $siteName
+ * @param  string  $uri
+ * @return string|false
+ */
+public function isStaticFile($sitePath, $siteName, $uri)
+{
+    if (file_exists($staticFilePath = $sitePath.'/public/'.$uri)) {
+        return $staticFilePath;
+    }
+
+    return false;
+}</code></pre>
+<blockquote>
+<p>{note} The <code>isStaticFile</code> method will only be called if the <code>serves</code> method returns <code>true</code> for the incoming request and the request URI is not <code>/</code>.</p>
+</blockquote>
+<h4>The <code>frontControllerPath</code> Method</h4>
+<p>The <code>frontControllerPath</code> method should return the fully qualified path to your application's &quot;front controller&quot;, which is typically your &quot;index.php&quot; file or equivalent:</p>
+<pre><code>/**
+ * Get the fully resolved path to the application's front controller.
+ *
+ * @param  string  $sitePath
+ * @param  string  $siteName
+ * @param  string  $uri
+ * @return string
+ */
+public function frontControllerPath($sitePath, $siteName, $uri)
+{
+    return $sitePath.'/public/index.php';
+}</code></pre>
+<p><a name="local-drivers"></a></p>
+<h3 id="local-drivers">Local Drivers</h3>
+<p>If you would like to define a custom Valet driver for a single application, create a <code>LocalValetDriver.php</code> in the application's root directory. Your custom driver may extend the base <code>ValetDriver</code> class or extend an existing application specific driver such as the <code>LaravelValetDriver</code>:</p>
+<pre><code>class LocalValetDriver extends LaravelValetDriver
+{
+    /**
+     * Determine if the driver serves the request.
+     *
+     * @param  string  $sitePath
+     * @param  string  $siteName
+     * @param  string  $uri
+     * @return bool
+     */
+    public function serves($sitePath, $siteName, $uri)
+    {
+        return true;
+    }
+
+    /**
+     * Get the fully resolved path to the application's front controller.
+     *
+     * @param  string  $sitePath
+     * @param  string  $siteName
+     * @param  string  $uri
+     * @return string
+     */
+    public function frontControllerPath($sitePath, $siteName, $uri)
+    {
+        return $sitePath.'/public_html/index.php';
+    }
+}</code></pre>
+<p><a name="other-valet-commands"></a></p>
+<h2 id="other-valet-commands">Other Valet Commands</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>valet forget</code></td>
+<td>Run this command from a &quot;parked&quot; directory to remove it from the parked directory list.</td>
+</tr>
+<tr>
+<td><code>valet log</code></td>
+<td>View a list of logs which are written by Valet's services.</td>
+</tr>
+<tr>
+<td><code>valet paths</code></td>
+<td>View all of your &quot;parked&quot; paths.</td>
+</tr>
+<tr>
+<td><code>valet restart</code></td>
+<td>Restart the Valet daemon.</td>
+</tr>
+<tr>
+<td><code>valet start</code></td>
+<td>Start the Valet daemon.</td>
+</tr>
+<tr>
+<td><code>valet stop</code></td>
+<td>Stop the Valet daemon.</td>
+</tr>
+<tr>
+<td><code>valet trust</code></td>
+<td>Add sudoers files for Brew and Valet to allow Valet commands to be run without prompting for passwords.</td>
+</tr>
+<tr>
+<td><code>valet uninstall</code></td>
+<td>Uninstall Valet: Shows instructions for manual uninstall; or pass the <code>--force</code> parameter to aggressively delete all of Valet.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="valet-directories-and-files"></a></p>
+<h2 id="valet-directories-and-files">Valet Directories &amp; Files</h2>
+<p>You may find the following directory and file information helpful while troubleshooting issues with your Valet environment:</p>
+<table>
+<thead>
+<tr>
+<th>File / Path</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/.config/valet/</code></td>
+<td>Contains all of Valet's configuration. You may wish to maintain a backup of this folder.</td>
+</tr>
+<tr>
+<td><code>~/.config/valet/dnsmasq.d/</code></td>
+<td>Contains DNSMasq's configuration.</td>
+</tr>
+<tr>
+<td><code>~/.config/valet/Drivers/</code></td>
+<td>Contains custom Valet drivers.</td>
+</tr>
+<tr>
+<td><code>~/.config/valet/Extensions/</code></td>
+<td>Contains custom Valet extensions / commands.</td>
+</tr>
+<tr>
+<td><code>~/.config/valet/Nginx/</code></td>
+<td>Contains all Valet generated Nginx site configurations. These files are rebuilt when running the <code>install</code>, <code>secure</code>, and <code>tld</code> commands.</td>
+</tr>
+<tr>
+<td><code>~/.config/valet/Sites/</code></td>
+<td>Contains all symbolic links for linked projects.</td>
+</tr>
+<tr>
+<td><code>~/.config/valet/config.json</code></td>
+<td>Valet's master configuration file</td>
+</tr>
+<tr>
+<td><code>~/.config/valet/valet.sock</code></td>
+<td>The PHP-FPM socket used by Valet's Nginx configuration. This will only exist if PHP is running properly.</td>
+</tr>
+<tr>
+<td><code>~/.config/valet/Log/fpm-php.www.log</code></td>
+<td>User log for PHP errors.</td>
+</tr>
+<tr>
+<td><code>~/.config/valet/Log/nginx-error.log</code></td>
+<td>User log for Nginx errors.</td>
+</tr>
+<tr>
+<td><code>/usr/local/var/log/php-fpm.log</code></td>
+<td>System log for PHP-FPM errors.</td>
+</tr>
+<tr>
+<td><code>/usr/local/var/log/nginx</code></td>
+<td>Contains Nginx access and error logs.</td>
+</tr>
+<tr>
+<td><code>/usr/local/etc/php/X.X/conf.d</code></td>
+<td>Contains <code>*.ini</code> files for various PHP configuration settings.</td>
+</tr>
+<tr>
+<td><code>/usr/local/etc/php/X.X/php-fpm.d/valet-fpm.conf</code></td>
+<td>PHP-FPM pool configuration file.</td>
+</tr>
+<tr>
+<td><code>~/.composer/vendor/laravel/valet/cli/stubs/secure.valet.conf</code></td>
+<td>The default Nginx configuration used for building site certificates.</td>
+</tr>
+</tbody>
+</table>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/valet by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:08 GMT -->
+</html>

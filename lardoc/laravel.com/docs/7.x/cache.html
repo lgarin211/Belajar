@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/cache by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Cache - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="cache.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/cache">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/cache">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/cache">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/cache">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/cache">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/cache">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/cache">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/cache">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/cache">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/cache">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/cache">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/cache">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/cache">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Cache</h1>
+<ul>
+<li><a href="#configuration">Configuration</a>
+<ul>
+<li><a href="#driver-prerequisites">Driver Prerequisites</a></li>
+</ul></li>
+<li><a href="#cache-usage">Cache Usage</a>
+<ul>
+<li><a href="#obtaining-a-cache-instance">Obtaining A Cache Instance</a></li>
+<li><a href="#retrieving-items-from-the-cache">Retrieving Items From The Cache</a></li>
+<li><a href="#storing-items-in-the-cache">Storing Items In The Cache</a></li>
+<li><a href="#removing-items-from-the-cache">Removing Items From The Cache</a></li>
+<li><a href="#the-cache-helper">The Cache Helper</a></li>
+</ul></li>
+<li><a href="#cache-tags">Cache Tags</a>
+<ul>
+<li><a href="#storing-tagged-cache-items">Storing Tagged Cache Items</a></li>
+<li><a href="#accessing-tagged-cache-items">Accessing Tagged Cache Items</a></li>
+<li><a href="#removing-tagged-cache-items">Removing Tagged Cache Items</a></li>
+</ul></li>
+<li><a href="#atomic-locks">Atomic Locks</a>
+<ul>
+<li><a href="#lock-driver-prerequisites">Driver Prerequisites</a></li>
+<li><a href="#managing-locks">Managing Locks</a></li>
+<li><a href="#managing-locks-across-processes">Managing Locks Across Processes</a></li>
+</ul></li>
+<li><a href="#adding-custom-cache-drivers">Adding Custom Cache Drivers</a>
+<ul>
+<li><a href="#writing-the-driver">Writing The Driver</a></li>
+<li><a href="#registering-the-driver">Registering The Driver</a></li>
+</ul></li>
+<li><a href="#events">Events</a></li>
+</ul>
+<p><a name="configuration"></a></p>
+<h2 id="configuration">Configuration</h2>
+<p>Laravel provides an expressive, unified API for various caching backends. The cache configuration is located at <code>config/cache.php</code>. In this file you may specify which cache driver you would like to be used by default throughout your application. Laravel supports popular caching backends like <a href="https://memcached.org/">Memcached</a> and <a href="https://redis.io/">Redis</a> out of the box.</p>
+<p>The cache configuration file also contains various other options, which are documented within the file, so make sure to read over these options. By default, Laravel is configured to use the <code>file</code> cache driver, which stores the serialized, cached objects in the filesystem. For larger applications, it is recommended that you use a more robust driver such as Memcached or Redis. You may even configure multiple cache configurations for the same driver.</p>
+<p><a name="driver-prerequisites"></a></p>
+<h3 id="driver-prerequisites">Driver Prerequisites</h3>
+<h4>Database</h4>
+<p>When using the <code>database</code> cache driver, you will need to setup a table to contain the cache items. You'll find an example <code>Schema</code> declaration for the table below:</p>
+<pre><code>Schema::create('cache', function ($table) {
+    $table-&gt;string('key')-&gt;unique();
+    $table-&gt;text('value');
+    $table-&gt;integer('expiration');
+});</code></pre>
+<blockquote>
+<p>{tip} You may also use the <code>php artisan cache:table</code> Artisan command to generate a migration with the proper schema.</p>
+</blockquote>
+<h4>Memcached</h4>
+<p>Using the Memcached driver requires the <a href="https://pecl.php.net/package/memcached">Memcached PECL package</a> to be installed. You may list all of your Memcached servers in the <code>config/cache.php</code> configuration file:</p>
+<pre><code>'memcached' =&gt; [
+    [
+        'host' =&gt; '127.0.0.1',
+        'port' =&gt; 11211,
+        'weight' =&gt; 100
+    ],
+],</code></pre>
+<p>You may also set the <code>host</code> option to a UNIX socket path. If you do this, the <code>port</code> option should be set to <code>0</code>:</p>
+<pre><code>'memcached' =&gt; [
+    [
+        'host' =&gt; '/var/run/memcached/memcached.sock',
+        'port' =&gt; 0,
+        'weight' =&gt; 100
+    ],
+],</code></pre>
+<h4>Redis</h4>
+<p>Before using a Redis cache with Laravel, you will need to either install the PhpRedis PHP extension via PECL or install the <code>predis/predis</code> package (~1.0) via Composer.</p>
+<p>For more information on configuring Redis, consult its <a href="redis.html#configuration">Laravel documentation page</a>.</p>
+<p><a name="cache-usage"></a></p>
+<h2 id="cache-usage">Cache Usage</h2>
+<p><a name="obtaining-a-cache-instance"></a></p>
+<h3 id="obtaining-a-cache-instance">Obtaining A Cache Instance</h3>
+<p>The <code>Illuminate\Contracts\Cache\Factory</code> and <code>Illuminate\Contracts\Cache\Repository</code> <a href="contracts.html">contracts</a> provide access to Laravel's cache services. The <code>Factory</code> contract provides access to all cache drivers defined for your application. The <code>Repository</code> contract is typically an implementation of the default cache driver for your application as specified by your <code>cache</code> configuration file.</p>
+<p>However, you may also use the <code>Cache</code> facade, which is what we will use throughout this documentation. The <code>Cache</code> facade provides convenient, terse access to the underlying implementations of the Laravel cache contracts:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Cache;
+
+class UserController extends Controller
+{
+    /**
+     * Show a list of all users of the application.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $value = Cache::get('key');
+
+        //
+    }
+}</code></pre>
+<h4>Accessing Multiple Cache Stores</h4>
+<p>Using the <code>Cache</code> facade, you may access various cache stores via the <code>store</code> method. The key passed to the <code>store</code> method should correspond to one of the stores listed in the <code>stores</code> configuration array in your <code>cache</code> configuration file:</p>
+<pre><code>$value = Cache::store('file')-&gt;get('foo');
+
+Cache::store('redis')-&gt;put('bar', 'baz', 600); // 10 Minutes</code></pre>
+<p><a name="retrieving-items-from-the-cache"></a></p>
+<h3 id="retrieving-items-from-the-cache">Retrieving Items From The Cache</h3>
+<p>The <code>get</code> method on the <code>Cache</code> facade is used to retrieve items from the cache. If the item does not exist in the cache, <code>null</code> will be returned. If you wish, you may pass a second argument to the <code>get</code> method specifying the default value you wish to be returned if the item doesn't exist:</p>
+<pre><code>$value = Cache::get('key');
+
+$value = Cache::get('key', 'default');</code></pre>
+<p>You may even pass a <code>Closure</code> as the default value. The result of the <code>Closure</code> will be returned if the specified item does not exist in the cache. Passing a Closure allows you to defer the retrieval of default values from a database or other external service:</p>
+<pre><code>$value = Cache::get('key', function () {
+    return DB::table(...)-&gt;get();
+});</code></pre>
+<h4>Checking For Item Existence</h4>
+<p>The <code>has</code> method may be used to determine if an item exists in the cache. This method will return <code>false</code> if the value is <code>null</code>:</p>
+<pre><code>if (Cache::has('key')) {
+    //
+}</code></pre>
+<h4>Incrementing / Decrementing Values</h4>
+<p>The <code>increment</code> and <code>decrement</code> methods may be used to adjust the value of integer items in the cache. Both of these methods accept an optional second argument indicating the amount by which to increment or decrement the item's value:</p>
+<pre><code>Cache::increment('key');
+Cache::increment('key', $amount);
+Cache::decrement('key');
+Cache::decrement('key', $amount);</code></pre>
+<h4>Retrieve &amp; Store</h4>
+<p>Sometimes you may wish to retrieve an item from the cache, but also store a default value if the requested item doesn't exist. For example, you may wish to retrieve all users from the cache or, if they don't exist, retrieve them from the database and add them to the cache. You may do this using the <code>Cache::remember</code> method:</p>
+<pre><code>$value = Cache::remember('users', $seconds, function () {
+    return DB::table('users')-&gt;get();
+});</code></pre>
+<p>If the item does not exist in the cache, the <code>Closure</code> passed to the <code>remember</code> method will be executed and its result will be placed in the cache.</p>
+<p>You may use the <code>rememberForever</code> method to retrieve an item from the cache or store it forever:</p>
+<pre><code>$value = Cache::rememberForever('users', function () {
+    return DB::table('users')-&gt;get();
+});</code></pre>
+<h4>Retrieve &amp; Delete</h4>
+<p>If you need to retrieve an item from the cache and then delete the item, you may use the <code>pull</code> method. Like the <code>get</code> method, <code>null</code> will be returned if the item does not exist in the cache:</p>
+<pre><code>$value = Cache::pull('key');</code></pre>
+<p><a name="storing-items-in-the-cache"></a></p>
+<h3 id="storing-items-in-the-cache">Storing Items In The Cache</h3>
+<p>You may use the <code>put</code> method on the <code>Cache</code> facade to store items in the cache:</p>
+<pre><code>Cache::put('key', 'value', $seconds);</code></pre>
+<p>If the storage time is not passed to the <code>put</code> method, the item will be stored indefinitely:</p>
+<pre><code>Cache::put('key', 'value');</code></pre>
+<p>Instead of passing the number of seconds as an integer, you may also pass a <code>DateTime</code> instance representing the expiration time of the cached item:</p>
+<pre><code>Cache::put('key', 'value', now()-&gt;addMinutes(10));</code></pre>
+<h4>Store If Not Present</h4>
+<p>The <code>add</code> method will only add the item to the cache if it does not already exist in the cache store. The method will return <code>true</code> if the item is actually added to the cache. Otherwise, the method will return <code>false</code>:</p>
+<pre><code>Cache::add('key', 'value', $seconds);</code></pre>
+<h4>Storing Items Forever</h4>
+<p>The <code>forever</code> method may be used to store an item in the cache permanently. Since these items will not expire, they must be manually removed from the cache using the <code>forget</code> method:</p>
+<pre><code>Cache::forever('key', 'value');</code></pre>
+<blockquote>
+<p>{tip} If you are using the Memcached driver, items that are stored &quot;forever&quot; may be removed when the cache reaches its size limit.</p>
+</blockquote>
+<p><a name="removing-items-from-the-cache"></a></p>
+<h3 id="removing-items-from-the-cache">Removing Items From The Cache</h3>
+<p>You may remove items from the cache using the <code>forget</code> method:</p>
+<pre><code>Cache::forget('key');</code></pre>
+<p>You may also remove items by providing a zero or negative TTL:</p>
+<pre><code>Cache::put('key', 'value', 0);
+
+Cache::put('key', 'value', -5);</code></pre>
+<p>You may clear the entire cache using the <code>flush</code> method:</p>
+<pre><code>Cache::flush();</code></pre>
+<blockquote>
+<p>{note} Flushing the cache does not respect the cache prefix and will remove all entries from the cache. Consider this carefully when clearing a cache which is shared by other applications.</p>
+</blockquote>
+<p><a name="the-cache-helper"></a></p>
+<h3 id="the-cache-helper">The Cache Helper</h3>
+<p>In addition to using the <code>Cache</code> facade or <a href="contracts.html">cache contract</a>, you may also use the global <code>cache</code> function to retrieve and store data via the cache. When the <code>cache</code> function is called with a single, string argument, it will return the value of the given key:</p>
+<pre><code>$value = cache('key');</code></pre>
+<p>If you provide an array of key / value pairs and an expiration time to the function, it will store values in the cache for the specified duration:</p>
+<pre><code>cache(['key' =&gt; 'value'], $seconds);
+
+cache(['key' =&gt; 'value'], now()-&gt;addMinutes(10));</code></pre>
+<p>When the <code>cache</code> function is called without any arguments, it returns an instance of the <code>Illuminate\Contracts\Cache\Factory</code> implementation, allowing you to call other caching methods:</p>
+<pre><code>cache()-&gt;remember('users', $seconds, function () {
+    return DB::table('users')-&gt;get();
+});</code></pre>
+<blockquote>
+<p>{tip} When testing call to the global <code>cache</code> function, you may use the <code>Cache::shouldReceive</code> method just as if you were <a href="mocking.html#mocking-facades">testing a facade</a>.</p>
+</blockquote>
+<p><a name="cache-tags"></a></p>
+<h2 id="cache-tags">Cache Tags</h2>
+<blockquote>
+<p>{note} Cache tags are not supported when using the <code>file</code>, <code>dynamodb</code>, or <code>database</code> cache drivers. Furthermore, when using multiple tags with caches that are stored &quot;forever&quot;, performance will be best with a driver such as <code>memcached</code>, which automatically purges stale records.</p>
+</blockquote>
+<p><a name="storing-tagged-cache-items"></a></p>
+<h3 id="storing-tagged-cache-items">Storing Tagged Cache Items</h3>
+<p>Cache tags allow you to tag related items in the cache and then flush all cached values that have been assigned a given tag. You may access a tagged cache by passing in an ordered array of tag names. For example, let's access a tagged cache and <code>put</code> value in the cache:</p>
+<pre><code>Cache::tags(['people', 'artists'])-&gt;put('John', $john, $seconds);
+
+Cache::tags(['people', 'authors'])-&gt;put('Anne', $anne, $seconds);</code></pre>
+<p><a name="accessing-tagged-cache-items"></a></p>
+<h3 id="accessing-tagged-cache-items">Accessing Tagged Cache Items</h3>
+<p>To retrieve a tagged cache item, pass the same ordered list of tags to the <code>tags</code> method and then call the <code>get</code> method with the key you wish to retrieve:</p>
+<pre><code>$john = Cache::tags(['people', 'artists'])-&gt;get('John');
+
+$anne = Cache::tags(['people', 'authors'])-&gt;get('Anne');</code></pre>
+<p><a name="removing-tagged-cache-items"></a></p>
+<h3 id="removing-tagged-cache-items">Removing Tagged Cache Items</h3>
+<p>You may flush all items that are assigned a tag or list of tags. For example, this statement would remove all caches tagged with either <code>people</code>, <code>authors</code>, or both. So, both <code>Anne</code> and <code>John</code> would be removed from the cache:</p>
+<pre><code>Cache::tags(['people', 'authors'])-&gt;flush();</code></pre>
+<p>In contrast, this statement would remove only caches tagged with <code>authors</code>, so <code>Anne</code> would be removed, but not <code>John</code>:</p>
+<pre><code>Cache::tags('authors')-&gt;flush();</code></pre>
+<p><a name="atomic-locks"></a></p>
+<h2 id="atomic-locks">Atomic Locks</h2>
+<blockquote>
+<p>{note} To utilize this feature, your application must be using the <code>memcached</code>, <code>dynamodb</code>, <code>redis</code>, <code>database</code>, or <code>array</code> cache driver as your application's default cache driver. In addition, all servers must be communicating with the same central cache server.</p>
+</blockquote>
+<p><a name="lock-driver-prerequisites"></a></p>
+<h3 id="lock-driver-prerequisites">Driver Prerequisites</h3>
+<h4>Database</h4>
+<p>When using the <code>database</code> cache driver, you will need to setup a table to contain the cache locks. You'll find an example <code>Schema</code> declaration for the table below:</p>
+<pre><code>Schema::create('cache_locks', function ($table) {
+    $table-&gt;string('key')-&gt;primary();
+    $table-&gt;string('owner');
+    $table-&gt;integer('expiration');
+});</code></pre>
+<p><a name="managing-locks"></a></p>
+<h3 id="managing-locks">Managing Locks</h3>
+<p>Atomic locks allow for the manipulation of distributed locks without worrying about race conditions. For example, <a href="https://forge.laravel.com/">Laravel Forge</a> uses atomic locks to ensure that only one remote task is being executed on a server at a time. You may create and manage locks using the <code>Cache::lock</code> method:</p>
+<pre><code>use Illuminate\Support\Facades\Cache;
+
+$lock = Cache::lock('foo', 10);
+
+if ($lock-&gt;get()) {
+    // Lock acquired for 10 seconds...
+
+    $lock-&gt;release();
+}</code></pre>
+<p>The <code>get</code> method also accepts a Closure. After the Closure is executed, Laravel will automatically release the lock:</p>
+<pre><code>Cache::lock('foo')-&gt;get(function () {
+    // Lock acquired indefinitely and automatically released...
+});</code></pre>
+<p>If the lock is not available at the moment you request it, you may instruct Laravel to wait for a specified number of seconds. If the lock can not be acquired within the specified time limit, an <code>Illuminate\Contracts\Cache\LockTimeoutException</code> will be thrown:</p>
+<pre><code>use Illuminate\Contracts\Cache\LockTimeoutException;
+
+$lock = Cache::lock('foo', 10);
+
+try {
+    $lock-&gt;block(5);
+
+    // Lock acquired after waiting maximum of 5 seconds...
+} catch (LockTimeoutException $e) {
+    // Unable to acquire lock...
+} finally {
+    optional($lock)-&gt;release();
+}
+
+Cache::lock('foo', 10)-&gt;block(5, function () {
+    // Lock acquired after waiting maximum of 5 seconds...
+});</code></pre>
+<p><a name="managing-locks-across-processes"></a></p>
+<h3 id="managing-locks-across-processes">Managing Locks Across Processes</h3>
+<p>Sometimes, you may wish to acquire a lock in one process and release it in another process. For example, you may acquire a lock during a web request and wish to release the lock at the end of a queued job that is triggered by that request. In this scenario, you should pass the lock's scoped &quot;owner token&quot; to the queued job so that the job can re-instantiate the lock using the given token:</p>
+<pre><code>// Within Controller...
+$podcast = Podcast::find($id);
+
+$lock = Cache::lock('foo', 120);
+
+if ($result = $lock-&gt;get()) {
+    ProcessPodcast::dispatch($podcast, $lock-&gt;owner());
+}
+
+// Within ProcessPodcast Job...
+Cache::restoreLock('foo', $this-&gt;owner)-&gt;release();</code></pre>
+<p>If you would like to release a lock without respecting its current owner, you may use the <code>forceRelease</code> method:</p>
+<pre><code>Cache::lock('foo')-&gt;forceRelease();</code></pre>
+<p><a name="adding-custom-cache-drivers"></a></p>
+<h2 id="adding-custom-cache-drivers">Adding Custom Cache Drivers</h2>
+<p><a name="writing-the-driver"></a></p>
+<h3 id="writing-the-driver">Writing The Driver</h3>
+<p>To create our custom cache driver, we first need to implement the <code>Illuminate\Contracts\Cache\Store</code> <a href="contracts.html">contract</a>. So, a MongoDB cache implementation would look something like this:</p>
+<pre><code>&lt;?php
+
+namespace App\Extensions;
+
+use Illuminate\Contracts\Cache\Store;
+
+class MongoStore implements Store
+{
+    public function get($key) {}
+    public function many(array $keys) {}
+    public function put($key, $value, $seconds) {}
+    public function putMany(array $values, $seconds) {}
+    public function increment($key, $value = 1) {}
+    public function decrement($key, $value = 1) {}
+    public function forever($key, $value) {}
+    public function forget($key) {}
+    public function flush() {}
+    public function getPrefix() {}
+}</code></pre>
+<p>We just need to implement each of these methods using a MongoDB connection. For an example of how to implement each of these methods, take a look at the <code>Illuminate\Cache\MemcachedStore</code> in the framework source code. Once our implementation is complete, we can finish our custom driver registration.</p>
+<pre><code>Cache::extend('mongo', function ($app) {
+    return Cache::repository(new MongoStore);
+});</code></pre>
+<blockquote>
+<p>{tip} If you're wondering where to put your custom cache driver code, you could create an <code>Extensions</code> namespace within your <code>app</code> directory. However, keep in mind that Laravel does not have a rigid application structure and you are free to organize your application according to your preferences.</p>
+</blockquote>
+<p><a name="registering-the-driver"></a></p>
+<h3 id="registering-the-driver">Registering The Driver</h3>
+<p>To register the custom cache driver with Laravel, we will use the <code>extend</code> method on the <code>Cache</code> facade. The call to <code>Cache::extend</code> could be done in the <code>boot</code> method of the default <code>App\Providers\AppServiceProvider</code> that ships with fresh Laravel applications, or you may create your own service provider to house the extension - just don't forget to register the provider in the <code>config/app.php</code> provider array:</p>
+<pre><code>&lt;?php
+
+namespace App\Providers;
+
+use App\Extensions\MongoStore;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\ServiceProvider;
+
+class CacheServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Cache::extend('mongo', function ($app) {
+            return Cache::repository(new MongoStore);
+        });
+    }
+}</code></pre>
+<p>The first argument passed to the <code>extend</code> method is the name of the driver. This will correspond to your <code>driver</code> option in the <code>config/cache.php</code> configuration file. The second argument is a Closure that should return an <code>Illuminate\Cache\Repository</code> instance. The Closure will be passed an <code>$app</code> instance, which is an instance of the <a href="container.html">service container</a>.</p>
+<p>Once your extension is registered, update your <code>config/cache.php</code> configuration file's <code>driver</code> option to the name of your extension.</p>
+<p><a name="events"></a></p>
+<h2 id="events">Events</h2>
+<p>To execute code on every cache operation, you may listen for the <a href="events.html">events</a> fired by the cache. Typically, you should place these event listeners within your <code>EventServiceProvider</code>:</p>
+<pre><code>/**
+ * The event listener mappings for the application.
+ *
+ * @var array
+ */
+protected $listen = [
+    'Illuminate\Cache\Events\CacheHit' =&gt; [
+        'App\Listeners\LogCacheHit',
+    ],
+
+    'Illuminate\Cache\Events\CacheMissed' =&gt; [
+        'App\Listeners\LogCacheMissed',
+    ],
+
+    'Illuminate\Cache\Events\KeyForgotten' =&gt; [
+        'App\Listeners\LogKeyForgotten',
+    ],
+
+    'Illuminate\Cache\Events\KeyWritten' =&gt; [
+        'App\Listeners\LogKeyWritten',
+    ],
+];</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/cache by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:10 GMT -->
+</html>

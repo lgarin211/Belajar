@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/cashier-paddle by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Laravel Cashier Paddle - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="cashier-paddle.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/cashier-paddle">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/cashier-paddle">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/cashier-paddle">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/cashier-paddle">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/cashier-paddle">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/cashier-paddle">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/cashier-paddle">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/cashier-paddle">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/cashier-paddle">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/cashier-paddle">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/cashier-paddle">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/cashier-paddle">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/cashier-paddle">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Laravel Cashier Paddle</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#upgrading-cashier">Upgrading Cashier</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#configuration">Configuration</a>
+<ul>
+<li><a href="#billable-model">Billable Model</a></li>
+<li><a href="#api-keys">API Keys</a></li>
+<li><a href="#paddle-js">Paddle JS</a></li>
+<li><a href="#currency-configuration">Currency Configuration</a></li>
+</ul></li>
+<li><a href="#core-concepts">Core Concepts</a>
+<ul>
+<li><a href="#pay-links">Pay Links</a></li>
+<li><a href="#inline-checkout">Inline Checkout</a></li>
+<li><a href="#user-identification">User Identification</a></li>
+</ul></li>
+<li><a href="#prices">Prices</a></li>
+<li><a href="#customers">Customers</a>
+<ul>
+<li><a href="#retrieving-customers">Retrieving Customers</a></li>
+<li><a href="#customer-defaults">Customer Defaults</a></li>
+</ul></li>
+<li><a href="#subscriptions">Subscriptions</a>
+<ul>
+<li><a href="#creating-subscriptions">Creating Subscriptions</a></li>
+<li><a href="#checking-subscription-status">Checking Subscription Status</a></li>
+<li><a href="#subscription-single-charges">Subscription Single Charges</a></li>
+<li><a href="#updating-payment-information">Updating Payment Information</a></li>
+<li><a href="#changing-plans">Changing Plans</a></li>
+<li><a href="#subscription-quantity">Subscription Quantity</a></li>
+<li><a href="#pausing-subscriptions">Pausing Subscriptions</a></li>
+<li><a href="#cancelling-subscriptions">Cancelling Subscriptions</a></li>
+</ul></li>
+<li><a href="#subscription-trials">Subscription Trials</a>
+<ul>
+<li><a href="#with-payment-method-up-front">With Payment Method Up Front</a></li>
+<li><a href="#without-payment-method-up-front">Without Payment Method Up Front</a></li>
+<li><a href="#extending-trials">Extending Trials</a></li>
+</ul></li>
+<li><a href="#handling-paddle-webhooks">Handling Paddle Webhooks</a>
+<ul>
+<li><a href="#defining-webhook-event-handlers">Defining Webhook Event Handlers</a></li>
+<li><a href="#handling-failed-subscriptions">Failed Subscriptions</a></li>
+<li><a href="#verifying-webhook-signatures">Verifying Webhook Signatures</a></li>
+</ul></li>
+<li><a href="#single-charges">Single Charges</a>
+<ul>
+<li><a href="#simple-charge">Simple Charge</a></li>
+<li><a href="#charging-products">Charging Products</a></li>
+<li><a href="#refunding-orders">Refunding Orders</a></li>
+</ul></li>
+<li><a href="#transactions">Transactions</a>
+<ul>
+<li><a href="#past-and-upcoming-payments">Past &amp; Upcoming Payments</a></li>
+</ul></li>
+<li><a href="#testing">Testing</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<blockquote>
+<p>{note} Cashier Paddle is currently in beta. During the beta period things can and probably will change. Don't use Cashier Paddle in production until a stable version has been released. We appreciate your help with testing and reporting any bugs.</p>
+</blockquote>
+<p>Laravel Cashier Paddle provides an expressive, fluent interface to <a href="https://paddle.com/">Paddle's</a> subscription billing services. It handles almost all of the boilerplate subscription billing code you are dreading. In addition to basic subscription management, Cashier can handle: coupons, swapping subscription, subscription &quot;quantities&quot;, cancellation grace periods, and more.</p>
+<p>While working with Cashier we recommend you also refer to Paddle's <a href="https://developer.paddle.com/guides">user guides</a> and <a href="https://developer.paddle.com/api-reference/intro">API documentation</a>.</p>
+<p><a name="upgrading-cashier"></a></p>
+<h2 id="upgrading-cashier">Upgrading Cashier</h2>
+<p>When upgrading to a new version of Cashier, it's important that you carefully review <a href="https://github.com/laravel/cashier-paddle/blob/master/UPGRADE.md">the upgrade guide</a>.</p>
+<p><a name="installation"></a></p>
+<h2 id="installation">Installation</h2>
+<p>First, require the Cashier package for Paddle with Composer:</p>
+<pre><code>composer require laravel/cashier-paddle</code></pre>
+<blockquote>
+<p>{note} To ensure Cashier properly handles all Paddle events, remember to <a href="#handling-paddle-webhooks">set up Cashier's webhook handling</a>.</p>
+</blockquote>
+<h4>Database Migrations</h4>
+<p>The Cashier service provider registers its own database migration directory, so remember to migrate your database after installing the package. The Cashier migrations will add several columns to your <code>users</code> table as well as create a new <code>subscriptions</code> table to hold all of your customer's subscriptions:</p>
+<pre><code>php artisan migrate</code></pre>
+<p>If you need to overwrite the migrations that ship with the Cashier package, you can publish them using the <code>vendor:publish</code> Artisan command:</p>
+<pre><code>php artisan vendor:publish --tag="cashier-migrations"</code></pre>
+<p>If you would like to prevent Cashier's migrations from running entirely, you may use the <code>ignoreMigrations</code> provided by Cashier. Typically, this method should be called in the <code>register</code> method of your <code>AppServiceProvider</code>:</p>
+<pre><code>use Laravel\Paddle\Cashier;
+
+Cashier::ignoreMigrations();</code></pre>
+<p><a name="configuration"></a></p>
+<h2 id="configuration">Configuration</h2>
+<p><a name="billable-model"></a></p>
+<h3 id="billable-model">Billable Model</h3>
+<p>Before using Cashier, you must add the <code>Billable</code> trait to your model definition. This trait provides various methods to allow you to perform common billing tasks, such as creating subscriptions, applying coupons and updating payment method information:</p>
+<pre><code>use Laravel\Paddle\Billable;
+
+class User extends Authenticatable
+{
+    use Billable;
+}</code></pre>
+<p>Cashier assumes your Billable model will be the <code>App\User</code> class that ships with Laravel. If you wish to change this you can specify a different model in your <code>.env</code> file:</p>
+<pre><code>CASHIER_MODEL=App\User</code></pre>
+<blockquote>
+<p>{note} If you're using a model other than Laravel's supplied <code>App\User</code> model, you'll need to publish and alter the <a href="#installation">migrations</a> provided to match your alternative model's table name.</p>
+</blockquote>
+<p><a name="api-keys"></a></p>
+<h3 id="api-keys">API Keys</h3>
+<p>Next, you should configure your Paddle keys in your <code>.env</code> file. You can retrieve your Paddle API keys from the Paddle control panel:</p>
+<pre><code>PADDLE_VENDOR_ID=your-paddle-vendor-id
+PADDLE_VENDOR_AUTH_CODE=your-paddle-vendor-auth-code
+PADDLE_PUBLIC_KEY="your-paddle-public-key"</code></pre>
+<p><a name="paddle-js"></a></p>
+<h3 id="paddle-js">Paddle JS</h3>
+<p>Paddle relies on its own JavaScript library to initiate the Paddle checkout widget. You can load the JavaScript library by placing the <code>@paddleJS</code> directive right before your application layout's closing <code>&lt;/head&gt;</code> tag:</p>
+<pre><code>&lt;head&gt;
+    ...
+
+    @paddleJS
+&lt;/head&gt;</code></pre>
+<p><a name="currency-configuration"></a></p>
+<h3 id="currency-configuration">Currency Configuration</h3>
+<p>The default Cashier currency is United States Dollars (USD). You can change the default currency by setting the <code>CASHIER_CURRENCY</code> environment variable:</p>
+<pre><code>CASHIER_CURRENCY=EUR</code></pre>
+<p>In addition to configuring Cashier's currency, you may also specify a locale to be used when formatting money values for display on invoices. Internally, Cashier utilizes <a href="https://www.php.net/manual/en/class.numberformatter.php">PHP's <code>NumberFormatter</code> class</a> to set the currency locale:</p>
+<pre><code>CASHIER_CURRENCY_LOCALE=nl_BE</code></pre>
+<blockquote>
+<p>{note} In order to use locales other than <code>en</code>, ensure the <code>ext-intl</code> PHP extension is installed and configured on your server.</p>
+</blockquote>
+<p><a name="core-concepts"></a></p>
+<h2 id="core-concepts">Core Concepts</h2>
+<p><a name="pay-links"></a></p>
+<h3 id="pay-links">Pay Links</h3>
+<p>Paddle lacks an extensive CRUD API to perform state changes. Therefore, most interactions with Paddle are done through <a href="https://developer.paddle.com/guides/how-tos/checkout/paddle-checkout">its checkout widget</a>. Before we can display the checkout widget, we will generate a &quot;pay link&quot; using Cashier:</p>
+<pre><code>$user = User::find(1);
+
+$payLink = $user-&gt;newSubscription('default', $premium = 34567)
+    -&gt;returnTo(route('home'))
+    -&gt;create();
+
+return view('billing', ['payLink' =&gt; $payLink]);</code></pre>
+<p>Cashier includes a <code>paddle-button</code> Blade component. We may pass the pay link URL to this component as a &quot;prop&quot;. When this button is clicked, Paddle's checkout widget will be displayed:</p>
+<pre><code>&lt;x-paddle-button :url="$payLink" class="px-8 py-4"&gt;
+    Subscribe
+&lt;/x-paddle-button&gt;</code></pre>
+<p>By default, this will display a button with the standard Paddle styling. You can remove all Paddle styling by adding the <code>data-theme="none"</code> attribute to the component:</p>
+<pre><code>&lt;x-paddle-button :url="$payLink" class="px-8 py-4" data-theme="none"&gt;
+    Subscribe
+&lt;/x-paddle-button&gt;</code></pre>
+<p>The Paddle checkout widget is asynchronous. Once the user creates or updates a subscription within the widget, Paddle will send our application webhooks so that we may properly update the subscription state in our own database. Therefore, it's important that you properly <a href="#handling-paddle-webhooks">set up webhooks</a> to accommodate for state changes from Paddle.</p>
+<p>After a subscription state change, the delay for receiving the corresponding webhook is typically minimal but you should account for this in your application by considering that your user's subscription might not be immediately available after completing the checkout.</p>
+<p>For more information, you may review <a href="https://developer.paddle.com/api-reference/product-api/pay-links/createpaylink">the Paddle API documentation on pay link generation</a>.</p>
+<p><a name="inline-checkout"></a></p>
+<h3 id="inline-checkout">Inline Checkout</h3>
+<p>If you don't want to make use of the &quot;overlay&quot; style checkout widget, Paddle also has an option to display the widget inline. While this approach does not allow you to adjust any of the checkout's HTML fields, it allows you to embed the widget within your application.</p>
+<p>To make it easy for you to get started with inline checkout, Cashier includes a <code>paddle-checkout</code> Blade component. To get started, you should <a href="#pay-links">generate a pay link</a> and pass the pay link to the component's <code>override</code> attribute:</p>
+<pre><code>&lt;x-paddle-checkout :override="$payLink" class="w-full" /&gt;</code></pre>
+<p>To adjust the height of the inline checkout component, you may pass the <code>height</code> attribute to the Blade component:</p>
+<pre><code>&lt;x-paddle-checkout :override="$payLink" class="w-full" height="500" /&gt;</code></pre>
+<h4>Inline Checkout Without Pay Links</h4>
+<p>Alternatively, you may customize the widget with custom options instead of using a pay link:</p>
+<pre><code>$options = [
+    'product' =&gt; $productId,
+    'title' =&gt; 'Product Title',
+];
+
+&lt;x-paddle-checkout :options="$options" class="w-full" /&gt;</code></pre>
+<p>Please consult Paddle's <a href="https://developer.paddle.com/guides/how-tos/checkout/inline-checkout">guide on Inline Checkout</a> as well as their <a href="https://developer.paddle.com/reference/paddle-js/parameters">Parameter Reference</a> for further details on available options.</p>
+<blockquote>
+<p>{note} If you would like to also use the <code>passthrough</code> option when specifying custom options, you should provide a key / value array since Cashier will automatically handle converting the array to a JSON string. In addition, the <code>customer_id</code> passthrough option is reserved for internal Cashier usage.</p>
+</blockquote>
+<p><a name="user-identification"></a></p>
+<h3 id="user-identification">User Identification</h3>
+<p>In contrast to Stripe, Paddle users are unique across the whole of Paddle, not unique per Paddle account. Because of this, Paddle's API's do not currently provide a method to update a user's details such as their email address. When generating pay links, Paddle identifies users using the <code>customer_email</code> parameter. When creating a subscription, Paddle will try to match the user provided email to an existing Paddle user.</p>
+<p>In light of this behavior, there are some important things to keep in mind when using Cashier and Paddle. First, when a new subscription is created we will save the <code>customer_email</code> value in the database in the user's <code>paddle_email</code> column. <strong>It is extremely important that you do not modify this value.</strong> Cashier will use the <code>paddle_email</code> value for every new subscription and <a href="#pay-links">pay link</a> to ensure all transactions are linked to the same customer within Paddle. Furthermore, this will ensure that you can assign multiple Paddle subscriptions to a single user using Cashier. A caveat of this is that any <a href="#customer-defaults">override of the <code>customerEmail</code> method</a> on a billable user won't work anymore after the initial subscription has been created.</p>
+<p>There is currently no way to modify a user's email address through the Paddle API. When a user wants to update their email address within Paddle, the only way for them to do so is to contact Paddle customer support. In addition, even if a customer does contact Paddle customer support to change their email, we will not know that the email address has been updated because Paddle does not provide a webhook to observe these changes. Therefore, to make sure everything stays in sync, we recommend that you should make customer email change requests to Paddle on their behalf so that you can update the email address in your database manually once Paddle has updated it within their system. When communicating with Paddle, you may wish to provide the <code>paddle_id</code> value of the user to assist Paddle in updating the correct user.</p>
+<p><a name="prices"></a></p>
+<h2 id="prices">Prices</h2>
+<p>Paddle allows you to customize prices per currency, essentially allowing you to configure different prices for different countries. Cashier Paddle allows you to retrieve all of the prices for a given product using the <code>productPrices</code> method:</p>
+<pre><code>use Laravel\Paddle\Cashier;
+
+// Retrieve prices for two products...
+$prices = Cashier::productPrices([123, 456]);</code></pre>
+<p>The currency will be determined based on the IP address of the request; however, you may optionally provide a specific country to retrieve prices for:</p>
+<pre><code>use Laravel\Paddle\Cashier;
+
+// Retrieve prices for two products...
+$prices = Cashier::productPrices([123, 456], ['customer_country' =&gt; 'BE']);</code></pre>
+<p>After retrieving the prices you may display them however you wish:</p>
+<pre><code>&lt;ul&gt;
+    @foreach ($prices as $price)
+        &lt;li&gt;{{ $price-&gt;product_title }} - {{ $price-&gt;price()-&gt;gross() }}&lt;/li&gt;
+    @endforeach
+&lt;/ul&gt;</code></pre>
+<p>You may also display the net price (excludes tax) and display the tax amount separately:</p>
+<pre><code>&lt;ul&gt;
+    @foreach ($prices as $price)
+        &lt;li&gt;{{ $price-&gt;product_title }} - {{ $price-&gt;price()-&gt;net() }} (+ {{ $price-&gt;price()-&gt;tax() }} tax)&lt;/li&gt;
+    @endforeach
+&lt;/ul&gt;</code></pre>
+<p>For more information, <a href="https://developer.paddle.com/api-reference/checkout-api/prices/getprices">check Paddle's API documentation on prices</a>.</p>
+<h4>Customers</h4>
+<p>If a user is already a customer and you would like to display the prices that apply to that customer, you may do so by retrieving the prices directly from the customer instance:</p>
+<pre><code>use App\User;
+
+// Retrieve prices for two products...
+$prices = User::productPrices([123, 456]);</code></pre>
+<p>Internally, Cashier will use the user's <a href="#customer-defaults"><code>paddleCountry</code> method</a> to retrieve the prices in their currency. So, for example, a user living in the United States will see prices in USD while a user in Belgium will see prices in EUR. If no matching currency can be found the default currency of the product will be used. You can customize all prices of a product or subscription plan in the Paddle control panel.</p>
+<h4>Coupons</h4>
+<p>You may also choose to display prices after a coupon reduction. When calling the <code>productPrices</code> method, coupons may be passed as a comma delimited string:</p>
+<pre><code>use Laravel\Paddle\Cashier;
+
+$prices = Cashier::productPrices([123, 456], ['coupons' =&gt; 'SUMMERSALE,20PERCENTOFF']);</code></pre>
+<p>Then, display the calculated prices using the <code>price</code> method:</p>
+<pre><code>&lt;ul&gt;
+    @foreach ($prices as $price)
+        &lt;li&gt;{{ $price-&gt;product_title }} - {{ $price-&gt;price()-&gt;gross() }}&lt;/li&gt;
+    @endforeach
+&lt;/ul&gt;</code></pre>
+<p>You may display the original listed prices (without coupon discounts) using the <code>listPrice</code> method:</p>
+<pre><code>&lt;ul&gt;
+    @foreach ($prices as $price)
+        &lt;li&gt;{{ $price-&gt;product_title }} - {{ $price-&gt;listPrice()-&gt;gross() }}&lt;/li&gt;
+    @endforeach
+&lt;/ul&gt;</code></pre>
+<p><a name="customers"></a></p>
+<h2 id="customers">Customers</h2>
+<p><a name="retrieving-customers"></a></p>
+<h3 id="retrieving-customers">Retrieving Customers</h3>
+<p>You can retrieve a customer by their Paddle user ID using the <code>Cashier::findBillable</code> method. This will return an instance of the Billable model:</p>
+<pre><code>use Laravel\Paddle\Cashier;
+
+$user = Cashier::findBillable($paddleId);</code></pre>
+<p><a name="customer-defaults"></a></p>
+<h3 id="customer-defaults">Customer Defaults</h3>
+<p>Cashier allows you to set some useful defaults for your customer when creating pay links. Setting these defaults allow you to pre-fill a customer's email address, country, and postcode so that they can immediately move on to the payment portion of the checkout widget. You can set these defaults by overriding the following methods on your billable user:</p>
+<pre><code>/**
+ * Get the customer's email address to associate with Paddle.
+ *
+ * @return string|null
+ */
+public function paddleEmail()
+{
+    return $this-&gt;email;
+}
+
+/**
+ * Get the customer's country to associate with Paddle.
+ *
+ * This needs to be a 2 letter code. See the link below for supported countries.
+ *
+ * @return string|null
+ * @link https://developer.paddle.com/reference/platform-parameters/supported-countries
+ */
+public function paddleCountry()
+{
+    //
+}
+
+/**
+ * Get the customer's postcode to associate with Paddle.
+ *
+ * See the link below for countries which require this.
+ *
+ * @return string|null
+ * @link https://developer.paddle.com/reference/platform-parameters/supported-countries#countries-requiring-postcode
+ */
+public function paddlePostcode()
+{
+    //
+}</code></pre>
+<p>These defaults will be used for every action in Cashier that generates a <a href="#pay-links">pay link</a>.</p>
+<p><a name="subscriptions"></a></p>
+<h2 id="subscriptions">Subscriptions</h2>
+<p><a name="creating-subscriptions"></a></p>
+<h3 id="creating-subscriptions">Creating Subscriptions</h3>
+<p>To create a subscription, first retrieve an instance of your billable model, which typically will be an instance of <code>App\User</code>. Once you have retrieved the model instance, you may use the <code>newSubscription</code> method to create the model's subscription pay link:</p>
+<pre><code>$user = User::find(1);
+
+$payLink = $user-&gt;newSubscription('default', 'premium')
+    -&gt;returnTo(route('home'))
+    -&gt;create();
+
+return view('billing', ['payLink' =&gt; $payLink]);</code></pre>
+<p>The first argument passed to the <code>newSubscription</code> method should be the name of the subscription. If your application only offers a single subscription, you might call this <code>default</code> or <code>primary</code>. The second argument is the specific plan the user is subscribing to. This value should correspond to the plan's identifier in Paddle. The <code>returnTo</code> method accepts a URL that your user will be redirected to after they successfully complete the checkout.</p>
+<p>The <code>create</code> method will create a pay link which you can use to generate a payment button. The payment button can be generated using the <code>paddle-button</code> Blade component that ships with Cashier Paddle:</p>
+<pre><code>&lt;x-paddle-button :url="$payLink" class="px-8 py-4"&gt;
+    Subscribe
+&lt;/x-paddle-button&gt;</code></pre>
+<p>After the user has finished their checkout, a <code>subscription_created</code> webhook will be dispatched from Paddle. Cashier will receive this webhook and setup the subscription for your customer. In order to make sure all webhooks are properly received and handled by your application, ensure you have properly <a href="#handling-paddle-webhooks">setup webhook handling</a>.</p>
+<h4>Additional Details</h4>
+<p>If you would like to specify additional customer or subscription details, you may do so by passing them as a key / value array to the <code>create</code> method:</p>
+<pre><code>$payLink = $user-&gt;newSubscription('default', $monthly = 12345)
+    -&gt;returnTo(route('home'))
+    -&gt;create([
+        'vat_number' =&gt; $vatNumber,
+    ]);</code></pre>
+<p>To learn more about the additional fields supported by Paddle, check out Paddle's documentation on <a href="https://developer.paddle.com/api-reference/product-api/pay-links/createpaylink">generating pay links</a>.</p>
+<h4>Coupons</h4>
+<p>If you would like to apply a coupon when creating the subscription, you may use the <code>withCoupon</code> method:</p>
+<pre><code>$payLink = $user-&gt;newSubscription('default', $monthly = 12345)
+    -&gt;returnTo(route('home'))
+    -&gt;withCoupon('code')
+    -&gt;create();</code></pre>
+<h4>Metadata</h4>
+<p>You can also pass an array of metadata using the <code>withMetadata</code> method:</p>
+<pre><code>$payLink = $user-&gt;newSubscription('default', $monthly = 12345)
+    -&gt;returnTo(route('home'))
+    -&gt;withMetadata(['key' =&gt; 'value'])
+    -&gt;create();</code></pre>
+<blockquote>
+<p>{note} When providing metadata, please avoid using <code>customer_id</code> and <code>subscription_name</code> as metadata keys. These keys are reserved for internal use by Cashier.</p>
+</blockquote>
+<p><a name="checking-subscription-status"></a></p>
+<h3 id="checking-subscription-status">Checking Subscription Status</h3>
+<p>Once a user is subscribed to your application, you may check their subscription status using a variety of convenient methods. First, the <code>subscribed</code> method returns <code>true</code> if the user has an active subscription, even if the subscription is currently within its trial period:</p>
+<pre><code>if ($user-&gt;subscribed('default')) {
+    //
+}</code></pre>
+<p>The <code>subscribed</code> method also makes a great candidate for a <a href="middleware.html">route middleware</a>, allowing you to filter access to routes and controllers based on the user's subscription status:</p>
+<pre><code>public function handle($request, Closure $next)
+{
+    if ($request-&gt;user() &amp;&amp; ! $request-&gt;user()-&gt;subscribed('default')) {
+        // This user is not a paying customer...
+        return redirect('billing');
+    }
+
+    return $next($request);
+}</code></pre>
+<p>If you would like to determine if a user is still within their trial period, you may use the <code>onTrial</code> method. This method can be useful for displaying a warning to the user that they are still on their trial period:</p>
+<pre><code>if ($user-&gt;subscription('default')-&gt;onTrial()) {
+    //
+}</code></pre>
+<p>The <code>subscribedToPlan</code> method may be used to determine if the user is subscribed to a given plan based on a given Paddle plan ID. In this example, we will determine if the user's <code>default</code> subscription is actively subscribed to the monthly plan:</p>
+<pre><code>if ($user-&gt;subscribedToPlan($monthly = 12345, 'default')) {
+    //
+}</code></pre>
+<p>By passing an array to the <code>subscribedToPlan</code> method, you may determine if the user's <code>default</code> subscription is actively subscribed to the monthly or the yearly plan:</p>
+<pre><code>if ($user-&gt;subscribedToPlan([$monthly = 12345, $yearly = 54321], 'default')) {
+    //
+}</code></pre>
+<p>The <code>recurring</code> method may be used to determine if the user is currently subscribed and is no longer within their trial period:</p>
+<pre><code>if ($user-&gt;subscription('default')-&gt;recurring()) {
+    //
+}</code></pre>
+<h4>Cancelled Subscription Status</h4>
+<p>To determine if the user was once an active subscriber, but has cancelled their subscription, you may use the <code>cancelled</code> method:</p>
+<pre><code>if ($user-&gt;subscription('default')-&gt;cancelled()) {
+    //
+}</code></pre>
+<p>You may also determine if a user has cancelled their subscription, but are still on their &quot;grace period&quot; until the subscription fully expires. For example, if a user cancels a subscription on March 5th that was originally scheduled to expire on March 10th, the user is on their &quot;grace period&quot; until March 10th. Note that the <code>subscribed</code> method still returns <code>true</code> during this time:</p>
+<pre><code>if ($user-&gt;subscription('default')-&gt;onGracePeriod()) {
+    //
+}</code></pre>
+<p>To determine if the user has cancelled their subscription and is no longer within their &quot;grace period&quot;, you may use the <code>ended</code> method:</p>
+<pre><code>if ($user-&gt;subscription('default')-&gt;ended()) {
+    //
+}</code></pre>
+<h4>Subscription Scopes</h4>
+<p>Most subscription states are also available as query scopes so that you may easily query your database for subscriptions that are in a given state:</p>
+<pre><code>// Get all active subscriptions...
+$subscriptions = Subscription::query()-&gt;active()-&gt;get();
+
+// Get all of the cancelled subscriptions for a user...
+$subscriptions = $user-&gt;subscriptions()-&gt;cancelled()-&gt;get();</code></pre>
+<p>A complete list of available scopes is available below:</p>
+<pre><code>Subscription::query()-&gt;active();
+Subscription::query()-&gt;onTrial();
+Subscription::query()-&gt;notOnTrial();
+Subscription::query()-&gt;pastDue();
+Subscription::query()-&gt;recurring();
+Subscription::query()-&gt;ended();
+Subscription::query()-&gt;paused();
+Subscription::query()-&gt;notPaused();
+Subscription::query()-&gt;onPausedGracePeriod();
+Subscription::query()-&gt;notOnPausedGracePeriod();
+Subscription::query()-&gt;cancelled();
+Subscription::query()-&gt;notCancelled();
+Subscription::query()-&gt;onGracePeriod();
+Subscription::query()-&gt;notOnGracePeriod();</code></pre>
+<p><a name="past-due-status"></a></p>
+<h4 id="past-due-status">Past Due Status</h4>
+<p>If a payment fails for a subscription, it will be marked as <code>past_due</code>. When your subscription is in this state it will not be active until the customer has updated their payment information. You may determine if a subscription is past due using the <code>pastDue</code> method on the subscription instance:</p>
+<pre><code>if ($user-&gt;subscription('default')-&gt;pastDue()) {
+    //
+}</code></pre>
+<p>When a subscription is past due, you should instruct the user to <a href="#updating-payment-information">update their payment information</a>. You may configure how past due subscriptions are handled in your <a href="https://vendors.paddle.com/subscription-settings">Paddle subscription settings</a>.</p>
+<p>If you would like subscriptions to still be considered active when they are <code>past_due</code>, you may use the <code>keepPastDueSubscriptionsActive</code> method provided by Cashier. Typically, this method should be called in the <code>register</code> method of your <code>AppServiceProvider</code>:</p>
+<pre><code>use Laravel\Paddle\Cashier;
+
+/**
+ * Register any application services.
+ *
+ * @return void
+ */
+public function register()
+{
+    Cashier::keepPastDueSubscriptionsActive();
+}</code></pre>
+<blockquote>
+<p>{note} When a subscription is in a <code>past_due</code> state it cannot be changed until payment information has been updated. Therefore, the <code>swap</code> and <code>updateQuantity</code> methods will throw an exception when the subscription is in a <code>past_due</code> state.</p>
+</blockquote>
+<p><a name="subscription-single-charges"></a></p>
+<h3 id="subscription-single-charges">Subscription Single Charges</h3>
+<p>Subscription single charges allow you to charge subscribers with a one-time charge on top of their subscriptions:</p>
+<pre><code>$response = $user-&gt;subscription('default')-&gt;charge(12.99, 'Support Add-on');</code></pre>
+<p>In contrast to <a href="#single-charges">single charges</a>, this method will immediately charge the customer's stored payment method for the subscription. The charge amount is always in the currency of which the subscription currently is set to.</p>
+<p><a name="updating-payment-information"></a></p>
+<h3 id="updating-payment-information">Updating Payment Information</h3>
+<p>Paddle always saves a payment method per subscription. If you want to update the default payment method for a subscription, you should first generate a subscription &quot;update URL&quot; using the <code>updateUrl</code> method on the subscription model:</p>
+<pre><code>$user = App\User::find(1);
+
+$updateUrl = $user-&gt;subscription('default')-&gt;updateUrl();</code></pre>
+<p>Then, you may use the generated URL in combination with Cashier's provided <code>paddle-button</code> Blade component to allow the user to initiate the Paddle widget and update their payment information:</p>
+<pre><code>&lt;x-paddle-button :url="$updateUrl" class="px-8 py-4"&gt;
+    Update Card
+&lt;/x-paddle-button&gt;</code></pre>
+<p>When a user has finished updating their information, a <code>subscription_updated</code> webhook will be dispatched by Paddle and the subscription details will be updated in your application's database.</p>
+<p><a name="changing-plans"></a></p>
+<h3 id="changing-plans">Changing Plans</h3>
+<p>After a user has subscribed to your application, they may occasionally want to change to a new subscription plan. To swap a user to a new subscription, you should pass the Paddle plan's identifier to the subscription's <code>swap</code> method:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;subscription('default')-&gt;swap($premium = 34567);</code></pre>
+<p>If the user is on trial, the trial period will be maintained. Also, if a &quot;quantity&quot; exists for the subscription, that quantity will also be maintained.</p>
+<p>If you would like to swap plans and cancel any trial period the user is currently on, you may use the <code>skipTrial</code> method:</p>
+<pre><code>$user-&gt;subscription('default')
+        -&gt;skipTrial()
+        -&gt;swap($premium = 34567);</code></pre>
+<p>If you would like to swap plans and immediately invoice the user instead of waiting for their next billing cycle, you may use the <code>swapAndInvoice</code> method:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;subscription('default')-&gt;swapAndInvoice($premium = 34567);</code></pre>
+<h4>Prorations</h4>
+<p>By default, Paddle prorates charges when swapping between plans. The <code>noProrate</code> method may be used to update the subscription's without prorating the charges:</p>
+<pre><code>$user-&gt;subscription('default')-&gt;noProrate()-&gt;swap($premium = 34567);</code></pre>
+<p><a name="subscription-quantity"></a></p>
+<h3 id="subscription-quantity">Subscription Quantity</h3>
+<p>Sometimes subscriptions are affected by &quot;quantity&quot;. For example, your application might charge $10 per month <strong>per user</strong> on an account. To easily increment or decrement your subscription quantity, use the <code>incrementQuantity</code> and <code>decrementQuantity</code> methods:</p>
+<pre><code>$user = User::find(1);
+
+$user-&gt;subscription('default')-&gt;incrementQuantity();
+
+// Add five to the subscription's current quantity...
+$user-&gt;subscription('default')-&gt;incrementQuantity(5);
+
+$user-&gt;subscription('default')-&gt;decrementQuantity();
+
+// Subtract five to the subscription's current quantity...
+$user-&gt;subscription('default')-&gt;decrementQuantity(5);</code></pre>
+<p>Alternatively, you may set a specific quantity using the <code>updateQuantity</code> method:</p>
+<pre><code>$user-&gt;subscription('default')-&gt;updateQuantity(10);</code></pre>
+<p>The <code>noProrate</code> method may be used to update the subscription's quantity without prorating the charges:</p>
+<pre><code>$user-&gt;subscription('default')-&gt;noProrate()-&gt;updateQuantity(10);</code></pre>
+<p><a name="pausing-subscriptions"></a></p>
+<h3 id="pausing-subscriptions">Pausing Subscriptions</h3>
+<p>To pause a subscription, call the <code>pause</code> method on the user's subscription:</p>
+<pre><code>$user-&gt;subscription('default')-&gt;pause();</code></pre>
+<p>When a subscription is paused, Cashier will automatically set the <code>paused_from</code> column in your database. This column is used to know when the <code>paused</code> method should begin returning <code>true</code>. For example, if a customer pauses a subscription on March 1st, but the subscription was not scheduled to recur until March 5th, the <code>paused</code> method will continue to return <code>false</code> until March 5th.</p>
+<p>You may determine if a user has paused their subscription but are still on their &quot;grace period&quot; using the <code>onPausedGracePeriod</code> method:</p>
+<pre><code>if ($user-&gt;subscription('default')-&gt;onPausedGracePeriod()) {
+    //
+}</code></pre>
+<p>To resume a paused a subscription, you may call the <code>unpause</code> method on the user's subscription:</p>
+<pre><code>$user-&gt;subscription('default')-&gt;unpause();</code></pre>
+<p><a name="cancelling-subscriptions"></a></p>
+<h3 id="cancelling-subscriptions">Cancelling Subscriptions</h3>
+<p>To cancel a subscription, call the <code>cancel</code> method on the user's subscription:</p>
+<pre><code>$user-&gt;subscription('default')-&gt;cancel();</code></pre>
+<p>When a subscription is cancelled, Cashier will automatically set the <code>ends_at</code> column in your database. This column is used to know when the <code>subscribed</code> method should begin returning <code>false</code>. For example, if a customer cancels a subscription on March 1st, but the subscription was not scheduled to end until March 5th, the <code>subscribed</code> method will continue to return <code>true</code> until March 5th.</p>
+<p>You may determine if a user has cancelled their subscription but are still on their &quot;grace period&quot; using the <code>onGracePeriod</code> method:</p>
+<pre><code>if ($user-&gt;subscription('default')-&gt;onGracePeriod()) {
+    //
+}</code></pre>
+<p>If you wish to cancel a subscription immediately, you may call the <code>cancelNow</code> method on the user's subscription:</p>
+<pre><code>$user-&gt;subscription('default')-&gt;cancelNow();</code></pre>
+<blockquote>
+<p>{note} Paddle's subscriptions cannot be resumed after cancellation. If your customer wishes to resume their subscription, they will have to subscribe to a new subscription.</p>
+</blockquote>
+<p><a name="subscription-trials"></a></p>
+<h2 id="subscription-trials">Subscription Trials</h2>
+<p><a name="with-payment-method-up-front"></a></p>
+<h3 id="with-payment-method-up-front">With Payment Method Up Front</h3>
+<blockquote>
+<p>{note} While trialing and collecting payment method details up front, Paddle prevents any subscription changes such as swapping plans or updating quantities. If you want to allow a customer to swap plans during a trial the subscription must be cancelled and recreated.</p>
+</blockquote>
+<p>If you would like to offer trial periods to your customers while still collecting payment method information up front, you should use the <code>trialDays</code> method when creating your subscription pay links:</p>
+<pre><code>$user = User::find(1);
+
+$payLink = $user-&gt;newSubscription('default', $monthly = 12345)
+            -&gt;returnTo(route('home'))
+            -&gt;trialDays(10)
+            -&gt;create();
+
+return view('billing', ['payLink' =&gt; $payLink]);</code></pre>
+<p>This method will set the trial period ending date on the subscription record within the database, as well as instruct Paddle to not begin billing the customer until after this date.</p>
+<blockquote>
+<p>{note} If the customer's subscription is not cancelled before the trial ending date they will be charged as soon as the trial expires, so you should be sure to notify your users of their trial ending date.</p>
+</blockquote>
+<p>You may determine if the user is within their trial period using either the <code>onTrial</code> method of the user instance or the <code>onTrial</code> method of the subscription instance. The two examples below have identical behavior:</p>
+<pre><code>if ($user-&gt;onTrial('default')) {
+    //
+}
+
+if ($user-&gt;subscription('default')-&gt;onTrial()) {
+    //
+}</code></pre>
+<h4>Defining Trial Days In Paddle / Cashier</h4>
+<p>You may choose to define how many trial days your plan's receive in the Paddle dashboard or always pass them explicitly using Cashier. If you choose to define your plan's trial days in Paddle you should be aware that new subscriptions, including new subscriptions for a customer that had a subscription in the past, will always receive a trial period unless you explicitly call the <code>trialDays(0)</code> method.</p>
+<p><a name="without-payment-method-up-front"></a></p>
+<h3 id="without-payment-method-up-front">Without Payment Method Up Front</h3>
+<p>If you would like to offer trial periods without collecting the user's payment method information up front, you may set the <code>trial_ends_at</code> column on the user record to your desired trial ending date. This is typically done during user registration:</p>
+<pre><code>$user = User::create([
+    // Other user properties...
+    'trial_ends_at' =&gt; now()-&gt;addDays(10),
+]);</code></pre>
+<blockquote>
+<p>{note} Be sure to add a <a href="eloquent-mutators.html#date-mutators">date mutator</a> for <code>trial_ends_at</code> to your model definition.</p>
+</blockquote>
+<p>Cashier refers to this type of trial as a &quot;generic trial&quot;, since it is not attached to any existing subscription. The <code>onTrial</code> method on the <code>User</code> instance will return <code>true</code> if the current date is not past the value of <code>trial_ends_at</code>:</p>
+<pre><code>if ($user-&gt;onTrial()) {
+    // User is within their trial period...
+}</code></pre>
+<p>You may also use the <code>onGenericTrial</code> method if you wish to know specifically that the user is within their &quot;generic&quot; trial period and has not created an actual subscription yet:</p>
+<pre><code>if ($user-&gt;onGenericTrial()) {
+    // User is within their "generic" trial period...
+}</code></pre>
+<p>Once you are ready to create an actual subscription for the user, you may use the <code>newSubscription</code> method as usual:</p>
+<pre><code>$user = User::find(1);
+
+$payLink = $user-&gt;newSubscription('default', $monthly = 12345)
+    -&gt;returnTo(route('home'))
+    -&gt;create();</code></pre>
+<blockquote>
+<p>{note} There is no way to extend or modify a trial period on a Paddle subscription after it has been created.</p>
+</blockquote>
+<p><a name="handling-paddle-webhooks"></a></p>
+<h2 id="handling-paddle-webhooks">Handling Paddle Webhooks</h2>
+<blockquote>
+<p>{tip} You may use <a href="valet.html#sharing-sites">Valet's <code>share</code> command</a> to help test webhooks during local development.</p>
+</blockquote>
+<p>Paddle can notify your application of a variety of events via webhooks. By default, a route that points to Cashier's webhook controller is configured through the Cashier service provider. This controller will handle all incoming webhook requests.</p>
+<p>By default, this controller will automatically handle cancelling subscriptions that have too many failed charges (<a href="https://vendors.paddle.com/subscription-settings">as defined by your Paddle subscription settings</a>), subscription updates, and payment method changes; however, as we'll soon discover, you can extend this controller to handle any webhook event you like.</p>
+<p>To ensure your application can handle Paddle webhooks, be sure to <a href="https://vendors.paddle.com/alerts-webhooks">configure the webhook URL in the Paddle control panel</a>. By default, Cashier's webhook controller listens to the <code>/paddle/webhook</code> URL path. The full list of all webhooks you should configure in the Paddle control panel are:</p>
+<ul>
+<li>Subscription Created</li>
+<li>Subscription Updated</li>
+<li>Subscription Deleted</li>
+<li>Payment Success (One-off purchases)</li>
+</ul>
+<blockquote>
+<p>{note} Make sure you protect incoming requests with Cashier's included <a href="cashier-paddle.html#verifying-webhook-signatures">webhook signature verification</a> middleware.</p>
+</blockquote>
+<h4>Webhooks &amp; CSRF Protection</h4>
+<p>Since Paddle webhooks need to bypass Laravel's <a href="csrf.html">CSRF protection</a>, be sure to list the URI as an exception in your <code>VerifyCsrfToken</code> middleware or list the route outside of the <code>web</code> middleware group:</p>
+<pre><code>protected $except = [
+    'paddle/*',
+];</code></pre>
+<p><a name="defining-webhook-event-handlers"></a></p>
+<h3 id="defining-webhook-event-handlers">Defining Webhook Event Handlers</h3>
+<p>Cashier automatically handles subscription cancellation on failed charges, but if you have additional webhook events you would like to handle, you should extend the <code>WebhookController</code>. Your method names should correspond to Cashier's expected convention, specifically, methods should be prefixed with <code>handle</code> and the &quot;camel case&quot; name of the webhook you wish to handle. For example, if you wish to handle the <code>payment_success</code> webhook, you should add a <code>handlePaymentSuccess</code> method to the controller:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Laravel\Paddle\Http\Controllers\WebhookController as CashierController;
+
+class WebhookController extends CashierController
+{
+    /**
+     * Handle payment success.
+     *
+     * @param  array  $payload
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function handlePaymentSuccess($payload)
+    {
+        // Handle The Event
+    }
+}</code></pre>
+<p>Next, define a route to your Cashier controller within your <code>routes/web.php</code> file. This will overwrite the route included with Cashier:</p>
+<pre><code>Route::post(
+    'paddle/webhook',
+    '\App\Http\Controllers\<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="227547404a4d4d49614d4c56504d4e4e4750624a434c464e477547404a4d4d49">[email&#160;protected]</a>'
+);</code></pre>
+<p>Cashier emits a <code>Laravel\Paddle\Events\WebhookReceived</code> event when a webhook is received, and a <code>Laravel\Paddle\Events\WebhookHandled</code> event when a webhook was handled. Both events contain the full payload of the Paddle webhook.</p>
+<p>You can optionally also override the default, built-in webhook route by setting the <code>CASHIER_WEBHOOK</code> env variable in your <code>.env</code> file. This value should be the full URL to your webhook route and needs to match the URL set in your Paddle control panel:</p>
+<pre><code>CASHIER_WEBHOOK=https://example.com/my-paddle-webhook-url</code></pre>
+<p><a name="handling-failed-subscriptions"></a></p>
+<h3 id="handling-failed-subscriptions">Failed Subscriptions</h3>
+<p>What if a customer's credit card expires? No worries - Cashier's Webhook controller will cancel the customer's subscription for you. Failed payments will automatically be captured and handled by the controller. The controller will cancel the customer's subscription when Paddle determines the subscription has failed (normally after three failed payment attempts).</p>
+<p><a name="verifying-webhook-signatures"></a></p>
+<h3 id="verifying-webhook-signatures">Verifying Webhook Signatures</h3>
+<p>To secure your webhooks, you may use <a href="https://developer.paddle.com/webhook-reference/verifying-webhooks">Paddle's webhook signatures</a>. For convenience, Cashier automatically includes a middleware which validates that the incoming Paddle webhook request is valid.</p>
+<p>To enable webhook verification, ensure that the <code>PADDLE_PUBLIC_KEY</code> environment variable is set in your <code>.env</code> file. The public key may be retrieved from your Paddle account dashboard.</p>
+<p><a name="single-charges"></a></p>
+<h2 id="single-charges">Single Charges</h2>
+<p><a name="simple-charge"></a></p>
+<h3 id="simple-charge">Simple Charge</h3>
+<p>If you would like to make a &quot;one off&quot; charge against a customer, you may use the <code>charge</code> method on a billable model instance to generate a pay link for the charge. The <code>charge</code> method accepts the charge amount (float) as its first argument and a charge description as its second argument:</p>
+<pre><code>$payLink = $user-&gt;charge(12.99, 'Product Title');
+
+return view('pay', ['payLink' =&gt; $payLink]);</code></pre>
+<p>After generating the pay link, you may use Cashier's provided <code>paddle-button</code> Blade component to allow the user to initiate the Paddle widget and complete the charge:</p>
+<pre><code>&lt;x-paddle-button :url="$payLink" class="px-8 py-4"&gt;
+    Buy
+&lt;/x-paddle-button&gt;</code></pre>
+<p>The <code>charge</code> method accepts an array as its third argument, allowing you to pass any options you wish to the underlying Paddle pay link creation. Please consult <a href="https://developer.paddle.com/api-reference/product-api/pay-links/createpaylink">the Paddle documentation</a> to learn more about the options available to you when creating charges:</p>
+<pre><code>$payLink = $user-&gt;charge(12.99, 'Product Title', [
+    'custom_option' =&gt; $value,
+]);</code></pre>
+<p>You may also use the <code>charge</code> method without an underlying customer or user:</p>
+<pre><code>use App\User;
+
+$payLink = (new User)-&gt;charge(12.99, 'Product title');</code></pre>
+<p>Charges happen in the currency specified in the <code>cashier.currency</code> configuration option. By default, this is set to USD. You may override the default currency by setting the <code>CASHIER_CURRENCY</code> in your <code>.env</code> file:</p>
+<pre><code>CASHIER_CURRENCY=EUR</code></pre>
+<p>You can also <a href="https://developer.paddle.com/api-reference/product-api/pay-links/createpaylink#price-overrides">override prices per currency</a> using Paddle's dynamic pricing matching system. To do so, pass an array of prices instead of a fixed amount:</p>
+<pre><code>$payLink = $user-&gt;charge([
+    'USD:19.99',
+    'EUR:15.99',
+], 'Product Title');</code></pre>
+<p><a name="charging-products"></a></p>
+<h3 id="charging-products">Charging Products</h3>
+<p>If you would like to make a &quot;one off&quot; charge against a specific product configured within Paddle, you may use the <code>chargeProduct</code> method on a billable model instance to generate a pay link:</p>
+<pre><code>$payLink = $user-&gt;chargeProduct($productId);
+
+return view('pay', ['payLink' =&gt; $payLink]);</code></pre>
+<p>Then, you may provide the pay link to the <code>paddle-button</code> component to allow the user to initialize the Paddle widget:</p>
+<pre><code>&lt;x-paddle-button :url="$payLink" class="px-8 py-4"&gt;
+    Buy
+&lt;/x-paddle-button&gt;</code></pre>
+<p>The <code>chargeProduct</code> method accepts an array as its second argument, allowing you to pass any options you wish to the underlying Paddle pay link creation. Please consult <a href="https://developer.paddle.com/api-reference/product-api/pay-links/createpaylink">the Paddle documentation</a> regarding the options that are available to you when creating charges:</p>
+<pre><code>$payLink = $user-&gt;chargeProduct($productId, [
+    'custom_option' =&gt; $value,
+]);</code></pre>
+<p><a name="refunding-orders"></a></p>
+<h3 id="refunding-orders">Refunding Orders</h3>
+<p>If you need to refund a Paddle order, you may use the <code>refund</code> method. This method accepts the Paddle Order ID as its first argument. You may retrieve transactions for a given billable entity using the <code>transactions</code> method:</p>
+<pre><code>$transaction = $user-&gt;transactions()-&gt;first();
+
+$refundRequestId = $user-&gt;refund(transaction-&gt;order_id);</code></pre>
+<p>You may also optionally specify a specific amount to refund as well as a reason for the refund:</p>
+<pre><code>$transaction = $user-&gt;transactions()-&gt;first();
+
+$refundRequestId = $user-&gt;refund(
+    transaction-&gt;order_id, 5.00, 'Unused product time'
+);</code></pre>
+<blockquote>
+<p>{tip} You can use the <code>$refundRequestId</code> as a reference for the refund when contacting Paddle support.</p>
+</blockquote>
+<p><a name="transactions"></a></p>
+<h2 id="transactions">Transactions</h2>
+<p>You may easily retrieve an array of a billable model's transactions using the <code>transactions</code> method:</p>
+<pre><code>$transactions = $user-&gt;transactions();</code></pre>
+<p>When listing the transactions for the customer, you may use the transaction's helper methods to display the relevant transaction information. For example, you may wish to list every transaction in a table, allowing the user to easily download any of the receipts:</p>
+<pre><code>&lt;table&gt;
+    @foreach ($transactions as $transaction)
+        &lt;tr&gt;
+            &lt;td&gt;{{ $transaction-&gt;date()-&gt;toFormattedDateString() }}&lt;/td&gt;
+            &lt;td&gt;{{ $transaction-&gt;amount() }}&lt;/td&gt;
+            &lt;td&gt;&lt;a href="{{ $transaction-&gt;receipt() }}" target="_blank"&gt;Download&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    @endforeach
+&lt;/table&gt;</code></pre>
+<p><a name="past-and-upcoming-payments"></a></p>
+<h3 id="past-and-upcoming-payments">Past &amp; Upcoming Payments</h3>
+<p>You may use the <code>lastPayment</code> and <code>nextPayment</code> methods to display a customer's past or upcoming payments for recurring subscriptions:</p>
+<pre><code>$subscription = $user-&gt;subscription('default');
+
+$lastPayment = $subscription-&gt;lastPayment();
+$nextPayment = $subscription-&gt;nextPayment();</code></pre>
+<p>Both of these methods will return an instance of <code>Laravel\Paddle\Payment</code>; however, <code>nextPayment</code> will return <code>null</code> when the billing cycle has ended (such as when a subscription has been cancelled):</p>
+<pre><code>Next payment: {{ $nextPayment-&gt;amount() }} due on {{ $nextPayment-&gt;date()-&gt;format('d/m/Y') }}</code></pre>
+<p><a name="testing"></a></p>
+<h2 id="testing">Testing</h2>
+<p>Paddle currently lacks a proper CRUD API so you will need to manually test your billing flow. Paddle also lacks a sandboxed developer environment so any card charges you make are live charges. In order to work around this, we recommend you use coupons with a 100% discount or free products during testing.</p>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/cashier-paddle by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:15 GMT -->
+</html>

@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+html,body {
+  background: url('pattern.jpg');
+	color: #fff;
+  margin: 0px;
+}
+p{font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
+
+nav {
+  width: 100%;
+  display: flex;
+  background: #E9961A;
+  color: #000;
+  font-size: large;
+  padding: 0.39em 0.9em;
+  justify-content: space-between;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  position: fixed;
+}
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav .logo {
+  width: 43px;
+}
+
+nav ul li a[href] {
+  padding: 0px 0.9em;
+  color: inherit;
+  opacity: 0.79;
+  text-decoration: none;
+}
+nav ul li a[href]:hover {
+  opacity: unset;
+}
+section{ width: 70%;
+  margin: auto;
+  padding: 09em 3.9em;
+
+  color: #000;
+background-color: #fff; }
+footer {text-align: center;padding: 0.9em;background: #000;}
+
+article{
+  border-bottom: 1.9px solid #000;
+}

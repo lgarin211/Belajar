@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/envoy by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Laravel Envoy - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="envoy.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/envoy">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/envoy">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/envoy">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/envoy">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/envoy">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/envoy">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/envoy">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/envoy">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/envoy">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/envoy">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/envoy">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/envoy">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/envoy">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Laravel Envoy</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#installation">Installation</a></li>
+</ul></li>
+<li><a href="#writing-tasks">Writing Tasks</a>
+<ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#stories">Stories</a></li>
+<li><a href="#multiple-servers">Multiple Servers</a></li>
+</ul></li>
+<li><a href="#running-tasks">Running Tasks</a>
+<ul>
+<li><a href="#confirming-task-execution">Confirming Task Execution</a></li>
+</ul></li>
+<li><a href="#notifications">Notifications</a>
+<ul>
+<li><a href="#slack">Slack</a></li>
+<li><a href="#discord">Discord</a></li>
+<li><a href="#telegram">Telegram</a></li>
+</ul></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p><a href="https://github.com/laravel/envoy">Laravel Envoy</a> provides a clean, minimal syntax for defining common tasks you run on your remote servers. Using Blade style syntax, you can easily setup tasks for deployment, Artisan commands, and more. Currently, Envoy only supports the Mac and Linux operating systems.</p>
+<p><a name="installation"></a></p>
+<h3 id="installation">Installation</h3>
+<p>First, install Envoy using the Composer <code>global require</code> command:</p>
+<pre><code>composer global require laravel/envoy</code></pre>
+<p>Since global Composer libraries can sometimes cause package version conflicts, you may wish to consider using <code>cgr</code>, which is a drop-in replacement for the <code>composer global require</code> command. The <code>cgr</code> library's installation instructions can be <a href="https://github.com/consolidation-org/cgr">found on GitHub</a>.</p>
+<blockquote>
+<p>{note} Make sure to place the <code>$HOME/.config/composer/vendor/bin</code> or <code>$HOME/.composer/vendor/bin</code> directory in your PATH so the <code>envoy</code> executable is found when running the <code>envoy</code> command in your terminal.</p>
+</blockquote>
+<h4>Updating Envoy</h4>
+<p>You may also use Composer to keep your Envoy installation up to date. Issuing the <code>composer global update</code> command will update all of your globally installed Composer packages:</p>
+<pre><code>composer global update</code></pre>
+<p><a name="writing-tasks"></a></p>
+<h2 id="writing-tasks">Writing Tasks</h2>
+<p>All of your Envoy tasks should be defined in an <code>Envoy.blade.php</code> file in the root of your project. Here's an example to get you started:</p>
+<pre><code>@servers(['web' =&gt; ['<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d0a5a3b5a290e1e9e2fee1e6e8fee1fee1">[email&#160;protected]</a>']])
+
+@task('foo', ['on' =&gt; 'web'])
+    ls -la
+@endtask</code></pre>
+<p>As you can see, an array of <code>@servers</code> is defined at the top of the file, allowing you to reference these servers in the <code>on</code> option of your task declarations. Within your <code>@task</code> declarations, you should place the Bash code that should run on your server when the task is executed.</p>
+<p>You can force a script to run locally by specifying the server's IP address as <code>127.0.0.1</code>:</p>
+<pre><code>@servers(['localhost' =&gt; '127.0.0.1'])</code></pre>
+<p><a name="setup"></a></p>
+<h3 id="setup">Setup</h3>
+<p>Sometimes, you may need to execute some PHP code before executing your Envoy tasks. You may use the <code>@setup</code> directive to declare variables and do other general PHP work before any of your other tasks are executed:</p>
+<pre><code>@setup
+    $now = new DateTime();
+
+    $environment = isset($env) ? $env : "testing";
+@endsetup</code></pre>
+<p>If you need to require other PHP files before your task is executed, you may use the <code>@include</code> directive at the top of your <code>Envoy.blade.php</code> file:</p>
+<pre><code>@include('vendor/autoload.php')
+
+@task('foo')
+    # ...
+@endtask</code></pre>
+<p>You may also import other Envoy files so their stories and tasks are added to yours. After they have been imported, you may execute the tasks in those files as if they were defined in your own. You should use the <code>@import</code> directive at the top of your <code>Envoy.blade.php</code> file:</p>
+<pre><code>@import('package/Envoy.blade.php')</code></pre>
+<p><a name="variables"></a></p>
+<h3 id="variables">Variables</h3>
+<p>If needed, you may pass option values into Envoy tasks using the command line:</p>
+<pre><code>envoy run deploy --branch=master</code></pre>
+<p>You may access the options in your tasks via Blade's &quot;echo&quot; syntax. You may also use <code>if</code> statements and loops within your tasks. For example, let's verify the presence of the <code>$branch</code> variable before executing the <code>git pull</code> command:</p>
+<pre><code>@servers(['web' =&gt; '192.168.1.1'])
+
+@task('deploy', ['on' =&gt; 'web'])
+    cd site
+
+    @if ($branch)
+        git pull origin {{ $branch }}
+    @endif
+
+    php artisan migrate
+@endtask</code></pre>
+<p><a name="stories"></a></p>
+<h3 id="stories">Stories</h3>
+<p>Stories group a set of tasks under a single, convenient name, allowing you to group small, focused tasks into large tasks. For instance, a <code>deploy</code> story may run the <code>git</code> and <code>composer</code> tasks by listing the task names within its definition:</p>
+<pre><code>@servers(['web' =&gt; '192.168.1.1'])
+
+@story('deploy')
+    git
+    composer
+@endstory
+
+@task('git')
+    git pull origin master
+@endtask
+
+@task('composer')
+    composer install
+@endtask</code></pre>
+<p>Once the story has been written, you may run it just like a typical task:</p>
+<pre><code>envoy run deploy</code></pre>
+<p><a name="multiple-servers"></a></p>
+<h3 id="multiple-servers">Multiple Servers</h3>
+<p>Envoy allows you to easily run a task across multiple servers. First, add additional servers to your <code>@servers</code> declaration. Each server should be assigned a unique name. Once you have defined your additional servers, list each of the servers in the task's <code>on</code> array:</p>
+<pre><code>@servers(['web-1' =&gt; '192.168.1.1', 'web-2' =&gt; '192.168.1.2'])
+
+@task('deploy', ['on' =&gt; ['web-1', 'web-2']])
+    cd site
+    git pull origin {{ $branch }}
+    php artisan migrate
+@endtask</code></pre>
+<h4>Parallel Execution</h4>
+<p>By default, tasks will be executed on each server serially. In other words, a task will finish running on the first server before proceeding to execute on the second server. If you would like to run a task across multiple servers in parallel, add the <code>parallel</code> option to your task declaration:</p>
+<pre><code>@servers(['web-1' =&gt; '192.168.1.1', 'web-2' =&gt; '192.168.1.2'])
+
+@task('deploy', ['on' =&gt; ['web-1', 'web-2'], 'parallel' =&gt; true])
+    cd site
+    git pull origin {{ $branch }}
+    php artisan migrate
+@endtask</code></pre>
+<p><a name="running-tasks"></a></p>
+<h2 id="running-tasks">Running Tasks</h2>
+<p>To run a task or story that is defined in your <code>Envoy.blade.php</code> file, execute Envoy's <code>run</code> command, passing the name of the task or story you would like to execute. Envoy will run the task and display the output from the servers as the task is running:</p>
+<pre><code>envoy run deploy</code></pre>
+<p><a name="confirming-task-execution"></a></p>
+<h3 id="confirming-task-execution">Confirming Task Execution</h3>
+<p>If you would like to be prompted for confirmation before running a given task on your servers, you should add the <code>confirm</code> directive to your task declaration. This option is particularly useful for destructive operations:</p>
+<pre><code>@task('deploy', ['on' =&gt; 'web', 'confirm' =&gt; true])
+    cd site
+    git pull origin {{ $branch }}
+    php artisan migrate
+@endtask</code></pre>
+<p><a name="notifications"></a></p>
+<h2 id="notifications">Notifications</h2>
+<p><a name="slack"></a></p>
+<h3 id="slack">Slack</h3>
+<p>Envoy also supports sending notifications to <a href="https://slack.com/">Slack</a> after each task is executed. The <code>@slack</code> directive accepts a Slack hook URL and a channel name. You may retrieve your webhook URL by creating an &quot;Incoming WebHooks&quot; integration in your Slack control panel. You should pass the entire webhook URL into the <code>@slack</code> directive:</p>
+<pre><code>@finished
+    @slack('webhook-url', '#bots')
+@endfinished</code></pre>
+<p>You may provide one of the following as the channel argument:</p>
+<div class="content-list">
+<ul>
+<li>To send the notification to a channel: <code>#channel</code></li>
+<li>To send the notification to a user: <code>@user</code></li>
+</ul>
+</div>
+<p><a name="discord"></a></p>
+<h3 id="discord">Discord</h3>
+<p>Envoy also supports sending notifications to <a href="https://discord.com/">Discord</a> after each task is executed. The <code>@discord</code> directive accepts a Discord hook URL and a message. You may retrieve your webhook URL by creating a &quot;Webhook&quot; in your Server Settings and choosing which channel the webhook should post to. You should pass the entire Webhook URL into the <code>@discord</code> directive:</p>
+<pre><code>@finished
+    @discord('discord-webhook-url')
+@endfinished</code></pre>
+<p><a name="telegram"></a></p>
+<h3 id="telegram">Telegram</h3>
+<p>Envoy also supports sending notifications to <a href="https://telegram.org/">Telegram</a> after each task is executed. The <code>@telegram</code> directive accepts a Telegram Bot ID and a Chat ID. You may retrieve your Bot ID by creating a new bot using <a href="https://t.me/botfather">BotFather</a>. You can retrieve a valid Chat ID using <a href="https://t.me/username_to_id_bot">@username_to_id_bot</a>. You should pass the entire Bot ID and Chat ID into the <code>@telegram</code> directive:</p>
+<pre><code>@finished
+    @telegram('&lt;bot-id&gt;','&lt;chat-id&gt;')
+@endfinished</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/envoy by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:15 GMT -->
+</html>

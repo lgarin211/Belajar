@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/artisan by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Artisan Console - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="artisan.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/artisan">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/artisan">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/artisan">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/artisan">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/artisan">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/artisan">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/artisan">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/artisan">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/artisan">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/artisan">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/artisan">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/artisan">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/artisan">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Artisan Console</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#tinker">Tinker (REPL)</a></li>
+</ul></li>
+<li><a href="#writing-commands">Writing Commands</a>
+<ul>
+<li><a href="#generating-commands">Generating Commands</a></li>
+<li><a href="#command-structure">Command Structure</a></li>
+<li><a href="#closure-commands">Closure Commands</a></li>
+</ul></li>
+<li><a href="#defining-input-expectations">Defining Input Expectations</a>
+<ul>
+<li><a href="#arguments">Arguments</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#input-arrays">Input Arrays</a></li>
+<li><a href="#input-descriptions">Input Descriptions</a></li>
+</ul></li>
+<li><a href="#command-io">Command I/O</a>
+<ul>
+<li><a href="#retrieving-input">Retrieving Input</a></li>
+<li><a href="#prompting-for-input">Prompting For Input</a></li>
+<li><a href="#writing-output">Writing Output</a></li>
+</ul></li>
+<li><a href="#registering-commands">Registering Commands</a></li>
+<li><a href="#programmatically-executing-commands">Programmatically Executing Commands</a>
+<ul>
+<li><a href="#calling-commands-from-other-commands">Calling Commands From Other Commands</a></li>
+</ul></li>
+<li><a href="#stub-customization">Stub Customization</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Artisan is the command-line interface included with Laravel. It provides a number of helpful commands that can assist you while you build your application. To view a list of all available Artisan commands, you may use the <code>list</code> command:</p>
+<pre><code>php artisan list</code></pre>
+<p>Every command also includes a &quot;help&quot; screen which displays and describes the command's available arguments and options. To view a help screen, precede the name of the command with <code>help</code>:</p>
+<pre><code>php artisan help migrate</code></pre>
+<p><a name="tinker"></a></p>
+<h3 id="tinker">Tinker (REPL)</h3>
+<p>Laravel Tinker is a powerful REPL for the Laravel framework, powered by the <a href="https://github.com/bobthecow/psysh">PsySH</a> package.</p>
+<h4>Installation</h4>
+<p>All Laravel applications include Tinker by default. However, you may install it manually if needed using Composer:</p>
+<pre><code>composer require laravel/tinker</code></pre>
+<h4>Usage</h4>
+<p>Tinker allows you to interact with your entire Laravel application on the command line, including the Eloquent ORM, jobs, events, and more. To enter the Tinker environment, run the <code>tinker</code> Artisan command:</p>
+<pre><code>php artisan tinker</code></pre>
+<p>You can publish Tinker's configuration file using the <code>vendor:publish</code> command:</p>
+<pre><code>php artisan vendor:publish --provider="Laravel\Tinker\TinkerServiceProvider"</code></pre>
+<blockquote>
+<p>{note} The <code>dispatch</code> helper function and <code>dispatch</code> method on the <code>Dispatchable</code> class depends on garbage collection to place the job on the queue. Therefore, when using tinker, you should use <code>Bus::dispatch</code> or <code>Queue::push</code> to dispatch jobs.</p>
+</blockquote>
+<h4>Command Whitelist</h4>
+<p>Tinker utilizes a white-list to determine which Artisan commands are allowed to be run within its shell. By default, you may run the <code>clear-compiled</code>, <code>down</code>, <code>env</code>, <code>inspire</code>, <code>migrate</code>, <code>optimize</code>, and <code>up</code> commands. If you would like to white-list more commands you may add them to the <code>commands</code> array in your <code>tinker.php</code> configuration file:</p>
+<pre><code>'commands' =&gt; [
+    // App\Console\Commands\ExampleCommand::class,
+],</code></pre>
+<h4>Classes That Should Not Be Aliased</h4>
+<p>Typically, Tinker automatically aliases classes as you require them in Tinker. However, you may wish to never alias some classes. You may accomplish this by listing the classes in the <code>dont_alias</code> array of your <code>tinker.php</code> configuration file:</p>
+<pre><code>'dont_alias' =&gt; [
+    App\User::class,
+],</code></pre>
+<p><a name="writing-commands"></a></p>
+<h2 id="writing-commands">Writing Commands</h2>
+<p>In addition to the commands provided with Artisan, you may also build your own custom commands. Commands are typically stored in the <code>app/Console/Commands</code> directory; however, you are free to choose your own storage location as long as your commands can be loaded by Composer.</p>
+<p><a name="generating-commands"></a></p>
+<h3 id="generating-commands">Generating Commands</h3>
+<p>To create a new command, use the <code>make:command</code> Artisan command. This command will create a new command class in the <code>app/Console/Commands</code> directory. Don't worry if this directory does not exist in your application, since it will be created the first time you run the <code>make:command</code> Artisan command. The generated command will include the default set of properties and methods that are present on all commands:</p>
+<pre><code>php artisan make:command SendEmails</code></pre>
+<p><a name="command-structure"></a></p>
+<h3 id="command-structure">Command Structure</h3>
+<p>After generating your command, you should fill in the <code>signature</code> and <code>description</code> properties of the class, which will be used when displaying your command on the <code>list</code> screen. The <code>handle</code> method will be called when your command is executed. You may place your command logic in this method.</p>
+<blockquote>
+<p>{tip} For greater code reuse, it is good practice to keep your console commands light and let them defer to application services to accomplish their tasks. In the example below, note that we inject a service class to do the &quot;heavy lifting&quot; of sending the e-mails.</p>
+</blockquote>
+<p>Let's take a look at an example command. Note that we are able to inject any dependencies we need into the command's <code>handle</code> method. The Laravel <a href="container.html">service container</a> will automatically inject all dependencies that are type-hinted in this method's signature:</p>
+<pre><code>&lt;?php
+
+namespace App\Console\Commands;
+
+use App\DripEmailer;
+use App\User;
+use Illuminate\Console\Command;
+
+class SendEmails extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'email:send {user}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Send drip e-mails to a user';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @param  \App\DripEmailer  $drip
+     * @return mixed
+     */
+    public function handle(DripEmailer $drip)
+    {
+        $drip-&gt;send(User::find($this-&gt;argument('user')));
+    }
+}</code></pre>
+<p><a name="closure-commands"></a></p>
+<h3 id="closure-commands">Closure Commands</h3>
+<p>Closure based commands provide an alternative to defining console commands as classes. In the same way that route Closures are an alternative to controllers, think of command Closures as an alternative to command classes. Within the <code>commands</code> method of your <code>app/Console/Kernel.php</code> file, Laravel loads the <code>routes/console.php</code> file:</p>
+<pre><code>/**
+ * Register the Closure based commands for the application.
+ *
+ * @return void
+ */
+protected function commands()
+{
+    require base_path('routes/console.php');
+}</code></pre>
+<p>Even though this file does not define HTTP routes, it defines console based entry points (routes) into your application. Within this file, you may define all of your Closure based routes using the <code>Artisan::command</code> method. The <code>command</code> method accepts two arguments: the <a href="#defining-input-expectations">command signature</a> and a Closure which receives the commands arguments and options:</p>
+<pre><code>Artisan::command('build {project}', function ($project) {
+    $this-&gt;info("Building {$project}!");
+});</code></pre>
+<p>The Closure is bound to the underlying command instance, so you have full access to all of the helper methods you would typically be able to access on a full command class.</p>
+<h4>Type-Hinting Dependencies</h4>
+<p>In addition to receiving your command's arguments and options, command Closures may also type-hint additional dependencies that you would like resolved out of the <a href="container.html">service container</a>:</p>
+<pre><code>use App\DripEmailer;
+use App\User;
+
+Artisan::command('email:send {user}', function (DripEmailer $drip, $user) {
+    $drip-&gt;send(User::find($user));
+});</code></pre>
+<h4>Closure Command Descriptions</h4>
+<p>When defining a Closure based command, you may use the <code>describe</code> method to add a description to the command. This description will be displayed when you run the <code>php artisan list</code> or <code>php artisan help</code> commands:</p>
+<pre><code>Artisan::command('build {project}', function ($project) {
+    $this-&gt;info("Building {$project}!");
+})-&gt;describe('Build the project');</code></pre>
+<p><a name="defining-input-expectations"></a></p>
+<h2 id="defining-input-expectations">Defining Input Expectations</h2>
+<p>When writing console commands, it is common to gather input from the user through arguments or options. Laravel makes it very convenient to define the input you expect from the user using the <code>signature</code> property on your commands. The <code>signature</code> property allows you to define the name, arguments, and options for the command in a single, expressive, route-like syntax.</p>
+<p><a name="arguments"></a></p>
+<h3 id="arguments">Arguments</h3>
+<p>All user supplied arguments and options are wrapped in curly braces. In the following example, the command defines one <strong>required</strong> argument: <code>user</code>:</p>
+<pre><code>/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */
+protected $signature = 'email:send {user}';</code></pre>
+<p>You may also make arguments optional and define default values for arguments:</p>
+<pre><code>// Optional argument...
+email:send {user?}
+
+// Optional argument with default value...
+email:send {user=foo}</code></pre>
+<p><a name="options"></a></p>
+<h3 id="options">Options</h3>
+<p>Options, like arguments, are another form of user input. Options are prefixed by two hyphens (<code>--</code>) when they are specified on the command line. There are two types of options: those that receive a value and those that don't. Options that don't receive a value serve as a boolean &quot;switch&quot;. Let's take a look at an example of this type of option:</p>
+<pre><code>/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */
+protected $signature = 'email:send {user} {--queue}';</code></pre>
+<p>In this example, the <code>--queue</code> switch may be specified when calling the Artisan command. If the <code>--queue</code> switch is passed, the value of the option will be <code>true</code>. Otherwise, the value will be <code>false</code>:</p>
+<pre><code>php artisan email:send 1 --queue</code></pre>
+<p><a name="options-with-values"></a></p>
+<h4 id="options-with-values">Options With Values</h4>
+<p>Next, let's take a look at an option that expects a value. If the user must specify a value for an option, suffix the option name with a <code>=</code> sign:</p>
+<pre><code>/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */
+protected $signature = 'email:send {user} {--queue=}';</code></pre>
+<p>In this example, the user may pass a value for the option like so:</p>
+<pre><code>php artisan email:send 1 --queue=default</code></pre>
+<p>You may assign default values to options by specifying the default value after the option name. If no option value is passed by the user, the default value will be used:</p>
+<pre><code>email:send {user} {--queue=default}</code></pre>
+<p><a name="option-shortcuts"></a></p>
+<h4 id="option-shortcuts">Option Shortcuts</h4>
+<p>To assign a shortcut when defining an option, you may specify it before the option name and use a | delimiter to separate the shortcut from the full option name:</p>
+<pre><code>email:send {user} {--Q|queue}</code></pre>
+<p><a name="input-arrays"></a></p>
+<h3 id="input-arrays">Input Arrays</h3>
+<p>If you would like to define arguments or options to expect array inputs, you may use the <code>*</code> character. First, let's take a look at an example that specifies an array argument:</p>
+<pre><code>email:send {user*}</code></pre>
+<p>When calling this method, the <code>user</code> arguments may be passed in order to the command line. For example, the following command will set the value of <code>user</code> to <code>['foo', 'bar']</code>:</p>
+<pre><code>php artisan email:send foo bar</code></pre>
+<p>When defining an option that expects an array input, each option value passed to the command should be prefixed with the option name:</p>
+<pre><code>email:send {user} {--id=*}
+
+php artisan email:send --id=1 --id=2</code></pre>
+<p><a name="input-descriptions"></a></p>
+<h3 id="input-descriptions">Input Descriptions</h3>
+<p>You may assign descriptions to input arguments and options by separating the parameter from the description using a colon. If you need a little extra room to define your command, feel free to spread the definition across multiple lines:</p>
+<pre><code>/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */
+protected $signature = 'email:send
+                        {user : The ID of the user}
+                        {--queue= : Whether the job should be queued}';</code></pre>
+<p><a name="command-io"></a></p>
+<h2 id="command-io">Command I/O</h2>
+<p><a name="retrieving-input"></a></p>
+<h3 id="retrieving-input">Retrieving Input</h3>
+<p>While your command is executing, you will obviously need to access the values for the arguments and options accepted by your command. To do so, you may use the <code>argument</code> and <code>option</code> methods:</p>
+<pre><code>/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */
+public function handle()
+{
+    $userId = $this-&gt;argument('user');
+
+    //
+}</code></pre>
+<p>If you need to retrieve all of the arguments as an <code>array</code>, call the <code>arguments</code> method:</p>
+<pre><code>$arguments = $this-&gt;arguments();</code></pre>
+<p>Options may be retrieved just as easily as arguments using the <code>option</code> method. To retrieve all of the options as an array, call the <code>options</code> method:</p>
+<pre><code>// Retrieve a specific option...
+$queueName = $this-&gt;option('queue');
+
+// Retrieve all options...
+$options = $this-&gt;options();</code></pre>
+<p>If the argument or option does not exist, <code>null</code> will be returned.</p>
+<p><a name="prompting-for-input"></a></p>
+<h3 id="prompting-for-input">Prompting For Input</h3>
+<p>In addition to displaying output, you may also ask the user to provide input during the execution of your command. The <code>ask</code> method will prompt the user with the given question, accept their input, and then return the user's input back to your command:</p>
+<pre><code>/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */
+public function handle()
+{
+    $name = $this-&gt;ask('What is your name?');
+}</code></pre>
+<p>The <code>secret</code> method is similar to <code>ask</code>, but the user's input will not be visible to them as they type in the console. This method is useful when asking for sensitive information such as a password:</p>
+<pre><code>$password = $this-&gt;secret('What is the password?');</code></pre>
+<h4>Asking For Confirmation</h4>
+<p>If you need to ask the user for a simple confirmation, you may use the <code>confirm</code> method. By default, this method will return <code>false</code>. However, if the user enters <code>y</code> or <code>yes</code> in response to the prompt, the method will return <code>true</code>.</p>
+<pre><code>if ($this-&gt;confirm('Do you wish to continue?')) {
+    //
+}</code></pre>
+<h4>Auto-Completion</h4>
+<p>The <code>anticipate</code> method can be used to provide auto-completion for possible choices. The user can still choose any answer, regardless of the auto-completion hints:</p>
+<pre><code>$name = $this-&gt;anticipate('What is your name?', ['Taylor', 'Dayle']);</code></pre>
+<p>Alternatively, you may pass a Closure as the second argument to the <code>anticipate</code> method. The Closure will be called each time the user types an input character. The Closure should accept a string parameter containing the user's input so far, and return an array of options for auto-completion:</p>
+<pre><code>$name = $this-&gt;anticipate('What is your name?', function ($input) {
+    // Return auto-completion options...
+});</code></pre>
+<h4>Multiple Choice Questions</h4>
+<p>If you need to give the user a predefined set of choices, you may use the <code>choice</code> method. You may set the array index of the default value to be returned if no option is chosen:</p>
+<pre><code>$name = $this-&gt;choice('What is your name?', ['Taylor', 'Dayle'], $defaultIndex);</code></pre>
+<p>In addition, the <code>choice</code> method accepts optional fourth and fifth arguments for determining the maximum number of attempts to select a valid response and whether multiple selections are permitted:</p>
+<pre><code>$name = $this-&gt;choice(
+    'What is your name?',
+    ['Taylor', 'Dayle'],
+    $defaultIndex,
+    $maxAttempts = null,
+    $allowMultipleSelections = false
+);</code></pre>
+<p><a name="writing-output"></a></p>
+<h3 id="writing-output">Writing Output</h3>
+<p>To send output to the console, use the <code>line</code>, <code>info</code>, <code>comment</code>, <code>question</code> and <code>error</code> methods. Each of these methods will use appropriate ANSI colors for their purpose. For example, let's display some general information to the user. Typically, the <code>info</code> method will display in the console as green text:</p>
+<pre><code>/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */
+public function handle()
+{
+    $this-&gt;info('Display this on the screen');
+}</code></pre>
+<p>To display an error message, use the <code>error</code> method. Error message text is typically displayed in red:</p>
+<pre><code>$this-&gt;error('Something went wrong!');</code></pre>
+<p>If you would like to display plain, uncolored console output, use the <code>line</code> method:</p>
+<pre><code>$this-&gt;line('Display this on the screen');</code></pre>
+<h4>Table Layouts</h4>
+<p>The <code>table</code> method makes it easy to correctly format multiple rows / columns of data. Just pass in the headers and rows to the method. The width and height will be dynamically calculated based on the given data:</p>
+<pre><code>$headers = ['Name', 'Email'];
+
+$users = App\User::all(['name', 'email'])-&gt;toArray();
+
+$this-&gt;table($headers, $users);</code></pre>
+<h4>Progress Bars</h4>
+<p>For long running tasks, it could be helpful to show a progress indicator. Using the output object, we can start, advance and stop the Progress Bar. First, define the total number of steps the process will iterate through. Then, advance the Progress Bar after processing each item:</p>
+<pre><code>$users = App\User::all();
+
+$bar = $this-&gt;output-&gt;createProgressBar(count($users));
+
+$bar-&gt;start();
+
+foreach ($users as $user) {
+    $this-&gt;performTask($user);
+
+    $bar-&gt;advance();
+}
+
+$bar-&gt;finish();</code></pre>
+<p>For more advanced options, check out the <a href="https://symfony.com/doc/current/components/console/helpers/progressbar.html">Symfony Progress Bar component documentation</a>.</p>
+<p><a name="registering-commands"></a></p>
+<h2 id="registering-commands">Registering Commands</h2>
+<p>Because of the <code>load</code> method call in your console kernel's <code>commands</code> method, all commands within the <code>app/Console/Commands</code> directory will automatically be registered with Artisan. In fact, you are free to make additional calls to the <code>load</code> method to scan other directories for Artisan commands:</p>
+<pre><code>/**
+ * Register the commands for the application.
+ *
+ * @return void
+ */
+protected function commands()
+{
+    $this-&gt;load(__DIR__.'/Commands');
+    $this-&gt;load(__DIR__.'/MoreCommands');
+
+    // ...
+}</code></pre>
+<p>You may also manually register commands by adding its class name to the <code>$commands</code> property of your <code>app/Console/Kernel.php</code> file. When Artisan boots, all the commands listed in this property will be resolved by the <a href="container.html">service container</a> and registered with Artisan:</p>
+<pre><code>protected $commands = [
+    Commands\SendEmails::class
+];</code></pre>
+<p><a name="programmatically-executing-commands"></a></p>
+<h2 id="programmatically-executing-commands">Programmatically Executing Commands</h2>
+<p>Sometimes you may wish to execute an Artisan command outside of the CLI. For example, you may wish to fire an Artisan command from a route or controller. You may use the <code>call</code> method on the <code>Artisan</code> facade to accomplish this. The <code>call</code> method accepts either the command's name or class as the first argument, and an array of command parameters as the second argument. The exit code will be returned:</p>
+<pre><code>Route::get('/foo', function () {
+    $exitCode = Artisan::call('email:send', [
+        'user' =&gt; 1, '--queue' =&gt; 'default'
+    ]);
+
+    //
+});</code></pre>
+<p>Alternatively, you may pass the entire Artisan command to the <code>call</code> method as a string:</p>
+<pre><code>Artisan::call('email:send 1 --queue=default');</code></pre>
+<p>Using the <code>queue</code> method on the <code>Artisan</code> facade, you may even queue Artisan commands so they are processed in the background by your <a href="queues.html">queue workers</a>. Before using this method, make sure you have configured your queue and are running a queue listener:</p>
+<pre><code>Route::get('/foo', function () {
+    Artisan::queue('email:send', [
+        'user' =&gt; 1, '--queue' =&gt; 'default'
+    ]);
+
+    //
+});</code></pre>
+<p>You may also specify the connection or queue the Artisan command should be dispatched to:</p>
+<pre><code>Artisan::queue('email:send', [
+    'user' =&gt; 1, '--queue' =&gt; 'default'
+])-&gt;onConnection('redis')-&gt;onQueue('commands');</code></pre>
+<h4>Passing Array Values</h4>
+<p>If your command defines an option that accepts an array, you may pass an array of values to that option:</p>
+<pre><code>Route::get('/foo', function () {
+    $exitCode = Artisan::call('email:send', [
+        'user' =&gt; 1, '--id' =&gt; [5, 13]
+    ]);
+});</code></pre>
+<h4>Passing Boolean Values</h4>
+<p>If you need to specify the value of an option that does not accept string values, such as the <code>--force</code> flag on the <code>migrate:refresh</code> command, you should pass <code>true</code> or <code>false</code>:</p>
+<pre><code>$exitCode = Artisan::call('migrate:refresh', [
+    '--force' =&gt; true,
+]);</code></pre>
+<p><a name="calling-commands-from-other-commands"></a></p>
+<h3 id="calling-commands-from-other-commands">Calling Commands From Other Commands</h3>
+<p>Sometimes you may wish to call other commands from an existing Artisan command. You may do so using the <code>call</code> method. This <code>call</code> method accepts the command name and an array of command parameters:</p>
+<pre><code>/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */
+public function handle()
+{
+    $this-&gt;call('email:send', [
+        'user' =&gt; 1, '--queue' =&gt; 'default'
+    ]);
+
+    //
+}</code></pre>
+<p>If you would like to call another console command and suppress all of its output, you may use the <code>callSilent</code> method. The <code>callSilent</code> method has the same signature as the <code>call</code> method:</p>
+<pre><code>$this-&gt;callSilent('email:send', [
+    'user' =&gt; 1, '--queue' =&gt; 'default'
+]);</code></pre>
+<p><a name="stub-customization"></a></p>
+<h2 id="stub-customization">Stub Customization</h2>
+<p>The Artisan console's <code>make</code> commands are used to create a variety of classes, such as controllers, jobs, migrations, and tests. These classes are generated using &quot;stub&quot; files that are populated with values based on your input. However, you may sometimes wish to make small changes to files generated by Artisan. To accomplish this, you may use the <code>stub:publish</code> command to publish the most common stubs for customization:</p>
+<pre><code>php artisan stub:publish</code></pre>
+<p>The published stubs will be located within a <code>stubs</code> directory in the root of your application. Any changes you make to these stubs will be reflected when you generate their corresponding classes using Artisan <code>make</code> commands.</p>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/artisan by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:10 GMT -->
+</html>

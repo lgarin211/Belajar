@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/notifications by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Notifications - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="notifications.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/notifications">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/notifications">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/notifications">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/notifications">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/notifications">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/notifications">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/notifications">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/notifications">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/notifications">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/notifications">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/notifications">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/notifications">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/notifications">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Notifications</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#creating-notifications">Creating Notifications</a></li>
+<li><a href="#sending-notifications">Sending Notifications</a>
+<ul>
+<li><a href="#using-the-notifiable-trait">Using The Notifiable Trait</a></li>
+<li><a href="#using-the-notification-facade">Using The Notification Facade</a></li>
+<li><a href="#specifying-delivery-channels">Specifying Delivery Channels</a></li>
+<li><a href="#queueing-notifications">Queueing Notifications</a></li>
+<li><a href="#on-demand-notifications">On-Demand Notifications</a></li>
+</ul></li>
+<li><a href="#mail-notifications">Mail Notifications</a>
+<ul>
+<li><a href="#formatting-mail-messages">Formatting Mail Messages</a></li>
+<li><a href="#customizing-the-sender">Customizing The Sender</a></li>
+<li><a href="#customizing-the-recipient">Customizing The Recipient</a></li>
+<li><a href="#customizing-the-subject">Customizing The Subject</a></li>
+<li><a href="#customizing-the-mailer">Customizing The Mailer</a></li>
+<li><a href="#customizing-the-templates">Customizing The Templates</a></li>
+<li><a href="#previewing-mail-notifications">Previewing Mail Notifications</a></li>
+</ul></li>
+<li><a href="#markdown-mail-notifications">Markdown Mail Notifications</a>
+<ul>
+<li><a href="#generating-the-message">Generating The Message</a></li>
+<li><a href="#writing-the-message">Writing The Message</a></li>
+<li><a href="#customizing-the-components">Customizing The Components</a></li>
+</ul></li>
+<li><a href="#database-notifications">Database Notifications</a>
+<ul>
+<li><a href="#database-prerequisites">Prerequisites</a></li>
+<li><a href="#formatting-database-notifications">Formatting Database Notifications</a></li>
+<li><a href="#accessing-the-notifications">Accessing The Notifications</a></li>
+<li><a href="#marking-notifications-as-read">Marking Notifications As Read</a></li>
+</ul></li>
+<li><a href="#broadcast-notifications">Broadcast Notifications</a>
+<ul>
+<li><a href="#broadcast-prerequisites">Prerequisites</a></li>
+<li><a href="#formatting-broadcast-notifications">Formatting Broadcast Notifications</a></li>
+<li><a href="#listening-for-notifications">Listening For Notifications</a></li>
+</ul></li>
+<li><a href="#sms-notifications">SMS Notifications</a>
+<ul>
+<li><a href="#sms-prerequisites">Prerequisites</a></li>
+<li><a href="#formatting-sms-notifications">Formatting SMS Notifications</a></li>
+<li><a href="#formatting-shortcode-notifications">Formatting Shortcode Notifications</a></li>
+<li><a href="#customizing-the-from-number">Customizing The &quot;From&quot; Number</a></li>
+<li><a href="#routing-sms-notifications">Routing SMS Notifications</a></li>
+</ul></li>
+<li><a href="#slack-notifications">Slack Notifications</a>
+<ul>
+<li><a href="#slack-prerequisites">Prerequisites</a></li>
+<li><a href="#formatting-slack-notifications">Formatting Slack Notifications</a></li>
+<li><a href="#slack-attachments">Slack Attachments</a></li>
+<li><a href="#routing-slack-notifications">Routing Slack Notifications</a></li>
+</ul></li>
+<li><a href="#localizing-notifications">Localizing Notifications</a></li>
+<li><a href="#notification-events">Notification Events</a></li>
+<li><a href="#custom-channels">Custom Channels</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>In addition to support for <a href="mail.html">sending email</a>, Laravel provides support for sending notifications across a variety of delivery channels, including mail, SMS (via <a href="https://www.vonage.com/communications-apis/">Vonage</a>, formerly known as Nexmo), and <a href="https://slack.com/">Slack</a>. Notifications may also be stored in a database so they may be displayed in your web interface.</p>
+<p>Typically, notifications should be short, informational messages that notify users of something that occurred in your application. For example, if you are writing a billing application, you might send an &quot;Invoice Paid&quot; notification to your users via the email and SMS channels.</p>
+<p><a name="creating-notifications"></a></p>
+<h2 id="creating-notifications">Creating Notifications</h2>
+<p>In Laravel, each notification is represented by a single class (typically stored in the <code>app/Notifications</code> directory). Don't worry if you don't see this directory in your application, it will be created for you when you run the <code>make:notification</code> Artisan command:</p>
+<pre><code>php artisan make:notification InvoicePaid</code></pre>
+<p>This command will place a fresh notification class in your <code>app/Notifications</code> directory. Each notification class contains a <code>via</code> method and a variable number of message building methods (such as <code>toMail</code> or <code>toDatabase</code>) that convert the notification to a message optimized for that particular channel.</p>
+<p><a name="sending-notifications"></a></p>
+<h2 id="sending-notifications">Sending Notifications</h2>
+<p><a name="using-the-notifiable-trait"></a></p>
+<h3 id="using-the-notifiable-trait">Using The Notifiable Trait</h3>
+<p>Notifications may be sent in two ways: using the <code>notify</code> method of the <code>Notifiable</code> trait or using the <code>Notification</code> <a href="facades.html">facade</a>. First, let's explore using the trait:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+}</code></pre>
+<p>This trait is utilized by the default <code>App\User</code> model and contains one method that may be used to send notifications: <code>notify</code>. The <code>notify</code> method expects to receive a notification instance:</p>
+<pre><code>use App\Notifications\InvoicePaid;
+
+$user-&gt;notify(new InvoicePaid($invoice));</code></pre>
+<blockquote>
+<p>{tip} Remember, you may use the <code>Illuminate\Notifications\Notifiable</code> trait on any of your models. You are not limited to only including it on your <code>User</code> model.</p>
+</blockquote>
+<p><a name="using-the-notification-facade"></a></p>
+<h3 id="using-the-notification-facade">Using The Notification Facade</h3>
+<p>Alternatively, you may send notifications via the <code>Notification</code> <a href="facades.html">facade</a>. This is useful primarily when you need to send a notification to multiple notifiable entities such as a collection of users. To send notifications using the facade, pass all of the notifiable entities and the notification instance to the <code>send</code> method:</p>
+<pre><code>Notification::send($users, new InvoicePaid($invoice));</code></pre>
+<p><a name="specifying-delivery-channels"></a></p>
+<h3 id="specifying-delivery-channels">Specifying Delivery Channels</h3>
+<p>Every notification class has a <code>via</code> method that determines on which channels the notification will be delivered. Notifications may be sent on the <code>mail</code>, <code>database</code>, <code>broadcast</code>, <code>nexmo</code>, and <code>slack</code> channels.</p>
+<blockquote>
+<p>{tip} If you would like to use other delivery channels such as Telegram or Pusher, check out the community driven <a href="http://laravel-notification-channels.com/">Laravel Notification Channels website</a>.</p>
+</blockquote>
+<p>The <code>via</code> method receives a <code>$notifiable</code> instance, which will be an instance of the class to which the notification is being sent. You may use <code>$notifiable</code> to determine which channels the notification should be delivered on:</p>
+<pre><code>/**
+ * Get the notification's delivery channels.
+ *
+ * @param  mixed  $notifiable
+ * @return array
+ */
+public function via($notifiable)
+{
+    return $notifiable-&gt;prefers_sms ? ['nexmo'] : ['mail', 'database'];
+}</code></pre>
+<p><a name="queueing-notifications"></a></p>
+<h3 id="queueing-notifications">Queueing Notifications</h3>
+<blockquote>
+<p>{note} Before queueing notifications you should configure your queue and <a href="queues.html">start a worker</a>.</p>
+</blockquote>
+<p>Sending notifications can take time, especially if the channel needs an external API call to deliver the notification. To speed up your application's response time, let your notification be queued by adding the <code>ShouldQueue</code> interface and <code>Queueable</code> trait to your class. The interface and trait are already imported for all notifications generated using <code>make:notification</code>, so you may immediately add them to your notification class:</p>
+<pre><code>&lt;?php
+
+namespace App\Notifications;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Notification;
+
+class InvoicePaid extends Notification implements ShouldQueue
+{
+    use Queueable;
+
+    // ...
+}</code></pre>
+<p>Once the <code>ShouldQueue</code> interface has been added to your notification, you may send the notification like normal. Laravel will detect the <code>ShouldQueue</code> interface on the class and automatically queue the delivery of the notification:</p>
+<pre><code>$user-&gt;notify(new InvoicePaid($invoice));</code></pre>
+<p>If you would like to delay the delivery of the notification, you may chain the <code>delay</code> method onto your notification instantiation:</p>
+<pre><code>$when = now()-&gt;addMinutes(10);
+
+$user-&gt;notify((new InvoicePaid($invoice))-&gt;delay($when));</code></pre>
+<h4>Customizing Notification Channel Queues</h4>
+<p>If you would to specify a specific queue that should be used for each notification channel supported by the notification, you may define a <code>viaQueues</code> method on your notification. This method should return an array of channel name / queue name pairs:</p>
+<pre><code>/**
+ * Determine which queues should be used for each notification channel.
+ *
+ * @return array
+ */
+public function viaQueues()
+{
+    return [
+        'mail' =&gt; 'mail-queue',
+        'slack' =&gt; 'slack-queue',
+    ];
+}</code></pre>
+<p><a name="on-demand-notifications"></a></p>
+<h3 id="on-demand-notifications">On-Demand Notifications</h3>
+<p>Sometimes you may need to send a notification to someone who is not stored as a &quot;user&quot; of your application. Using the <code>Notification::route</code> facade method, you may specify ad-hoc notification routing information before sending the notification:</p>
+<pre><code>Notification::route('mail', '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="becadfc7d2d1ccfedbc6dfd3ced2db90ddd1d3">[email&#160;protected]</a>')
+            -&gt;route('nexmo', '5555555555')
+            -&gt;route('slack', 'https://hooks.slack.com/services/...')
+            -&gt;notify(new InvoicePaid($invoice));</code></pre>
+<p><a name="mail-notifications"></a></p>
+<h2 id="mail-notifications">Mail Notifications</h2>
+<p><a name="formatting-mail-messages"></a></p>
+<h3 id="formatting-mail-messages">Formatting Mail Messages</h3>
+<p>If a notification supports being sent as an email, you should define a <code>toMail</code> method on the notification class. This method will receive a <code>$notifiable</code> entity and should return a <code>Illuminate\Notifications\Messages\MailMessage</code> instance. Mail messages may contain lines of text as well as a &quot;call to action&quot;. Let's take a look at an example <code>toMail</code> method:</p>
+<pre><code>/**
+ * Get the mail representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return \Illuminate\Notifications\Messages\MailMessage
+ */
+public function toMail($notifiable)
+{
+    $url = url('/invoice/'.$this-&gt;invoice-&gt;id);
+
+    return (new MailMessage)
+                -&gt;greeting('Hello!')
+                -&gt;line('One of your invoices has been paid!')
+                -&gt;action('View Invoice', $url)
+                -&gt;line('Thank you for using our application!');
+}</code></pre>
+<blockquote>
+<p>{tip} Note we are using <code>$this-&gt;invoice-&gt;id</code> in our <code>toMail</code> method. You may pass any data your notification needs to generate its message into the notification's constructor.</p>
+</blockquote>
+<p>In this example, we register a greeting, a line of text, a call to action, and then another line of text. These methods provided by the <code>MailMessage</code> object make it simple and fast to format small transactional emails. The mail channel will then translate the message components into a nice, responsive HTML email template with a plain-text counterpart. Here is an example of an email generated by the <code>mail</code> channel:</p>
+<img src="../../img/docs/notification-example.png" width="551" height="596">
+<blockquote>
+<p>{tip} When sending mail notifications, be sure to set the <code>name</code> value in your <code>config/app.php</code> configuration file. This value will be used in the header and footer of your mail notification messages.</p>
+</blockquote>
+<h4>Other Notification Formatting Options</h4>
+<p>Instead of defining the &quot;lines&quot; of text in the notification class, you may use the <code>view</code> method to specify a custom template that should be used to render the notification email:</p>
+<pre><code>/**
+ * Get the mail representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return \Illuminate\Notifications\Messages\MailMessage
+ */
+public function toMail($notifiable)
+{
+    return (new MailMessage)-&gt;view(
+        'emails.name', ['invoice' =&gt; $this-&gt;invoice]
+    );
+}</code></pre>
+<p>In addition, you may return a <a href="mail.html">mailable object</a> from the <code>toMail</code> method:</p>
+<pre><code>use App\Mail\InvoicePaid as Mailable;
+
+/**
+ * Get the mail representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return Mailable
+ */
+public function toMail($notifiable)
+{
+    return (new Mailable($this-&gt;invoice))-&gt;to($notifiable-&gt;email);
+}</code></pre>
+<p><a name="error-messages"></a></p>
+<h4 id="error-messages">Error Messages</h4>
+<p>Some notifications inform users of errors, such as a failed invoice payment. You may indicate that a mail message is regarding an error by calling the <code>error</code> method when building your message. When using the <code>error</code> method on a mail message, the call to action button will be red instead of blue:</p>
+<pre><code>/**
+ * Get the mail representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return \Illuminate\Notifications\Message
+ */
+public function toMail($notifiable)
+{
+    return (new MailMessage)
+                -&gt;error()
+                -&gt;subject('Notification Subject')
+                -&gt;line('...');
+}</code></pre>
+<p><a name="customizing-the-sender"></a></p>
+<h3 id="customizing-the-sender">Customizing The Sender</h3>
+<p>By default, the email's sender / from address is defined in the <code>config/mail.php</code> configuration file. However, you may specify the from address for a specific notification using the <code>from</code> method:</p>
+<pre><code>/**
+ * Get the mail representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return \Illuminate\Notifications\Messages\MailMessage
+ */
+public function toMail($notifiable)
+{
+    return (new MailMessage)
+                -&gt;from('<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="abdfced8dfebced3cac6dbc7ce85c8c4c6">[email&#160;protected]</a>', 'Example')
+                -&gt;line('...');
+}</code></pre>
+<p><a name="customizing-the-recipient"></a></p>
+<h3 id="customizing-the-recipient">Customizing The Recipient</h3>
+<p>When sending notifications via the <code>mail</code> channel, the notification system will automatically look for an <code>email</code> property on your notifiable entity. You may customize which email address is used to deliver the notification by defining a <code>routeNotificationForMail</code> method on the entity:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    /**
+     * Route notifications for the mail channel.
+     *
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return array|string
+     */
+    public function routeNotificationForMail($notification)
+    {
+        // Return email address only...
+        return $this-&gt;email_address;
+
+        // Return name and email address...
+        return [$this-&gt;email_address =&gt; $this-&gt;name];
+    }
+}</code></pre>
+<p><a name="customizing-the-subject"></a></p>
+<h3 id="customizing-the-subject">Customizing The Subject</h3>
+<p>By default, the email's subject is the class name of the notification formatted to &quot;title case&quot;. So, if your notification class is named <code>InvoicePaid</code>, the email's subject will be <code>Invoice Paid</code>. If you would like to specify an explicit subject for the message, you may call the <code>subject</code> method when building your message:</p>
+<pre><code>/**
+ * Get the mail representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return \Illuminate\Notifications\Messages\MailMessage
+ */
+public function toMail($notifiable)
+{
+    return (new MailMessage)
+                -&gt;subject('Notification Subject')
+                -&gt;line('...');
+}</code></pre>
+<p><a name="customizing-the-mailer"></a></p>
+<h3 id="customizing-the-mailer">Customizing The Mailer</h3>
+<p>By default, the email notification will be sent using the default driver defined in the <code>config/mail.php</code> configuration file. However, you may specify a different mailer at runtime by calling the <code>mailer</code> method when building your message:</p>
+<pre><code>/**
+ * Get the mail representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return \Illuminate\Notifications\Messages\MailMessage
+ */
+public function toMail($notifiable)
+{
+    return (new MailMessage)
+                -&gt;mailer('postmark')
+                -&gt;line('...');
+}</code></pre>
+<p><a name="customizing-the-templates"></a></p>
+<h3 id="customizing-the-templates">Customizing The Templates</h3>
+<p>You can modify the HTML and plain-text template used by mail notifications by publishing the notification package's resources. After running this command, the mail notification templates will be located in the <code>resources/views/vendor/notifications</code> directory:</p>
+<pre><code>php artisan vendor:publish --tag=laravel-notifications</code></pre>
+<p><a name="previewing-mail-notifications"></a></p>
+<h3 id="previewing-mail-notifications">Previewing Mail Notifications</h3>
+<p>When designing a mail notification template, it is convenient to quickly preview the rendered mail message in your browser like a typical Blade template. For this reason, Laravel allows you to return any mail message generated by a mail notification directly from a route Closure or controller. When a <code>MailMessage</code> is returned, it will be rendered and displayed in the browser, allowing you to quickly preview its design without needing to send it to an actual email address:</p>
+<pre><code>Route::get('mail', function () {
+    $invoice = App\Invoice::find(1);
+
+    return (new App\Notifications\InvoicePaid($invoice))
+                -&gt;toMail($invoice-&gt;user);
+});</code></pre>
+<p><a name="markdown-mail-notifications"></a></p>
+<h2 id="markdown-mail-notifications">Markdown Mail Notifications</h2>
+<p>Markdown mail notifications allow you to take advantage of the pre-built templates of mail notifications, while giving you more freedom to write longer, customized messages. Since the messages are written in Markdown, Laravel is able to render beautiful, responsive HTML templates for the messages while also automatically generating a plain-text counterpart.</p>
+<p><a name="generating-the-message"></a></p>
+<h3 id="generating-the-message">Generating The Message</h3>
+<p>To generate a notification with a corresponding Markdown template, you may use the <code>--markdown</code> option of the <code>make:notification</code> Artisan command:</p>
+<pre><code>php artisan make:notification InvoicePaid --markdown=mail.invoice.paid</code></pre>
+<p>Like all other mail notifications, notifications that use Markdown templates should define a <code>toMail</code> method on their notification class. However, instead of using the <code>line</code> and <code>action</code> methods to construct the notification, use the <code>markdown</code> method to specify the name of the Markdown template that should be used:</p>
+<pre><code>/**
+ * Get the mail representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return \Illuminate\Notifications\Messages\MailMessage
+ */
+public function toMail($notifiable)
+{
+    $url = url('/invoice/'.$this-&gt;invoice-&gt;id);
+
+    return (new MailMessage)
+                -&gt;subject('Invoice Paid')
+                -&gt;markdown('mail.invoice.paid', ['url' =&gt; $url]);
+}</code></pre>
+<p><a name="writing-the-message"></a></p>
+<h3 id="writing-the-message">Writing The Message</h3>
+<p>Markdown mail notifications use a combination of Blade components and Markdown syntax which allow you to easily construct notifications while leveraging Laravel's pre-crafted notification components:</p>
+<pre><code>@component('mail::message')
+# Invoice Paid
+
+Your invoice has been paid!
+
+@component('mail::button', ['url' =&gt; $url])
+View Invoice
+@endcomponent
+
+Thanks,&lt;br&gt;
+{{ config('app.name') }}
+@endcomponent</code></pre>
+<h4>Button Component</h4>
+<p>The button component renders a centered button link. The component accepts two arguments, a <code>url</code> and an optional <code>color</code>. Supported colors are <code>blue</code>, <code>green</code>, and <code>red</code>. You may add as many button components to a notification as you wish:</p>
+<pre><code>@component('mail::button', ['url' =&gt; $url, 'color' =&gt; 'green'])
+View Invoice
+@endcomponent</code></pre>
+<h4>Panel Component</h4>
+<p>The panel component renders the given block of text in a panel that has a slightly different background color than the rest of the notification. This allows you to draw attention to a given block of text:</p>
+<pre><code>@component('mail::panel')
+This is the panel content.
+@endcomponent</code></pre>
+<h4>Table Component</h4>
+<p>The table component allows you to transform a Markdown table into an HTML table. The component accepts the Markdown table as its content. Table column alignment is supported using the default Markdown table alignment syntax:</p>
+<pre><code>@component('mail::table')
+| Laravel       | Table         | Example  |
+| ------------- |:-------------:| --------:|
+| Col 2 is      | Centered      | $10      |
+| Col 3 is      | Right-Aligned | $20      |
+@endcomponent</code></pre>
+<p><a name="customizing-the-components"></a></p>
+<h3 id="customizing-the-components">Customizing The Components</h3>
+<p>You may export all of the Markdown notification components to your own application for customization. To export the components, use the <code>vendor:publish</code> Artisan command to publish the <code>laravel-mail</code> asset tag:</p>
+<pre><code>php artisan vendor:publish --tag=laravel-mail</code></pre>
+<p>This command will publish the Markdown mail components to the <code>resources/views/vendor/mail</code> directory. The <code>mail</code> directory will contain an <code>html</code> and a <code>text</code> directory, each containing their respective representations of every available component. You are free to customize these components however you like.</p>
+<h4>Customizing The CSS</h4>
+<p>After exporting the components, the <code>resources/views/vendor/mail/html/themes</code> directory will contain a <code>default.css</code> file. You may customize the CSS in this file and your styles will automatically be in-lined within the HTML representations of your Markdown notifications.</p>
+<p>If you would like to build an entirely new theme for Laravel's Markdown components, you may place a CSS file within the <code>html/themes</code> directory. After naming and saving your CSS file, update the <code>theme</code> option of the <code>mail</code> configuration file to match the name of your new theme.</p>
+<p>To customize the theme for an individual notification, you may call the <code>theme</code> method while building the notification's mail message. The <code>theme</code> method accepts the name of the theme that should be used when sending the notification:</p>
+<pre><code>/**
+ * Get the mail representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return \Illuminate\Notifications\Messages\MailMessage
+ */
+public function toMail($notifiable)
+{
+    return (new MailMessage)
+                -&gt;theme('invoice')
+                -&gt;subject('Invoice Paid')
+                -&gt;markdown('mail.invoice.paid', ['url' =&gt; $url]);
+}</code></pre>
+<p><a name="database-notifications"></a></p>
+<h2 id="database-notifications">Database Notifications</h2>
+<p><a name="database-prerequisites"></a></p>
+<h3 id="database-prerequisites">Prerequisites</h3>
+<p>The <code>database</code> notification channel stores the notification information in a database table. This table will contain information such as the notification type as well as custom JSON data that describes the notification.</p>
+<p>You can query the table to display the notifications in your application's user interface. But, before you can do that, you will need to create a database table to hold your notifications. You may use the <code>notifications:table</code> command to generate a migration with the proper table schema:</p>
+<pre><code>php artisan notifications:table
+
+php artisan migrate</code></pre>
+<p><a name="formatting-database-notifications"></a></p>
+<h3 id="formatting-database-notifications">Formatting Database Notifications</h3>
+<p>If a notification supports being stored in a database table, you should define a <code>toDatabase</code> or <code>toArray</code> method on the notification class. This method will receive a <code>$notifiable</code> entity and should return a plain PHP array. The returned array will be encoded as JSON and stored in the <code>data</code> column of your <code>notifications</code> table. Let's take a look at an example <code>toArray</code> method:</p>
+<pre><code>/**
+ * Get the array representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return array
+ */
+public function toArray($notifiable)
+{
+    return [
+        'invoice_id' =&gt; $this-&gt;invoice-&gt;id,
+        'amount' =&gt; $this-&gt;invoice-&gt;amount,
+    ];
+}</code></pre>
+<h4><code>toDatabase</code> Vs. <code>toArray</code></h4>
+<p>The <code>toArray</code> method is also used by the <code>broadcast</code> channel to determine which data to broadcast to your JavaScript client. If you would like to have two different array representations for the <code>database</code> and <code>broadcast</code> channels, you should define a <code>toDatabase</code> method instead of a <code>toArray</code> method.</p>
+<p><a name="accessing-the-notifications"></a></p>
+<h3 id="accessing-the-notifications">Accessing The Notifications</h3>
+<p>Once notifications are stored in the database, you need a convenient way to access them from your notifiable entities. The <code>Illuminate\Notifications\Notifiable</code> trait, which is included on Laravel's default <code>App\User</code> model, includes a <code>notifications</code> Eloquent relationship that returns the notifications for the entity. To fetch notifications, you may access this method like any other Eloquent relationship. By default, notifications will be sorted by the <code>created_at</code> timestamp:</p>
+<pre><code>$user = App\User::find(1);
+
+foreach ($user-&gt;notifications as $notification) {
+    echo $notification-&gt;type;
+}</code></pre>
+<p>If you want to retrieve only the &quot;unread&quot; notifications, you may use the <code>unreadNotifications</code> relationship. Again, these notifications will be sorted by the <code>created_at</code> timestamp:</p>
+<pre><code>$user = App\User::find(1);
+
+foreach ($user-&gt;unreadNotifications as $notification) {
+    echo $notification-&gt;type;
+}</code></pre>
+<blockquote>
+<p>{tip} To access your notifications from your JavaScript client, you should define a notification controller for your application which returns the notifications for a notifiable entity, such as the current user. You may then make an HTTP request to that controller's URI from your JavaScript client.</p>
+</blockquote>
+<p><a name="marking-notifications-as-read"></a></p>
+<h3 id="marking-notifications-as-read">Marking Notifications As Read</h3>
+<p>Typically, you will want to mark a notification as &quot;read&quot; when a user views it. The <code>Illuminate\Notifications\Notifiable</code> trait provides a <code>markAsRead</code> method, which updates the <code>read_at</code> column on the notification's database record:</p>
+<pre><code>$user = App\User::find(1);
+
+foreach ($user-&gt;unreadNotifications as $notification) {
+    $notification-&gt;markAsRead();
+}</code></pre>
+<p>However, instead of looping through each notification, you may use the <code>markAsRead</code> method directly on a collection of notifications:</p>
+<pre><code>$user-&gt;unreadNotifications-&gt;markAsRead();</code></pre>
+<p>You may also use a mass-update query to mark all of the notifications as read without retrieving them from the database:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;unreadNotifications()-&gt;update(['read_at' =&gt; now()]);</code></pre>
+<p>You may <code>delete</code> the notifications to remove them from the table entirely:</p>
+<pre><code>$user-&gt;notifications()-&gt;delete();</code></pre>
+<p><a name="broadcast-notifications"></a></p>
+<h2 id="broadcast-notifications">Broadcast Notifications</h2>
+<p><a name="broadcast-prerequisites"></a></p>
+<h3 id="broadcast-prerequisites">Prerequisites</h3>
+<p>Before broadcasting notifications, you should configure and be familiar with Laravel's <a href="broadcasting.html">event broadcasting</a> services. Event broadcasting provides a way to react to server-side fired Laravel events from your JavaScript client.</p>
+<p><a name="formatting-broadcast-notifications"></a></p>
+<h3 id="formatting-broadcast-notifications">Formatting Broadcast Notifications</h3>
+<p>The <code>broadcast</code> channel broadcasts notifications using Laravel's <a href="broadcasting.html">event broadcasting</a> services, allowing your JavaScript client to catch notifications in realtime. If a notification supports broadcasting, you can define a <code>toBroadcast</code> method on the notification class. This method will receive a <code>$notifiable</code> entity and should return a <code>BroadcastMessage</code> instance. If the <code>toBroadcast</code> method does not exist, the <code>toArray</code> method will be used to gather the data that should be broadcast. The returned data will be encoded as JSON and broadcast to your JavaScript client. Let's take a look at an example <code>toBroadcast</code> method:</p>
+<pre><code>use Illuminate\Notifications\Messages\BroadcastMessage;
+
+/**
+ * Get the broadcastable representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return BroadcastMessage
+ */
+public function toBroadcast($notifiable)
+{
+    return new BroadcastMessage([
+        'invoice_id' =&gt; $this-&gt;invoice-&gt;id,
+        'amount' =&gt; $this-&gt;invoice-&gt;amount,
+    ]);
+}</code></pre>
+<h4>Broadcast Queue Configuration</h4>
+<p>All broadcast notifications are queued for broadcasting. If you would like to configure the queue connection or queue name that is used to queue the broadcast operation, you may use the <code>onConnection</code> and <code>onQueue</code> methods of the <code>BroadcastMessage</code>:</p>
+<pre><code>return (new BroadcastMessage($data))
+                -&gt;onConnection('sqs')
+                -&gt;onQueue('broadcasts');</code></pre>
+<h4>Customizing The Notification Type</h4>
+<p>In addition to the data you specify, all broadcast notifications also have a <code>type</code> field containing the full class name of the notification. If you would like to customize the notification <code>type</code> that is provided to your JavaScript client, you may define a <code>broadcastType</code> method on the notification class:</p>
+<pre><code>use Illuminate\Notifications\Messages\BroadcastMessage;
+
+/**
+ * Get the type of the notification being broadcast.
+ *
+ * @return string
+ */
+public function broadcastType()
+{
+    return 'broadcast.message';
+}</code></pre>
+<p><a name="listening-for-notifications"></a></p>
+<h3 id="listening-for-notifications">Listening For Notifications</h3>
+<p>Notifications will broadcast on a private channel formatted using a <code>{notifiable}.{id}</code> convention. So, if you are sending a notification to a <code>App\User</code> instance with an ID of <code>1</code>, the notification will be broadcast on the <code>App.User.1</code> private channel. When using <a href="broadcasting.html">Laravel Echo</a>, you may easily listen for notifications on a channel using the <code>notification</code> helper method:</p>
+<pre><code>Echo.private('App.User.' + userId)
+    .notification((notification) =&gt; {
+        console.log(notification.type);
+    });</code></pre>
+<h4>Customizing The Notification Channel</h4>
+<p>If you would like to customize which channels a notifiable entity receives its broadcast notifications on, you may define a <code>receivesBroadcastNotificationsOn</code> method on the notifiable entity:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    /**
+     * The channels the user receives notification broadcasts on.
+     *
+     * @return string
+     */
+    public function receivesBroadcastNotificationsOn()
+    {
+        return 'users.'.$this-&gt;id;
+    }
+}</code></pre>
+<p><a name="sms-notifications"></a></p>
+<h2 id="sms-notifications">SMS Notifications</h2>
+<p><a name="sms-prerequisites"></a></p>
+<h3 id="sms-prerequisites">Prerequisites</h3>
+<p>Sending SMS notifications in Laravel is powered by <a href="https://www.nexmo.com/">Nexmo</a>. Before you can send notifications via Nexmo, you need to install the <code>laravel/nexmo-notification-channel</code> Composer package:</p>
+<pre><code>composer require laravel/nexmo-notification-channel</code></pre>
+<p>This will also install the <a href="https://github.com/Nexmo/nexmo-laravel"><code>nexmo/laravel</code></a> package. This package includes <a href="https://github.com/Nexmo/nexmo-laravel/blob/master/config/nexmo.php">its own configuration file</a>. You can use the <code>NEXMO_KEY</code> and <code>NEXMO_SECRET</code> environment variables to set your Nexmo public and secret key.</p>
+<p>Next, you will need to add a configuration option to your <code>config/services.php</code> configuration file. You may copy the example configuration below to get started:</p>
+<pre><code>'nexmo' =&gt; [
+    'sms_from' =&gt; '15556666666',
+],</code></pre>
+<p>The <code>sms_from</code> option is the phone number that your SMS messages will be sent from. You should generate a phone number for your application in the Nexmo control panel.</p>
+<p><a name="formatting-sms-notifications"></a></p>
+<h3 id="formatting-sms-notifications">Formatting SMS Notifications</h3>
+<p>If a notification supports being sent as an SMS, you should define a <code>toNexmo</code> method on the notification class. This method will receive a <code>$notifiable</code> entity and should return a <code>Illuminate\Notifications\Messages\NexmoMessage</code> instance:</p>
+<pre><code>/**
+ * Get the Nexmo / SMS representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return NexmoMessage
+ */
+public function toNexmo($notifiable)
+{
+    return (new NexmoMessage)
+                -&gt;content('Your SMS message content');
+}</code></pre>
+<p><a name="formatting-shortcode-notifications"></a></p>
+<h3 id="formatting-shortcode-notifications">Formatting Shortcode Notifications</h3>
+<p>Laravel also supports sending shortcode notifications, which are pre-defined message templates in your Nexmo account. You may specify the type of notification (<code>alert</code>, <code>2fa</code>, or <code>marketing</code>), as well as the custom values that will populate the template:</p>
+<pre><code>/**
+ * Get the Nexmo / Shortcode representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return array
+ */
+public function toShortcode($notifiable)
+{
+    return [
+        'type' =&gt; 'alert',
+        'custom' =&gt; [
+            'code' =&gt; 'ABC123',
+        ];
+    ];
+}</code></pre>
+<blockquote>
+<p>{tip} Like <a href="#routing-sms-notifications">routing SMS Notifications</a>, you should implement the <code>routeNotificationForShortcode</code> method on your notifiable model.</p>
+</blockquote>
+<h4>Unicode Content</h4>
+<p>If your SMS message will contain unicode characters, you should call the <code>unicode</code> method when constructing the <code>NexmoMessage</code> instance:</p>
+<pre><code>/**
+ * Get the Nexmo / SMS representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return NexmoMessage
+ */
+public function toNexmo($notifiable)
+{
+    return (new NexmoMessage)
+                -&gt;content('Your unicode message')
+                -&gt;unicode();
+}</code></pre>
+<p><a name="customizing-the-from-number"></a></p>
+<h3 id="customizing-the-from-number">Customizing The &quot;From&quot; Number</h3>
+<p>If you would like to send some notifications from a phone number that is different from the phone number specified in your <code>config/services.php</code> file, you may use the <code>from</code> method on a <code>NexmoMessage</code> instance:</p>
+<pre><code>/**
+ * Get the Nexmo / SMS representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return NexmoMessage
+ */
+public function toNexmo($notifiable)
+{
+    return (new NexmoMessage)
+                -&gt;content('Your SMS message content')
+                -&gt;from('15554443333');
+}</code></pre>
+<p><a name="routing-sms-notifications"></a></p>
+<h3 id="routing-sms-notifications">Routing SMS Notifications</h3>
+<p>To route Nexmo notifications to the proper phone number, define a <code>routeNotificationForNexmo</code> method on your notifiable entity:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    /**
+     * Route notifications for the Nexmo channel.
+     *
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return string
+     */
+    public function routeNotificationForNexmo($notification)
+    {
+        return $this-&gt;phone_number;
+    }
+}</code></pre>
+<p><a name="slack-notifications"></a></p>
+<h2 id="slack-notifications">Slack Notifications</h2>
+<p><a name="slack-prerequisites"></a></p>
+<h3 id="slack-prerequisites">Prerequisites</h3>
+<p>Before you can send notifications via Slack, you must install the notification channel via Composer:</p>
+<pre><code>composer require laravel/slack-notification-channel</code></pre>
+<p>You will also need to configure an <a href="https://slack.com/apps/A0F7XDUAZ-incoming-webhooks">&quot;Incoming Webhook&quot;</a> integration for your Slack team. This integration will provide you with a URL you may use when <a href="#routing-slack-notifications">routing Slack notifications</a>.</p>
+<p><a name="formatting-slack-notifications"></a></p>
+<h3 id="formatting-slack-notifications">Formatting Slack Notifications</h3>
+<p>If a notification supports being sent as a Slack message, you should define a <code>toSlack</code> method on the notification class. This method will receive a <code>$notifiable</code> entity and should return a <code>Illuminate\Notifications\Messages\SlackMessage</code> instance. Slack messages may contain text content as well as an &quot;attachment&quot; that formats additional text or an array of fields. Let's take a look at a basic <code>toSlack</code> example:</p>
+<pre><code>/**
+ * Get the Slack representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return SlackMessage
+ */
+public function toSlack($notifiable)
+{
+    return (new SlackMessage)
+                -&gt;content('One of your invoices has been paid!');
+}</code></pre>
+<p>In this example we are just sending a single line of text to Slack, which will create a message that looks like the following:</p>
+<img src="../../img/docs/basic-slack-notification.png">
+<h4>Customizing The Sender &amp; Recipient</h4>
+<p>You may use the <code>from</code> and <code>to</code> methods to customize the sender and recipient. The <code>from</code> method accepts a username and emoji identifier, while the <code>to</code> method accepts a channel or username:</p>
+<pre><code>/**
+ * Get the Slack representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return SlackMessage
+ */
+public function toSlack($notifiable)
+{
+    return (new SlackMessage)
+                -&gt;from('Ghost', ':ghost:')
+                -&gt;to('#other')
+                -&gt;content('This will be sent to #other');
+}</code></pre>
+<p>You may also use an image as your logo instead of an emoji:</p>
+<pre><code>/**
+ * Get the Slack representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return SlackMessage
+ */
+public function toSlack($notifiable)
+{
+    return (new SlackMessage)
+                -&gt;from('Laravel')
+                -&gt;image('https://laravel.com/img/favicon/favicon.ico')
+                -&gt;content('This will display the Laravel logo next to the message');
+}</code></pre>
+<p><a name="slack-attachments"></a></p>
+<h3 id="slack-attachments">Slack Attachments</h3>
+<p>You may also add &quot;attachments&quot; to Slack messages. Attachments provide richer formatting options than simple text messages. In this example, we will send an error notification about an exception that occurred in an application, including a link to view more details about the exception:</p>
+<pre><code>/**
+ * Get the Slack representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return SlackMessage
+ */
+public function toSlack($notifiable)
+{
+    $url = url('/exceptions/'.$this-&gt;exception-&gt;id);
+
+    return (new SlackMessage)
+                -&gt;error()
+                -&gt;content('Whoops! Something went wrong.')
+                -&gt;attachment(function ($attachment) use ($url) {
+                    $attachment-&gt;title('Exception: File Not Found', $url)
+                               -&gt;content('File [background.jpg] was not found.');
+                });
+}</code></pre>
+<p>The example above will generate a Slack message that looks like the following:</p>
+<img src="../../img/docs/basic-slack-attachment.png">
+<p>Attachments also allow you to specify an array of data that should be presented to the user. The given data will be presented in a table-style format for easy reading:</p>
+<pre><code>/**
+ * Get the Slack representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return SlackMessage
+ */
+public function toSlack($notifiable)
+{
+    $url = url('/invoices/'.$this-&gt;invoice-&gt;id);
+
+    return (new SlackMessage)
+                -&gt;success()
+                -&gt;content('One of your invoices has been paid!')
+                -&gt;attachment(function ($attachment) use ($url) {
+                    $attachment-&gt;title('Invoice 1322', $url)
+                               -&gt;fields([
+                                    'Title' =&gt; 'Server Expenses',
+                                    'Amount' =&gt; '$1,234',
+                                    'Via' =&gt; 'American Express',
+                                    'Was Overdue' =&gt; ':-1:',
+                                ]);
+                });
+}</code></pre>
+<p>The example above will create a Slack message that looks like the following:</p>
+<img src="../../img/docs/slack-fields-attachment.png">
+<h4>Markdown Attachment Content</h4>
+<p>If some of your attachment fields contain Markdown, you may use the <code>markdown</code> method to instruct Slack to parse and display the given attachment fields as Markdown formatted text. The values accepted by this method are: <code>pretext</code>, <code>text</code>, and / or <code>fields</code>. For more information about Slack attachment formatting, check out the <a href="https://api.slack.com/docs/message-formatting#message_formatting">Slack API documentation</a>:</p>
+<pre><code>/**
+ * Get the Slack representation of the notification.
+ *
+ * @param  mixed  $notifiable
+ * @return SlackMessage
+ */
+public function toSlack($notifiable)
+{
+    $url = url('/exceptions/'.$this-&gt;exception-&gt;id);
+
+    return (new SlackMessage)
+                -&gt;error()
+                -&gt;content('Whoops! Something went wrong.')
+                -&gt;attachment(function ($attachment) use ($url) {
+                    $attachment-&gt;title('Exception: File Not Found', $url)
+                               -&gt;content('File [background.jpg] was *not found*.')
+                               -&gt;markdown(['text']);
+                });
+}</code></pre>
+<p><a name="routing-slack-notifications"></a></p>
+<h3 id="routing-slack-notifications">Routing Slack Notifications</h3>
+<p>To route Slack notifications to the proper location, define a <code>routeNotificationForSlack</code> method on your notifiable entity. This should return the webhook URL to which the notification should be delivered. Webhook URLs may be generated by adding an &quot;Incoming Webhook&quot; service to your Slack team:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    /**
+     * Route notifications for the Slack channel.
+     *
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return string
+     */
+    public function routeNotificationForSlack($notification)
+    {
+        return 'https://hooks.slack.com/services/...';
+    }
+}</code></pre>
+<p><a name="localizing-notifications"></a></p>
+<h2 id="localizing-notifications">Localizing Notifications</h2>
+<p>Laravel allows you to send notifications in a locale other than the current language, and will even remember this locale if the notification is queued.</p>
+<p>To accomplish this, the <code>Illuminate\Notifications\Notification</code> class offers a <code>locale</code> method to set the desired language. The application will change into this locale when the notification is being formatted and then revert back to the previous locale when formatting is complete:</p>
+<pre><code>$user-&gt;notify((new InvoicePaid($invoice))-&gt;locale('es'));</code></pre>
+<p>Localization of multiple notifiable entries may also be achieved via the <code>Notification</code> facade:</p>
+<pre><code>Notification::locale('es')-&gt;send($users, new InvoicePaid($invoice));</code></pre>
+<h3>User Preferred Locales</h3>
+<p>Sometimes, applications store each user's preferred locale. By implementing the <code>HasLocalePreference</code> contract on your notifiable model, you may instruct Laravel to use this stored locale when sending a notification:</p>
+<pre><code>use Illuminate\Contracts\Translation\HasLocalePreference;
+
+class User extends Model implements HasLocalePreference
+{
+    /**
+     * Get the user's preferred locale.
+     *
+     * @return string
+     */
+    public function preferredLocale()
+    {
+        return $this-&gt;locale;
+    }
+}</code></pre>
+<p>Once you have implemented the interface, Laravel will automatically use the preferred locale when sending notifications and mailables to the model. Therefore, there is no need to call the <code>locale</code> method when using this interface:</p>
+<pre><code>$user-&gt;notify(new InvoicePaid($invoice));</code></pre>
+<p><a name="notification-events"></a></p>
+<h2 id="notification-events">Notification Events</h2>
+<p>When a notification is sent, the <code>Illuminate\Notifications\Events\NotificationSent</code> event is fired by the notification system. This contains the &quot;notifiable&quot; entity and the notification instance itself. You may register listeners for this event in your <code>EventServiceProvider</code>:</p>
+<pre><code>/**
+ * The event listener mappings for the application.
+ *
+ * @var array
+ */
+protected $listen = [
+    'Illuminate\Notifications\Events\NotificationSent' =&gt; [
+        'App\Listeners\LogNotification',
+    ],
+];</code></pre>
+<blockquote>
+<p>{tip} After registering listeners in your <code>EventServiceProvider</code>, use the <code>event:generate</code> Artisan command to quickly generate listener classes.</p>
+</blockquote>
+<p>Within an event listener, you may access the <code>notifiable</code>, <code>notification</code>, and <code>channel</code> properties on the event to learn more about the notification recipient or the notification itself:</p>
+<pre><code>/**
+ * Handle the event.
+ *
+ * @param  NotificationSent  $event
+ * @return void
+ */
+public function handle(NotificationSent $event)
+{
+    // $event-&gt;channel
+    // $event-&gt;notifiable
+    // $event-&gt;notification
+    // $event-&gt;response
+}</code></pre>
+<p><a name="custom-channels"></a></p>
+<h2 id="custom-channels">Custom Channels</h2>
+<p>Laravel ships with a handful of notification channels, but you may want to write your own drivers to deliver notifications via other channels. Laravel makes it simple. To get started, define a class that contains a <code>send</code> method. The method should receive two arguments: a <code>$notifiable</code> and a <code>$notification</code>:</p>
+<pre><code>&lt;?php
+
+namespace App\Channels;
+
+use Illuminate\Notifications\Notification;
+
+class VoiceChannel
+{
+    /**
+     * Send the given notification.
+     *
+     * @param  mixed  $notifiable
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return void
+     */
+    public function send($notifiable, Notification $notification)
+    {
+        $message = $notification-&gt;toVoice($notifiable);
+
+        // Send notification to the $notifiable instance...
+    }
+}</code></pre>
+<p>Once your notification channel class has been defined, you may return the class name from the <code>via</code> method of any of your notifications:</p>
+<pre><code>&lt;?php
+
+namespace App\Notifications;
+
+use App\Channels\Messages\VoiceMessage;
+use App\Channels\VoiceChannel;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Notification;
+
+class InvoicePaid extends Notification
+{
+    use Queueable;
+
+    /**
+     * Get the notification channels.
+     *
+     * @param  mixed  $notifiable
+     * @return array|string
+     */
+    public function via($notifiable)
+    {
+        return [VoiceChannel::class];
+    }
+
+    /**
+     * Get the voice representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return VoiceMessage
+     */
+    public function toVoice($notifiable)
+    {
+        // ...
+    }
+}</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/notifications by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+</html>

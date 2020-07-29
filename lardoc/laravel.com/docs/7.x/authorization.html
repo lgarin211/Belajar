@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/authorization by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Authorization - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="authorization.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/authorization">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/authorization">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/authorization">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/authorization">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/authorization">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/authorization">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/authorization">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/authorization">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/authorization">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/authorization">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/authorization">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/authorization">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/authorization">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Authorization</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#gates">Gates</a>
+<ul>
+<li><a href="#writing-gates">Writing Gates</a></li>
+<li><a href="#authorizing-actions-via-gates">Authorizing Actions</a></li>
+<li><a href="#gate-responses">Gate Responses</a></li>
+<li><a href="#intercepting-gate-checks">Intercepting Gate Checks</a></li>
+</ul></li>
+<li><a href="#creating-policies">Creating Policies</a>
+<ul>
+<li><a href="#generating-policies">Generating Policies</a></li>
+<li><a href="#registering-policies">Registering Policies</a></li>
+</ul></li>
+<li><a href="#writing-policies">Writing Policies</a>
+<ul>
+<li><a href="#policy-methods">Policy Methods</a></li>
+<li><a href="#policy-responses">Policy Responses</a></li>
+<li><a href="#methods-without-models">Methods Without Models</a></li>
+<li><a href="#guest-users">Guest Users</a></li>
+<li><a href="#policy-filters">Policy Filters</a></li>
+</ul></li>
+<li><a href="#authorizing-actions-using-policies">Authorizing Actions Using Policies</a>
+<ul>
+<li><a href="#via-the-user-model">Via The User Model</a></li>
+<li><a href="#via-middleware">Via Middleware</a></li>
+<li><a href="#via-controller-helpers">Via Controller Helpers</a></li>
+<li><a href="#via-blade-templates">Via Blade Templates</a></li>
+<li><a href="#supplying-additional-context">Supplying Additional Context</a></li>
+</ul></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>In addition to providing <a href="authentication.html">authentication</a> services out of the box, Laravel also provides a simple way to authorize user actions against a given resource. Like authentication, Laravel's approach to authorization is simple, and there are two primary ways of authorizing actions: gates and policies.</p>
+<p>Think of gates and policies like routes and controllers. Gates provide a simple, Closure based approach to authorization while policies, like controllers, group their logic around a particular model or resource. We'll explore gates first and then examine policies.</p>
+<p>You do not need to choose between exclusively using gates or exclusively using policies when building an application. Most applications will most likely contain a mixture of gates and policies, and that is perfectly fine! Gates are most applicable to actions which are not related to any model or resource, such as viewing an administrator dashboard. In contrast, policies should be used when you wish to authorize an action for a particular model or resource.</p>
+<p><a name="gates"></a></p>
+<h2 id="gates">Gates</h2>
+<p><a name="writing-gates"></a></p>
+<h3 id="writing-gates">Writing Gates</h3>
+<p>Gates are Closures that determine if a user is authorized to perform a given action and are typically defined in the <code>App\Providers\AuthServiceProvider</code> class using the <code>Gate</code> facade. Gates always receive a user instance as their first argument, and may optionally receive additional arguments such as a relevant Eloquent model:</p>
+<pre><code>/**
+ * Register any authentication / authorization services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;registerPolicies();
+
+    Gate::define('edit-settings', function ($user) {
+        return $user-&gt;isAdmin;
+    });
+
+    Gate::define('update-post', function ($user, $post) {
+        return $user-&gt;id === $post-&gt;user_id;
+    });
+}</code></pre>
+<p>Gates may also be defined using a <code><a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="26654a475555664b43524e4942">[email&#160;protected]</a></code> style callback string, like controllers:</p>
+<pre><code>/**
+ * Register any authentication / authorization services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;registerPolicies();
+
+    Gate::define('update-post', 'App\Policies\<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cf9fa0bcbb9fa0a3a6acb68fbabfabaebbaa">[email&#160;protected]</a>');
+}</code></pre>
+<p><a name="authorizing-actions-via-gates"></a></p>
+<h3 id="authorizing-actions-via-gates">Authorizing Actions</h3>
+<p>To authorize an action using gates, you should use the <code>allows</code> or <code>denies</code> methods. Note that you are not required to pass the currently authenticated user to these methods. Laravel will automatically take care of passing the user into the gate Closure:</p>
+<pre><code>if (Gate::allows('edit-settings')) {
+    // The current user can edit settings
+}
+
+if (Gate::allows('update-post', $post)) {
+    // The current user can update the post...
+}
+
+if (Gate::denies('update-post', $post)) {
+    // The current user can't update the post...
+}</code></pre>
+<p>If you would like to determine if a particular user is authorized to perform an action, you may use the <code>forUser</code> method on the <code>Gate</code> facade:</p>
+<pre><code>if (Gate::forUser($user)-&gt;allows('update-post', $post)) {
+    // The user can update the post...
+}
+
+if (Gate::forUser($user)-&gt;denies('update-post', $post)) {
+    // The user can't update the post...
+}</code></pre>
+<p>You may authorize multiple actions at a time with the <code>any</code> or <code>none</code> methods:</p>
+<pre><code>if (Gate::any(['update-post', 'delete-post'], $post)) {
+    // The user can update or delete the post
+}
+
+if (Gate::none(['update-post', 'delete-post'], $post)) {
+    // The user cannot update or delete the post
+}</code></pre>
+<h4>Authorizing Or Throwing Exceptions</h4>
+<p>If you would like to attempt to authorize an action and automatically throw an <code>Illuminate\Auth\Access\AuthorizationException</code> if the user is not allowed to perform the given action, you may use the <code>Gate::authorize</code> method. Instances of <code>AuthorizationException</code> are automatically converted to <code>403</code> HTTP response:</p>
+<pre><code>Gate::authorize('update-post', $post);
+
+// The action is authorized...</code></pre>
+<h4>Supplying Additional Context</h4>
+<p>The gate methods for authorizing abilities (<code>allows</code>, <code>denies</code>, <code>check</code>, <code>any</code>, <code>none</code>, <code>authorize</code>, <code>can</code>, <code>cannot</code>) and the authorization <a href="#via-blade-templates">Blade directives</a> (<code>@can</code>, <code>@cannot</code>, <code>@canany</code>) can receive an array as the second argument. These array elements are passed as parameters to gate, and can be used for additional context when making authorization decisions:</p>
+<pre><code>Gate::define('create-post', function ($user, $category, $extraFlag) {
+    return $category-&gt;group &gt; 3 &amp;&amp; $extraFlag === true;
+});
+
+if (Gate::check('create-post', [$category, $extraFlag])) {
+    // The user can create the post...
+}</code></pre>
+<p><a name="gate-responses"></a></p>
+<h3 id="gate-responses">Gate Responses</h3>
+<p>So far, we have only examined gates that return simple boolean values. However, sometimes you may wish to return a more detailed response, including an error message. To do so, you may return a <code>Illuminate\Auth\Access\Response</code> from your gate:</p>
+<pre><code>use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Gate;
+
+Gate::define('edit-settings', function ($user) {
+    return $user-&gt;isAdmin
+                ? Response::allow()
+                : Response::deny('You must be a super administrator.');
+});</code></pre>
+<p>When returning an authorization response from your gate, the <code>Gate::allows</code> method will still return a simple boolean value; however, you may use the <code>Gate::inspect</code> method to get the full authorization response returned by the gate:</p>
+<pre><code>$response = Gate::inspect('edit-settings', $post);
+
+if ($response-&gt;allowed()) {
+    // The action is authorized...
+} else {
+    echo $response-&gt;message();
+}</code></pre>
+<p>Of course, when using the <code>Gate::authorize</code> method to throw an <code>AuthorizationException</code> if the action is not authorized, the error message provided by the authorization response will be propagated to the HTTP response:</p>
+<pre><code>Gate::authorize('edit-settings', $post);
+
+// The action is authorized...</code></pre>
+<p><a name="intercepting-gate-checks"></a></p>
+<h3 id="intercepting-gate-checks">Intercepting Gate Checks</h3>
+<p>Sometimes, you may wish to grant all abilities to a specific user. You may use the <code>before</code> method to define a callback that is run before all other authorization checks:</p>
+<pre><code>Gate::before(function ($user, $ability) {
+    if ($user-&gt;isSuperAdmin()) {
+        return true;
+    }
+});</code></pre>
+<p>If the <code>before</code> callback returns a non-null result that result will be considered the result of the check.</p>
+<p>You may use the <code>after</code> method to define a callback to be executed after all other authorization checks:</p>
+<pre><code>Gate::after(function ($user, $ability, $result, $arguments) {
+    if ($user-&gt;isSuperAdmin()) {
+        return true;
+    }
+});</code></pre>
+<p>Similar to the <code>before</code> check, if the <code>after</code> callback returns a non-null result that result will be considered the result of the check.</p>
+<p><a name="creating-policies"></a></p>
+<h2 id="creating-policies">Creating Policies</h2>
+<p><a name="generating-policies"></a></p>
+<h3 id="generating-policies">Generating Policies</h3>
+<p>Policies are classes that organize authorization logic around a particular model or resource. For example, if your application is a blog, you may have a <code>Post</code> model and a corresponding <code>PostPolicy</code> to authorize user actions such as creating or updating posts.</p>
+<p>You may generate a policy using the <code>make:policy</code> <a href="artisan.html">artisan command</a>. The generated policy will be placed in the <code>app/Policies</code> directory. If this directory does not exist in your application, Laravel will create it for you:</p>
+<pre><code>php artisan make:policy PostPolicy</code></pre>
+<p>The <code>make:policy</code> command will generate an empty policy class. If you would like to generate a class with the basic &quot;CRUD&quot; policy methods already included in the class, you may specify a <code>--model</code> when executing the command:</p>
+<pre><code>php artisan make:policy PostPolicy --model=Post</code></pre>
+<blockquote>
+<p>{tip} All policies are resolved via the Laravel <a href="container.html">service container</a>, allowing you to type-hint any needed dependencies in the policy's constructor to have them automatically injected.</p>
+</blockquote>
+<p><a name="registering-policies"></a></p>
+<h3 id="registering-policies">Registering Policies</h3>
+<p>Once the policy exists, it needs to be registered. The <code>AuthServiceProvider</code> included with fresh Laravel applications contains a <code>policies</code> property which maps your Eloquent models to their corresponding policies. Registering a policy will instruct Laravel which policy to utilize when authorizing actions against a given model:</p>
+<pre><code>&lt;?php
+
+namespace App\Providers;
+
+use App\Policies\PostPolicy;
+use App\Post;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    /**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */
+    protected $policies = [
+        Post::class =&gt; PostPolicy::class,
+    ];
+
+    /**
+     * Register any application authentication / authorization services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this-&gt;registerPolicies();
+
+        //
+    }
+}</code></pre>
+<h4>Policy Auto-Discovery</h4>
+<p>Instead of manually registering model policies, Laravel can auto-discover policies as long as the model and policy follow standard Laravel naming conventions. Specifically, the policies must be in a <code>Policies</code> directory below the directory that contains the models. So, for example, the models may be placed in the <code>app</code> directory while the policies may be placed in the <code>app/Policies</code> directory. In addition, the policy name must match the model name and have a <code>Policy</code> suffix. So, a <code>User</code> model would correspond to a <code>UserPolicy</code> class.</p>
+<p>If you would like to provide your own policy discovery logic, you may register a custom callback using the <code>Gate::guessPolicyNamesUsing</code> method. Typically, this method should be called from the <code>boot</code> method of your application's <code>AuthServiceProvider</code>:</p>
+<pre><code>use Illuminate\Support\Facades\Gate;
+
+Gate::guessPolicyNamesUsing(function ($modelClass) {
+    // return policy class name...
+});</code></pre>
+<blockquote>
+<p>{note} Any policies that are explicitly mapped in your <code>AuthServiceProvider</code> will take precedence over any potential auto-discovered policies.</p>
+</blockquote>
+<p><a name="writing-policies"></a></p>
+<h2 id="writing-policies">Writing Policies</h2>
+<p><a name="policy-methods"></a></p>
+<h3 id="policy-methods">Policy Methods</h3>
+<p>Once the policy has been registered, you may add methods for each action it authorizes. For example, let's define an <code>update</code> method on our <code>PostPolicy</code> which determines if a given <code>User</code> can update a given <code>Post</code> instance.</p>
+<p>The <code>update</code> method will receive a <code>User</code> and a <code>Post</code> instance as its arguments, and should return <code>true</code> or <code>false</code> indicating whether the user is authorized to update the given <code>Post</code>. So, for this example, let's verify that the user's <code>id</code> matches the <code>user_id</code> on the post:</p>
+<pre><code>&lt;?php
+
+namespace App\Policies;
+
+use App\Post;
+use App\User;
+
+class PostPolicy
+{
+    /**
+     * Determine if the given post can be updated by the user.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Post  $post
+     * @return bool
+     */
+    public function update(User $user, Post $post)
+    {
+        return $user-&gt;id === $post-&gt;user_id;
+    }
+}</code></pre>
+<p>You may continue to define additional methods on the policy as needed for the various actions it authorizes. For example, you might define <code>view</code> or <code>delete</code> methods to authorize various <code>Post</code> actions, but remember you are free to give your policy methods any name you like.</p>
+<blockquote>
+<p>{tip} If you used the <code>--model</code> option when generating your policy via the Artisan console, it will already contain methods for the <code>viewAny</code>, <code>view</code>, <code>create</code>, <code>update</code>, <code>delete</code>, <code>restore</code>, and <code>forceDelete</code> actions.</p>
+</blockquote>
+<p><a name="policy-responses"></a></p>
+<h3 id="policy-responses">Policy Responses</h3>
+<p>So far, we have only examined policy methods that return simple boolean values. However, sometimes you may wish to return a more detailed response, including an error message. To do so, you may return an <code>Illuminate\Auth\Access\Response</code> from your policy method:</p>
+<pre><code>use Illuminate\Auth\Access\Response;
+
+/**
+ * Determine if the given post can be updated by the user.
+ *
+ * @param  \App\User  $user
+ * @param  \App\Post  $post
+ * @return \Illuminate\Auth\Access\Response
+ */
+public function update(User $user, Post $post)
+{
+    return $user-&gt;id === $post-&gt;user_id
+                ? Response::allow()
+                : Response::deny('You do not own this post.');
+}</code></pre>
+<p>When returning an authorization response from your policy, the <code>Gate::allows</code> method will still return a simple boolean value; however, you may use the <code>Gate::inspect</code> method to get the full authorization response returned by the gate:</p>
+<pre><code>$response = Gate::inspect('update', $post);
+
+if ($response-&gt;allowed()) {
+    // The action is authorized...
+} else {
+    echo $response-&gt;message();
+}</code></pre>
+<p>Of course, when using the <code>Gate::authorize</code> method to throw an <code>AuthorizationException</code> if the action is not authorized, the error message provided by the authorization response will be propagated to the HTTP response:</p>
+<pre><code>Gate::authorize('update', $post);
+
+// The action is authorized...</code></pre>
+<p><a name="methods-without-models"></a></p>
+<h3 id="methods-without-models">Methods Without Models</h3>
+<p>Some policy methods only receive the currently authenticated user and not an instance of the model they authorize. This situation is most common when authorizing <code>create</code> actions. For example, if you are creating a blog, you may wish to check if a user is authorized to create any posts at all.</p>
+<p>When defining policy methods that will not receive a model instance, such as a <code>create</code> method, it will not receive a model instance. Instead, you should define the method as only expecting the authenticated user:</p>
+<pre><code>/**
+ * Determine if the given user can create posts.
+ *
+ * @param  \App\User  $user
+ * @return bool
+ */
+public function create(User $user)
+{
+    //
+}</code></pre>
+<p><a name="guest-users"></a></p>
+<h3 id="guest-users">Guest Users</h3>
+<p>By default, all gates and policies automatically return <code>false</code> if the incoming HTTP request was not initiated by an authenticated user. However, you may allow these authorization checks to pass through to your gates and policies by declaring an &quot;optional&quot; type-hint or supplying a <code>null</code> default value for the user argument definition:</p>
+<pre><code>&lt;?php
+
+namespace App\Policies;
+
+use App\Post;
+use App\User;
+
+class PostPolicy
+{
+    /**
+     * Determine if the given post can be updated by the user.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Post  $post
+     * @return bool
+     */
+    public function update(?User $user, Post $post)
+    {
+        return optional($user)-&gt;id === $post-&gt;user_id;
+    }
+}</code></pre>
+<p><a name="policy-filters"></a></p>
+<h3 id="policy-filters">Policy Filters</h3>
+<p>For certain users, you may wish to authorize all actions within a given policy. To accomplish this, define a <code>before</code> method on the policy. The <code>before</code> method will be executed before any other methods on the policy, giving you an opportunity to authorize the action before the intended policy method is actually called. This feature is most commonly used for authorizing application administrators to perform any action:</p>
+<pre><code>public function before($user, $ability)
+{
+    if ($user-&gt;isSuperAdmin()) {
+        return true;
+    }
+}</code></pre>
+<p>If you would like to deny all authorizations for a user you should return <code>false</code> from the <code>before</code> method. If <code>null</code> is returned, the authorization will fall through to the policy method.</p>
+<blockquote>
+<p>{note} The <code>before</code> method of a policy class will not be called if the class doesn't contain a method with a name matching the name of the ability being checked.</p>
+</blockquote>
+<p><a name="authorizing-actions-using-policies"></a></p>
+<h2 id="authorizing-actions-using-policies">Authorizing Actions Using Policies</h2>
+<p><a name="via-the-user-model"></a></p>
+<h3 id="via-the-user-model">Via The User Model</h3>
+<p>The <code>User</code> model that is included with your Laravel application includes two helpful methods for authorizing actions: <code>can</code> and <code>cant</code>. The <code>can</code> method receives the action you wish to authorize and the relevant model. For example, let's determine if a user is authorized to update a given <code>Post</code> model:</p>
+<pre><code>if ($user-&gt;can('update', $post)) {
+    //
+}</code></pre>
+<p>If a <a href="#registering-policies">policy is registered</a> for the given model, the <code>can</code> method will automatically call the appropriate policy and return the boolean result. If no policy is registered for the model, the <code>can</code> method will attempt to call the Closure based Gate matching the given action name.</p>
+<h4>Actions That Don't Require Models</h4>
+<p>Remember, some actions like <code>create</code> may not require a model instance. In these situations, you may pass a class name to the <code>can</code> method. The class name will be used to determine which policy to use when authorizing the action:</p>
+<pre><code>use App\Post;
+
+if ($user-&gt;can('create', Post::class)) {
+    // Executes the "create" method on the relevant policy...
+}</code></pre>
+<p><a name="via-middleware"></a></p>
+<h3 id="via-middleware">Via Middleware</h3>
+<p>Laravel includes a middleware that can authorize actions before the incoming request even reaches your routes or controllers. By default, the <code>Illuminate\Auth\Middleware\Authorize</code> middleware is assigned the <code>can</code> key in your <code>App\Http\Kernel</code> class. Let's explore an example of using the <code>can</code> middleware to authorize that a user can update a blog post:</p>
+<pre><code>use App\Post;
+
+Route::put('/post/{post}', function (Post $post) {
+    // The current user may update the post...
+})-&gt;middleware('can:update,post');</code></pre>
+<p>In this example, we're passing the <code>can</code> middleware two arguments. The first is the name of the action we wish to authorize and the second is the route parameter we wish to pass to the policy method. In this case, since we are using <a href="routing.html#implicit-binding">implicit model binding</a>, a <code>Post</code> model will be passed to the policy method. If the user is not authorized to perform the given action, a HTTP response with a <code>403</code> status code will be generated by the middleware.</p>
+<h4>Actions That Don't Require Models</h4>
+<p>Again, some actions like <code>create</code> may not require a model instance. In these situations, you may pass a class name to the middleware. The class name will be used to determine which policy to use when authorizing the action:</p>
+<pre><code>Route::post('/post', function () {
+    // The current user may create posts...
+})-&gt;middleware('can:create,App\Post');</code></pre>
+<p><a name="via-controller-helpers"></a></p>
+<h3 id="via-controller-helpers">Via Controller Helpers</h3>
+<p>In addition to helpful methods provided to the <code>User</code> model, Laravel provides a helpful <code>authorize</code> method to any of your controllers which extend the <code>App\Http\Controllers\Controller</code> base class. Like the <code>can</code> method, this method accepts the name of the action you wish to authorize and the relevant model. If the action is not authorized, the <code>authorize</code> method will throw an <code>Illuminate\Auth\Access\AuthorizationException</code>, which the default Laravel exception handler will convert to an HTTP response with a <code>403</code> status code:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\Post;
+use Illuminate\Http\Request;
+
+class PostController extends Controller
+{
+    /**
+     * Update the given blog post.
+     *
+     * @param  Request  $request
+     * @param  Post  $post
+     * @return Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function update(Request $request, Post $post)
+    {
+        $this-&gt;authorize('update', $post);
+
+        // The current user can update the blog post...
+    }
+}</code></pre>
+<h4>Actions That Don't Require Models</h4>
+<p>As previously discussed, some actions like <code>create</code> may not require a model instance. In these situations, you should pass a class name to the <code>authorize</code> method. The class name will be used to determine which policy to use when authorizing the action:</p>
+<pre><code>/**
+ * Create a new blog post.
+ *
+ * @param  Request  $request
+ * @return Response
+ * @throws \Illuminate\Auth\Access\AuthorizationException
+ */
+public function create(Request $request)
+{
+    $this-&gt;authorize('create', Post::class);
+
+    // The current user can create blog posts...
+}</code></pre>
+<h4>Authorizing Resource Controllers</h4>
+<p>If you are utilizing <a href="controllers.html#resource-controllers">resource controllers</a>, you may make use of the <code>authorizeResource</code> method in the controller's constructor. This method will attach the appropriate <code>can</code> middleware definitions to the resource controller's methods.</p>
+<p>The <code>authorizeResource</code> method accepts the model's class name as its first argument, and the name of the route / request parameter that will contain the model's ID as its second argument. You should ensure your <a href="controllers.html#resource-controllers">resource controller</a> is created with the <code>--model</code> flag to have the required method signatures and type hints:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\Post;
+use Illuminate\Http\Request;
+
+class PostController extends Controller
+{
+    public function __construct()
+    {
+        $this-&gt;authorizeResource(Post::class, 'post');
+    }
+}</code></pre>
+<p>The following controller methods will be mapped to their corresponding policy method:</p>
+<table>
+<thead>
+<tr>
+<th>Controller Method</th>
+<th>Policy Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td>viewAny</td>
+</tr>
+<tr>
+<td>show</td>
+<td>view</td>
+</tr>
+<tr>
+<td>create</td>
+<td>create</td>
+</tr>
+<tr>
+<td>store</td>
+<td>create</td>
+</tr>
+<tr>
+<td>edit</td>
+<td>update</td>
+</tr>
+<tr>
+<td>update</td>
+<td>update</td>
+</tr>
+<tr>
+<td>destroy</td>
+<td>delete</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>{tip} You may use the <code>make:policy</code> command with the <code>--model</code> option to quickly generate a policy class for a given model: <code>php artisan make:policy PostPolicy --model=Post</code>.</p>
+</blockquote>
+<p><a name="via-blade-templates"></a></p>
+<h3 id="via-blade-templates">Via Blade Templates</h3>
+<p>When writing Blade templates, you may wish to display a portion of the page only if the user is authorized to perform a given action. For example, you may wish to show an update form for a blog post only if the user can actually update the post. In this situation, you may use the <code>@can</code> and <code>@cannot</code> family of directives:</p>
+<pre><code>@can('update', $post)
+    &lt;!-- The Current User Can Update The Post --&gt;
+@elsecan('create', App\Post::class)
+    &lt;!-- The Current User Can Create New Post --&gt;
+@endcan
+
+@cannot('update', $post)
+    &lt;!-- The Current User Cannot Update The Post --&gt;
+@elsecannot('create', App\Post::class)
+    &lt;!-- The Current User Cannot Create A New Post --&gt;
+@endcannot</code></pre>
+<p>These directives are convenient shortcuts for writing <code>@if</code> and <code>@unless</code> statements. The <code>@can</code> and <code>@cannot</code> statements above respectively translate to the following statements:</p>
+<pre><code>@if (Auth::user()-&gt;can('update', $post))
+    &lt;!-- The Current User Can Update The Post --&gt;
+@endif
+
+@unless (Auth::user()-&gt;can('update', $post))
+    &lt;!-- The Current User Cannot Update The Post --&gt;
+@endunless</code></pre>
+<p>You may also determine if a user has any authorization ability from a given list of abilities. To accomplish this, use the <code>@canany</code> directive:</p>
+<pre><code>@canany(['update', 'view', 'delete'], $post)
+    // The current user can update, view, or delete the post
+@elsecanany(['create'], \App\Post::class)
+    // The current user can create a post
+@endcanany</code></pre>
+<h4>Actions That Don't Require Models</h4>
+<p>Like most of the other authorization methods, you may pass a class name to the <code>@can</code> and <code>@cannot</code> directives if the action does not require a model instance:</p>
+<pre><code>@can('create', App\Post::class)
+    &lt;!-- The Current User Can Create Posts --&gt;
+@endcan
+
+@cannot('create', App\Post::class)
+    &lt;!-- The Current User Can't Create Posts --&gt;
+@endcannot</code></pre>
+<p><a name="supplying-additional-context"></a></p>
+<h3 id="supplying-additional-context">Supplying Additional Context</h3>
+<p>When authorizing actions using policies, you may pass an array as the second argument to the various authorization functions and helpers. The first element in the array will be used to determine which policy should be invoked, while the rest of the array elements are passed as parameters to the policy method and can be used for additional context when making authorization decisions. For example, consider the following <code>PostPolicy</code> method definition which contains an additional <code>$category</code> parameter:</p>
+<pre><code>/**
+ * Determine if the given post can be updated by the user.
+ *
+ * @param  \App\User  $user
+ * @param  \App\Post  $post
+ * @param  int  $category
+ * @return bool
+ */
+public function update(User $user, Post $post, int $category)
+{
+    return $user-&gt;id === $post-&gt;user_id &amp;&amp;
+           $category &gt; 3;
+}</code></pre>
+<p>When attempting to determine if the authenticated user can update a given post, we can invoke this policy method like so:</p>
+<pre><code>/**
+ * Update the given blog post.
+ *
+ * @param  Request  $request
+ * @param  Post  $post
+ * @return Response
+ * @throws \Illuminate\Auth\Access\AuthorizationException
+ */
+public function update(Request $request, Post $post)
+{
+    $this-&gt;authorize('update', [$post, $request-&gt;input('category')]);
+
+    // The current user can update the blog post...
+}</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/authorization by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+</html>

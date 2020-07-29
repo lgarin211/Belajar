@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/logging by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Logging - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="logging.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/logging">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/logging">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/logging">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/logging">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/logging">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/logging">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/logging">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/logging">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/logging">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/logging">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/logging">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/logging">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/logging">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Logging</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#configuration">Configuration</a>
+<ul>
+<li><a href="#building-log-stacks">Building Log Stacks</a></li>
+</ul></li>
+<li><a href="#writing-log-messages">Writing Log Messages</a>
+<ul>
+<li><a href="#writing-to-specific-channels">Writing To Specific Channels</a></li>
+</ul></li>
+<li><a href="#advanced-monolog-channel-customization">Advanced Monolog Channel Customization</a>
+<ul>
+<li><a href="#customizing-monolog-for-channels">Customizing Monolog For Channels</a></li>
+<li><a href="#creating-monolog-handler-channels">Creating Monolog Handler Channels</a></li>
+<li><a href="#creating-channels-via-factories">Creating Channels Via Factories</a></li>
+</ul></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>To help you learn more about what's happening within your application, Laravel provides robust logging services that allow you to log messages to files, the system error log, and even to Slack to notify your entire team.</p>
+<p>Under the hood, Laravel utilizes the <a href="https://github.com/Seldaek/monolog">Monolog</a> library, which provides support for a variety of powerful log handlers. Laravel makes it a cinch to configure these handlers, allowing you to mix and match them to customize your application's log handling.</p>
+<p><a name="configuration"></a></p>
+<h2 id="configuration">Configuration</h2>
+<p>All of the configuration for your application's logging system is housed in the <code>config/logging.php</code> configuration file. This file allows you to configure your application's log channels, so be sure to review each of the available channels and their options. We'll review a few common options below.</p>
+<p>By default, Laravel will use the <code>stack</code> channel when logging messages. The <code>stack</code> channel is used to aggregate multiple log channels into a single channel. For more information on building stacks, check out the <a href="#building-log-stacks">documentation below</a>.</p>
+<h4>Configuring The Channel Name</h4>
+<p>By default, Monolog is instantiated with a &quot;channel name&quot; that matches the current environment, such as <code>production</code> or <code>local</code>. To change this value, add a <code>name</code> option to your channel's configuration:</p>
+<pre><code>'stack' =&gt; [
+    'driver' =&gt; 'stack',
+    'name' =&gt; 'channel-name',
+    'channels' =&gt; ['single', 'slack'],
+],</code></pre>
+<h4>Available Channel Drivers</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stack</code></td>
+<td>A wrapper to facilitate creating &quot;multi-channel&quot; channels</td>
+</tr>
+<tr>
+<td><code>single</code></td>
+<td>A single file or path based logger channel (<code>StreamHandler</code>)</td>
+</tr>
+<tr>
+<td><code>daily</code></td>
+<td>A <code>RotatingFileHandler</code> based Monolog driver which rotates daily</td>
+</tr>
+<tr>
+<td><code>slack</code></td>
+<td>A <code>SlackWebhookHandler</code> based Monolog driver</td>
+</tr>
+<tr>
+<td><code>papertrail</code></td>
+<td>A <code>SyslogUdpHandler</code> based Monolog driver</td>
+</tr>
+<tr>
+<td><code>syslog</code></td>
+<td>A <code>SyslogHandler</code> based Monolog driver</td>
+</tr>
+<tr>
+<td><code>errorlog</code></td>
+<td>A <code>ErrorLogHandler</code> based Monolog driver</td>
+</tr>
+<tr>
+<td><code>monolog</code></td>
+<td>A Monolog factory driver that may use any supported Monolog handler</td>
+</tr>
+<tr>
+<td><code>custom</code></td>
+<td>A driver that calls a specified factory to create a channel</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>{tip} Check out the documentation on <a href="#advanced-monolog-channel-customization">advanced channel customization</a> to learn more about the <code>monolog</code> and <code>custom</code> drivers.</p>
+</blockquote>
+<h4>Configuring The Single and Daily Channels</h4>
+<p>The <code>single</code> and <code>daily</code> channels have three optional configuration options: <code>bubble</code>, <code>permission</code>, and <code>locking</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bubble</code></td>
+<td>Indicates if messages should bubble up to other channels after being handled</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>permission</code></td>
+<td>The log file's permissions</td>
+<td><code>0644</code></td>
+</tr>
+<tr>
+<td><code>locking</code></td>
+<td>Attempt to lock the log file before writing to it</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h4>Configuring The Papertrail Channel</h4>
+<p>The <code>papertrail</code> channel requires the <code>url</code> and <code>port</code> configuration options. You can obtain these values from <a href="https://help.papertrailapp.com/kb/configuration/configuring-centralized-logging-from-php-apps/#send-events-from-php-app">Papertrail</a>.</p>
+<h4>Configuring The Slack Channel</h4>
+<p>The <code>slack</code> channel requires a <code>url</code> configuration option. This URL should match a URL for an <a href="https://slack.com/apps/A0F7XDUAZ-incoming-webhooks">incoming webhook</a> that you have configured for your Slack team. By default, Slack will only receive logs at the <code>critical</code> level and above; however, you can adjust this in your <code>logging</code> configuration file.</p>
+<p><a name="building-log-stacks"></a></p>
+<h3 id="building-log-stacks">Building Log Stacks</h3>
+<p>As previously mentioned, the <code>stack</code> driver allows you to combine multiple channels into a single log channel. To illustrate how to use log stacks, let's take a look at an example configuration that you might see in a production application:</p>
+<pre><code>'channels' =&gt; [
+    'stack' =&gt; [
+        'driver' =&gt; 'stack',
+        'channels' =&gt; ['syslog', 'slack'],
+    ],
+
+    'syslog' =&gt; [
+        'driver' =&gt; 'syslog',
+        'level' =&gt; 'debug',
+    ],
+
+    'slack' =&gt; [
+        'driver' =&gt; 'slack',
+        'url' =&gt; env('LOG_SLACK_WEBHOOK_URL'),
+        'username' =&gt; 'Laravel Log',
+        'emoji' =&gt; ':boom:',
+        'level' =&gt; 'critical',
+    ],
+],</code></pre>
+<p>Let's dissect this configuration. First, notice our <code>stack</code> channel aggregates two other channels via its <code>channels</code> option: <code>syslog</code> and <code>slack</code>. So, when logging messages, both of these channels will have the opportunity to log the message.</p>
+<h4>Log Levels</h4>
+<p>Take note of the <code>level</code> configuration option present on the <code>syslog</code> and <code>slack</code> channel configurations in the example above. This option determines the minimum &quot;level&quot; a message must be in order to be logged by the channel. Monolog, which powers Laravel's logging services, offers all of the log levels defined in the <a href="https://tools.ietf.org/html/rfc5424">RFC 5424 specification</a>: <strong>emergency</strong>, <strong>alert</strong>, <strong>critical</strong>, <strong>error</strong>, <strong>warning</strong>, <strong>notice</strong>, <strong>info</strong>, and <strong>debug</strong>.</p>
+<p>So, imagine we log a message using the <code>debug</code> method:</p>
+<pre><code>Log::debug('An informational message.');</code></pre>
+<p>Given our configuration, the <code>syslog</code> channel will write the message to the system log; however, since the error message is not <code>critical</code> or above, it will not be sent to Slack. However, if we log an <code>emergency</code> message, it will be sent to both the system log and Slack since the <code>emergency</code> level is above our minimum level threshold for both channels:</p>
+<pre><code>Log::emergency('The system is down!');</code></pre>
+<p><a name="writing-log-messages"></a></p>
+<h2 id="writing-log-messages">Writing Log Messages</h2>
+<p>You may write information to the logs using the <code>Log</code> <a href="facades.html">facade</a>. As previously mentioned, the logger provides the eight logging levels defined in the <a href="https://tools.ietf.org/html/rfc5424">RFC 5424 specification</a>: <strong>emergency</strong>, <strong>alert</strong>, <strong>critical</strong>, <strong>error</strong>, <strong>warning</strong>, <strong>notice</strong>, <strong>info</strong> and <strong>debug</strong>:</p>
+<pre><code>Log::emergency($message);
+Log::alert($message);
+Log::critical($message);
+Log::error($message);
+Log::warning($message);
+Log::notice($message);
+Log::info($message);
+Log::debug($message);</code></pre>
+<p>So, you may call any of these methods to log a message for the corresponding level. By default, the message will be written to the default log channel as configured by your <code>config/logging.php</code> configuration file:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Support\Facades\Log;
+
+class UserController extends Controller
+{
+    /**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function showProfile($id)
+    {
+        Log::info('Showing user profile for user: '.$id);
+
+        return view('user.profile', ['user' =&gt; User::findOrFail($id)]);
+    }
+}</code></pre>
+<h4>Contextual Information</h4>
+<p>An array of contextual data may also be passed to the log methods. This contextual data will be formatted and displayed with the log message:</p>
+<pre><code>Log::info('User failed to login.', ['id' =&gt; $user-&gt;id]);</code></pre>
+<p><a name="writing-to-specific-channels"></a></p>
+<h3 id="writing-to-specific-channels">Writing To Specific Channels</h3>
+<p>Sometimes you may wish to log a message to a channel other than your application's default channel. You may use the <code>channel</code> method on the <code>Log</code> facade to retrieve and log to any channel defined in your configuration file:</p>
+<pre><code>Log::channel('slack')-&gt;info('Something happened!');</code></pre>
+<p>If you would like to create an on-demand logging stack consisting of multiple channels, you may use the <code>stack</code> method:</p>
+<pre><code>Log::stack(['single', 'slack'])-&gt;info('Something happened!');</code></pre>
+<p><a name="advanced-monolog-channel-customization"></a></p>
+<h2 id="advanced-monolog-channel-customization">Advanced Monolog Channel Customization</h2>
+<p><a name="customizing-monolog-for-channels"></a></p>
+<h3 id="customizing-monolog-for-channels">Customizing Monolog For Channels</h3>
+<p>Sometimes you may need complete control over how Monolog is configured for an existing channel. For example, you may want to configure a custom Monolog <code>FormatterInterface</code> implementation for a given channel's handlers.</p>
+<p>To get started, define a <code>tap</code> array on the channel's configuration. The <code>tap</code> array should contain a list of classes that should have an opportunity to customize (or &quot;tap&quot; into) the Monolog instance after it is created:</p>
+<pre><code>'single' =&gt; [
+    'driver' =&gt; 'single',
+    'tap' =&gt; [App\Logging\CustomizeFormatter::class],
+    'path' =&gt; storage_path('logs/laravel.log'),
+    'level' =&gt; 'debug',
+],</code></pre>
+<p>Once you have configured the <code>tap</code> option on your channel, you're ready to define the class that will customize your Monolog instance. This class only needs a single method: <code>__invoke</code>, which receives an <code>Illuminate\Log\Logger</code> instance. The <code>Illuminate\Log\Logger</code> instance proxies all method calls to the underlying Monolog instance:</p>
+<pre><code>&lt;?php
+
+namespace App\Logging;
+
+use Monolog\Formatter\LineFormatter;
+
+class CustomizeFormatter
+{
+    /**
+     * Customize the given logger instance.
+     *
+     * @param  \Illuminate\Log\Logger  $logger
+     * @return void
+     */
+    public function __invoke($logger)
+    {
+        foreach ($logger-&gt;getHandlers() as $handler) {
+            $handler-&gt;setFormatter(new LineFormatter(
+                '[%datetime%] %channel%.%level_name%: %message% %context% %extra%'
+            ));
+        }
+    }
+}</code></pre>
+<blockquote>
+<p>{tip} All of your &quot;tap&quot; classes are resolved by the <a href="container.html">service container</a>, so any constructor dependencies they require will automatically be injected.</p>
+</blockquote>
+<p><a name="creating-monolog-handler-channels"></a></p>
+<h3 id="creating-monolog-handler-channels">Creating Monolog Handler Channels</h3>
+<p>Monolog has a variety of <a href="https://github.com/Seldaek/monolog/tree/master/src/Monolog/Handler">available handlers</a>. In some cases, the type of logger you wish to create is merely a Monolog driver with an instance of a specific handler.  These channels can be created using the <code>monolog</code> driver.</p>
+<p>When using the <code>monolog</code> driver, the <code>handler</code> configuration option is used to specify which handler will be instantiated. Optionally, any constructor parameters the handler needs may be specified using the <code>with</code> configuration option:</p>
+<pre><code>'logentries' =&gt; [
+    'driver'  =&gt; 'monolog',
+    'handler' =&gt; Monolog\Handler\SyslogUdpHandler::class,
+    'with' =&gt; [
+        'host' =&gt; 'my.logentries.internal.datahubhost.company.com',
+        'port' =&gt; '10000',
+    ],
+],</code></pre>
+<h4>Monolog Formatters</h4>
+<p>When using the <code>monolog</code> driver, the Monolog <code>LineFormatter</code> will be used as the default formatter. However, you may customize the type of formatter passed to the handler using the <code>formatter</code> and <code>formatter_with</code> configuration options:</p>
+<pre><code>'browser' =&gt; [
+    'driver' =&gt; 'monolog',
+    'handler' =&gt; Monolog\Handler\BrowserConsoleHandler::class,
+    'formatter' =&gt; Monolog\Formatter\HtmlFormatter::class,
+    'formatter_with' =&gt; [
+        'dateFormat' =&gt; 'Y-m-d',
+    ],
+],</code></pre>
+<p>If you are using a Monolog handler that is capable of providing its own formatter, you may set the value of the <code>formatter</code> configuration option to <code>default</code>:</p>
+<pre><code>'newrelic' =&gt; [
+    'driver' =&gt; 'monolog',
+    'handler' =&gt; Monolog\Handler\NewRelicHandler::class,
+    'formatter' =&gt; 'default',
+],</code></pre>
+<p><a name="creating-channels-via-factories"></a></p>
+<h3 id="creating-channels-via-factories">Creating Channels Via Factories</h3>
+<p>If you would like to define an entirely custom channel in which you have full control over Monolog's instantiation and configuration, you may specify a <code>custom</code> driver type in your <code>config/logging.php</code> configuration file. Your configuration should include a <code>via</code> option to point to the factory class which will be invoked to create the Monolog instance:</p>
+<pre><code>'channels' =&gt; [
+    'custom' =&gt; [
+        'driver' =&gt; 'custom',
+        'via' =&gt; App\Logging\CreateCustomLogger::class,
+    ],
+],</code></pre>
+<p>Once you have configured the <code>custom</code> channel, you're ready to define the class that will create your Monolog instance. This class only needs a single method: <code>__invoke</code>, which should return the Monolog instance:</p>
+<pre><code>&lt;?php
+
+namespace App\Logging;
+
+use Monolog\Logger;
+
+class CreateCustomLogger
+{
+    /**
+     * Create a custom Monolog instance.
+     *
+     * @param  array  $config
+     * @return \Monolog\Logger
+     */
+    public function __invoke(array $config)
+    {
+        return new Logger(...);
+    }
+}</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/logging by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+</html>

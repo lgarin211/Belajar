@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/horizon by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Laravel Horizon - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="horizon.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/horizon">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/horizon">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/horizon">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/horizon">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/horizon">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/horizon">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/horizon">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/horizon">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/horizon">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/horizon">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/horizon">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/horizon">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/horizon">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Laravel Horizon</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#installation">Installation</a>
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#dashboard-authorization">Dashboard Authorization</a></li>
+</ul></li>
+<li><a href="#upgrading-horizon">Upgrading Horizon</a></li>
+<li><a href="#running-horizon">Running Horizon</a>
+<ul>
+<li><a href="#deploying-horizon">Deploying Horizon</a></li>
+</ul></li>
+<li><a href="#tags">Tags</a></li>
+<li><a href="#notifications">Notifications</a></li>
+<li><a href="#metrics">Metrics</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Horizon provides a beautiful dashboard and code-driven configuration for your Laravel powered Redis queues. Horizon allows you to easily monitor key metrics of your queue system such as job throughput, runtime, and job failures.</p>
+<p>All of your worker configuration is stored in a single, simple configuration file, allowing your configuration to stay in source control where your entire team can collaborate.</p>
+<p align="center">
+<img src="../../../res.cloudinary.com/dtfbvvkyp/image/upload/v1537195039/photos/Test.png" width="600" height="481"></p>
+<p><a name="installation"></a></p>
+<h2 id="installation">Installation</h2>
+<blockquote>
+<p>{note} You should ensure that your queue connection is set to <code>redis</code> in your <code>queue</code> configuration file.</p>
+</blockquote>
+<p>You may use Composer to install Horizon into your Laravel project:</p>
+<pre><code>composer require laravel/horizon</code></pre>
+<p>After installing Horizon, publish its assets using the <code>horizon:install</code> Artisan command:</p>
+<pre><code>php artisan horizon:install</code></pre>
+<p><a name="configuration"></a></p>
+<h3 id="configuration">Configuration</h3>
+<p>After publishing Horizon's assets, its primary configuration file will be located at <code>config/horizon.php</code>. This configuration file allows you to configure your worker options and each configuration option includes a description of its purpose, so be sure to thoroughly explore this file.</p>
+<blockquote>
+<p>{note} You should ensure that the <code>environments</code> portion of your <code>horizon</code> configuration file contains an entry for each environment on which you plan to run Horizon.</p>
+</blockquote>
+<h4>Balance Options</h4>
+<p>Horizon allows you to choose from three balancing strategies: <code>simple</code>, <code>auto</code>, and <code>false</code>. The <code>simple</code> strategy, which is the configuration file's default, splits incoming jobs evenly between processes:</p>
+<pre><code>'balance' =&gt; 'simple',</code></pre>
+<p>The <code>auto</code> strategy adjusts the number of worker processes per queue based on the current workload of the queue. For example, if your <code>notifications</code> queue has 1,000 waiting jobs while your <code>render</code> queue is empty, Horizon will allocate more workers to your <code>notifications</code> queue until it is empty. When the <code>balance</code> option is set to <code>false</code>, the default Laravel behavior will be used, which processes queues in the order they are listed in your configuration.</p>
+<p>When using the <code>auto</code> strategy, you may define the <code>minProcesses</code> and <code>maxProcesses</code> configuration options to control the minimum and maximum number of processes Horizon should scale up and down to:</p>
+<pre><code>'environments' =&gt; [
+    'production' =&gt; [
+        'supervisor-1' =&gt; [
+            'connection' =&gt; 'redis',
+            'queue' =&gt; ['default'],
+            'balance' =&gt; 'auto',
+            'minProcesses' =&gt; 1,
+            'maxProcesses' =&gt; 10,
+            'tries' =&gt; 3,
+        ],
+    ],
+],</code></pre>
+<h4>Job Trimming</h4>
+<p>The <code>horizon</code> configuration file allows you to configure how long recent and failed jobs should be persisted (in minutes). By default, recent jobs are kept for one hour while failed jobs are kept for a week:</p>
+<pre><code>'trim' =&gt; [
+    'recent' =&gt; 60,
+    'failed' =&gt; 10080,
+],</code></pre>
+<p><a name="dashboard-authorization"></a></p>
+<h3 id="dashboard-authorization">Dashboard Authorization</h3>
+<p>Horizon exposes a dashboard at <code>/horizon</code>. By default, you will only be able to access this dashboard in the <code>local</code> environment. Within your <code>app/Providers/HorizonServiceProvider.php</code> file, there is a <code>gate</code> method. This authorization gate controls access to Horizon in <strong>non-local</strong> environments. You are free to modify this gate as needed to restrict access to your Horizon installation:</p>
+<pre><code>/**
+ * Register the Horizon gate.
+ *
+ * This gate determines who can access Horizon in non-local environments.
+ *
+ * @return void
+ */
+protected function gate()
+{
+    Gate::define('viewHorizon', function ($user) {
+        return in_array($user-&gt;email, [
+            '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f08491899c9f82b09c91829186959cde939f9d">[email&#160;protected]</a>',
+        ]);
+    });
+}</code></pre>
+<blockquote>
+<p>{note} Remember that Laravel injects the <em>authenticated</em> user to the Gate automatically. If your app is providing Horizon security via another method, such as IP restrictions, then your Horizon users may not need to &quot;login&quot;. Therefore, you will need to change <code>function ($user)</code> above to <code>function ($user = null)</code> to force Laravel to not require authentication.</p>
+</blockquote>
+<p><a name="upgrading-horizon"></a></p>
+<h2 id="upgrading-horizon">Upgrading Horizon</h2>
+<p>When upgrading to a new major version of Horizon, it's important that you carefully review <a href="https://github.com/laravel/horizon/blob/master/UPGRADE.md">the upgrade guide</a>.</p>
+<p>In addition, you should re-publish Horizon's assets:</p>
+<pre><code>php artisan horizon:publish</code></pre>
+<p><a name="running-horizon"></a></p>
+<h2 id="running-horizon">Running Horizon</h2>
+<p>Once you have configured your workers in the <code>config/horizon.php</code> configuration file, you may start Horizon using the <code>horizon</code> Artisan command. This single command will start all of your configured workers:</p>
+<pre><code>php artisan horizon</code></pre>
+<p>You may pause the Horizon process and instruct it to continue processing jobs using the <code>horizon:pause</code> and <code>horizon:continue</code> Artisan commands:</p>
+<pre><code>php artisan horizon:pause
+
+php artisan horizon:continue</code></pre>
+<p>You may check the current status of the Horizon process using the <code>horizon:status</code> Artisan command:</p>
+<pre><code>php artisan horizon:status</code></pre>
+<p>You may gracefully terminate the master Horizon process on your machine using the <code>horizon:terminate</code> Artisan command. Any jobs that Horizon is currently processing will be completed and then Horizon will exit:</p>
+<pre><code>php artisan horizon:terminate</code></pre>
+<p><a name="deploying-horizon"></a></p>
+<h3 id="deploying-horizon">Deploying Horizon</h3>
+<p>If you are deploying Horizon to a live server, you should configure a process monitor to monitor the <code>php artisan horizon</code> command and restart it if it quits unexpectedly. When deploying fresh code to your server, you will need to instruct the master Horizon process to terminate so it can be restarted by your process monitor and receive your code changes.</p>
+<h4>Installing Supervisor</h4>
+<p>Supervisor is a process monitor for the Linux operating system, and will automatically restart your <code>horizon</code> process if it fails. To install Supervisor on Ubuntu, you may use the following command:</p>
+<pre><code>sudo apt-get install supervisor</code></pre>
+<blockquote>
+<p>{tip} If configuring Supervisor yourself sounds overwhelming, consider using <a href="https://forge.laravel.com/">Laravel Forge</a>, which will automatically install and configure Supervisor for your Laravel projects.</p>
+</blockquote>
+<h4>Supervisor Configuration</h4>
+<p>Supervisor configuration files are typically stored in the <code>/etc/supervisor/conf.d</code> directory. Within this directory, you may create any number of configuration files that instruct supervisor how your processes should be monitored. For example, let's create a <code>horizon.conf</code> file that starts and monitors a <code>horizon</code> process:</p>
+<pre><code>[program:horizon]
+process_name=%(program_name)s
+command=php /home/forge/app.com/artisan horizon
+autostart=true
+autorestart=true
+user=forge
+redirect_stderr=true
+stdout_logfile=/home/forge/app.com/horizon.log
+stopwaitsecs=3600</code></pre>
+<blockquote>
+<p>{note} You should ensure that the value of <code>stopwaitsecs</code> is greater than the number of seconds consumed by your longest running job. Otherwise, Supervisor may kill the job before it is finished processing.</p>
+</blockquote>
+<h4>Starting Supervisor</h4>
+<p>Once the configuration file has been created, you may update the Supervisor configuration and start the processes using the following commands:</p>
+<pre><code>sudo supervisorctl reread
+
+sudo supervisorctl update
+
+sudo supervisorctl start horizon</code></pre>
+<p>For more information on Supervisor, consult the <a href="http://supervisord.org/index.html">Supervisor documentation</a>.</p>
+<p><a name="tags"></a></p>
+<h2 id="tags">Tags</h2>
+<p>Horizon allows you to assign “tags” to jobs, including mailables, event broadcasts, notifications, and queued event listeners. In fact, Horizon will intelligently and automatically tag most jobs depending on the Eloquent models that are attached to the job. For example, take a look at the following job:</p>
+<pre><code>&lt;?php
+
+namespace App\Jobs;
+
+use App\Video;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+
+class RenderVideo implements ShouldQueue
+{
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    /**
+     * The video instance.
+     *
+     * @var \App\Video
+     */
+    public $video;
+
+    /**
+     * Create a new job instance.
+     *
+     * @param  \App\Video  $video
+     * @return void
+     */
+    public function __construct(Video $video)
+    {
+        $this-&gt;video = $video;
+    }
+
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        //
+    }
+}</code></pre>
+<p>If this job is queued with an <code>App\Video</code> instance that has an <code>id</code> of <code>1</code>, it will automatically receive the tag <code>App\Video:1</code>. This is because Horizon will examine the job's properties for any Eloquent models. If Eloquent models are found, Horizon will intelligently tag the job using the model's class name and primary key:</p>
+<pre><code>$video = App\Video::find(1);
+
+App\Jobs\RenderVideo::dispatch($video);</code></pre>
+<h4>Manually Tagging</h4>
+<p>If you would like to manually define the tags for one of your queueable objects, you may define a <code>tags</code> method on the class:</p>
+<pre><code>class RenderVideo implements ShouldQueue
+{
+    /**
+     * Get the tags that should be assigned to the job.
+     *
+     * @return array
+     */
+    public function tags()
+    {
+        return ['render', 'video:'.$this-&gt;video-&gt;id];
+    }
+}</code></pre>
+<p><a name="notifications"></a></p>
+<h2 id="notifications">Notifications</h2>
+<blockquote>
+<p><strong>Note:</strong> When configuring Horizon to send Slack or SMS notifications, you should review the <a href="notifications.html">prerequisites for the relevant notification driver</a>.</p>
+</blockquote>
+<p>If you would like to be notified when one of your queues has a long wait time, you may use the <code>Horizon::routeMailNotificationsTo</code>, <code>Horizon::routeSlackNotificationsTo</code>, and <code>Horizon::routeSmsNotificationsTo</code> methods. You may call these methods from your application's <code>HorizonServiceProvider</code>:</p>
+<pre><code>Horizon::routeMailNotificationsTo('<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0c5d8c1cdd0ccc5e0c5d8c1cdd0ccc58ec3cfcd">[email&#160;protected]</a>');
+Horizon::routeSlackNotificationsTo('slack-webhook-url', '#channel');
+Horizon::routeSmsNotificationsTo('15556667777');</code></pre>
+<h4>Configuring Notification Wait Time Thresholds</h4>
+<p>You may configure how many seconds are considered a &quot;long wait&quot; within your <code>config/horizon.php</code> configuration file. The <code>waits</code> configuration option within this file allows you to control the long wait threshold for each connection / queue combination:</p>
+<pre><code>'waits' =&gt; [
+    'redis:default' =&gt; 60,
+],</code></pre>
+<p><a name="metrics"></a></p>
+<h2 id="metrics">Metrics</h2>
+<p>Horizon includes a metrics dashboard which provides information on your job and queue wait times and throughput. In order to populate this dashboard, you should configure Horizon's <code>snapshot</code> Artisan command to run every five minutes via your application's <a href="scheduling.html">scheduler</a>:</p>
+<pre><code>/**
+ * Define the application's command schedule.
+ *
+ * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+ * @return void
+ */
+protected function schedule(Schedule $schedule)
+{
+    $schedule-&gt;command('horizon:snapshot')-&gt;everyFiveMinutes();
+}</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/horizon by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:16 GMT -->
+</html>

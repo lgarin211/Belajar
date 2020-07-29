@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/migrations by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Database: Migrations - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="migrations.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/migrations">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/migrations">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/migrations">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/migrations">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/migrations">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/migrations">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/migrations">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/migrations">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/migrations">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/migrations">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/migrations">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/migrations">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/migrations">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Database: Migrations</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#generating-migrations">Generating Migrations</a></li>
+<li><a href="#migration-structure">Migration Structure</a></li>
+<li><a href="#running-migrations">Running Migrations</a>
+<ul>
+<li><a href="#rolling-back-migrations">Rolling Back Migrations</a></li>
+</ul></li>
+<li><a href="#tables">Tables</a>
+<ul>
+<li><a href="#creating-tables">Creating Tables</a></li>
+<li><a href="#renaming-and-dropping-tables">Renaming / Dropping Tables</a></li>
+</ul></li>
+<li><a href="#columns">Columns</a>
+<ul>
+<li><a href="#creating-columns">Creating Columns</a></li>
+<li><a href="#column-modifiers">Column Modifiers</a></li>
+<li><a href="#modifying-columns">Modifying Columns</a></li>
+<li><a href="#dropping-columns">Dropping Columns</a></li>
+</ul></li>
+<li><a href="#indexes">Indexes</a>
+<ul>
+<li><a href="#creating-indexes">Creating Indexes</a></li>
+<li><a href="#renaming-indexes">Renaming Indexes</a></li>
+<li><a href="#dropping-indexes">Dropping Indexes</a></li>
+<li><a href="#foreign-key-constraints">Foreign Key Constraints</a></li>
+</ul></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Migrations are like version control for your database, allowing your team to modify and share the application's database schema. Migrations are typically paired with Laravel's schema builder to build your application's database schema. If you have ever had to tell a teammate to manually add a column to their local database schema, you've faced the problem that database migrations solve.</p>
+<p>The Laravel <code>Schema</code> <a href="facades.html">facade</a> provides database agnostic support for creating and manipulating tables across all of Laravel's supported database systems.</p>
+<p><a name="generating-migrations"></a></p>
+<h2 id="generating-migrations">Generating Migrations</h2>
+<p>To create a migration, use the <code>make:migration</code> <a href="artisan.html">Artisan command</a>:</p>
+<pre><code>php artisan make:migration create_users_table</code></pre>
+<p>The new migration will be placed in your <code>database/migrations</code> directory. Each migration file name contains a timestamp, which allows Laravel to determine the order of the migrations.</p>
+<blockquote>
+<p>{tip} Migration stubs may be customized using <a href="artisan.html#stub-customization">stub publishing</a></p>
+</blockquote>
+<p>The <code>--table</code> and <code>--create</code> options may also be used to indicate the name of the table and whether or not the migration will be creating a new table. These options pre-fill the generated migration stub file with the specified table:</p>
+<pre><code>php artisan make:migration create_users_table --create=users
+
+php artisan make:migration add_votes_to_users_table --table=users</code></pre>
+<p>If you would like to specify a custom output path for the generated migration, you may use the <code>--path</code> option when executing the <code>make:migration</code> command. The given path should be relative to your application's base path.</p>
+<p><a name="migration-structure"></a></p>
+<h2 id="migration-structure">Migration Structure</h2>
+<p>A migration class contains two methods: <code>up</code> and <code>down</code>. The <code>up</code> method is used to add new tables, columns, or indexes to your database, while the <code>down</code> method should reverse the operations performed by the <code>up</code> method.</p>
+<p>Within both of these methods you may use the Laravel schema builder to expressively create and modify tables. To learn about all of the methods available on the <code>Schema</code> builder, <a href="#creating-tables">check out its documentation</a>. For example, the following migration creates a <code>flights</code> table:</p>
+<pre><code>&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateFlightsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('flights', function (Blueprint $table) {
+            $table-&gt;id();
+            $table-&gt;string('name');
+            $table-&gt;string('airline');
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('flights');
+    }
+}</code></pre>
+<p><a name="running-migrations"></a></p>
+<h2 id="running-migrations">Running Migrations</h2>
+<p>To run all of your outstanding migrations, execute the <code>migrate</code> Artisan command:</p>
+<pre><code>php artisan migrate</code></pre>
+<blockquote>
+<p>{note} If you are using the <a href="homestead.html">Homestead virtual machine</a>, you should run this command from within your virtual machine.</p>
+</blockquote>
+<h4>Forcing Migrations To Run In Production</h4>
+<p>Some migration operations are destructive, which means they may cause you to lose data. In order to protect you from running these commands against your production database, you will be prompted for confirmation before the commands are executed. To force the commands to run without a prompt, use the <code>--force</code> flag:</p>
+<pre><code>php artisan migrate --force</code></pre>
+<p><a name="rolling-back-migrations"></a></p>
+<h3 id="rolling-back-migrations">Rolling Back Migrations</h3>
+<p>To roll back the latest migration operation, you may use the <code>rollback</code> command. This command rolls back the last &quot;batch&quot; of migrations, which may include multiple migration files:</p>
+<pre><code>php artisan migrate:rollback</code></pre>
+<p>You may roll back a limited number of migrations by providing the <code>step</code> option to the <code>rollback</code> command. For example, the following command will roll back the last five migrations:</p>
+<pre><code>php artisan migrate:rollback --step=5</code></pre>
+<p>The <code>migrate:reset</code> command will roll back all of your application's migrations:</p>
+<pre><code>php artisan migrate:reset</code></pre>
+<h4>Roll Back &amp; Migrate Using A Single Command</h4>
+<p>The <code>migrate:refresh</code> command will roll back all of your migrations and then execute the <code>migrate</code> command. This command effectively re-creates your entire database:</p>
+<pre><code>php artisan migrate:refresh
+
+// Refresh the database and run all database seeds...
+php artisan migrate:refresh --seed</code></pre>
+<p>You may roll back &amp; re-migrate a limited number of migrations by providing the <code>step</code> option to the <code>refresh</code> command. For example, the following command will roll back &amp; re-migrate the last five migrations:</p>
+<pre><code>php artisan migrate:refresh --step=5</code></pre>
+<h4>Drop All Tables &amp; Migrate</h4>
+<p>The <code>migrate:fresh</code> command will drop all tables from the database and then execute the <code>migrate</code> command:</p>
+<pre><code>php artisan migrate:fresh
+
+php artisan migrate:fresh --seed</code></pre>
+<p><a name="tables"></a></p>
+<h2 id="tables">Tables</h2>
+<p><a name="creating-tables"></a></p>
+<h3 id="creating-tables">Creating Tables</h3>
+<p>To create a new database table, use the <code>create</code> method on the <code>Schema</code> facade. The <code>create</code> method accepts two arguments: the first is the name of the table, while the second is a <code>Closure</code> which receives a <code>Blueprint</code> object that may be used to define the new table:</p>
+<pre><code>Schema::create('users', function (Blueprint $table) {
+    $table-&gt;id();
+});</code></pre>
+<p>When creating the table, you may use any of the schema builder's <a href="#creating-columns">column methods</a> to define the table's columns.</p>
+<h4>Checking For Table / Column Existence</h4>
+<p>You may check for the existence of a table or column using the <code>hasTable</code> and <code>hasColumn</code> methods:</p>
+<pre><code>if (Schema::hasTable('users')) {
+    //
+}
+
+if (Schema::hasColumn('users', 'email')) {
+    //
+}</code></pre>
+<h4>Database Connection &amp; Table Options</h4>
+<p>If you want to perform a schema operation on a database connection that is not your default connection, use the <code>connection</code> method:</p>
+<pre><code>Schema::connection('foo')-&gt;create('users', function (Blueprint $table) {
+    $table-&gt;id();
+});</code></pre>
+<p>You may use the following commands on the schema builder to define the table's options:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table-&gt;engine = 'InnoDB';</code></td>
+<td>Specify the table storage engine (MySQL).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;charset = 'utf8mb4';</code></td>
+<td>Specify a default character set for the table (MySQL).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;collation = 'utf8mb4_unicode_ci';</code></td>
+<td>Specify a default collation for the table (MySQL).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;temporary();</code></td>
+<td>Create a temporary table (except SQL Server).</td>
+</tr>
+</tbody>
+</table>
+<p><a name="renaming-and-dropping-tables"></a></p>
+<h3 id="renaming-and-dropping-tables">Renaming / Dropping Tables</h3>
+<p>To rename an existing database table, use the <code>rename</code> method:</p>
+<pre><code>Schema::rename($from, $to);</code></pre>
+<p>To drop an existing table, you may use the <code>drop</code> or <code>dropIfExists</code> methods:</p>
+<pre><code>Schema::drop('users');
+
+Schema::dropIfExists('users');</code></pre>
+<h4>Renaming Tables With Foreign Keys</h4>
+<p>Before renaming a table, you should verify that any foreign key constraints on the table have an explicit name in your migration files instead of letting Laravel assign a convention based name. Otherwise, the foreign key constraint name will refer to the old table name.</p>
+<p><a name="columns"></a></p>
+<h2 id="columns">Columns</h2>
+<p><a name="creating-columns"></a></p>
+<h3 id="creating-columns">Creating Columns</h3>
+<p>The <code>table</code> method on the <code>Schema</code> facade may be used to update existing tables. Like the <code>create</code> method, the <code>table</code> method accepts two arguments: the name of the table and a <code>Closure</code> that receives a <code>Blueprint</code> instance you may use to add columns to the table:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('email');
+});</code></pre>
+<h4>Available Column Types</h4>
+<p>The schema builder contains a variety of column types that you may specify when building your tables:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table-&gt;id();</code></td>
+<td>Alias of <code>$table-&gt;bigIncrements('id')</code>.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;foreignId('user_id');</code></td>
+<td>Alias of <code>$table-&gt;unsignedBigInteger('user_id')</code>.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;bigIncrements('id');</code></td>
+<td>Auto-incrementing UNSIGNED BIGINT (primary key) equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;bigInteger('votes');</code></td>
+<td>BIGINT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;binary('data');</code></td>
+<td>BLOB equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;boolean('confirmed');</code></td>
+<td>BOOLEAN equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;char('name', 100);</code></td>
+<td>CHAR equivalent column with a length.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;date('created_at');</code></td>
+<td>DATE equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dateTime('created_at', 0);</code></td>
+<td>DATETIME equivalent column with precision (total digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dateTimeTz('created_at', 0);</code></td>
+<td>DATETIME (with timezone) equivalent column with precision (total digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;decimal('amount', 8, 2);</code></td>
+<td>DECIMAL equivalent column with precision (total digits) and scale (decimal digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;double('amount', 8, 2);</code></td>
+<td>DOUBLE equivalent column with precision (total digits) and scale (decimal digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;enum('level', ['easy', 'hard']);</code></td>
+<td>ENUM equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;float('amount', 8, 2);</code></td>
+<td>FLOAT equivalent column with a precision (total digits) and scale (decimal digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;geometry('positions');</code></td>
+<td>GEOMETRY equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;geometryCollection('positions');</code></td>
+<td>GEOMETRYCOLLECTION equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;increments('id');</code></td>
+<td>Auto-incrementing UNSIGNED INTEGER (primary key) equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;integer('votes');</code></td>
+<td>INTEGER equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;ipAddress('visitor');</code></td>
+<td>IP address equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;json('options');</code></td>
+<td>JSON equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;jsonb('options');</code></td>
+<td>JSONB equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;lineString('positions');</code></td>
+<td>LINESTRING equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;longText('description');</code></td>
+<td>LONGTEXT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;macAddress('device');</code></td>
+<td>MAC address equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;mediumIncrements('id');</code></td>
+<td>Auto-incrementing UNSIGNED MEDIUMINT (primary key) equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;mediumInteger('votes');</code></td>
+<td>MEDIUMINT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;mediumText('description');</code></td>
+<td>MEDIUMTEXT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;morphs('taggable');</code></td>
+<td>Adds <code>taggable_id</code> UNSIGNED BIGINT and <code>taggable_type</code> VARCHAR equivalent columns.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;uuidMorphs('taggable');</code></td>
+<td>Adds <code>taggable_id</code> CHAR(36) and <code>taggable_type</code> VARCHAR(255) UUID equivalent columns.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;multiLineString('positions');</code></td>
+<td>MULTILINESTRING equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;multiPoint('positions');</code></td>
+<td>MULTIPOINT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;multiPolygon('positions');</code></td>
+<td>MULTIPOLYGON equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;nullableMorphs('taggable');</code></td>
+<td>Adds nullable versions of <code>morphs()</code> columns.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;nullableUuidMorphs('taggable');</code></td>
+<td>Adds nullable versions of <code>uuidMorphs()</code> columns.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;nullableTimestamps(0);</code></td>
+<td>Alias of <code>timestamps()</code> method.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;point('position');</code></td>
+<td>POINT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;polygon('positions');</code></td>
+<td>POLYGON equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;rememberToken();</code></td>
+<td>Adds a nullable <code>remember_token</code> VARCHAR(100) equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;set('flavors', ['strawberry', 'vanilla']);</code></td>
+<td>SET equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;smallIncrements('id');</code></td>
+<td>Auto-incrementing UNSIGNED SMALLINT (primary key) equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;smallInteger('votes');</code></td>
+<td>SMALLINT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;softDeletes('deleted_at', 0);</code></td>
+<td>Adds a nullable <code>deleted_at</code> TIMESTAMP equivalent column for soft deletes with precision (total digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;softDeletesTz('deleted_at', 0);</code></td>
+<td>Adds a nullable <code>deleted_at</code> TIMESTAMP (with timezone) equivalent column for soft deletes with precision (total digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;string('name', 100);</code></td>
+<td>VARCHAR equivalent column with a length.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;text('description');</code></td>
+<td>TEXT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;time('sunrise', 0);</code></td>
+<td>TIME equivalent column with precision (total digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timeTz('sunrise', 0);</code></td>
+<td>TIME (with timezone) equivalent column with precision (total digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timestamp('added_on', 0);</code></td>
+<td>TIMESTAMP equivalent column with precision (total digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timestampTz('added_on', 0);</code></td>
+<td>TIMESTAMP (with timezone) equivalent column with precision (total digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timestamps(0);</code></td>
+<td>Adds nullable <code>created_at</code> and <code>updated_at</code> TIMESTAMP equivalent columns with precision (total digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timestampsTz(0);</code></td>
+<td>Adds nullable <code>created_at</code> and <code>updated_at</code> TIMESTAMP (with timezone) equivalent columns with precision (total digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;tinyIncrements('id');</code></td>
+<td>Auto-incrementing UNSIGNED TINYINT (primary key) equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;tinyInteger('votes');</code></td>
+<td>TINYINT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unsignedBigInteger('votes');</code></td>
+<td>UNSIGNED BIGINT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unsignedDecimal('amount', 8, 2);</code></td>
+<td>UNSIGNED DECIMAL equivalent column with a precision (total digits) and scale (decimal digits).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unsignedInteger('votes');</code></td>
+<td>UNSIGNED INTEGER equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unsignedMediumInteger('votes');</code></td>
+<td>UNSIGNED MEDIUMINT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unsignedSmallInteger('votes');</code></td>
+<td>UNSIGNED SMALLINT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unsignedTinyInteger('votes');</code></td>
+<td>UNSIGNED TINYINT equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;uuid('id');</code></td>
+<td>UUID equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;year('birth_year');</code></td>
+<td>YEAR equivalent column.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="column-modifiers"></a></p>
+<h3 id="column-modifiers">Column Modifiers</h3>
+<p>In addition to the column types listed above, there are several column &quot;modifiers&quot; you may use while adding a column to a database table. For example, to make the column &quot;nullable&quot;, you may use the <code>nullable</code> method:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('email')-&gt;nullable();
+});</code></pre>
+<p>The following list contains all available column modifiers. This list does not include the <a href="#creating-indexes">index modifiers</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Modifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-&gt;after('column')</code></td>
+<td>Place the column &quot;after&quot; another column (MySQL)</td>
+</tr>
+<tr>
+<td><code>-&gt;autoIncrement()</code></td>
+<td>Set INTEGER columns as auto-increment (primary key)</td>
+</tr>
+<tr>
+<td><code>-&gt;charset('utf8mb4')</code></td>
+<td>Specify a character set for the column (MySQL)</td>
+</tr>
+<tr>
+<td><code>-&gt;collation('utf8mb4_unicode_ci')</code></td>
+<td>Specify a collation for the column (MySQL/PostgreSQL/SQL Server)</td>
+</tr>
+<tr>
+<td><code>-&gt;comment('my comment')</code></td>
+<td>Add a comment to a column (MySQL/PostgreSQL)</td>
+</tr>
+<tr>
+<td><code>-&gt;default($value)</code></td>
+<td>Specify a &quot;default&quot; value for the column</td>
+</tr>
+<tr>
+<td><code>-&gt;first()</code></td>
+<td>Place the column &quot;first&quot; in the table (MySQL)</td>
+</tr>
+<tr>
+<td><code>-&gt;nullable($value = true)</code></td>
+<td>Allows (by default) NULL values to be inserted into the column</td>
+</tr>
+<tr>
+<td><code>-&gt;storedAs($expression)</code></td>
+<td>Create a stored generated column (MySQL)</td>
+</tr>
+<tr>
+<td><code>-&gt;unsigned()</code></td>
+<td>Set INTEGER columns as UNSIGNED (MySQL)</td>
+</tr>
+<tr>
+<td><code>-&gt;useCurrent()</code></td>
+<td>Set TIMESTAMP columns to use CURRENT_TIMESTAMP as default value</td>
+</tr>
+<tr>
+<td><code>-&gt;virtualAs($expression)</code></td>
+<td>Create a virtual generated column (MySQL)</td>
+</tr>
+<tr>
+<td><code>-&gt;generatedAs($expression)</code></td>
+<td>Create an identity column with specified sequence options (PostgreSQL)</td>
+</tr>
+<tr>
+<td><code>-&gt;always()</code></td>
+<td>Defines the precedence of sequence values over input for an identity column (PostgreSQL)</td>
+</tr>
+</tbody>
+</table>
+<h4>Default Expressions</h4>
+<p>The <code>default</code> modifier accepts a value or an <code>\Illuminate\Database\Query\Expression</code> instance. Using an <code>Expression</code> instance will prevent wrapping the value in quotes and allow you to use database specific functions. One situation where this is particularly useful is when you need to assign default values to JSON columns:</p>
+<pre><code>&lt;?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Query\Expression;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateFlightsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('flights', function (Blueprint $table) {
+            $table-&gt;id();
+            $table-&gt;json('movies')-&gt;default(new Expression('(JSON_ARRAY())'));
+            $table-&gt;timestamps();
+        });
+    }
+}</code></pre>
+<blockquote>
+<p>{note} Support for default expressions depends on your database driver, database version, and the field type. Please refer to the appropriate documentation for compatibility. Also note that using database specific functions may tightly couple you to a specific driver.</p>
+</blockquote>
+<p><a name="modifying-columns"></a></p>
+<h3 id="modifying-columns">Modifying Columns</h3>
+<h4>Prerequisites</h4>
+<p>Before modifying a column, be sure to add the <code>doctrine/dbal</code> dependency to your <code>composer.json</code> file. The Doctrine DBAL library is used to determine the current state of the column and create the SQL queries needed to make the required adjustments:</p>
+<pre><code>composer require doctrine/dbal</code></pre>
+<h4>Updating Column Attributes</h4>
+<p>The <code>change</code> method allows you to modify type and attributes of existing columns. For example, you may wish to increase the size of a <code>string</code> column. To see the <code>change</code> method in action, let's increase the size of the <code>name</code> column from 25 to 50:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('name', 50)-&gt;change();
+});</code></pre>
+<p>We could also modify a column to be nullable:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('name', 50)-&gt;nullable()-&gt;change();
+});</code></pre>
+<blockquote>
+<p>{note} Only the following column types can be &quot;changed&quot;: bigInteger, binary, boolean, date, dateTime, dateTimeTz, decimal, integer, json, longText, mediumText, smallInteger, string, text, time, unsignedBigInteger, unsignedInteger, unsignedSmallInteger and uuid.</p>
+</blockquote>
+<h4>Renaming Columns</h4>
+<p>To rename a column, you may use the <code>renameColumn</code> method on the schema builder. Before renaming a column, be sure to add the <code>doctrine/dbal</code> dependency to your <code>composer.json</code> file:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;renameColumn('from', 'to');
+});</code></pre>
+<blockquote>
+<p>{note} Renaming any column in a table that also has a column of type <code>enum</code> is not currently supported.</p>
+</blockquote>
+<p><a name="dropping-columns"></a></p>
+<h3 id="dropping-columns">Dropping Columns</h3>
+<p>To drop a column, use the <code>dropColumn</code> method on the schema builder. Before dropping columns from a SQLite database, you will need to add the <code>doctrine/dbal</code> dependency to your <code>composer.json</code> file and run the <code>composer update</code> command in your terminal to install the library:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;dropColumn('votes');
+});</code></pre>
+<p>You may drop multiple columns from a table by passing an array of column names to the <code>dropColumn</code> method:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;dropColumn(['votes', 'avatar', 'location']);
+});</code></pre>
+<blockquote>
+<p>{note} Dropping or modifying multiple columns within a single migration while using a SQLite database is not supported.</p>
+</blockquote>
+<h4>Available Command Aliases</h4>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table-&gt;dropMorphs('morphable');</code></td>
+<td>Drop the <code>morphable_id</code> and <code>morphable_type</code> columns.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropRememberToken();</code></td>
+<td>Drop the <code>remember_token</code> column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropSoftDeletes();</code></td>
+<td>Drop the <code>deleted_at</code> column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropSoftDeletesTz();</code></td>
+<td>Alias of <code>dropSoftDeletes()</code> method.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropTimestamps();</code></td>
+<td>Drop the <code>created_at</code> and <code>updated_at</code> columns.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropTimestampsTz();</code></td>
+<td>Alias of <code>dropTimestamps()</code> method.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="indexes"></a></p>
+<h2 id="indexes">Indexes</h2>
+<p><a name="creating-indexes"></a></p>
+<h3 id="creating-indexes">Creating Indexes</h3>
+<p>The Laravel schema builder supports several types of indexes. The following example creates a new <code>email</code> column and specifies that its values should be unique. To create the index, we can chain the <code>unique</code> method onto the column definition:</p>
+<pre><code>$table-&gt;string('email')-&gt;unique();</code></pre>
+<p>Alternatively, you may create the index after defining the column. For example:</p>
+<pre><code>$table-&gt;unique('email');</code></pre>
+<p>You may even pass an array of columns to an index method to create a compound (or composite) index:</p>
+<pre><code>$table-&gt;index(['account_id', 'created_at']);</code></pre>
+<p>Laravel will automatically generate an index name based on the table, column names, and the index type, but you may pass a second argument to the method to specify the index name yourself:</p>
+<pre><code>$table-&gt;unique('email', 'unique_email');</code></pre>
+<h4>Available Index Types</h4>
+<p>Each index method accepts an optional second argument to specify the name of the index. If omitted, the name will be derived from the names of the table and column(s) used for the index, as well as the index type.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table-&gt;primary('id');</code></td>
+<td>Adds a primary key.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;primary(['id', 'parent_id']);</code></td>
+<td>Adds composite keys.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unique('email');</code></td>
+<td>Adds a unique index.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;index('state');</code></td>
+<td>Adds a plain index.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;spatialIndex('location');</code></td>
+<td>Adds a spatial index. (except SQLite)</td>
+</tr>
+</tbody>
+</table>
+<h4>Index Lengths &amp; MySQL / MariaDB</h4>
+<p>Laravel uses the <code>utf8mb4</code> character set by default, which includes support for storing &quot;emojis&quot; in the database. If you are running a version of MySQL older than the 5.7.7 release or MariaDB older than the 10.2.2 release, you may need to manually configure the default string length generated by migrations in order for MySQL to create indexes for them. You may configure this by calling the <code>Schema::defaultStringLength</code> method within your <code>AppServiceProvider</code>:</p>
+<pre><code>use Illuminate\Support\Facades\Schema;
+
+/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}</code></pre>
+<p>Alternatively, you may enable the <code>innodb_large_prefix</code> option for your database. Refer to your database's documentation for instructions on how to properly enable this option.</p>
+<p><a name="renaming-indexes"></a></p>
+<h3 id="renaming-indexes">Renaming Indexes</h3>
+<p>To rename an index, you may use the <code>renameIndex</code> method. This method accepts the current index name as its first argument and the desired new name as its second argument:</p>
+<pre><code>$table-&gt;renameIndex('from', 'to')</code></pre>
+<p><a name="dropping-indexes"></a></p>
+<h3 id="dropping-indexes">Dropping Indexes</h3>
+<p>To drop an index, you must specify the index's name. By default, Laravel automatically assigns an index name based on the table name, the name of the indexed column, and the index type. Here are some examples:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table-&gt;dropPrimary('users_id_primary');</code></td>
+<td>Drop a primary key from the &quot;users&quot; table.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropUnique('users_email_unique');</code></td>
+<td>Drop a unique index from the &quot;users&quot; table.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropIndex('geo_state_index');</code></td>
+<td>Drop a basic index from the &quot;geo&quot; table.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropSpatialIndex('geo_location_spatialindex');</code></td>
+<td>Drop a spatial index from the &quot;geo&quot; table  (except SQLite).</td>
+</tr>
+</tbody>
+</table>
+<p>If you pass an array of columns into a method that drops indexes, the conventional index name will be generated based on the table name, columns and key type:</p>
+<pre><code>Schema::table('geo', function (Blueprint $table) {
+    $table-&gt;dropIndex(['state']); // Drops index 'geo_state_index'
+});</code></pre>
+<p><a name="foreign-key-constraints"></a></p>
+<h3 id="foreign-key-constraints">Foreign Key Constraints</h3>
+<p>Laravel also provides support for creating foreign key constraints, which are used to force referential integrity at the database level. For example, let's define a <code>user_id</code> column on the <code>posts</code> table that references the <code>id</code> column on a <code>users</code> table:</p>
+<pre><code>Schema::table('posts', function (Blueprint $table) {
+    $table-&gt;unsignedBigInteger('user_id');
+
+    $table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users');
+});</code></pre>
+<p>Since this syntax is rather verbose, Laravel provides additional, terser methods that use convention to provide a better developer experience. The example above could be written like so:</p>
+<pre><code>Schema::table('posts', function (Blueprint $table) {
+    $table-&gt;foreignId('user_id')-&gt;constrained();
+});</code></pre>
+<p>The <code>foreignId</code> method is an alias for <code>unsignedBigInteger</code> while the <code>constrained</code> method will use convention to determine the table and column name being referenced. If your table name does not match the convention, you may specify the table name by passing it as an argument to the <code>constrained</code> method:</p>
+<pre><code>Schema::table('posts', function (Blueprint $table) {
+    $table-&gt;foreignId('user_id')-&gt;constrained('users');
+});</code></pre>
+<p>You may also specify the desired action for the &quot;on delete&quot; and &quot;on update&quot; properties of the constraint:</p>
+<pre><code>$table-&gt;foreignId('user_id')
+      -&gt;constrained()
+      -&gt;onDelete('cascade');</code></pre>
+<p>Any additional <a href="#column-modifiers">column modifiers</a> must be called before <code>constrained</code>:</p>
+<pre><code>$table-&gt;foreignId('user_id')
+      -&gt;nullable()
+      -&gt;constrained();</code></pre>
+<p>To drop a foreign key, you may use the <code>dropForeign</code> method, passing the foreign key constraint to be deleted as an argument. Foreign key constraints use the same naming convention as indexes, based on the table name and the columns in the constraint, followed by a &quot;_foreign&quot; suffix:</p>
+<pre><code>$table-&gt;dropForeign('posts_user_id_foreign');</code></pre>
+<p>Alternatively, you may pass an array containing the column name that holds the foreign key to the <code>dropForeign</code> method. The array will be automatically converted using the constraint name convention used by Laravel's schema builder:</p>
+<pre><code>$table-&gt;dropForeign(['user_id']);</code></pre>
+<p>You may enable or disable foreign key constraints within your migrations by using the following methods:</p>
+<pre><code>Schema::enableForeignKeyConstraints();
+
+Schema::disableForeignKeyConstraints();</code></pre>
+<blockquote>
+<p>{note} SQLite disables foreign key constraints by default. When using SQLite, make sure to <a href="database.html#configuration">enable foreign key support</a> in your database configuration before attempting to create them in your migrations. In addition, SQLite only supports foreign keys upon creation of the table and <a href="https://www.sqlite.org/omitted.html">not when tables are altered</a>.</p>
+</blockquote>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/migrations by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+</html>

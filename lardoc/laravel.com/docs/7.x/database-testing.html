@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/database-testing by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Database Testing - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="database-testing.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/database-testing">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/database-testing">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/database-testing">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/database-testing">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/database-testing">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/database-testing">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/database-testing">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/database-testing">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/database-testing">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/database-testing">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/database-testing">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/database-testing">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/database-testing">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Database Testing</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#generating-factories">Generating Factories</a></li>
+<li><a href="#resetting-the-database-after-each-test">Resetting The Database After Each Test</a></li>
+<li><a href="#writing-factories">Writing Factories</a>
+<ul>
+<li><a href="#extending-factories">Extending Factories</a></li>
+<li><a href="#factory-states">Factory States</a></li>
+<li><a href="#factory-callbacks">Factory Callbacks</a></li>
+</ul></li>
+<li><a href="#using-factories">Using Factories</a>
+<ul>
+<li><a href="#creating-models">Creating Models</a></li>
+<li><a href="#persisting-models">Persisting Models</a></li>
+<li><a href="#relationships">Relationships</a></li>
+</ul></li>
+<li><a href="#using-seeds">Using Seeds</a></li>
+<li><a href="#available-assertions">Available Assertions</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Laravel provides a variety of helpful tools to make it easier to test your database driven applications. First, you may use the <code>assertDatabaseHas</code> helper to assert that data exists in the database matching a given set of criteria. For example, if you would like to verify that there is a record in the <code>users</code> table with the <code>email</code> value of <code><a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ff8c9e939386bf9a879e928f939ad19c9092">[email&#160;protected]</a></code>, you can do the following:</p>
+<pre><code>public function testDatabase()
+{
+    // Make call to application...
+
+    $this-&gt;assertDatabaseHas('users', [
+        'email' =&gt; '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a2d1c3cecedbe2c7dac3cfd2cec78cc1cdcf">[email&#160;protected]</a>',
+    ]);
+}</code></pre>
+<p>You can also use the <code>assertDatabaseMissing</code> helper to assert that data does not exist in the database.</p>
+<p>The <code>assertDatabaseHas</code> method and other helpers like it are for convenience. You are free to use any of PHPUnit's built-in assertion methods to supplement your feature tests.</p>
+<p><a name="generating-factories"></a></p>
+<h2 id="generating-factories">Generating Factories</h2>
+<p>To create a factory, use the <code>make:factory</code> <a href="artisan.html">Artisan command</a>:</p>
+<pre><code>php artisan make:factory PostFactory</code></pre>
+<p>The new factory will be placed in your <code>database/factories</code> directory.</p>
+<p>The <code>--model</code> option may be used to indicate the name of the model created by the factory. This option will pre-fill the generated factory file with the given model:</p>
+<pre><code>php artisan make:factory PostFactory --model=Post</code></pre>
+<p><a name="resetting-the-database-after-each-test"></a></p>
+<h2 id="resetting-the-database-after-each-test">Resetting The Database After Each Test</h2>
+<p>It is often useful to reset your database after each test so that data from a previous test does not interfere with subsequent tests. The <code>RefreshDatabase</code> trait takes the most optimal approach to migrating your test database depending on if you are using an in-memory database or a traditional database. Use the trait on your test class and everything will be handled for you:</p>
+<pre><code>&lt;?php
+
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Tests\TestCase;
+
+class ExampleTest extends TestCase
+{
+    use RefreshDatabase;
+
+    /**
+     * A basic functional test example.
+     *
+     * @return void
+     */
+    public function testBasicExample()
+    {
+        $response = $this-&gt;get('/');
+
+        // ...
+    }
+}</code></pre>
+<p><a name="writing-factories"></a></p>
+<h2 id="writing-factories">Writing Factories</h2>
+<p>When testing, you may need to insert a few records into your database before executing your test. Instead of manually specifying the value of each column when you create this test data, Laravel allows you to define a default set of attributes for each of your <a href="eloquent.html">Eloquent models</a> using model factories. To get started, take a look at the <code>database/factories/UserFactory.php</code> file in your application. Out of the box, this file contains one factory definition:</p>
+<pre><code>use Faker\Generator as Faker;
+use Illuminate\Support\Str;
+
+$factory-&gt;define(App\User::class, function (Faker $faker) {
+    return [
+        'name' =&gt; $faker-&gt;name,
+        'email' =&gt; $faker-&gt;unique()-&gt;safeEmail,
+        'email_verified_at' =&gt; now(),
+        'password' =&gt; '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'remember_token' =&gt; Str::random(10),
+    ];
+});</code></pre>
+<p>Within the Closure, which serves as the factory definition, you may return the default test values of all attributes on the model. The Closure will receive an instance of the <a href="https://github.com/fzaninotto/Faker">Faker</a> PHP library, which allows you to conveniently generate various kinds of random data for testing.</p>
+<p>You may also create additional factory files for each model for better organization. For example, you could create <code>UserFactory.php</code> and <code>CommentFactory.php</code> files within your <code>database/factories</code> directory. All of the files within the <code>factories</code> directory will automatically be loaded by Laravel.</p>
+<blockquote>
+<p>{tip} You can set the Faker locale by adding a <code>faker_locale</code> option to your <code>config/app.php</code> configuration file.</p>
+</blockquote>
+<p><a name="extending-factories"></a></p>
+<h3 id="extending-factories">Extending Factories</h3>
+<p>If you have extended a model, you may wish to extend its factory as well in order to utilize the child model's factory attributes during testing and seeding. To accomplish this, you may call the factory builder's <code>raw</code> method to obtain the raw array of attributes from any given factory:</p>
+<pre><code>$factory-&gt;define(App\Admin::class, function (Faker\Generator $faker) {
+    return factory(App\User::class)-&gt;raw([
+        // ...
+    ]);
+});</code></pre>
+<p><a name="factory-states"></a></p>
+<h3 id="factory-states">Factory States</h3>
+<p>States allow you to define discrete modifications that can be applied to your model factories in any combination. For example, your <code>User</code> model might have a <code>delinquent</code> state that modifies one of its default attribute values. You may define your state transformations using the <code>state</code> method. For simple states, you may pass an array of attribute modifications:</p>
+<pre><code>$factory-&gt;state(App\User::class, 'delinquent', [
+    'account_status' =&gt; 'delinquent',
+]);</code></pre>
+<p>If your state requires calculation or a <code>$faker</code> instance, you may use a Closure to calculate the state's attribute modifications:</p>
+<pre><code>$factory-&gt;state(App\User::class, 'address', function ($faker) {
+    return [
+        'address' =&gt; $faker-&gt;address,
+    ];
+});</code></pre>
+<p><a name="factory-callbacks"></a></p>
+<h3 id="factory-callbacks">Factory Callbacks</h3>
+<p>Factory callbacks are registered using the <code>afterMaking</code> and <code>afterCreating</code> methods, and allow you to perform additional tasks after making or creating a model. For example, you may use callbacks to relate additional models to the created model:</p>
+<pre><code>$factory-&gt;afterMaking(App\User::class, function ($user, $faker) {
+    // ...
+});
+
+$factory-&gt;afterCreating(App\User::class, function ($user, $faker) {
+    $user-&gt;accounts()-&gt;save(factory(App\Account::class)-&gt;make());
+});</code></pre>
+<p>You may also define callbacks for <a href="#factory-states">factory states</a>:</p>
+<pre><code>$factory-&gt;afterMakingState(App\User::class, 'delinquent', function ($user, $faker) {
+    // ...
+});
+
+$factory-&gt;afterCreatingState(App\User::class, 'delinquent', function ($user, $faker) {
+    // ...
+});</code></pre>
+<p><a name="using-factories"></a></p>
+<h2 id="using-factories">Using Factories</h2>
+<p><a name="creating-models"></a></p>
+<h3 id="creating-models">Creating Models</h3>
+<p>Once you have defined your factories, you may use the global <code>factory</code> function in your feature tests or seed files to generate model instances. So, let's take a look at a few examples of creating models. First, we'll use the <code>make</code> method to create models but not save them to the database:</p>
+<pre><code>public function testDatabase()
+{
+    $user = factory(App\User::class)-&gt;make();
+
+    // Use model in tests...
+}</code></pre>
+<p>You may also create a Collection of many models or create models of a given type:</p>
+<pre><code>// Create three App\User instances...
+$users = factory(App\User::class, 3)-&gt;make();</code></pre>
+<h4>Applying States</h4>
+<p>You may also apply any of your <a href="#factory-states">states</a> to the models. If you would like to apply multiple state transformations to the models, you should specify the name of each state you would like to apply:</p>
+<pre><code>$users = factory(App\User::class, 5)-&gt;states('delinquent')-&gt;make();
+
+$users = factory(App\User::class, 5)-&gt;states('premium', 'delinquent')-&gt;make();</code></pre>
+<h4>Overriding Attributes</h4>
+<p>If you would like to override some of the default values of your models, you may pass an array of values to the <code>make</code> method. Only the specified values will be replaced while the rest of the values remain set to their default values as specified by the factory:</p>
+<pre><code>$user = factory(App\User::class)-&gt;make([
+    'name' =&gt; 'Abigail',
+]);</code></pre>
+<blockquote>
+<p>{tip} <a href="eloquent.html#mass-assignment">Mass assignment protection</a> is automatically disabled when creating models using factories.</p>
+</blockquote>
+<p><a name="persisting-models"></a></p>
+<h3 id="persisting-models">Persisting Models</h3>
+<p>The <code>create</code> method not only creates the model instances but also saves them to the database using Eloquent's <code>save</code> method:</p>
+<pre><code>public function testDatabase()
+{
+    // Create a single App\User instance...
+    $user = factory(App\User::class)-&gt;create();
+
+    // Create three App\User instances...
+    $users = factory(App\User::class, 3)-&gt;create();
+
+    // Use model in tests...
+}</code></pre>
+<p>You may override attributes on the model by passing an array to the <code>create</code> method:</p>
+<pre><code>$user = factory(App\User::class)-&gt;create([
+    'name' =&gt; 'Abigail',
+]);</code></pre>
+<p><a name="relationships"></a></p>
+<h3 id="relationships">Relationships</h3>
+<p>In this example, we'll attach a relation to some created models. When using the <code>create</code> method to create multiple models, an Eloquent <a href="eloquent-collections.html">collection instance</a> is returned, allowing you to use any of the convenient functions provided by the collection, such as <code>each</code>:</p>
+<pre><code>$users = factory(App\User::class, 3)
+           -&gt;create()
+           -&gt;each(function ($user) {
+                $user-&gt;posts()-&gt;save(factory(App\Post::class)-&gt;make());
+            });</code></pre>
+<p>You may use the <code>createMany</code> method to create multiple related models:</p>
+<pre><code>$user-&gt;posts()-&gt;createMany(
+    factory(App\Post::class, 3)-&gt;make()-&gt;toArray()
+);</code></pre>
+<h4>Relations &amp; Attribute Closures</h4>
+<p>You may also attach relationships to models in your factory definitions. For example, if you would like to create a new <code>User</code> instance when creating a <code>Post</code>, you may do the following:</p>
+<pre><code>$factory-&gt;define(App\Post::class, function ($faker) {
+    return [
+        'title' =&gt; $faker-&gt;title,
+        'content' =&gt; $faker-&gt;paragraph,
+        'user_id' =&gt; factory(App\User::class),
+    ];
+});</code></pre>
+<p>If the relationship depends on the factory that defines it you may provide a callback which accepts the evaluated attribute array:</p>
+<pre><code>$factory-&gt;define(App\Post::class, function ($faker) {
+    return [
+        'title' =&gt; $faker-&gt;title,
+        'content' =&gt; $faker-&gt;paragraph,
+        'user_id' =&gt; factory(App\User::class),
+        'user_type' =&gt; function (array $post) {
+            return App\User::find($post['user_id'])-&gt;type;
+        },
+    ];
+});</code></pre>
+<p><a name="using-seeds"></a></p>
+<h2 id="using-seeds">Using Seeds</h2>
+<p>If you would like to use <a href="seeding.html">database seeders</a> to populate your database during a feature test, you may use the <code>seed</code> method. By default, the <code>seed</code> method will return the <code>DatabaseSeeder</code>, which should execute all of your other seeders. Alternatively, you pass a specific seeder class name to the <code>seed</code> method:</p>
+<pre><code>&lt;?php
+
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use OrderStatusSeeder;
+use Tests\TestCase;
+
+class ExampleTest extends TestCase
+{
+    use RefreshDatabase;
+
+    /**
+     * Test creating a new order.
+     *
+     * @return void
+     */
+    public function testCreatingANewOrder()
+    {
+        // Run the DatabaseSeeder...
+        $this-&gt;seed();
+
+        // Run a single seeder...
+        $this-&gt;seed(OrderStatusSeeder::class);
+
+        // ...
+    }
+}</code></pre>
+<p><a name="available-assertions"></a></p>
+<h2 id="available-assertions">Available Assertions</h2>
+<p>Laravel provides several database assertions for your <a href="https://phpunit.de/">PHPUnit</a> feature tests:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$this-&gt;assertDatabaseCount($table, int $count);</code></td>
+<td>Assert that a table in the database contains the given amount of entries.</td>
+</tr>
+<tr>
+<td><code>$this-&gt;assertDatabaseHas($table, array $data);</code></td>
+<td>Assert that a table in the database contains the given data.</td>
+</tr>
+<tr>
+<td><code>$this-&gt;assertDatabaseMissing($table, array $data);</code></td>
+<td>Assert that a table in the database does not contain the given data.</td>
+</tr>
+<tr>
+<td><code>$this-&gt;assertDeleted($table, array $data);</code></td>
+<td>Assert that the given record has been deleted.</td>
+</tr>
+<tr>
+<td><code>$this-&gt;assertSoftDeleted($table, array $data);</code></td>
+<td>Assert that the given record has been soft deleted.</td>
+</tr>
+</tbody>
+</table>
+<p>For convenience, you may pass a model to the <code>assertDeleted</code> and <code>assertSoftDeleted</code> helpers to assert the record was deleted or soft deleted, respectively, from the database based on the model's primary key.</p>
+<p>For example, if you are using a model factory in your test, you may pass this model to one of these helpers to test your application properly deleted the record from the database:</p>
+<pre><code>public function testDatabase()
+{
+    $user = factory(App\User::class)-&gt;create();
+
+    // Make call to application...
+
+    $this-&gt;assertDeleted($user);
+}</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/database-testing by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:14 GMT -->
+</html>

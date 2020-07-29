@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from laravel.com/docs/7.x/authentication by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Authentication - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="canonical" href="authentication.html">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="../../img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="../../img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="../../../use.typekit.net/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="../../css/appf1ab.css?id=8115aaed23a2c0c23e6d">
+
+    <!-- Load JS -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+</head>
+<body class="language-php">
+
+    <div class="sidebar_layout" id="docsScreen">
+
+        <div class="page_contain">
+            <div class="contain">
+                <aside class="sidebar">
+                    <a href="https://laravel.com/" class="logo">
+                        <img class="mark" src="../../img/logomark.min.svg" alt="Laravel">
+                        <img class="type" src="../../img/logotype.min.svg" alt="Laravel">
+                    </a>
+                    <nav>
+                        <div class="navigation_contain">
+                            <div class="docs_sidebar">
+                                <ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Error Handling</a></li>
+<li><a href="logging.html">Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="verification.html">Email Verification</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="http-client.html">HTTP Client</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="console-tests.html">Console Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier (Stripe)</a></li>
+<li><a href="cashier-paddle.html">Cashier (Paddle)</a></li>
+<li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a></li>
+<li><a href="dusk.html">Dusk</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="sanctum.html">Sanctum</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="socialite.html">Socialite</a></li>
+<li><a href="telescope.html">Telescope</a></li>
+</ul>
+</li>
+</ul>
+                            </div>
+
+                            <script async type="text/javascript" src="../../../cdn.carbonads.com/carbon83bb.js?serve=CKYILK3E&amp;placement=laravelcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </nav>
+                    <div class="trigger_contain">
+                        <a href="#" class="nav_trigger" aria-label="Menu">
+                            <div class="bar"></div>
+                        </a>
+                    </div>
+                </aside>
+
+                <section class="body_content">
+                    <header class="docs_actions">
+                        <div class="version_drop">
+                            <div class="input_group">
+                                <label>Version</label>
+                                <div class="custom_select">
+                                    <select id="version_switcher" aria-label="Laravel version">
+                                                                                    <option  value="https://laravel.com/docs/master/authentication">Master</option>
+                                                                                    <option selected value="https://laravel.com/docs/7.x/authentication">7.x</option>
+                                                                                    <option  value="https://laravel.com/docs/6.x/authentication">6.x</option>
+                                                                                    <option  value="https://laravel.com/docs/5.8/authentication">5.8</option>
+                                                                                    <option  value="https://laravel.com/docs/5.7/authentication">5.7</option>
+                                                                                    <option  value="https://laravel.com/docs/5.6/authentication">5.6</option>
+                                                                                    <option  value="https://laravel.com/docs/5.5/authentication">5.5</option>
+                                                                                    <option  value="https://laravel.com/docs/5.4/authentication">5.4</option>
+                                                                                    <option  value="https://laravel.com/docs/5.3/authentication">5.3</option>
+                                                                                    <option  value="https://laravel.com/docs/5.2/authentication">5.2</option>
+                                                                                    <option  value="https://laravel.com/docs/5.1/authentication">5.1</option>
+                                                                                    <option  value="https://laravel.com/docs/5.0/authentication">5.0</option>
+                                                                                    <option  value="https://laravel.com/docs/4.2/authentication">4.2</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search_contain">
+                            <div class="input_group search icon">
+                                <input type="text" class="search_input" id="search-docs-input" placeholder="Search Docs" aria-label="Search in the documentation">
+                                <input type="submit" class="search_submit icon_display">
+                            </div>
+                        </div>
+                    </header>
+                    <section class="docs_body">
+                        <section class="docs_main">
+                            
+                            <h1>Authentication</h1>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#introduction-database-considerations">Database Considerations</a></li>
+</ul></li>
+<li><a href="#authentication-quickstart">Authentication Quickstart</a>
+<ul>
+<li><a href="#included-routing">Routing</a></li>
+<li><a href="#included-views">Views</a></li>
+<li><a href="#included-authenticating">Authenticating</a></li>
+<li><a href="#retrieving-the-authenticated-user">Retrieving The Authenticated User</a></li>
+<li><a href="#protecting-routes">Protecting Routes</a></li>
+<li><a href="#password-confirmation">Password Confirmation</a></li>
+<li><a href="#login-throttling">Login Throttling</a></li>
+</ul></li>
+<li><a href="#authenticating-users">Manually Authenticating Users</a>
+<ul>
+<li><a href="#remembering-users">Remembering Users</a></li>
+<li><a href="#other-authentication-methods">Other Authentication Methods</a></li>
+</ul></li>
+<li><a href="#http-basic-authentication">HTTP Basic Authentication</a>
+<ul>
+<li><a href="#stateless-http-basic-authentication">Stateless HTTP Basic Authentication</a></li>
+</ul></li>
+<li><a href="#logging-out">Logging Out</a>
+<ul>
+<li><a href="#invalidating-sessions-on-other-devices">Invalidating Sessions On Other Devices</a></li>
+</ul></li>
+<li><a href="https://github.com/laravel/socialite">Social Authentication</a></li>
+<li><a href="#adding-custom-guards">Adding Custom Guards</a>
+<ul>
+<li><a href="#closure-request-guards">Closure Request Guards</a></li>
+</ul></li>
+<li><a href="#adding-custom-user-providers">Adding Custom User Providers</a>
+<ul>
+<li><a href="#the-user-provider-contract">The User Provider Contract</a></li>
+<li><a href="#the-authenticatable-contract">The Authenticatable Contract</a></li>
+</ul></li>
+<li><a href="#events">Events</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<blockquote>
+<p>{tip} <strong>Want to get started fast?</strong> Install the <code>laravel/ui</code> Composer package and run <code>php artisan ui vue --auth</code> in a fresh Laravel application. After migrating your database, navigate your browser to <code>http://your-app.test/register</code> or any other URL that is assigned to your application. These commands will take care of scaffolding your entire authentication system!</p>
+</blockquote>
+<p>Laravel makes implementing authentication very simple. In fact, almost everything is configured for you out of the box. The authentication configuration file is located at <code>config/auth.php</code>, which contains several well documented options for tweaking the behavior of the authentication services.</p>
+<p>At its core, Laravel's authentication facilities are made up of &quot;guards&quot; and &quot;providers&quot;. Guards define how users are authenticated for each request. For example, Laravel ships with a <code>session</code> guard which maintains state using session storage and cookies.</p>
+<p>Providers define how users are retrieved from your persistent storage. Laravel ships with support for retrieving users using Eloquent and the database query builder. However, you are free to define additional providers as needed for your application.</p>
+<p>Don't worry if this all sounds confusing now! Many applications will never need to modify the default authentication configuration.</p>
+<p><a name="introduction-database-considerations"></a></p>
+<h3 id="introduction-database-considerations">Database Considerations</h3>
+<p>By default, Laravel includes an <code>App\User</code> <a href="eloquent.html">Eloquent model</a> in your <code>app</code> directory. This model may be used with the default Eloquent authentication driver. If your application is not using Eloquent, you may use the <code>database</code> authentication driver which uses the Laravel query builder.</p>
+<p>When building the database schema for the <code>App\User</code> model, make sure the password column is at least 60 characters in length. Maintaining the default string column length of 255 characters would be a good choice.</p>
+<p>Also, you should verify that your <code>users</code> (or equivalent) table contains a nullable, string <code>remember_token</code> column of 100 characters. This column will be used to store a token for users that select the &quot;remember me&quot; option when logging into your application.</p>
+<p><a name="authentication-quickstart"></a></p>
+<h2 id="authentication-quickstart">Authentication Quickstart</h2>
+<p><a name="included-routing"></a></p>
+<h3 id="included-routing">Routing</h3>
+<p>Laravel's <code>laravel/ui</code> package provides a quick way to scaffold all of the routes and views you need for authentication using a few simple commands:</p>
+<pre><code>composer require laravel/ui
+
+php artisan ui vue --auth</code></pre>
+<p>This command should be used on fresh applications and will install a layout view, registration and login views, as well as routes for all authentication end-points. A <code>HomeController</code> will also be generated to handle post-login requests to your application's dashboard.</p>
+<p>The <code>laravel/ui</code> package also generates several pre-built authentication controllers, which are located in the <code>App\Http\Controllers\Auth</code> namespace. The <code>RegisterController</code> handles new user registration, the <code>LoginController</code> handles authentication, the <code>ForgotPasswordController</code> handles e-mailing links for resetting passwords, and the <code>ResetPasswordController</code> contains the logic to reset passwords. Each of these controllers uses a trait to include their necessary methods. For many applications, you will not need to modify these controllers at all.</p>
+<blockquote>
+<p>{tip} If your application doesn’t need registration, you may disable it by removing the newly created <code>RegisterController</code> and modifying your route declaration: <code>Auth::routes(['register' =&gt; false]);</code>.</p>
+</blockquote>
+<h4>Creating Applications Including Authentication</h4>
+<p>If you are starting a brand new application and would like to include the authentication scaffolding, you may use the <code>--auth</code> directive when creating your application. This command will create a new application with all of the authentication scaffolding compiled and installed:</p>
+<pre><code>laravel new blog --auth</code></pre>
+<p><a name="included-views"></a></p>
+<h3 id="included-views">Views</h3>
+<p>As mentioned in the previous section, the <code>laravel/ui</code> package's <code>php artisan ui vue --auth</code> command will create all of the views you need for authentication and place them in the <code>resources/views/auth</code> directory.</p>
+<p>The <code>ui</code> command will also create a <code>resources/views/layouts</code> directory containing a base layout for your application. All of these views use the Bootstrap CSS framework, but you are free to customize them however you wish.</p>
+<p><a name="included-authenticating"></a></p>
+<h3 id="included-authenticating">Authenticating</h3>
+<p>Now that you have routes and views setup for the included authentication controllers, you are ready to register and authenticate new users for your application! You may access your application in a browser since the authentication controllers already contain the logic (via their traits) to authenticate existing users and store new users in the database.</p>
+<h4>Path Customization</h4>
+<p>When a user is successfully authenticated, they will be redirected to the <code>/home</code> URI. You can customize the post-authentication redirect path using the <code>HOME</code> constant defined in your <code>RouteServiceProvider</code>:</p>
+<pre><code>public const HOME = '/home';</code></pre>
+<p>If you need more robust customization of the response returned when a user is authenticated, Laravel provides an empty <code>authenticated(Request $request, $user)</code> method within the <code>AuthenticatesUsers</code> trait. This trait is used by the <code>LoginController</code> class that is installed into your application when using the <code>laravel/ui</code> package. Therefore, you can define your own <code>authenticated</code> method within the <code>LoginController</code> class:</p>
+<pre><code>/**
+ * The user has been authenticated.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @param  mixed  $user
+ * @return mixed
+ */
+protected function authenticated(Request $request, $user)
+{
+    return response([
+        //
+    ]);
+}</code></pre>
+<h4>Username Customization</h4>
+<p>By default, Laravel uses the <code>email</code> field for authentication. If you would like to customize this, you may define a <code>username</code> method on your <code>LoginController</code>:</p>
+<pre><code>public function username()
+{
+    return 'username';
+}</code></pre>
+<h4>Guard Customization</h4>
+<p>You may also customize the &quot;guard&quot; that is used to authenticate and register users. To get started, define a <code>guard</code> method on your <code>LoginController</code>, <code>RegisterController</code>, and <code>ResetPasswordController</code>. The method should return a guard instance:</p>
+<pre><code>use Illuminate\Support\Facades\Auth;
+
+protected function guard()
+{
+    return Auth::guard('guard-name');
+}</code></pre>
+<h4>Validation / Storage Customization</h4>
+<p>To modify the form fields that are required when a new user registers with your application, or to customize how new users are stored into your database, you may modify the <code>RegisterController</code> class. This class is responsible for validating and creating new users of your application.</p>
+<p>The <code>validator</code> method of the <code>RegisterController</code> contains the validation rules for new users of the application. You are free to modify this method as you wish.</p>
+<p>The <code>create</code> method of the <code>RegisterController</code> is responsible for creating new <code>App\User</code> records in your database using the <a href="eloquent.html">Eloquent ORM</a>. You are free to modify this method according to the needs of your database.</p>
+<p><a name="retrieving-the-authenticated-user"></a></p>
+<h3 id="retrieving-the-authenticated-user">Retrieving The Authenticated User</h3>
+<p>You may access the authenticated user via the <code>Auth</code> facade:</p>
+<pre><code>use Illuminate\Support\Facades\Auth;
+
+// Get the currently authenticated user...
+$user = Auth::user();
+
+// Get the currently authenticated user's ID...
+$id = Auth::id();</code></pre>
+<p>Alternatively, once a user is authenticated, you may access the authenticated user via an <code>Illuminate\Http\Request</code> instance. Remember, type-hinted classes will automatically be injected into your controller methods:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ProfileController extends Controller
+{
+    /**
+     * Update the user's profile.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function update(Request $request)
+    {
+        // $request-&gt;user() returns an instance of the authenticated user...
+    }
+}</code></pre>
+<h4>Determining If The Current User Is Authenticated</h4>
+<p>To determine if the user is already logged into your application, you may use the <code>check</code> method on the <code>Auth</code> facade, which will return <code>true</code> if the user is authenticated:</p>
+<pre><code>use Illuminate\Support\Facades\Auth;
+
+if (Auth::check()) {
+    // The user is logged in...
+}</code></pre>
+<blockquote>
+<p>{tip} Even though it is possible to determine if a user is authenticated using the <code>check</code> method, you will typically use a middleware to verify that the user is authenticated before allowing the user access to certain routes / controllers. To learn more about this, check out the documentation on <a href="authentication.html#protecting-routes">protecting routes</a>.</p>
+</blockquote>
+<p><a name="protecting-routes"></a></p>
+<h3 id="protecting-routes">Protecting Routes</h3>
+<p><a href="middleware.html">Route middleware</a> can be used to only allow authenticated users to access a given route. Laravel ships with an <code>auth</code> middleware, which is defined at <code>Illuminate\Auth\Middleware\Authenticate</code>. Since this middleware is already registered in your HTTP kernel, all you need to do is attach the middleware to a route definition:</p>
+<pre><code>Route::get('profile', function () {
+    // Only authenticated users may enter...
+})-&gt;middleware('auth');</code></pre>
+<p>If you are using <a href="controllers.html">controllers</a>, you may call the <code>middleware</code> method from the controller's constructor instead of attaching it in the route definition directly:</p>
+<pre><code>public function __construct()
+{
+    $this-&gt;middleware('auth');
+}</code></pre>
+<h4>Redirecting Unauthenticated Users</h4>
+<p>When the <code>auth</code> middleware detects an unauthorized user, it will redirect the user to the <code>login</code> <a href="routing.html#named-routes">named route</a>. You may modify this behavior by updating the <code>redirectTo</code> function in your <code>app/Http/Middleware/Authenticate.php</code> file:</p>
+<pre><code>/**
+ * Get the path the user should be redirected to.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return string
+ */
+protected function redirectTo($request)
+{
+    return route('login');
+}</code></pre>
+<h4>Specifying A Guard</h4>
+<p>When attaching the <code>auth</code> middleware to a route, you may also specify which guard should be used to authenticate the user. The guard specified should correspond to one of the keys in the <code>guards</code> array of your <code>auth.php</code> configuration file:</p>
+<pre><code>public function __construct()
+{
+    $this-&gt;middleware('auth:api');
+}</code></pre>
+<p><a name="password-confirmation"></a></p>
+<h3 id="password-confirmation">Password Confirmation</h3>
+<p>Sometimes, you may wish to require the user to confirm their password before accessing a specific area of your application. For example, you may require this before the user modifies any billing settings within the application.</p>
+<p>To accomplish this, Laravel provides a <code>password.confirm</code> middleware. Attaching the <code>password.confirm</code> middleware to a route will redirect users to a screen where they need to confirm their password before they can continue:</p>
+<pre><code>Route::get('/settings/security', function () {
+    // Users must confirm their password before continuing...
+})-&gt;middleware(['auth', 'password.confirm']);</code></pre>
+<p>After the user has successfully confirmed their password, the user is redirected to the route they originally tried to access. By default, after confirming their password, the user will not have to confirm their password again for three hours. You are free to customize the length of time before the user must re-confirm their password using the <code>auth.password_timeout</code> configuration option.</p>
+<p><a name="login-throttling"></a></p>
+<h3 id="login-throttling">Login Throttling</h3>
+<p>If you are using Laravel's built-in <code>LoginController</code> class, the <code>Illuminate\Foundation\Auth\ThrottlesLogins</code> trait will already be included in your controller. By default, the user will not be able to login for one minute if they fail to provide the correct credentials after several attempts. The throttling is unique to the user's username / e-mail address and their IP address.</p>
+<p><a name="authenticating-users"></a></p>
+<h2 id="authenticating-users">Manually Authenticating Users</h2>
+<p>Note that you are not required to use the authentication controllers included with Laravel. If you choose to remove these controllers, you will need to manage user authentication using the Laravel authentication classes directly. Don't worry, it's a cinch!</p>
+<p>We will access Laravel's authentication services via the <code>Auth</code> <a href="facades.html">facade</a>, so we'll need to make sure to import the <code>Auth</code> facade at the top of the class. Next, let's check out the <code>attempt</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class LoginController extends Controller
+{
+    /**
+     * Handle an authentication attempt.
+     *
+     * @param  \Illuminate\Http\Request $request
+     *
+     * @return Response
+     */
+    public function authenticate(Request $request)
+    {
+        $credentials = $request-&gt;only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()-&gt;intended('dashboard');
+        }
+    }
+}</code></pre>
+<p>The <code>attempt</code> method accepts an array of key / value pairs as its first argument. The values in the array will be used to find the user in your database table. So, in the example above, the user will be retrieved by the value of the <code>email</code> column. If the user is found, the hashed password stored in the database will be compared with the <code>password</code> value passed to the method via the array. You should not hash the password specified as the <code>password</code> value, since the framework will automatically hash the value before comparing it to the hashed password in the database. If the two hashed passwords match an authenticated session will be started for the user.</p>
+<p>The <code>attempt</code> method will return <code>true</code> if authentication was successful. Otherwise, <code>false</code> will be returned.</p>
+<p>The <code>intended</code> method on the redirector will redirect the user to the URL they were attempting to access before being intercepted by the authentication middleware. A fallback URI may be given to this method in case the intended destination is not available.</p>
+<h4>Specifying Additional Conditions</h4>
+<p>If you wish, you may also add extra conditions to the authentication query in addition to the user's e-mail and password. For example, we may verify that user is marked as &quot;active&quot;:</p>
+<pre><code>if (Auth::attempt(['email' =&gt; $email, 'password' =&gt; $password, 'active' =&gt; 1])) {
+    // The user is active, not suspended, and exists.
+}</code></pre>
+<blockquote>
+<p>{note} In these examples, <code>email</code> is not a required option, it is merely used as an example. You should use whatever column name corresponds to a &quot;username&quot; in your database.</p>
+</blockquote>
+<h4>Accessing Specific Guard Instances</h4>
+<p>You may specify which guard instance you would like to utilize using the <code>guard</code> method on the <code>Auth</code> facade. This allows you to manage authentication for separate parts of your application using entirely separate authenticatable models or user tables.</p>
+<p>The guard name passed to the <code>guard</code> method should correspond to one of the guards configured in your <code>auth.php</code> configuration file:</p>
+<pre><code>if (Auth::guard('admin')-&gt;attempt($credentials)) {
+    //
+}</code></pre>
+<h4>Logging Out</h4>
+<p>To log users out of your application, you may use the <code>logout</code> method on the <code>Auth</code> facade. This will clear the authentication information in the user's session:</p>
+<pre><code>Auth::logout();</code></pre>
+<p><a name="remembering-users"></a></p>
+<h3 id="remembering-users">Remembering Users</h3>
+<p>If you would like to provide &quot;remember me&quot; functionality in your application, you may pass a boolean value as the second argument to the <code>attempt</code> method, which will keep the user authenticated indefinitely, or until they manually logout. Your <code>users</code> table must include the string <code>remember_token</code> column, which will be used to store the &quot;remember me&quot; token.</p>
+<pre><code>if (Auth::attempt(['email' =&gt; $email, 'password' =&gt; $password], $remember)) {
+    // The user is being remembered...
+}</code></pre>
+<blockquote>
+<p>{tip} If you are using the built-in <code>LoginController</code> that is shipped with Laravel, the proper logic to &quot;remember&quot; users is already implemented by the traits used by the controller.</p>
+</blockquote>
+<p>If you are &quot;remembering&quot; users, you may use the <code>viaRemember</code> method to determine if the user was authenticated using the &quot;remember me&quot; cookie:</p>
+<pre><code>if (Auth::viaRemember()) {
+    //
+}</code></pre>
+<p><a name="other-authentication-methods"></a></p>
+<h3 id="other-authentication-methods">Other Authentication Methods</h3>
+<h4>Authenticate A User Instance</h4>
+<p>If you need to log an existing user instance into your application, you may call the <code>login</code> method with the user instance. The given object must be an implementation of the <code>Illuminate\Contracts\Auth\Authenticatable</code> <a href="contracts.html">contract</a>. The <code>App\User</code> model included with Laravel already implements this interface:</p>
+<pre><code>Auth::login($user);
+
+// Login and "remember" the given user...
+Auth::login($user, true);</code></pre>
+<p>You may specify the guard instance you would like to use:</p>
+<pre><code>Auth::guard('admin')-&gt;login($user);</code></pre>
+<h4>Authenticate A User By ID</h4>
+<p>To log a user into the application by their ID, you may use the <code>loginUsingId</code> method. This method accepts the primary key of the user you wish to authenticate:</p>
+<pre><code>Auth::loginUsingId(1);
+
+// Login and "remember" the given user...
+Auth::loginUsingId(1, true);</code></pre>
+<h4>Authenticate A User Once</h4>
+<p>You may use the <code>once</code> method to log a user into the application for a single request. No sessions or cookies will be utilized, which means this method may be helpful when building a stateless API:</p>
+<pre><code>if (Auth::once($credentials)) {
+    //
+}</code></pre>
+<p><a name="http-basic-authentication"></a></p>
+<h2 id="http-basic-authentication">HTTP Basic Authentication</h2>
+<p><a href="https://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a> provides a quick way to authenticate users of your application without setting up a dedicated &quot;login&quot; page. To get started, attach the <code>auth.basic</code> <a href="middleware.html">middleware</a> to your route. The <code>auth.basic</code> middleware is included with the Laravel framework, so you do not need to define it:</p>
+<pre><code>Route::get('profile', function () {
+    // Only authenticated users may enter...
+})-&gt;middleware('auth.basic');</code></pre>
+<p>Once the middleware has been attached to the route, you will automatically be prompted for credentials when accessing the route in your browser. By default, the <code>auth.basic</code> middleware will use the <code>email</code> column on the user record as the &quot;username&quot;.</p>
+<h4>A Note On FastCGI</h4>
+<p>If you are using PHP FastCGI, HTTP Basic authentication may not work correctly out of the box. The following lines should be added to your <code>.htaccess</code> file:</p>
+<pre><code>RewriteCond %{HTTP:Authorization} ^(.+)$
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]</code></pre>
+<p><a name="stateless-http-basic-authentication"></a></p>
+<h3 id="stateless-http-basic-authentication">Stateless HTTP Basic Authentication</h3>
+<p>You may also use HTTP Basic Authentication without setting a user identifier cookie in the session, which is particularly useful for API authentication. To do so, <a href="middleware.html">define a middleware</a> that calls the <code>onceBasic</code> method. If no response is returned by the <code>onceBasic</code> method, the request may be passed further into the application:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Support\Facades\Auth;
+
+class AuthenticateOnceWithBasicAuth
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, $next)
+    {
+        return Auth::onceBasic() ?: $next($request);
+    }
+
+}</code></pre>
+<p>Next, <a href="middleware.html#registering-middleware">register the route middleware</a> and attach it to a route:</p>
+<pre><code>Route::get('api/user', function () {
+    // Only authenticated users may enter...
+})-&gt;middleware('auth.basic.once');</code></pre>
+<p><a name="logging-out"></a></p>
+<h2 id="logging-out">Logging Out</h2>
+<p>To manually log users out of your application, you may use the <code>logout</code> method on the <code>Auth</code> facade. This will clear the authentication information in the user's session:</p>
+<pre><code>use Illuminate\Support\Facades\Auth;
+
+Auth::logout();</code></pre>
+<p><a name="invalidating-sessions-on-other-devices"></a></p>
+<h3 id="invalidating-sessions-on-other-devices">Invalidating Sessions On Other Devices</h3>
+<p>Laravel also provides a mechanism for invalidating and &quot;logging out&quot; a user's sessions that are active on other devices without invalidating the session on their current device. This feature is typically utilized when a user is changing or updating their password and you would like to invalidate sessions on other devices while keeping the current device authenticated.</p>
+<p>Before getting started, you should make sure that the <code>Illuminate\Session\Middleware\AuthenticateSession</code> middleware is present and un-commented in your <code>app/Http/Kernel.php</code> class' <code>web</code> middleware group:</p>
+<pre><code>'web' =&gt; [
+    // ...
+    \Illuminate\Session\Middleware\AuthenticateSession::class,
+    // ...
+],</code></pre>
+<p>Then, you may use the <code>logoutOtherDevices</code> method on the <code>Auth</code> facade. This method requires the user to provide their current password, which your application should accept through an input form:</p>
+<pre><code>use Illuminate\Support\Facades\Auth;
+
+Auth::logoutOtherDevices($password);</code></pre>
+<p>When the <code>logoutOtherDevices</code> method is invoked, the user's other sessions will be invalidated entirely, meaning they will be &quot;logged out&quot; of all guards they were previously authenticated by.</p>
+<blockquote>
+<p>{note} When using the <code>AuthenticateSession</code> middleware in combination with a custom route name for the <code>login</code> route, you must override the <code>unauthenticated</code> method on your application's exception handler to properly redirect users to your login page.</p>
+</blockquote>
+<p><a name="adding-custom-guards"></a></p>
+<h2 id="adding-custom-guards">Adding Custom Guards</h2>
+<p>You may define your own authentication guards using the <code>extend</code> method on the <code>Auth</code> facade. You should place this call to <code>extend</code> within a <a href="providers.html">service provider</a>. Since Laravel already ships with an <code>AuthServiceProvider</code>, we can place the code in that provider:</p>
+<pre><code>&lt;?php
+
+namespace App\Providers;
+
+use App\Services\Auth\JwtGuard;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application authentication / authorization services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this-&gt;registerPolicies();
+
+        Auth::extend('jwt', function ($app, $name, array $config) {
+            // Return an instance of Illuminate\Contracts\Auth\Guard...
+
+            return new JwtGuard(Auth::createUserProvider($config['provider']));
+        });
+    }
+}</code></pre>
+<p>As you can see in the example above, the callback passed to the <code>extend</code> method should return an implementation of <code>Illuminate\Contracts\Auth\Guard</code>. This interface contains a few methods you will need to implement to define a custom guard. Once your custom guard has been defined, you may use this guard in the <code>guards</code> configuration of your <code>auth.php</code> configuration file:</p>
+<pre><code>'guards' =&gt; [
+    'api' =&gt; [
+        'driver' =&gt; 'jwt',
+        'provider' =&gt; 'users',
+    ],
+],</code></pre>
+<p><a name="closure-request-guards"></a></p>
+<h3 id="closure-request-guards">Closure Request Guards</h3>
+<p>The simplest way to implement a custom, HTTP request based authentication system is by using the <code>Auth::viaRequest</code> method. This method allows you to quickly define your authentication process using a single Closure.</p>
+<p>To get started, call the <code>Auth::viaRequest</code> method within the <code>boot</code> method of your <code>AuthServiceProvider</code>. The <code>viaRequest</code> method accepts an authentication driver name as its first argument. This name can be any string that describes your custom guard. The second argument passed to the method should be a Closure that receives the incoming HTTP request and returns a user instance or, if authentication fails, <code>null</code>:</p>
+<pre><code>use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+/**
+ * Register any application authentication / authorization services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;registerPolicies();
+
+    Auth::viaRequest('custom-token', function ($request) {
+        return User::where('token', $request-&gt;token)-&gt;first();
+    });
+}</code></pre>
+<p>Once your custom authentication driver has been defined, you use it as a driver within <code>guards</code> configuration of your <code>auth.php</code> configuration file:</p>
+<pre><code>'guards' =&gt; [
+    'api' =&gt; [
+        'driver' =&gt; 'custom-token',
+    ],
+],</code></pre>
+<p><a name="adding-custom-user-providers"></a></p>
+<h2 id="adding-custom-user-providers">Adding Custom User Providers</h2>
+<p>If you are not using a traditional relational database to store your users, you will need to extend Laravel with your own authentication user provider. We will use the <code>provider</code> method on the <code>Auth</code> facade to define a custom user provider:</p>
+<pre><code>&lt;?php
+
+namespace App\Providers;
+
+use App\Extensions\RiakUserProvider;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application authentication / authorization services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this-&gt;registerPolicies();
+
+        Auth::provider('riak', function ($app, array $config) {
+            // Return an instance of Illuminate\Contracts\Auth\UserProvider...
+
+            return new RiakUserProvider($app-&gt;make('riak.connection'));
+        });
+    }
+}</code></pre>
+<p>After you have registered the provider using the <code>provider</code> method, you may switch to the new user provider in your <code>auth.php</code> configuration file. First, define a <code>provider</code> that uses your new driver:</p>
+<pre><code>'providers' =&gt; [
+    'users' =&gt; [
+        'driver' =&gt; 'riak',
+    ],
+],</code></pre>
+<p>Finally, you may use this provider in your <code>guards</code> configuration:</p>
+<pre><code>'guards' =&gt; [
+    'web' =&gt; [
+        'driver' =&gt; 'session',
+        'provider' =&gt; 'users',
+    ],
+],</code></pre>
+<p><a name="the-user-provider-contract"></a></p>
+<h3 id="the-user-provider-contract">The User Provider Contract</h3>
+<p>The <code>Illuminate\Contracts\Auth\UserProvider</code> implementations are only responsible for fetching a <code>Illuminate\Contracts\Auth\Authenticatable</code> implementation out of a persistent storage system, such as MySQL, Riak, etc. These two interfaces allow the Laravel authentication mechanisms to continue functioning regardless of how the user data is stored or what type of class is used to represent it.</p>
+<p>Let's take a look at the <code>Illuminate\Contracts\Auth\UserProvider</code> contract:</p>
+<pre><code>&lt;?php
+
+namespace Illuminate\Contracts\Auth;
+
+interface UserProvider
+{
+    public function retrieveById($identifier);
+    public function retrieveByToken($identifier, $token);
+    public function updateRememberToken(Authenticatable $user, $token);
+    public function retrieveByCredentials(array $credentials);
+    public function validateCredentials(Authenticatable $user, array $credentials);
+}</code></pre>
+<p>The <code>retrieveById</code> function typically receives a key representing the user, such as an auto-incrementing ID from a MySQL database. The <code>Authenticatable</code> implementation matching the ID should be retrieved and returned by the method.</p>
+<p>The <code>retrieveByToken</code> function retrieves a user by their unique <code>$identifier</code> and &quot;remember me&quot; <code>$token</code>, stored in a field <code>remember_token</code>. As with the previous method, the <code>Authenticatable</code> implementation should be returned.</p>
+<p>The <code>updateRememberToken</code> method updates the <code>$user</code> field <code>remember_token</code> with the new <code>$token</code>. A fresh token is assigned on a successful &quot;remember me&quot; login attempt or when the user is logging out.</p>
+<p>The <code>retrieveByCredentials</code> method receives the array of credentials passed to the <code>Auth::attempt</code> method when attempting to sign into an application. The method should then &quot;query&quot; the underlying persistent storage for the user matching those credentials. Typically, this method will run a query with a &quot;where&quot; condition on <code>$credentials['username']</code>. The method should then return an implementation of <code>Authenticatable</code>. <strong>This method should not attempt to do any password validation or authentication.</strong></p>
+<p>The <code>validateCredentials</code> method should compare the given <code>$user</code> with the <code>$credentials</code> to authenticate the user. For example, this method should probably use <code>Hash::check</code> to compare the value of <code>$user-&gt;getAuthPassword()</code> to the value of <code>$credentials['password']</code>. This method should return <code>true</code> or <code>false</code> indicating on whether the password is valid.</p>
+<p><a name="the-authenticatable-contract"></a></p>
+<h3 id="the-authenticatable-contract">The Authenticatable Contract</h3>
+<p>Now that we have explored each of the methods on the <code>UserProvider</code>, let's take a look at the <code>Authenticatable</code> contract. Remember, the provider should return implementations of this interface from the <code>retrieveById</code>, <code>retrieveByToken</code>, and <code>retrieveByCredentials</code> methods:</p>
+<pre><code>&lt;?php
+
+namespace Illuminate\Contracts\Auth;
+
+interface Authenticatable
+{
+    public function getAuthIdentifierName();
+    public function getAuthIdentifier();
+    public function getAuthPassword();
+    public function getRememberToken();
+    public function setRememberToken($value);
+    public function getRememberTokenName();
+}</code></pre>
+<p>This interface is simple. The <code>getAuthIdentifierName</code> method should return the name of the &quot;primary key&quot; field of the user and the <code>getAuthIdentifier</code> method should return the &quot;primary key&quot; of the user. In a MySQL back-end, again, this would be the auto-incrementing primary key. The <code>getAuthPassword</code> should return the user's hashed password. This interface allows the authentication system to work with any User class, regardless of what ORM or storage abstraction layer you are using. By default, Laravel includes a <code>User</code> class in the <code>app</code> directory which implements this interface, so you may consult this class for an implementation example.</p>
+<p><a name="events"></a></p>
+<h2 id="events">Events</h2>
+<p>Laravel raises a variety of <a href="events.html">events</a> during the authentication process. You may attach listeners to these events in your <code>EventServiceProvider</code>:</p>
+<pre><code>/**
+ * The event listener mappings for the application.
+ *
+ * @var array
+ */
+protected $listen = [
+    'Illuminate\Auth\Events\Registered' =&gt; [
+        'App\Listeners\LogRegisteredUser',
+    ],
+
+    'Illuminate\Auth\Events\Attempting' =&gt; [
+        'App\Listeners\LogAuthenticationAttempt',
+    ],
+
+    'Illuminate\Auth\Events\Authenticated' =&gt; [
+        'App\Listeners\LogAuthenticated',
+    ],
+
+    'Illuminate\Auth\Events\Login' =&gt; [
+        'App\Listeners\LogSuccessfulLogin',
+    ],
+
+    'Illuminate\Auth\Events\Failed' =&gt; [
+        'App\Listeners\LogFailedLogin',
+    ],
+
+    'Illuminate\Auth\Events\Logout' =&gt; [
+        'App\Listeners\LogSuccessfulLogout',
+    ],
+
+    'Illuminate\Auth\Events\Lockout' =&gt; [
+        'App\Listeners\LogLockout',
+    ],
+
+    'Illuminate\Auth\Events\PasswordReset' =&gt; [
+        'App\Listeners\LogPasswordReset',
+    ],
+];</code></pre>
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer_contain" style="padding-top: 0;">
+        <div class="contain">
+            <section class="partner_block">
+                <div class="content">
+                    <h2>Become a Laravel Partner</h2>
+                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
+                </div>
+                                <a href="https://laravel.com/partners" class="btn"><span>Our Partners</span></a>
+                            </section>
+        </div>
+
+        <div class="footer_bg">
+            <div class="contain">
+                <div class="footer_content">
+                    <div class="logotype">
+                        <img src="../../img/logotype.min.svg" alt="Laravel">
+                    </div>
+                    <div class="search_box">
+
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_nav">
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Highlights</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="releases.html">Release Notes</a></li>
+                                    <li><a href="installation.html">Getting Started</a></li>
+                                    <li><a href="routing.html">Routing</a></li>
+                                    <li><a href="blade.html">Blade Templates</a></li>
+                                    <li><a href="authentication.html">Authentication</a></li>
+                                    <li><a href="authorization.html">Authorization</a></li>
+                                    <li><a href="artisan.html">Artisan Console</a></li>
+                                    <li><a href="database.html">Database</a></li>
+                                    <li><a href="eloquent.html">Eloquent ORM</a></li>
+                                    <li><a href="testing.html">Testing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Resources</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://laracasts.com/">Laracasts</a></li>
+                                    <li><a href="https://laravel-news.com/">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <!-- <li><a href="http://www.laravelpodcast.com/">Podcast</a></li> -->
+                                    <!-- <li><a href="https://course.testdrivenlaravel.com/">Test-driven Laravel</a></li> -->
+                                    <!-- <li><a href="https://statamic.com/">Statamic</a></li> -->
+<!--                                     <li><a href="https://styleci.io/">StyleCI</a></li>
+                                    <li><a href="https://cachethq.io/">Cachet</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Partners</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vehikl.com/">Vehikl</a></li>
+                                    <li><a href="https://tighten.co/">Tighten Co.</a></li>
+                                    <li><a href="https://kirschbaumdevelopment.com/">Kirschbaum</a></li>
+                                    <li><a href="https://www.byte5.net/">Byte 5</a></li>
+                                    <li><a href="https://64robots.com/">64 Robots</a></li>
+                                    <li><a href="https://cubettech.com/">Cubet</a></li>
+                                    <li><a href="https://devsquad.com/">DevSquad</a></li>
+                                    <li><a href="https://www.ideil.com/">Ideil</a></li>
+                                    <li><a href="https://www.cyber-duck.co.uk/how-we-work/technology/laravel?utm_source=Laravel%20Partner&amp;utm_medium=Sponsorship">Cyber-Duck</a></li>
+                                    <li><a href="../../../corporate.aboutyou.de/app/uploads/2019/08/INTRO-Pitch-I-AY-Tech245c.pdf?utm_source=laravelpartnersfindoutmore&amp;utm_medium=socialgroups&amp;utm_campaign=tech">ABOUT YOU</a></li>
+                                    <li><a href="https://www.a2design.biz/">A2 Design</a></li>
+                                    <li><a href="https://romegadigital.com/">Romega Software</a></li>
+                                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform">Become A Partner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav_col">
+                            <span class="footer_nav_trigger">Ecosystem</span>
+                            <div class="footer_nav_contain">
+                                <ul>
+                                    <li><a href="https://vapor.laravel.com/">Vapor</a></li>
+                                    <li><a href="https://forge.laravel.com/">Forge</a></li>
+                                    <li><a href="https://envoyer.io/">Envoyer</a></li>
+                                    <li><a href="horizon.html">Horizon</a></li>
+                                    <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                    <li><a href="https://nova.laravel.com/">Nova</a></li>
+                                    <li><a href="broadcasting.html">Echo</a></li>
+                                    <li><a href="valet.html">Valet</a></li>
+                                    <li><a href="mix.html">Mix</a></li>
+                                    <li><a href="https://spark.laravel.com/">Spark</a></li>
+                                    <li><a href="billing.html">Cashier</a></li>
+                                    <li><a href="homestead.html">Homestead</a></li>
+                                    <li><a href="dusk.html">Dusk</a></li>
+                                    <li><a href="passport.html">Passport</a></li>
+                                    <li><a href="scout.html">Scout</a></li>
+                                    <li><a href="socialite.html">Socialite</a></li>
+                                    <li><a href="telescope.html">Telescope</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_info">
+                        <p class="small">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in most web projects.</p>
+                        <p class="small copyright">Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2020 Laravel LLC.
+                        </p>
+                        <ul class="social_links">
+                            <li><a href="https://twitter.com/laravelphp"><img src="../../img/social/twitter.min.svg" alt="Twitter"></a>
+                            </li>
+                            <li><a href="https://github.com/laravel"><img src="../../img/social/github.min.svg" alt="GitHub"></a>
+                            </li>
+                            <li><a href="https://discord.gg/mPZNm7A"><img src="../../img/social/discord.min.svg" alt="Discord"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://laravel.com/" class="logomark"><img src="../../img/logomark.min.svg" alt="Laravel"></a>
+    </div>
+</footer>
+
+<script>
+    var algolia_app_id = 'BH4D9OD16A';
+    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
+    var version = '7.x';
+</script>
+
+<script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.hierarchy.lvl0.value}}
+		<div class="h1">
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
+		</div>
+		{{/_highlightResult.hierarchy.lvl0.value}}
+
+		<div class="sub-section">
+			{{#_highlightResult.hierarchy.lvl1.value}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl1.value}}
+
+			{{#_highlightResult.hierarchy.lvl2.value}}
+			<div class="h3">
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl2.value}}
+
+			{{#_highlightResult.hierarchy.lvl3.value}}
+			<div class="h4">
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+<script src="../../js/app4192.js?id=9a4d608e7b4ef7d1ae45"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+    (function(d,t){
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)
+    }(document,'script'));
+</script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/7.x/authentication by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Jul 2020 06:39:09 GMT -->
+</html>
